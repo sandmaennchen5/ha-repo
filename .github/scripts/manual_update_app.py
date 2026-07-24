@@ -1,0 +1,80 @@
+#!/usr/bin/env python3
+"""Apply explicitly supplied metadata to one Home Assistant app."""
+
+from __future__ import annotations
+
+import argparse
+import datetime as dt
+import sys
+from pathlib import Path
+
+import yaml
+from packaging.version import InvalidVersion, Version
+
+from update_apps import APPS, Update, load_app, replace_scalar, update_changelog
+
+
+def update_app(
+    app: str,
+    version: str,
+    updated: str,
+    commit: str,
+    source: str,
+    notes: str,
+    apps_dir: Path = APPS,
+) -> None:
+    try:
+        Version(version)
+    except InvalidVersion as error:
+        raise ValueError(f"Invalid semantic version: {version}") from error
+    try:
+        dt.date.fromisoformat(updated)
+    except ValueError as error:
+        raise ValueError(f"Invalid date (expected YYYY-MM-DD): {updated}") from error
+
+    path = apps_dir / app
+    if not path.is_dir():
+        raise ValueError(f"Unknown app: {app}")
+    config, var = load_app(path)
+    config_path, var_path = path / "config.yaml", path / ".var.yaml"
+    config_text = replace_scalar(config_path.read_text(encoding="utf-8"), "version", version)
+    var_text = var_path.read_text(encoding="utf-8")
+    values = {
+        "upstream_version": version,
+        "upstream_commit": commit or str(var.get("upstream_commit", "")),
+        "updated": updated,
+        "source": source or str(var.get("source", "")),
+    }
+    for key, value in values.items():
+        var_text = replace_scalar(var_text, key, value)
+
+    yaml.safe_load(config_text)
+    yaml.safe_load(var_text)
+    config_path.write_text(config_text, encoding="utf-8", newline="\n")
+    var_path.write_text(var_text, encoding="utf-8", newline="\n")
+    update_changelog(
+        path / "CHANGELOG.md",
+        Update(version, values["upstream_commit"], updated, values["source"], notes, "manual"),
+    )
+    print(f"UPDATED {app}: {config.get('version', '')} -> {version}")
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--app", required=True)
+    parser.add_argument("--version", required=True)
+    parser.add_argument("--updated", required=True)
+    parser.add_argument("--commit", default="")
+    parser.add_argument("--source", default="")
+    parser.add_argument("--notes", default="Manuell aktualisierte Version.")
+    args = parser.parse_args()
+    try:
+        update_app(args.app.strip(), args.version.strip(), args.updated.strip(), args.commit.strip(), args.source.strip(), args.notes.strip())
+    except (OSError, ValueError, yaml.YAMLError) as error:
+        print(f"ERROR: {error}", file=sys.stderr)
+        return 1
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -1,0 +1,13 @@
+{
+  "en": {
+    "README.md": "d69b242fe39b2cbe477c255e4c5904120f8cb700784b3583837d166faf72ef6b",
+    "apps/example/DOCS.md": "990ebfa0a71c91195b008b2f50118b8b13d8a0e69e4559715aecbe841cfb405b",
+    "apps/example/README.md": "87f6c51a46fcbbff851c60cddc1107295f87759e6c52aa0e8c35632ab3472a4c",
+    "apps/example/translations/de.yaml": "ede5fe4957a252b39215488637499963fbe8afc06a2bd55a5a9a0a73ed75c1e0",
+    "apps/newt/DOCS.md": "0707bda81baa64e86e1ae11b3547b9cb6d75a8a9d7a94afdc0a27fdf744bb93e",
+    "apps/newt/README.md": "0b54efc7a170f8e3bc4273444ee1c4eb562a1d367a085f83140f762be026ac54",
+    "apps/newt/translations/de.yaml": "18ec4d27f16c91c915b3353553aaee6ea84995f7a46dd991501c1b9accf48c91",
+    "custom_components/wbi/README.md": "f9e910f07167d0fd3c40cd6fc922b9d04b6659b61ef193d3ca4981aa8ce8611c",
+    "custom_components/wbi/translations/de.json": "b569b8ae474a36677e1fb78613d20086def909368c0f08f6d7bf347d58a35910"
+  }
+}

@@ -1,0 +1,123 @@
+name: HA App Creater
+
+env:
+  MONITORED_FILES: "config.json config.yaml config.yml Dockerfile rootfs"
+
+on:
+  pull_request:
+    branches:
+      - main
+      - dev
+  push:
+    branches:
+      - main
+    paths:
+      - "apps/**/config.yaml"
+      - "apps/**/Dockerfile"
+      - "apps/**/rootfs/*"
+
+  workflow_dispatch:
+    inputs:
+      app:
+        description: "App auswählen"
+        required: false
+        type: choice
+        options:
+          # BEGIN_APPS
+          - newt
+          # END_APPS
+      app_custom:
+        description: "Oder App manuell eingeben (z.B. newt)"
+        type: string
+        required: false
+      publish:
+        description: "Publish to registry"
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+jobs:
+
+  # ── Manual trigger ──────────────────────────────────────────────────────────
+  manual:
+    name: Manual build
+    if: github.event_name == 'workflow_dispatch'
+    permissions:
+      actions: write
+      contents: write
+      id-token: write
+      packages: write
+    uses: ./.github/workflows/hasos-app-builder.yaml
+    with:
+      app: apps/${{ inputs.app_custom != '' && inputs.app_custom || inputs.app }}
+      publish: ${{ inputs.publish }}
+    secrets: inherit
+
+  # ── Auto trigger (push / PR) ────────────────────────────────────────────────
+  init:
+    name: Initialize builds
+    if: github.event_name != 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.filter.outputs.changed }}
+      changed_apps: ${{ steps.filter.outputs.changed_apps }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7.0.0
+
+      - name: Get changed files
+        id: changed_files
+        uses: tj-actions/changed-files@v47
+
+      - name: Detect changed apps
+        id: filter
+        env:
+          CHANGED_FILES: ${{ steps.changed_files.outputs.all_changed_files }}
+        shell: bash
+        run: |
+          changed_apps=$(
+            printf '%s\n' ${CHANGED_FILES} |
+            grep -E '^apps/[^/]+/(Dockerfile|config\.json|config\.ya?ml|rootfs/)' |
+            cut -d/ -f1-2 |
+            sort -u
+          )
+
+          # Wenn der Workflow selbst geändert wurde -> alle Apps bauen
+          if printf '%s\n' ${CHANGED_FILES} | grep -qE '^\.github/workflows/(hasos_app|build-app)\.ya?ml$'; then
+            changed_apps=$(
+              find apps -mindepth 1 -maxdepth 1 -type d | sort
+            )
+          fi
+
+          if [ -n "$changed_apps" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "changed_apps=$(printf '%s\n' "$changed_apps" | jq -R . | jq -sc .)" >> "$GITHUB_OUTPUT"
+            echo "Apps:"
+            printf '%s\n' "$changed_apps"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Keine relevanten Änderungen gefunden."
+          fi
+
+  build-app:
+    name: Build ${{ matrix.app }}
+    needs: init
+    if: needs.init.outputs.changed == 'true'
+    permissions:
+      actions: write
+      contents: write
+      id-token: write
+      packages: write
+    strategy:
+      fail-fast: false
+      matrix:
+        app: ${{ fromJSON(needs.init.outputs.changed_apps) }}
+    uses: ./.github/workflows/hasos-app-builder.yaml
+    with:
+      app: ${{ matrix.app }}
+      publish: ${{ github.event_name == 'push' }}
+    secrets: inherit
