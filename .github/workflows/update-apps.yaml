@@ -36,7 +36,7 @@ jobs:
           python-version: "3.13"
 
       - name: Install updater dependencies
-        run: python -m pip install "PyYAML==6.0.3" "packaging==26.0"
+        run: python -m pip install -r .github/requirements.txt
 
       - name: Discover and update apps
         env:

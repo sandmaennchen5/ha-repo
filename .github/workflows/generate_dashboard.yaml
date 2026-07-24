@@ -39,7 +39,7 @@ jobs:
           python-version: "3.13"
 
       - name: Install dependencies
-        run: pip install pyyaml jinja2
+        run: python -m pip install -r .github/requirements.txt
 
       - name: Generate history snapshot
         run: python .github/scripts/dashboard/history_generator.py

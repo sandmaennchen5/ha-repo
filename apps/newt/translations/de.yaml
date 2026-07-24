@@ -79,9 +79,6 @@ configuration:
       mtu:
         name: "MTU"
         description: "MTU für das interne WireGuard-Interface."
-      name:
-       name: ""
-       description: ""
       native:
         name: "Native WireGuard-Schnittstelle"
         description: "Verwende das native WireGuard-Interface (Standard `false`)"

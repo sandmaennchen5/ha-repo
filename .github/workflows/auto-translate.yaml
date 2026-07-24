@@ -25,7 +25,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install "PyYAML==6.0.3" "requests==2.32.5" "deep-translator==1.11.4"
+        run: python -m pip install -r .github/requirements.txt
 
       - name: Translate all German files to English
         env:

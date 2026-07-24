@@ -24,6 +24,7 @@ on:
         type: choice
         options:
           # BEGIN_APPS
+          - homey-shs
           - newt
           # END_APPS
       app_custom:
@@ -59,7 +60,9 @@ jobs:
   # ── Auto trigger (push / PR) ────────────────────────────────────────────────
   init:
     name: Initialize builds
-    if: github.event_name != 'workflow_dispatch'
+    if: >-
+      github.event_name != 'workflow_dispatch' &&
+      github.actor != 'dependabot[bot]'
     runs-on: ubuntu-latest
     outputs:
       changed: ${{ steps.filter.outputs.changed }}

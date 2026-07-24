@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Update Home Assistant apps from GitHub releases or Docker Hub tags."""
+"""Update Home Assistant apps from GitHub releases, Docker Hub, or GHCR tags."""
 
 from __future__ import annotations
 
 import argparse
 import datetime as dt
+import html
 import json
 import os
 import re
@@ -13,6 +14,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 from dataclasses import dataclass
+from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
 
@@ -24,7 +26,9 @@ ROOT = Path(__file__).resolve().parents[2]
 APPS = ROOT / "apps"
 USER_AGENT = "ha-app-autoupdater/1.0"
 GITHUB_RE = re.compile(r"^(?:https?://)?github\.com/([^/]+)/([^/#]+?)(?:\.git)?/?$")
+GHCR_RE = re.compile(r"^(?:https?://)?ghcr\.io/([^/]+)/([^/:@]+)(?::[^@]+)?$")
 DOCKER_RE = re.compile(r"^(?:https?://)?(?:docker\.io/)?([^/]+)/([^/:@]+)(?::[^@]+)?$")
+SEMVER_TAG_RE = re.compile(r"^v?\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?$")
 
 
 @dataclass(frozen=True)
@@ -52,6 +56,9 @@ def source_kind(value: str) -> tuple[str, tuple[str, str]] | None:
     match = GITHUB_RE.match(value)
     if match:
         return "github", (match.group(1), match.group(2))
+    match = GHCR_RE.match(value)
+    if match:
+        return "ghcr", (match.group(1), match.group(2))
     match = DOCKER_RE.match(value)
     if match:
         namespace, repository = match.groups()
@@ -95,6 +102,8 @@ def github_update(owner: str, repository: str, configured_source: str) -> Update
 
 
 def semantic(tag: str) -> Version | None:
+    if not SEMVER_TAG_RE.fullmatch(tag):
+        return None
     try:
         version = Version(clean_version(tag))
         return version if not version.is_prerelease and not version.is_devrelease else None
@@ -139,6 +148,131 @@ def docker_update(namespace: str, repository: str) -> Update:
     )
 
 
+class ChangelogParser(HTMLParser):
+    """Convert the small HTML fragments returned by Homey's OTA API to Markdown."""
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.active = ""
+        self.depth = 0
+        self.buffer: list[str] = []
+        self.lines: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if self.active:
+            self.depth += 1
+        elif tag in {"h2", "h3", "li", "p"}:
+            self.active = tag
+            self.depth = 1
+            self.buffer = []
+
+    def handle_data(self, data: str) -> None:
+        if self.active:
+            self.buffer.append(data)
+
+    def handle_endtag(self, tag: str) -> None:
+        if not self.active:
+            return
+        self.depth -= 1
+        if self.depth:
+            return
+        text = re.sub(r"\s+", " ", html.unescape("".join(self.buffer))).strip()
+        if text:
+            if self.active in {"h2", "h3"}:
+                self.lines.append(f"### {text}")
+            elif self.active == "li":
+                self.lines.append(f"- {text}")
+            else:
+                self.lines.append(text)
+        self.active = ""
+        self.buffer = []
+
+    def markdown(self) -> str:
+        return "\n".join(self.lines).strip()
+
+
+def changelog_notes(url: str, version: str) -> str:
+    request = urllib.request.Request(url, headers={"Accept": "text/html", "User-Agent": USER_AGENT})
+    with urllib.request.urlopen(request, timeout=30) as response:
+        document = response.read().decode("utf-8")
+    if not re.search(r'<h2[^>]*class=["\'][^"\']*\bupdate-version\b', document, re.IGNORECASE):
+        endpoint = re.search(r"""fetch\(\s*["'](https?://[^"']+)["']\s*\)""", document)
+        if not endpoint:
+            raise RuntimeError(f"{url}: no changelog endpoint found")
+        request = urllib.request.Request(
+            endpoint.group(1),
+            headers={"Accept": "text/html", "User-Agent": USER_AGENT},
+        )
+        with urllib.request.urlopen(request, timeout=30) as response:
+            document = response.read().decode("utf-8")
+    blocks = re.split(r'<div\s+class=["\']update["\']\s*>', document, flags=re.IGNORECASE)
+    for block in blocks[1:]:
+        match = re.search(
+            r'<h2[^>]*class=["\']update-version["\'][^>]*>\s*v?([^<]+)</h2>',
+            block,
+            flags=re.IGNORECASE,
+        )
+        if not match or clean_version(match.group(1).strip()) != version:
+            continue
+        parser = ChangelogParser()
+        parser.feed(block[match.end() :])
+        return parser.markdown() or "Keine Release Notes vorhanden."
+    return "Keine Release Notes für diese Version gefunden."
+
+
+def ghcr_update(namespace: str, repository: str, changelog_url: str = "") -> Update:
+    image = f"{namespace}/{repository}"
+    query = urllib.parse.urlencode({"service": "ghcr.io", "scope": f"repository:{image}:pull"})
+    token_data, _ = request_json(f"https://ghcr.io/token?{query}")
+    token = token_data.get("token", "")
+    if not token:
+        raise RuntimeError(f"ghcr.io/{image}: registry token missing")
+    headers = {
+        "Accept": "application/vnd.oci.image.index.v1+json, application/vnd.docker.distribution.manifest.list.v2+json",
+        "Authorization": f"Bearer {token}",
+        "User-Agent": USER_AGENT,
+    }
+    tags_request = urllib.request.Request(f"https://ghcr.io/v2/{image}/tags/list?n=1000", headers=headers)
+    with urllib.request.urlopen(tags_request, timeout=30) as response:
+        tags = json.load(response).get("tags", [])
+    versions = [(semantic(tag), tag) for tag in tags]
+    versions = [(version, tag) for version, tag in versions if version is not None]
+    if not versions:
+        raise RuntimeError(f"ghcr.io/{image}: no semantic version tag found")
+    version_obj, tag = max(versions, key=lambda item: item[0])
+    manifest_request = urllib.request.Request(
+        f"https://ghcr.io/v2/{image}/manifests/{urllib.parse.quote(tag, safe='')}",
+        headers=headers,
+        method="HEAD",
+    )
+    with urllib.request.urlopen(manifest_request, timeout=30) as response:
+        digest = response.headers.get("Docker-Content-Digest", "")
+    version = str(version_obj)
+    source = f"ghcr.io/{image}"
+    if changelog_url:
+        notes = f"{changelog_notes(changelog_url, version)}\n\nRelease Notes: {changelog_url}"
+    else:
+        notes = f"- GHCR image: `{source}:{tag}`\n- Digest: `{digest or 'nicht verfügbar'}`"
+    return Update(
+        version=version,
+        commit=digest,
+        updated=dt.date.today().isoformat(),
+        source=source,
+        notes=notes,
+        kind="ghcr",
+    )
+
+
+def fetch_update(path: Path, kind: str, identity: tuple[str, str]) -> Update:
+    _, var = load_app(path)
+    raw_source = str(var.get("upstream_repo") or var.get("source") or "")
+    if kind == "github":
+        return github_update(*identity, raw_source)
+    if kind == "docker":
+        return docker_update(*identity)
+    return ghcr_update(*identity, str(var.get("changelog_url") or ""))
+
+
 def replace_scalar(text: str, key: str, value: str) -> str:
     pattern = re.compile(rf"^(?P<indent>\s*){re.escape(key)}\s*:\s*.*$", re.MULTILINE)
     replacement = lambda match: f'{match.group("indent")}{key}: {json.dumps(value, ensure_ascii=False)}'
@@ -170,6 +304,8 @@ def update_changelog(path: Path, update: Update) -> None:
     entry = f"## [{update.version}] - {update.updated}\n\n"
     if update.kind == "docker":
         entry += f"### Docker Hub\n\n{update.notes}\n"
+    elif update.kind == "ghcr":
+        entry += f"### GitHub Container Registry\n\n{update.notes}\n"
     elif update.kind == "github":
         entry += f"### Upstream Release Notes\n\n{update.notes}\n"
     else:
@@ -223,8 +359,7 @@ def discover(selected: str, scheduled: bool) -> tuple[list[tuple[Path, str, tupl
 
 def apply(path: Path, kind: str, identity: tuple[str, str]) -> bool:
     config, var = load_app(path)
-    raw_source = str(var.get("upstream_repo") or var.get("source") or "")
-    update = github_update(*identity, raw_source) if kind == "github" else docker_update(*identity)
+    update = fetch_update(path, kind, identity)
     if str(config.get("version", "")) == update.version and str(var.get("upstream_commit", "")) == update.commit:
         print(f"UNCHANGED {path.name}: {update.version}")
         return False
@@ -250,8 +385,7 @@ def apply(path: Path, kind: str, identity: tuple[str, str]) -> bool:
 def preview(path: Path, kind: str, identity: tuple[str, str]) -> None:
     """Fetch and display an update without changing repository files."""
     config, var = load_app(path)
-    raw_source = str(var.get("upstream_repo") or var.get("source") or "")
-    update = github_update(*identity, raw_source) if kind == "github" else docker_update(*identity)
+    update = fetch_update(path, kind, identity)
     body = (
         f"## Update-Vorschau: `{path.name}`\n\n"
         "| Feld | Aktuell | Ermittelt |\n"

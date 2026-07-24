@@ -1,0 +1,38 @@
+#!/bin/sh
+
+# Homey starts rrdcached with /homey/user/rrd as its base path. Redirect that
+# path explicitly to the persistent add-on data directory.
+real_rrdcached=""
+for candidate in /usr/bin/rrdcached /usr/sbin/rrdcached /bin/rrdcached; do
+    if [ -x "${candidate}" ]; then
+        real_rrdcached="${candidate}"
+        break
+    fi
+done
+
+if [ -z "${real_rrdcached}" ]; then
+    echo "ERROR: real rrdcached binary not found" >&2
+    exit 127
+fi
+
+new_args=""
+while [ "$#" -gt 0 ]; do
+    if [ "$1" = "-b" ] && [ "$#" -gt 1 ]; then
+        shift
+        case "$1" in
+            /homey/user/rrd|/homey/user/rrd/)
+                new_args="${new_args} -b /data/rrd"
+                ;;
+            *)
+                new_args="${new_args} -b $1"
+                ;;
+        esac
+    else
+        new_args="${new_args} $1"
+    fi
+    shift
+done
+
+# Arguments originate from Homey's internal rrdcached invocation.
+# shellcheck disable=SC2086
+exec "${real_rrdcached}" ${new_args}

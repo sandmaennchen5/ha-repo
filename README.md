@@ -38,6 +38,20 @@ Danach stehen die Apps aus diesem Repository zur Installation bereit.
 ## Apps von dieser Repository bereitgestellt
 
 <!-- APPS-LIST-START -->
+## [🏠 Homey Self-Hosted Server](apps/homey-shs/)
+
+Run Homey Self-Hosted Server on Home Assistant OS.
+
+![Version](https://img.shields.io/badge/version-v13.3.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--07--24-green)
+![Stage](https://img.shields.io/badge/stage-stable-orange)
+![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
+![Host Network](https://img.shields.io/badge/host_network-True-blue)
+![Image Size](https://img.shields.io/badge/size-263_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v13.3.1-yellow)
+![Repo](https://img.shields.io/badge/repo-ghcr.io%2Fathombv%2Fhomey--shs-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3A2d1319272af33f46bbfefbfca3e61332110e485487212e5301d38f01866e8cad-informational)
+
 ## [🛰️ Newt - Pangolin Tunnels](apps/newt/)
 
 Secure remote access with Pangolin tunnels.
