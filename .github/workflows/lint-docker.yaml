@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v7.0.0
+        uses: actions/checkout@v7
 
       - name: Find all Dockerfiles
         id: find
@@ -39,7 +39,7 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v7.0.0
+        uses: actions/checkout@v7
 
       - name: Run hadolint on ${{ matrix.dockerfile }}
         uses: hadolint/hadolint-action@v3.3.0
