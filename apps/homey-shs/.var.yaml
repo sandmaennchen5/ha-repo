@@ -13,7 +13,7 @@ lint: ""
 yaml_lint: ""
 code_quality: ""
 
-image_size: "263 MB"
+image_size: "265 MB"
 
 custom_shield: ""
 custom_flag: ""
