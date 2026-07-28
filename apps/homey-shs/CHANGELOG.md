@@ -1,6 +1,87 @@
 # Changelog
 
 
+## [13.4.0.3] - 2026-07-31
+
+- Home-Assistant-Ingress mit angepassten HTML-, API-, Ressourcen- und
+  Navigationspfaden ergänzt.
+- Socket.IO- und WebSocket-Verbindungen über Ingress unterstützt.
+- Homey-Anmeldung, Schriftarten, App-Bilder sowie Zonen- und Raumsymbole für
+  den dynamischen Ingress-Pfad angepasst.
+- Seitenleisteneintrag als **Homey** mit eigenem Symbol konfiguriert.
+- Nicht benötigte direkte `webui`- und Portzuordnung entfernt; der direkte
+  Zugriff bleibt wegen des Host-Netzwerkmodus über den konfigurierten
+  `port_server_http` möglich.
+- Optional eine eigene Homey-Sitzung je Home-Assistant-Benutzer speicherbar,
+  ohne lokale Homey-Passwörter abzulegen.
+- Homey-Datenspeicher zwischen `/data`, `/config` und einem frei wählbaren
+  Unterordner von `/share` auswählbar.
+- Vorhandene Homey-Daten beim Speicherwechsel sicher übernommen und aus nicht
+  mehr verwendeten Speicherorten entfernt; `/data/options.json` bleibt
+  erhalten.
+- Optionaler Export nach `/share` beim Stoppen sowie automatischer oder
+  manueller Import aus frei definierbaren `/share`-Pfaden ergänzt.
+- Optionales Überschreiben bestehender Daten, Löschen eines erfolgreich
+  importierten Archivs und bewusstes Umgehen des Downgrade-Schutzes ergänzt.
+- Import/Export als letzter aufklappbarer Konfigurationsbereich gruppiert.
+- Dokumentation für lokalen Homey-Benutzer, Ingress, Datenspeicher,
+  Migration, Backups und Sicherheitsbewertung aktualisiert.
+
+## [13.4.0.1] - 2026-07-29
+
+- Konfigurierbare Server-Ports und erweiterte Homey-SHS-Optionen hinzugefügt.
+- Deutsche Beschreibungen für alle Konfigurationsfelder ergänzt.
+- App-Version von der verwendeten Homey-Upstream-Version getrennt.
+
+## [13.4.0] - 2026-07-28
+
+### GitHub Container Registry
+
+Core
+
+- Improves stability and performance of fetching system info.
+- Updates translations.
+
+Energy
+
+- Fixes the dynamic-price "cheapest/expensive hours" Flow condition so it
+  evaluates correctly when the time window crosses midnight.
+
+Matter
+
+- Increases the maximum subscription intervals for more stable device
+  reporting.
+- Adds the ability to override the default subscription intervals for a Matter
+  device in its device settings, for finer control over how often it reports.
+- Fixes the robot vacuum "mapping" mode and related issues.
+
+BLE
+
+- Adds support for subscribing to BLE advertisements for sensors without a
+  constant connection, improving battery life and reliability.
+- Fixes an issue with ‘le-connection-abort-by-local’ error.
+- Fixes an issue where BLE sensors would stop updating.
+- Fixes an issue where BLE advertisements stopped coming.
+- Fixes an issue with ‘No peripheral found’ error.
+- Fixes a race condition that could cause a "device unavailable" error.
+- Fixes an issue that could cause BLE discovery and connection to fail.
+
+Z-Wave
+
+- Fixes an issue that causes devices to get the wrong device class after
+  pairing.
+
+Apps
+
+- Fixes an issue that could cause a Python app to crash when changing app
+  settings.
+
+Release Notes: https://homey.app/en-us/wiki/homey-shs-changelog/
+
+Weitere Informationen: https://ghcr.io/athombv/homey-shs
+
+---
+
 ## [13.3.1] - 2026-07-24
 
 ### GitHub Container Registry
@@ -15,8 +96,7 @@ Weitere Informationen: https://ghcr.io/athombv/homey-shs
 
 ## 13.2.1
 
-- Offizielles Homey-SHS-Image auf Version 13.2.1 aktualisiert
-- Fehlerhafte mehrstufige `BUILD_FROM`-Konstruktion entfernt
-- Laufzeit-Entrypoint für persistente Daten unter `/data` hinzugefügt
-- `rrdcached`-Basispfad auf das persistente Datenverzeichnis umgeleitet
-
+- Offizielles Homey-SHS-Image auf Version 13.2.1 aktualisiert.
+- Fehlerhafte mehrstufige `BUILD_FROM`-Konstruktion entfernt.
+- Laufzeit-Entrypoint für persistente Daten unter `/data` hinzugefügt.
+- `rrdcached`-Basispfad auf das persistente Datenverzeichnis umgeleitet.

@@ -184,6 +184,7 @@ cleanup() {
     [[ -n "${NEWT_PID}" ]] && kill -TERM "${NEWT_PID}" 2>/dev/null
     wait "${NEWT_PID}" 2>/dev/null
     bashio::log.info "Newt stopped cleanly."
+    exit 0
 }
 trap cleanup SIGTERM SIGINT
 

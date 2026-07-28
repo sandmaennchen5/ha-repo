@@ -6,10 +6,38 @@ on:
   workflow_dispatch:
     inputs:
       app:
-        description: "App slug; leave empty to update all supported apps"
+        description: "Versionsprüfung für alle Apps oder eine ausgewählte App"
+        required: true
+        default: all
+        type: choice
+        options:
+          - all
+          # BEGIN_APPS
+          - adsb-multi-portal-feeder
+          - checkmk-agent
+          - homey-shs
+          - newt
+          - olm
+          - pangolin-cli
+          - portainer
+          - portainer-agent
+          - portainer-agent-lts
+          - portainer-agent-sts
+          - portainer-ce-lts
+          - portainer-ce-sts
+          - portainer-ee-lts
+          - portainer-ee-sts
+          # END_APPS
+      rebuild_all:
+        description: "Alle Apps nach der Versionsprüfung neu bauen und veröffentlichen"
         required: false
-        default: ""
-        type: string
+        default: false
+        type: boolean
+      bump_app_revision:
+        description: "App-Version vor dem Build um eine Revision erhöhen (N+1)"
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   actions: write
@@ -23,6 +51,9 @@ jobs:
   update:
     name: Update apps
     runs-on: ubuntu-latest
+    outputs:
+      build_apps: ${{ steps.build_plan.outputs.build_apps }}
+      checkout_ref: ${{ steps.build_plan.outputs.checkout_ref }}
 
     steps:
       - name: Check out repository
@@ -41,14 +72,27 @@ jobs:
       - name: Discover and update apps
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: >-
-          python .github/scripts/update_apps.py
-          --app "${{ inputs.app }}"
-          ${{ github.event_name == 'schedule' && '--scheduled' || '' }}
+          SELECTED_APP: ${{ inputs.app }}
+          REBUILD_ALL: ${{ inputs.rebuild_all }}
+          BUMP_APP_REVISION: ${{ inputs.bump_app_revision }}
+        shell: bash
+        run: |
+          args=()
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" && "${SELECTED_APP}" != "all" ]]; then
+            args+=(--app "${SELECTED_APP}")
+          fi
+          if [[ "${{ github.event_name }}" == "schedule" ]]; then
+            args+=(--scheduled)
+          fi
+          if [[ "${BUMP_APP_REVISION}" == "true" ]]; then
+            args+=(--bump-revision)
+          fi
+          python .github/scripts/update_apps.py "${args[@]}"
 
       - name: Validate YAML
         run: |
           python - <<'PY'
+          import json
           from pathlib import Path
           import yaml
 
@@ -81,16 +125,102 @@ jobs:
           git commit -m "chore: update upstream app versions"
           git push
 
-      - name: Build and publish updated apps
-        if: steps.commit.outputs.changed_apps != '[]'
+      - name: Prepare build matrix
+        id: build_plan
+        env:
+          CHANGED_APPS: ${{ steps.commit.outputs.changed_apps }}
+          REBUILD_ALL: ${{ inputs.rebuild_all }}
+        run: |
+          if [[ "${REBUILD_ALL}" == "true" ]]; then
+            CHANGED_APPS=$(
+              find apps -mindepth 1 -maxdepth 1 -type d \
+                -exec test -f '{}/config.yaml' ';' \
+                -exec test -f '{}/Dockerfile' ';' \
+                -print |
+              sed 's#^apps/##' |
+              sort |
+              jq -R . |
+              jq -sc .
+            )
+          fi
+          echo "build_apps=${CHANGED_APPS}" >> "$GITHUB_OUTPUT"
+          echo "checkout_ref=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          echo "Apps scheduled for this run: ${CHANGED_APPS}" >> "$GITHUB_STEP_SUMMARY"
+
+  build:
+    name: Build ${{ matrix.app }}
+    needs: update
+    if: needs.update.outputs.build_apps != '[]'
+    permissions:
+      actions: write
+      contents: write
+      id-token: write
+      packages: write
+    strategy:
+      fail-fast: false
+      matrix:
+        app: ${{ fromJSON(needs.update.outputs.build_apps) }}
+    uses: ./.github/workflows/hasos-app-builder.yaml
+    with:
+      app: apps/${{ matrix.app }}
+      publish: true
+      checkout_ref: ${{ needs.update.outputs.checkout_ref }}
+      defer_image_size_commit: true
+    secrets: inherit
+
+  image-sizes:
+    name: Commit image sizes
+    needs: [update, build]
+    if: needs.build.result == 'success'
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+      contents: write
+
+    steps:
+      - name: Check out latest branch state
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - name: Download image size results
+        uses: actions/download-artifact@v6
+        with:
+          pattern: image-size-*
+          path: .image-size-results
+          merge-multiple: true
+
+      - name: Apply image sizes
+        run: python .github/scripts/update_image_size.py --apply-results .image-size-results
+
+      - name: Commit image sizes
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CHANGED_APPS: ${{ steps.commit.outputs.changed_apps }}
         run: |
-          while IFS= read -r app; do
-            echo "Starting App Builder for $app" >> "$GITHUB_STEP_SUMMARY"
-            gh workflow run hasos-app.yaml \
-              --ref "$GITHUB_REF_NAME" \
-              -f app_custom="$app" \
-              -f publish=true
-          done < <(jq -r '.[]' <<< "$CHANGED_APPS")
+          if git diff --quiet -- apps/*/.var.yaml; then
+            echo "All image sizes are already current." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add apps/*/.var.yaml
+          git commit -m "chore: update app image sizes"
+
+          pushed=false
+          for attempt in 1 2 3; do
+            git pull --rebase origin "$GITHUB_REF_NAME"
+            if git push origin "HEAD:$GITHUB_REF_NAME"; then
+              pushed=true
+              break
+            fi
+            sleep $((attempt * 2))
+          done
+          if [ "$pushed" != true ]; then
+            echo "::error::Unable to push the updated image sizes after three attempts."
+            exit 1
+          fi
+
+          # Pushes made with GITHUB_TOKEN do not start another workflow.
+          gh workflow run update_readme.yaml --ref "$GITHUB_REF_NAME"

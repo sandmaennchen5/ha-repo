@@ -15,13 +15,17 @@
 **Trigger:** Täglich um 04:00 UTC oder manuell.
 
 - Der tägliche Lauf berücksichtigt Apps mit `config.yaml`, `.var.yaml`, einer unterstützten Quelle und `autoupdater: true`.
-- Beim manuellen Lauf kann das Feld `app` leer bleiben oder einen einzelnen App-Slug enthalten.
+- Beim manuellen Lauf wählt das Feld `app` ausdrücklich `all` oder einen einzelnen App-Slug für die Versionsprüfung aus.
+- Die Option `rebuild_all` veröffentlicht anschließend alle buildbaren Apps erneut, auch wenn im Feld `app` nur eine einzelne App geprüft wurde oder keine neue Upstream-Version vorliegt.
+- Die Option `bump_app_revision` erhöht nach der Versionsprüfung die Home-Assistant-App-Revision um eins und ergänzt den Changelog.
+- `bump_app_revision` gilt für die im Feld `app` ausgewählte Prüfauswahl; `rebuild_all` beeinflusst diese Auswahl nicht.
+- Neuaufbauten laufen als Build-Matrix innerhalb desselben `Update Apps`-Laufs; es werden keine separaten `HA App Creater`-Workflow-Läufe pro App gestartet.
 - Unterstützt GitHub-Releases über `github.com/<owner>/<repo>`.
 - Unterstützt Docker Hub über `docker.io/<namespace>/<image>`.
 - Aktualisiert `version`, `upstream_version`, `upstream_commit`, `updated` und `source`.
 - Stellt neue Release Notes in `CHANGELOG.md` voran.
 - Validiert die App-YAML-Dateien und committet Änderungen automatisch.
-- Startet anschließend `hasos_app.yml` mit `publish: true` für jede aktualisierte App.
+- Startet anschließend die wiederverwendbaren App-Builds als Matrix innerhalb desselben Workflow-Laufs.
 
 Bei Docker Hub wird bevorzugt der semantische Tag verwendet, dessen Digest dem Tag `latest` entspricht. Falls kein solcher Tag existiert, wird der höchste stabile semantische Versions-Tag verwendet. `upstream_commit` enthält bei Docker-Quellen den Image-Digest.
 
@@ -89,4 +93,4 @@ Der No-Key-Fallback ist ein inoffizieller Zugriff und kann durch externe Rate-Li
 
 **Trigger:** Push auf `main` bei Änderungen unter `apps/`; außerdem manuell.
 
-Aktualisiert die App-Auswahl in `hasos_app.yml` und benötigt das Secret `WORKFLOW_PAT`, um Workflow-Dateien zu committen.
+Aktualisiert die App-Auswahl in `hasos_app.yml` und `update-apps.yaml` und benötigt das Secret `WORKFLOW_PAT`, um Workflow-Dateien zu committen.

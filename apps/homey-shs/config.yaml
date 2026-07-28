@@ -1,7 +1,8 @@
 name: "Homey Self-Hosted Server"
-version: "13.3.1"
+version: "13.4.0.3"
 slug: "homey-shs"
 description: "Run Homey Self-Hosted Server on Home Assistant OS."
+stage: stable
 url: "https://support.homey.app/hc/en-us/categories/23974566220572"
 arch:
   - aarch64
@@ -11,20 +12,73 @@ init: false
 startup: services
 host_network: true
 full_access: true
-ports:
-  4859/tcp: null
-  4860/tcp: null
-  4861/tcp: null
-  4862/tcp: null
-ports_description:
-  4859/tcp: "HTTP and Socket.IO"
-  4860/tcp: "HTTPS"
-  4861/tcp: "Homey Bridge v1"
-  4862/tcp: "Homey Bridge v2"
-webui: "http://[HOST]:[PORT:4859]"
-panel_icon: "mdi:home-automation"
+ingress: true
+ingress_port: 8099
+ingress_stream: true
+watchdog: "http://[HOST]:[PORT:8099]/__health"
+panel_admin: true
+panel_title: "Homey"
+panel_icon: "mdi:router"
 environment:
   PORT_SERVER_HTTP: "4859"
   PORT_SERVER_HTTPS: "4860"
   PORT_SERVER_BRIDGE_V1: "4861"
   PORT_SERVER_BRIDGE_V2: "4862"
+options:
+  storage_location: data
+  share_storage_directory: homey-shs-config
+  port_server_http: 4859
+  port_server_https: 4860
+  port_server_bridge_v1: 4861
+  port_server_bridge_v2: 4862
+  remember_ingress_users: false
+  extras:
+    port_server_webrtc: 8555
+    homey_local_address: ""
+    matter_mdns_interfaces: ""
+    homey_app_log_to_console: false
+    homey_web_app_proxy_url: ""
+    homey_app_devmode: false
+    delegation_token_public_key: ""
+  import_export:
+    export_on_stop: false
+    export_directory: homey-shs-backups
+    export_filename: "homey-shs-{version}-{timestamp}.tar.gz"
+    import_mode: none
+    import_search_directory: homey-shs-backups
+    import_source: ""
+    overwrite_existing_data: false
+    allow_version_downgrade: false
+    delete_after_import: false
+schema:
+  storage_location: list(data|config|share)
+  share_storage_directory: str
+  port_server_http: "int(1,65535)"
+  port_server_https: "int(1,65535)"
+  port_server_bridge_v1: "int(1,65535)"
+  port_server_bridge_v2: "int(1,65535)"
+  remember_ingress_users: "bool?"
+  extras:
+    port_server_webrtc: "int(1,65535)"
+    homey_local_address: "str?"
+    matter_mdns_interfaces: "str?"
+    homey_app_log_to_console: "bool?"
+    homey_web_app_proxy_url: "str?"
+    homey_app_devmode: "bool?"
+    delegation_token_public_key: "str?"
+  import_export:
+    export_on_stop: bool
+    export_directory: str
+    export_filename: str
+    import_mode: list(none|auto|manual)
+    import_search_directory: str
+    import_source: str
+    overwrite_existing_data: bool
+    allow_version_downgrade: bool
+    delete_after_import: bool
+map:
+  - type: addon_config
+    read_only: false
+  - type: share
+    read_only: false
+timeout: 120

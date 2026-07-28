@@ -8,18 +8,24 @@
 [![CodeFactor][codefactor-badge]][codefactor-url]
 
 <!-- BADGES-START -->
-![Version](https://img.shields.io/badge/version-v13.3.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--07--24-green)
+![Ingress](https://img.shields.io/badge/ingress-True-blue)
+![Version](https://img.shields.io/badge/version-v13.4.0.5-blue)
+![Updated](https://img.shields.io/badge/updated-2026--07--28-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Host Network](https://img.shields.io/badge/host_network-True-blue)
-![Image Size](https://img.shields.io/badge/size-263_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v13.3.1-yellow)
+![Image Size](https://img.shields.io/badge/size-265_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v13.4.0-yellow)
 ![Repo](https://img.shields.io/badge/repo-ghcr.io%2Fathombv%2Fhomey--shs-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3A2d1319272af33f46bbfefbfca3e61332110e485487212e5301d38f01866e8cad-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3A97b00d6a074f8abc5d14a457f32e1c7a2b0bcbadfd56999932292efbe071abb9-informational)
 <!-- BADGES-END -->
 
 Homey Self-Hosted Server als Home Assistant-Add-on ausführen
+
+Die App bietet Home-Assistant-Ingress mit Socket.IO/WebSocket-Unterstützung,
+wahlweise `/data`, `/config` oder `/share` als Datenspeicher sowie einen
+optionalen Import und Export über `/share`. Lokale Homey-Anmeldungen können
+auf Wunsch getrennt je Home-Assistant-Benutzer gespeichert werden.
 
 ## Über
 
@@ -38,7 +44,7 @@ Es unterstützt standardmäßig Geräte, die sich über WLAN, Ethernet, Cloud un
 4. Wähle **Repositories**.
 5. Füge folgende Repository-URL hinzu:
 ```text
-[repo]
+https://github.com/sandmaennchen5/ha-repo
 ```
 6. Klicke auf **Hinzufügen**.
 7. Aktualisiere den Apps-Store.
@@ -56,6 +62,8 @@ Nach dem Start des Add-ons:
 
 - Siehe [DOCS.md](DOCS.md) für vollständige Add-on-Dokumentation und Troubleshooting.
 - Siehe [CHANGELOG.md](CHANGELOG.md) für den upstream Release-Überblick.
+- Siehe [Speicherorte und Datenmigration](../../docs/app-storage-and-migration.md)
+  für Backup-Verhalten und manuelle Wiederherstellung.
 
 ## Links
 
@@ -73,8 +81,16 @@ Nach dem Start des Add-ons:
 [yaml-lint-url]: https://github.com/sandmaennchen5/ha-repo/actions/workflows/lint-yaml.yaml
 [codefactor-badge]: https://img.shields.io/codefactor/grade/github/sandmaennchen5/ha-repo?logo=codefactor
 [codefactor-url]: https://www.codefactor.io/repository/github/sandmaennchen5/ha-repo/branches
+[paypal-badge]: https://img.shields.io/badge/PayPal-Spenden-blue?logo=paypal
+[paypal-link]: https://www.paypal.me/sandmaennchen5
 [repoadd-badge]: https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg
-[repoadd]: https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fsandmaennchen5%2Fha-repo
 [repo]: https://github.com/sandmaennchen5/ha-repo
+[repoadd]: https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fsandmaennchen5%2Fha-repo
+[repodev]: https://github.com/sandmaennchen5/ha-repo#dev
+[repoadddev]: https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fsandmaennchen5%2Fha-repo%23dev
+[repoissues]: https://github.com/sandmaennchen5/ha-repo/issues
+[repodashboard]: https://sandmaennchen5.github.io/ha-repo/
+
 [upstream-doc]: https://community.homey.app
 [upstream-repo]: https://github.com/fosrl/newt
+[docs]: DOCS.md

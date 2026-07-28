@@ -1,4 +1,4 @@
-# Home Assistant Repository – sandmaennchen5
+# Home Assistant Repository – sandmaennchen5 (DEV)
 
 [![Builder][builder-badge]][builder-url]
 [![Lint][lint-badge]][lint-url]
@@ -26,7 +26,7 @@ Aufgrund eines bekannten Problems mit My Home Assistant kann es vorkommen, dass 
 4. Wähle **Repositories**.
 5. Füge folgende Repository-URL hinzu:
 ```text
-[repo]
+https://github.com/sandmaennchen5/ha-repo
 ```
 6. Klicke auf **Hinzufügen**.
 7. Aktualisiere den Apps-Store.
@@ -35,6 +35,12 @@ Danach stehen die Apps aus diesem Repository zur Installation bereit.
 
 > **Hinweis:** Sollte der Installationsbutton nur den Add-on-Store öffnen, nutze bitte die manuelle Installation über die oben angegebene Repository-URL.
 
+## Speicher und Migration
+
+Die gemeinsame Anleitung [Speicherorte und Datenmigration für
+Home-Assistant-Apps](docs/app-storage-and-migration.md) erklärt `/data`,
+`/config`, `/share`, Backups sowie den sicheren Wechsel zwischen App-Varianten.
+
 ## Apps von dieser Repository bereitgestellt
 
 <!-- APPS-LIST-START -->
@@ -42,21 +48,22 @@ Danach stehen die Apps aus diesem Repository zur Installation bereit.
 
 Run Homey Self-Hosted Server on Home Assistant OS.
 
-![Version](https://img.shields.io/badge/version-v13.3.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--07--24-green)
+![Ingress](https://img.shields.io/badge/ingress-True-blue)
+![Version](https://img.shields.io/badge/version-v13.4.0.5-blue)
+![Updated](https://img.shields.io/badge/updated-2026--07--28-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Host Network](https://img.shields.io/badge/host_network-True-blue)
-![Image Size](https://img.shields.io/badge/size-263_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v13.3.1-yellow)
+![Image Size](https://img.shields.io/badge/size-265_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v13.4.0-yellow)
 ![Repo](https://img.shields.io/badge/repo-ghcr.io%2Fathombv%2Fhomey--shs-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3A2d1319272af33f46bbfefbfca3e61332110e485487212e5301d38f01866e8cad-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3A97b00d6a074f8abc5d14a457f32e1c7a2b0bcbadfd56999932292efbe071abb9-informational)
 
 ## [🛰️ Newt - Pangolin Tunnels](apps/newt/)
 
 Secure remote access with Pangolin tunnels.
 
-![Version](https://img.shields.io/badge/version-v1.15.0-blue)
+![Version](https://img.shields.io/badge/version-v1.15.0.3-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--07--19-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN%7CSYS_MODULE-red)
@@ -68,7 +75,6 @@ Secure remote access with Pangolin tunnels.
 ![Upstream](https://img.shields.io/badge/upstream-v1.15.0-yellow)
 ![Repo](https://img.shields.io/badge/repo-github.com%2Ffosrl%2Fnewt-informational)
 ![Commit](https://img.shields.io/badge/commit-15224904a0e0981245662a55a2e75fa2aa5a6619-informational)
-
 <!-- APPS-LIST-END -->
 
 ## Dashboard
@@ -81,6 +87,16 @@ Das automatisch generierte Dashboard mit Badge-Matrix, Health-Score und History 
 Wenn dir dieses Apps Zeit spart oder die Einrichtung erleichtert, wäre ich dir für deine Unterstützung sehr dankbar!
 
 [![PayPal][paypal-badge]][paypal-link]
+
+### Gibt auch DEV Repo für Test/Entwicklung
+
+Config/Hostname ist durch URL ID unterschiedlich keine automatisch übernahme von Config dev -> main
+
+[![Repository hinzufügen][repoadd-badge]][repoadddev]
+
+```text
+https://github.com/sandmaennchen5/ha-repo#dev
+```
 
 ## Support
 Hast du Fragen?
@@ -100,11 +116,14 @@ Du hast mehrere Möglichkeiten, Antworten zu erhalten:
 [yaml-lint-url]: https://github.com/sandmaennchen5/ha-repo/actions/workflows/lint-yaml.yaml
 [codefactor-badge]: https://img.shields.io/codefactor/grade/github/sandmaennchen5/ha-repo?logo=codefactor
 [codefactor-url]: https://www.codefactor.io/repository/github/sandmaennchen5/ha-repo/branches
-[repoadd-badge]: https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg
-[repoadd]: https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fsandmaennchen5%2Fha-repo
-[repo]: https://github.com/sandmaennchen5/ha-repo
-[repoissues]: https://github.com/sandmaennchen5/ha-repo/issues)
-[repodashboard]: https://sandmaennchen5.github.io/ha-repo/
 [paypal-badge]: https://img.shields.io/badge/PayPal-Spenden-blue?logo=paypal
 [paypal-link]: https://www.paypal.me/sandmaennchen5
+[repoadd-badge]: https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg
+[repo]: https://github.com/sandmaennchen5/ha-repo
+[repoadd]: https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fsandmaennchen5%2Fha-repo
+[repodev]: https://github.com/sandmaennchen5/ha-repo#dev
+[repoadddev]: https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fsandmaennchen5%2Fha-repo%23dev
+[repoissues]: https://github.com/sandmaennchen5/ha-repo/issues
+[repodashboard]: https://sandmaennchen5.github.io/ha-repo/
+
 [forum]: https://community.home-assistant.io/

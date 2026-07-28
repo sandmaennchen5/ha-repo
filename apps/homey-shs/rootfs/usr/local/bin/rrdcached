@@ -21,7 +21,7 @@ while [ "$#" -gt 0 ]; do
         shift
         case "$1" in
             /homey/user/rrd|/homey/user/rrd/)
-                new_args="${new_args} -b /data/rrd"
+                new_args="${new_args} -b ${HOMEY_DATA_DIR:-/data}/rrd"
                 ;;
             *)
                 new_args="${new_args} -b $1"

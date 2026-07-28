@@ -1,0 +1,362 @@
+#!/bin/sh
+
+migration_log() {
+    echo "[migration] $*"
+}
+
+directory_has_homey_state() {
+    directory="$1"
+    [ -d "${directory}" ] || return 1
+    find "${directory}" -mindepth 1 \
+        \( -type f -o -type l \) \
+        ! -path "${directory}/options.json" \
+        ! -path "${directory}/migration-imported" \
+        ! -path "${directory}/.homey-storage-location" \
+        ! -path "${directory}/ingress-sessions/*" \
+        -print | grep -q .
+}
+
+clear_homey_state() {
+    directory="$1"
+    case "${directory}" in
+        /data)
+            find /data -mindepth 1 -maxdepth 1 \
+                ! -name options.json \
+                ! -name .homey-storage-location \
+                ! -name ingress-sessions \
+                -exec rm -rf '{}' ';'
+            ;;
+        /config)
+            find /config -mindepth 1 -maxdepth 1 -exec rm -rf '{}' ';'
+            ;;
+        /share/*)
+            resolved="$(realpath "${directory}")"
+            case "${resolved}" in
+                /share/*)
+                    find "${resolved}" -mindepth 1 -maxdepth 1 \
+                        -exec rm -rf '{}' ';'
+                    ;;
+                *) return 1 ;;
+            esac
+            ;;
+        *)
+            migration_log "Refusing to clear unexpected directory: ${directory}"
+            return 1
+            ;;
+    esac
+}
+
+copy_homey_state() {
+    source_directory="$1"
+    target_directory="$2"
+    case "${source_directory}" in /data|/config|/share/*) ;; *) return 1 ;; esac
+    case "${target_directory}" in /data|/config|/share/*) ;; *) return 1 ;; esac
+    [ "${source_directory}" != "${target_directory}" ] || return 1
+
+    tar -cf - \
+        --exclude='./options.json' \
+        --exclude='./.homey-storage-location' \
+        --exclude='./migration-imported' \
+        --exclude='./ingress-sessions' \
+        -C "${source_directory}" . |
+        tar -xf - -C "${target_directory}"
+}
+
+normalize_share_relative() {
+    printf '%s' "$1" | sed 's#^/*##; s#/*$##'
+}
+
+migration_paths_overlap() {
+    first="$(normalize_share_relative "$1")"
+    second="$(normalize_share_relative "$2")"
+    case "${first}:${second}" in
+        "${first}:${first}") return 0 ;;
+    esac
+    case "${first}/" in "${second}/"*) return 0 ;; esac
+    case "${second}/" in "${first}/"*) return 0 ;; esac
+    return 1
+}
+
+reconcile_homey_storage() {
+    selected_location="$1"
+    selected_directory="$2"
+    share_directory="$3"
+    previous_location="$(cat /data/.homey-storage-location 2>/dev/null || true)"
+
+    source_location=""
+    source_directory=""
+    if [ "${previous_location}" = "data" ] &&
+        directory_has_homey_state /data; then
+        source_location=data
+        source_directory=/data
+    elif [ "${previous_location}" = "config" ] &&
+        directory_has_homey_state /config; then
+        source_location=config
+        source_directory=/config
+    elif directory_has_homey_state "${selected_directory}"; then
+        source_location="${selected_location}"
+        source_directory="${selected_directory}"
+    elif [ "${selected_directory}" != "/data" ] &&
+        directory_has_homey_state /data; then
+        source_location=data
+        source_directory=/data
+    elif [ "${selected_directory}" != "/config" ] &&
+        directory_has_homey_state /config; then
+        source_location=config
+        source_directory=/config
+    elif [ "${selected_directory}" != "${share_directory}" ] &&
+        directory_has_homey_state "${share_directory}"; then
+        source_location=share
+        source_directory="${share_directory}"
+    fi
+
+    if [ -n "${source_directory}" ] &&
+        [ "${source_directory}" != "${selected_directory}" ]; then
+        migration_log "Moving Homey data from ${source_directory} to ${selected_directory}"
+        clear_homey_state "${selected_directory}" || return 1
+        copy_homey_state "${source_directory}" "${selected_directory}" || {
+            migration_log "Unable to copy Homey data to selected storage"
+            return 1
+        }
+        directory_has_homey_state "${selected_directory}" || {
+            migration_log "Selected storage is empty after copy; keeping source"
+            return 1
+        }
+        clear_homey_state "${source_directory}" || return 1
+    fi
+
+    # Keep exactly one Homey state directory.
+    for candidate in /data /config "${share_directory}"; do
+        [ "${candidate}" = "${selected_directory}" ] && continue
+        clear_homey_state "${candidate}" || return 1
+    done
+
+    # Older builds used this marker while retaining a duplicate. It is consumed
+    # once for reconciliation and then removed so inactive /data only keeps
+    # Home Assistant's options.json.
+    rm -f /data/.homey-storage-location
+}
+
+migration_validate_relative() {
+    value="$1"
+    [ -n "${value}" ] || return 1
+    case "${value}" in
+        /*|*\\*|*[!A-Za-z0-9._/-]*) return 1 ;;
+    esac
+    old_ifs="${IFS}"
+    IFS='/'
+    set -f
+    set -- ${value}
+    set +f
+    IFS="${old_ifs}"
+    for component in "$@"; do
+        case "${component}" in ""|"."|"..") return 1 ;; esac
+    done
+}
+
+migration_share_directory() {
+    relative="$1"
+    migration_validate_relative "${relative}" || {
+        migration_log "Invalid relative /share directory: ${relative}"
+        return 1
+    }
+    directory="/share/${relative}"
+    mkdir -p "${directory}"
+    resolved="$(realpath "${directory}")"
+    case "${resolved}" in
+        /share/*) printf '%s\n' "${resolved}" ;;
+        *) migration_log "Directory resolves outside /share"; return 1 ;;
+    esac
+}
+
+migration_export() {
+    data_directory="$1"
+    version="$2"
+    [ "$(read_option import_export.export_on_stop false)" = "true" ] || return 0
+
+    relative_directory="$(read_option import_export.export_directory homey-shs-backups)"
+    target_directory="$(migration_share_directory "${relative_directory}")" ||
+        return 1
+    template="$(read_option import_export.export_filename \
+        'homey-shs-{version}-{timestamp}.tar.gz')"
+    case "${template}" in
+        ""|*/*|*\\*|*[!A-Za-z0-9._{}-]*) return 1 ;;
+    esac
+
+    timestamp="$(date -u +%Y%m%d-%H%M%S)"
+    filename="$(printf '%s' "${template}" |
+        sed "s/{version}/${version}/g;
+             s/{timestamp}/${timestamp}/g;
+             s/{storage}/$(basename "${data_directory}")/g;
+             s/{slug}/homey-shs/g")"
+    case "${filename}" in *.tar.gz) ;; *) return 1 ;; esac
+
+    archive="${target_directory}/${filename}"
+    temporary="${archive}.tmp"
+    migration_log "Exporting Homey data to ${archive}"
+    if [ "${data_directory}" = "/data" ]; then
+        tar -czf "${temporary}" --exclude='./options.json' \
+            --exclude='./migration-imported' \
+            --exclude='./ingress-sessions' \
+            --exclude='./.homey-storage-location' -C "${data_directory}" . ||
+            { rm -f "${temporary}"; return 1; }
+    else
+        tar -czf "${temporary}" --exclude='./migration-imported' \
+            --exclude='./ingress-sessions' \
+            --exclude='./.homey-storage-location' \
+            -C "${data_directory}" . ||
+            { rm -f "${temporary}"; return 1; }
+    fi
+    mv -f "${temporary}" "${archive}"
+
+    case "${data_directory}" in
+        /data)
+            storage_location=data
+            storage_path=/data
+            ;;
+        /config)
+            storage_location=config
+            storage_path=/config
+            ;;
+        /share/*)
+            storage_location=share
+            storage_path="${data_directory}"
+            ;;
+    esac
+    manifest="${archive}.manifest.json"
+    printf '{"format":1,"product":"homey-shs","archive":"%s","source_slug":"homey-shs","storage_location":"%s","storage_path":"%s","homey_version":"%s","created_at":"%s"}\n' \
+        "${filename}" "${storage_location}" "${storage_path}" "${version}" \
+        "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > "${manifest}.tmp"
+    mv -f "${manifest}.tmp" "${manifest}"
+    migration_log "Export completed"
+}
+
+migration_archive_is_safe() {
+    tar -tzf "$1" | awk '
+        /^\// || /^\.\.\// || /\/\.\.\// || $0 == ".." { unsafe=1 }
+        END { exit unsafe ? 1 : 0 }
+    '
+}
+
+migration_version_is_newer() {
+    source_version="$1"
+    target_version="$2"
+    awk -v source="${source_version}" -v target="${target_version}" '
+        BEGIN {
+            split(source, source_parts, ".")
+            split(target, target_parts, ".")
+            for (i = 1; i <= 3; i++) {
+                if ((source_parts[i] + 0) > (target_parts[i] + 0)) exit 0
+                if ((source_parts[i] + 0) < (target_parts[i] + 0)) exit 1
+            }
+            exit 1
+        }
+    '
+}
+
+migration_manual_source() {
+    relative="$(read_option import_export.import_source '')"
+    migration_validate_relative "${relative}" || return 1
+    candidate="/share/${relative}"
+    [ -f "${candidate}" ] || return 1
+    resolved="$(realpath "${candidate}")"
+    case "${resolved}" in /share/*) printf '%s\n' "${resolved}" ;; *) return 1 ;; esac
+}
+
+migration_auto_source() {
+    relative="$(read_option import_export.import_search_directory homey-shs-backups)"
+    directory="$(migration_share_directory "${relative}")" || return 1
+    for manifest in $(find "${directory}" -type f -name '*.tar.gz.manifest.json' | sort -r); do
+        archive_name="$(node -e '
+            const fs = require("node:fs");
+            const manifest = JSON.parse(fs.readFileSync(process.argv[1]));
+            if (manifest.format === 1 && manifest.product === "homey-shs") {
+                process.stdout.write(manifest.archive ?? "");
+            }
+        ' "${manifest}" 2>/dev/null)" || continue
+        case "${archive_name}" in ""|*/*|*\\*) continue ;; esac
+        archive="${manifest%.manifest.json}"
+        [ "$(basename "${archive}")" = "${archive_name}" ] || continue
+        [ -f "${archive}" ] || continue
+        printf '%s\n' "${archive}"
+        return 0
+    done
+    return 1
+}
+
+migration_import() {
+    data_directory="$1"
+    target_version="$2"
+    mode="$(read_option import_export.import_mode none)"
+    [ "${mode}" != "none" ] || return 0
+    overwrite="$(read_option import_export.overwrite_existing_data false)"
+    allow_downgrade="$(read_option import_export.allow_version_downgrade false)"
+    if directory_has_homey_state "${data_directory}"; then
+        if [ "${overwrite}" != "true" ]; then
+            migration_log "Import skipped because selected storage already contains Homey data"
+            return 0
+        fi
+        migration_log "Existing Homey data will be replaced after archive validation"
+    fi
+
+    case "${mode}" in
+        manual) archive="$(migration_manual_source)" || return 1 ;;
+        auto) archive="$(migration_auto_source)" || return 1 ;;
+        *) return 1 ;;
+    esac
+    case "${archive}" in *.tar.gz) ;; *) return 1 ;; esac
+
+    manifest="${archive}.manifest.json"
+    if [ -f "${manifest}" ]; then
+        source_version="$(node -e '
+            const fs = require("node:fs");
+            const manifest = JSON.parse(fs.readFileSync(process.argv[1]));
+            if (manifest.product === "homey-shs") {
+                process.stdout.write(manifest.homey_version ?? "");
+            }
+        ' "${manifest}" 2>/dev/null)" || return 1
+        if [ "${allow_downgrade}" != "true" ] &&
+            [ -n "${source_version}" ] &&
+            migration_version_is_newer "${source_version}" "${target_version}"; then
+            migration_log "Refusing downgrade from ${source_version} to ${target_version}"
+            return 1
+        elif [ "${allow_downgrade}" = "true" ] &&
+            [ -n "${source_version}" ] &&
+            migration_version_is_newer "${source_version}" "${target_version}"; then
+            migration_log "WARNING: Version downgrade from ${source_version} to ${target_version} explicitly allowed"
+        fi
+    elif [ "${mode}" = "auto" ]; then
+        return 1
+    else
+        migration_log "Manual archive has no manifest; version cannot be verified"
+    fi
+
+    migration_archive_is_safe "${archive}" || return 1
+    staging="$(mktemp -d /tmp/homey-import.XXXXXX)"
+    tar -xzf "${archive}" -C "${staging}" ||
+        { rm -rf "${staging}"; return 1; }
+    if find "${staging}" -type l | grep -q .; then
+        rm -rf "${staging}"
+        return 1
+    fi
+    directory_has_homey_state "${staging}" ||
+        { rm -rf "${staging}"; return 1; }
+
+    if [ "${overwrite}" = "true" ]; then
+        clear_homey_state "${data_directory}" || {
+            rm -rf "${staging}"
+            return 1
+        }
+    fi
+    if ! cp -a "${staging}/." "${data_directory}/"; then
+        rm -rf "${staging}"
+        migration_log "Unable to copy imported Homey data into selected storage"
+        return 1
+    fi
+    rm -rf "${staging}"
+    printf '%s\n' "${archive}" > "${data_directory}/migration-imported"
+    migration_log "Import completed from ${archive}"
+    if [ "$(read_option import_export.delete_after_import false)" = "true" ]; then
+        rm -f "${archive}" "${manifest}"
+    fi
+}

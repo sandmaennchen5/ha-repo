@@ -1,16 +1,14 @@
 name: Check Lint Badge & Schema
 
 on:
-  pull_request:
+  workflow_dispatch:
   push:
     branches:
       - main
-      - dev
     paths:
       - ".github/config.yaml"
       - "apps/**/.var.yaml"
       - "apps/**/config.yaml"
-  workflow_dispatch:
 
 jobs:
   lint:

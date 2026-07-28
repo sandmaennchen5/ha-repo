@@ -6,6 +6,7 @@ FROM $BUILD_FROM
 ARG BUILD_VERSION
 ARG BUILD_ARCH
 ARG BUILD_DATE
+ARG UPSTREAM_VERSION
 
 LABEL \
     io.hass.version="${BUILD_VERSION}" \
@@ -15,10 +16,10 @@ LABEL \
     org.opencontainers.image.source=https://github.com/sandmaennchen5/ha-repo
 
 # Install dependencies
-RUN apk --no-cache add ca-certificates tzdata iputils curl
+RUN apk --no-cache add ca-certificates tzdata iputils curl socat
 
 # Set newt version
-ENV NEWT_VERSION="${BUILD_VERSION}"
+ENV NEWT_VERSION="${UPSTREAM_VERSION}"
 
 # Download the pre-built newt binary for the appropriate architecture
 RUN \
@@ -37,5 +38,12 @@ RUN \
 # Copy root filesystem
 COPY rootfs /
 
+RUN chmod 0755 \
+    /usr/local/bin/newt-health-response \
+    /etc/s6-overlay/s6-rc.d/newt-health-http/run
+
 # Mark as HA add-on container
 ENV NEWT_SYSTEM_SUBSTRATE="CONTAINER"
+
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+    CMD test -f /tmp/newt_healthy && pgrep -x newt >/dev/null || exit 1

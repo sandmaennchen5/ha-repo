@@ -8,7 +8,7 @@
 [![CodeFactor][codefactor-badge]][codefactor-url]
 
 <!-- BADGES-START -->
-![Version](https://img.shields.io/badge/version-v1.15.0-blue)
+![Version](https://img.shields.io/badge/version-v1.15.0.3-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--07--19-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN%7CSYS_MODULE-red)
@@ -41,7 +41,7 @@ Newt ist ein Home Assistant Add-on für den Pangolin WireGuard-Tunnel-Client und
 4. Wähle **Repositories**.
 5. Füge folgende Repository-URL hinzu:
 ```text
-[repo]
+https://github.com/sandmaennchen5/ha-repo
 ```
 6. Klicke auf **Hinzufügen**.
 7. Aktualisiere den Apps-Store.
@@ -97,8 +97,15 @@ Newt ist ein Home Assistant Add-on für den Pangolin WireGuard-Tunnel-Client und
 [yaml-lint-url]: https://github.com/sandmaennchen5/ha-repo/actions/workflows/lint-yaml.yaml
 [codefactor-badge]: https://img.shields.io/codefactor/grade/github/sandmaennchen5/ha-repo?logo=codefactor
 [codefactor-url]: https://www.codefactor.io/repository/github/sandmaennchen5/ha-repo/branches
+[paypal-badge]: https://img.shields.io/badge/PayPal-Spenden-blue?logo=paypal
+[paypal-link]: https://www.paypal.me/sandmaennchen5
 [repoadd-badge]: https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg
-[repoadd]: https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fsandmaennchen5%2Fha-repo
 [repo]: https://github.com/sandmaennchen5/ha-repo
+[repoadd]: https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fsandmaennchen5%2Fha-repo
+[repodev]: https://github.com/sandmaennchen5/ha-repo#dev
+[repoadddev]: https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fsandmaennchen5%2Fha-repo%23dev
+[repoissues]: https://github.com/sandmaennchen5/ha-repo/issues
+[repodashboard]: https://sandmaennchen5.github.io/ha-repo/
+
 [upstream-doc]: https://docs.pangolin.net
 [upstream-repo]: https://github.com/fosrl/newt

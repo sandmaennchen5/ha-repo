@@ -5,11 +5,13 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+import functools
 import html
 import json
 import os
 import re
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -29,6 +31,7 @@ GITHUB_RE = re.compile(r"^(?:https?://)?github\.com/([^/]+)/([^/#]+?)(?:\.git)?/
 GHCR_RE = re.compile(r"^(?:https?://)?ghcr\.io/([^/]+)/([^/:@]+)(?::[^@]+)?$")
 DOCKER_RE = re.compile(r"^(?:https?://)?(?:docker\.io/)?([^/]+)/([^/:@]+)(?::[^@]+)?$")
 SEMVER_TAG_RE = re.compile(r"^v?\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?$")
+CHECKMK_BRANCH_RE = re.compile(r"^release/(?P<version>\d+\.\d+\.\d+(?:p\d+)?)$")
 
 
 @dataclass(frozen=True)
@@ -47,8 +50,18 @@ def request_json(url: str, token: str = "") -> tuple[Any, dict[str, str]]:
         headers["Authorization"] = f"Bearer {token}"
         headers["X-GitHub-Api-Version"] = "2022-11-28"
     request = urllib.request.Request(url, headers=headers)
-    with urllib.request.urlopen(request, timeout=30) as response:
-        return json.load(response), dict(response.headers.items())
+    for attempt in range(4):
+        try:
+            with urllib.request.urlopen(request, timeout=30) as response:
+                return json.load(response), dict(response.headers.items())
+        except urllib.error.HTTPError as error:
+            if error.code != 429 or attempt == 3:
+                raise
+            retry_after = error.headers.get("Retry-After", "")
+            delay = int(retry_after) if retry_after.isdigit() else 2 ** attempt
+            print(f"RATE LIMITED: retrying {url} in {delay}s", file=sys.stderr)
+            time.sleep(delay)
+    raise RuntimeError(f"Unable to retrieve {url}")
 
 
 def source_kind(value: str) -> tuple[str, tuple[str, str]] | None:
@@ -101,6 +114,62 @@ def github_update(owner: str, repository: str, configured_source: str) -> Update
     )
 
 
+def github_release_branch_update(owner: str, repository: str) -> Update:
+    token = os.getenv("GITHUB_TOKEN", "")
+    api = f"https://api.github.com/repos/{owner}/{repository}"
+    branches: list[dict[str, Any]] = []
+    page = 1
+    while True:
+        batch, _ = request_json(f"{api}/branches?per_page=100&page={page}", token)
+        if not isinstance(batch, list):
+            raise RuntimeError(f"github.com/{owner}/{repository}: invalid branch response")
+        branches.extend(batch)
+        if len(batch) < 100:
+            break
+        page += 1
+
+    candidates = []
+    for branch in branches:
+        match = CHECKMK_BRANCH_RE.fullmatch(str(branch.get("name") or ""))
+        if not match:
+            continue
+        version = match.group("version")
+        numbers = re.fullmatch(r"(\d+)\.(\d+)\.(\d+)(?:p(\d+))?", version)
+        if numbers:
+            major, minor, patch, patch_level = numbers.groups()
+            candidates.append(
+                ((int(major), int(minor), int(patch), int(patch_level or 0)), version, branch)
+            )
+    if not candidates:
+        raise RuntimeError(f"github.com/{owner}/{repository}: no release/X.Y.Z[pN] branch found")
+
+    _, version, branch = max(candidates, key=lambda item: item[0])
+    commit = str((branch.get("commit") or {}).get("sha") or "")
+    updated = dt.date.today().isoformat()
+    commit_url = str((branch.get("commit") or {}).get("url") or "")
+    if commit_url:
+        try:
+            details, _ = request_json(commit_url, token)
+            updated = iso_date(
+                ((details.get("commit") or {}).get("committer") or {}).get("date", "")
+            )
+        except (KeyError, urllib.error.HTTPError):
+            pass
+    source = f"github.com/{owner}/{repository}"
+    return Update(
+        version=version,
+        commit=commit,
+        updated=updated,
+        source=source,
+        notes=(
+            f"- Checkmk release branch: `release/{version}`\n"
+            f"- Agent source: `agents/check_mk_agent.openwrt`\n"
+            f"- Commit: `{commit or 'nicht verfügbar'}`"
+        ),
+        kind="github",
+    )
+
+
 def semantic(tag: str) -> Version | None:
     if not SEMVER_TAG_RE.fullmatch(tag):
         return None
@@ -111,7 +180,28 @@ def semantic(tag: str) -> Version | None:
         return None
 
 
-def docker_update(namespace: str, repository: str) -> Update:
+def docker_version(tag: str) -> Version | None:
+    """Return the stable numeric version from a Docker tag variant."""
+    match = re.fullmatch(r"v?(\d+\.\d+\.\d+)(?:[-+][0-9A-Za-z.-]+)?", tag)
+    if not match:
+        return None
+    try:
+        version = Version(match.group(1))
+        return version if not version.is_prerelease and not version.is_devrelease else None
+    except InvalidVersion:
+        return None
+
+
+def docker_digests(tag: dict[str, Any]) -> set[str]:
+    """Collect manifest and platform image digests exposed by Docker Hub."""
+    digests = {str(tag.get("digest") or "")}
+    digests.update(str(image.get("digest") or "") for image in tag.get("images", []))
+    digests.discard("")
+    return digests
+
+
+@functools.lru_cache(maxsize=None)
+def docker_update(namespace: str, repository: str, tracking_tag: str = "latest") -> Update:
     base = f"https://hub.docker.com/v2/repositories/{namespace}/{repository}/tags"
     url = f"{base}?page_size=100&ordering=last_updated"
     tags: list[dict[str, Any]] = []
@@ -120,15 +210,28 @@ def docker_update(namespace: str, repository: str) -> Update:
         tags.extend(page.get("results", []))
         url = page.get("next")
 
-    latest = next((tag for tag in tags if tag.get("name") == "latest"), None)
-    semver_tags = [(semantic(tag.get("name", "")), tag) for tag in tags]
+    latest = next((tag for tag in tags if tag.get("name") == tracking_tag), None)
+    semver_tags = [(docker_version(tag.get("name", "")), tag) for tag in tags]
     semver_tags = [(version, tag) for version, tag in semver_tags if version is not None]
     if not semver_tags:
         raise RuntimeError(f"docker.io/{namespace}/{repository}: no semantic version tag found")
 
     same_digest = []
-    if latest and latest.get("digest"):
-        same_digest = [item for item in semver_tags if item[1].get("digest") == latest["digest"]]
+    if latest:
+        tracked_digests = docker_digests(latest)
+        same_digest = [
+            item for item in semver_tags
+            if tracked_digests.intersection(docker_digests(item[1]))
+        ]
+    if tracking_tag != "latest" and not latest:
+        raise RuntimeError(
+            f"docker.io/{namespace}/{repository}: tracking tag {tracking_tag!r} not found"
+        )
+    if tracking_tag != "latest" and not same_digest:
+        raise RuntimeError(
+            f"docker.io/{namespace}/{repository}: no version tag matches "
+            f"tracking tag {tracking_tag!r} by manifest or platform digest"
+        )
     version_obj, selected = max(same_digest or semver_tags, key=lambda item: item[0])
     digest = selected.get("digest") or (latest or {}).get("digest", "")
     tag = selected["name"]
@@ -139,7 +242,7 @@ def docker_update(namespace: str, repository: str) -> Update:
         f"- Aktualisiert auf Docker Hub: {iso_date(selected.get('last_updated', ''))}"
     )
     return Update(
-        version=clean_version(tag),
+        version=str(version_obj),
         commit=digest,
         updated=iso_date(selected.get("last_updated", "")),
         source=source,
@@ -266,10 +369,14 @@ def ghcr_update(namespace: str, repository: str, changelog_url: str = "") -> Upd
 def fetch_update(path: Path, kind: str, identity: tuple[str, str]) -> Update:
     _, var = load_app(path)
     raw_source = str(var.get("upstream_repo") or var.get("source") or "")
+    if var.get("upstream_strategy") == "github_release_branch":
+        if kind != "github":
+            raise ValueError(f"{path.name}: github_release_branch requires a GitHub source")
+        return github_release_branch_update(*identity)
     if kind == "github":
         return github_update(*identity, raw_source)
     if kind == "docker":
-        return docker_update(*identity)
+        return docker_update(*identity, str(var.get("upstream_tracking_tag") or "latest"))
     return ghcr_update(*identity, str(var.get("changelog_url") or ""))
 
 
@@ -357,14 +464,246 @@ def discover(selected: str, scheduled: bool) -> tuple[list[tuple[Path, str, tupl
     return found, messages
 
 
+def calendar_revision(current: str, today: dt.date) -> str:
+    prefix = f"{today.year}.{today.month}."
+    revision = 0
+    if current.startswith(prefix):
+        suffix = current[len(prefix) :]
+        if suffix.isdigit():
+            revision = int(suffix)
+    return f"{prefix}{revision + 1}"
+
+
+def checkmk_app_version(upstream: str, current: str) -> str:
+    match = re.fullmatch(r"(\d+)\.(\d+)\.(\d+)(?:p(\d+))?", upstream)
+    if not match:
+        raise ValueError(f"Invalid Checkmk upstream version: {upstream}")
+    major, minor, patch, patch_level = match.groups()
+    prefix = f"{major}.{minor}.{patch}.{patch_level or '0'}."
+    revision = 0
+    if current.startswith(prefix) and current[len(prefix) :].isdigit():
+        revision = int(current[len(prefix) :])
+    return f"{prefix}{revision + 1}"
+
+
+def bump_app_revision(path: Path) -> str:
+    """Increase only the Home Assistant app revision for a forced rebuild."""
+    config, var = load_app(path)
+    current = str(config.get("version") or "")
+    upstream = str(var.get("upstream_version") or "")
+    strategy = str(var.get("version_strategy") or "")
+
+    if strategy == "portainer_selector":
+        bumped = calendar_revision(current, dt.date.today())
+    elif strategy == "checkmk_numeric_revision":
+        bumped = checkmk_app_version(upstream, current)
+    else:
+        prefix = f"{upstream}."
+        if current == upstream:
+            bumped = f"{upstream}.1"
+        elif current.startswith(prefix) and current[len(prefix) :].isdigit():
+            bumped = f"{prefix}{int(current[len(prefix):]) + 1}"
+        else:
+            raise ValueError(
+                f"{path.name}: app version {current!r} does not match "
+                f"upstream version {upstream!r}"
+            )
+
+    config_path = path / "config.yaml"
+    config_text = replace_scalar(config_path.read_text(encoding="utf-8"), "version", bumped)
+    yaml.safe_load(config_text)
+    config_path.write_text(config_text, encoding="utf-8", newline="\n")
+    update_changelog(
+        path / "CHANGELOG.md",
+        Update(
+            version=bumped,
+            commit=str(var.get("upstream_commit") or ""),
+            updated=dt.date.today().isoformat(),
+            source=str(var.get("source") or ""),
+            notes="- App-Revision für einen vollständigen Neuaufbau um eins erhöht.",
+            kind="manual",
+        ),
+    )
+    print(f"BUMPED {path.name}: {current} -> {bumped}")
+    return bumped
+
+
+def selector_changelog(
+    path: Path,
+    app_version: str,
+    updated: str,
+    old_lts: str,
+    new_lts: Update,
+    old_sts: str,
+    new_sts: Update,
+    old_secondary_lts: str = "",
+    secondary_lts: Update | None = None,
+    old_secondary_sts: str = "",
+    secondary_sts: Update | None = None,
+) -> None:
+    primary_lts_changed = old_lts != new_lts.version
+    primary_sts_changed = old_sts != new_sts.version
+    lts_changed = primary_lts_changed or bool(
+        secondary_lts and old_secondary_lts != secondary_lts.version
+    )
+    sts_changed = primary_sts_changed or bool(
+        secondary_sts and old_secondary_sts != secondary_sts.version
+    )
+    changes = []
+    if primary_lts_changed:
+        changes.append(f"- LTS: `{old_lts or 'nicht gesetzt'}` → `{new_lts.version}`")
+    if primary_sts_changed:
+        changes.append(f"- STS: `{old_sts or 'nicht gesetzt'}` → `{new_sts.version}`")
+    if secondary_lts and old_secondary_lts != secondary_lts.version:
+        changes.append(
+            f"- EE LTS: `{old_secondary_lts or 'nicht gesetzt'}` → `{secondary_lts.version}`"
+        )
+    if secondary_sts and old_secondary_sts != secondary_sts.version:
+        changes.append(
+            f"- EE STS: `{old_secondary_sts or 'nicht gesetzt'}` → `{secondary_sts.version}`"
+        )
+    if not changes:
+        changes.append("- Keine Versionsänderung; Docker-Image-Digest wurde aktualisiert.")
+    lts_line = (
+        f"- LTS: `CE {new_lts.version}, EE {secondary_lts.version}`"
+        if secondary_lts
+        else f"- LTS: `{new_lts.version}`"
+    )
+    sts_line = (
+        f"- STS: `CE {new_sts.version}, EE {secondary_sts.version}`"
+        if secondary_sts
+        else f"- STS: `{new_sts.version}`"
+    )
+    entry = (
+        f"## [{app_version}] - {updated}\n\n"
+        "### Enthaltene Upstream-Versionen\n\n"
+        + lts_line
+        + ("\n" if lts_changed else " (keine Änderung)\n")
+        + sts_line
+        + ("\n" if sts_changed else " (keine Änderung)\n")
+        + "\n### Änderungen\n\n"
+        + "\n".join(changes)
+        + "\n\n---\n"
+    )
+    changelog = path / "CHANGELOG.md"
+    original = changelog.read_text(encoding="utf-8") if changelog.exists() else "# Changelog\n"
+    header = re.match(r"(?s)^(# .+?\n)(?:\n)?", original)
+    result = (
+        original[: header.end()] + "\n" + entry + "\n" + original[header.end() :].lstrip("\n")
+        if header
+        else "# Changelog\n\n" + entry + "\n" + original
+    )
+    changelog.write_text(result, encoding="utf-8", newline="\n")
+
+
+def apply_portainer_selector(path: Path, config: dict[str, Any], var: dict[str, Any]) -> bool:
+    raw_source = str(var.get("upstream_repo") or var.get("source") or "")
+    parsed = source_kind(raw_source)
+    if not parsed or parsed[0] != "docker":
+        raise ValueError(f"{path.name}: selector requires a Docker Hub upstream_repo")
+    namespace, repository = parsed[1]
+    lts = docker_update(namespace, repository, str(var.get("lts_tracking_tag") or "alpine"))
+    sts = docker_update(namespace, repository, str(var.get("sts_tracking_tag") or "alpine-sts"))
+    secondary_lts = secondary_sts = None
+    secondary_source = str(var.get("selector_secondary_repo") or "")
+    if secondary_source:
+        secondary_parsed = source_kind(secondary_source)
+        if not secondary_parsed or secondary_parsed[0] != "docker":
+            raise ValueError(f"{path.name}: selector_secondary_repo must be a Docker Hub image")
+        secondary_lts = docker_update(
+            *secondary_parsed[1], str(var.get("lts_tracking_tag") or "alpine")
+        )
+        secondary_sts = docker_update(
+            *secondary_parsed[1], str(var.get("sts_tracking_tag") or "alpine-sts")
+        )
+    old_lts = str(var.get("lts_version") or "")
+    old_sts = str(var.get("sts_version") or "")
+    if (
+        old_lts == lts.version
+        and old_sts == sts.version
+        and str(var.get("lts_commit") or "") == lts.commit
+        and str(var.get("sts_commit") or "") == sts.commit
+        and (not secondary_lts or str(var.get("secondary_lts_commit") or "") == secondary_lts.commit)
+        and (not secondary_sts or str(var.get("secondary_sts_commit") or "") == secondary_sts.commit)
+    ):
+        print(f"UNCHANGED {path.name}: LTS {lts.version}, STS {sts.version}")
+        return False
+
+    today = dt.date.today()
+    app_version = calendar_revision(str(config.get("version") or ""), today)
+    config_path, var_path = path / "config.yaml", path / ".var.yaml"
+    config_text = replace_scalar(config_path.read_text(encoding="utf-8"), "version", app_version)
+    var_text = var_path.read_text(encoding="utf-8")
+    for key, value in (
+        ("upstream_version", sts.version),
+        ("upstream_commit", sts.commit),
+        ("lts_version", lts.version),
+        ("lts_commit", lts.commit),
+        ("sts_version", sts.version),
+        ("sts_commit", sts.commit),
+        ("updated", today.isoformat()),
+        ("source", sts.source),
+    ):
+        var_text = replace_scalar(var_text, key, value)
+    if secondary_lts and secondary_sts:
+        for key, value in (
+            ("secondary_lts_version", secondary_lts.version),
+            ("secondary_lts_commit", secondary_lts.commit),
+            ("secondary_sts_version", secondary_sts.version),
+            ("secondary_sts_commit", secondary_sts.commit),
+        ):
+            var_text = replace_scalar(var_text, key, value)
+
+    if path.name not in {"portainer", "portainer-agent"}:
+        raise ValueError(f"Unsupported selector app: {path.name}")
+
+    yaml.safe_load(config_text)
+    yaml.safe_load(var_text)
+    config_path.write_text(config_text, encoding="utf-8", newline="\n")
+    var_path.write_text(var_text, encoding="utf-8", newline="\n")
+    selector_changelog(
+        path, app_version, today.isoformat(), old_lts, lts, old_sts, sts,
+        str(var.get("secondary_lts_version") or ""), secondary_lts,
+        str(var.get("secondary_sts_version") or ""), secondary_sts,
+    )
+    print(
+        f"UPDATED {path.name}: {config.get('version', '')} -> {app_version}; "
+        f"LTS {old_lts or '-'} -> {lts.version}; STS {old_sts or '-'} -> {sts.version}"
+    )
+    return True
+
+
 def apply(path: Path, kind: str, identity: tuple[str, str]) -> bool:
     config, var = load_app(path)
+    if var.get("version_strategy") == "portainer_selector":
+        return apply_portainer_selector(path, config, var)
     update = fetch_update(path, kind, identity)
-    if str(config.get("version", "")) == update.version and str(var.get("upstream_commit", "")) == update.commit:
+    current_upstream_version = str(var.get("upstream_version", ""))
+    if (
+        current_upstream_version == update.version
+        and str(var.get("upstream_commit", "")) == update.commit
+    ):
         print(f"UNCHANGED {path.name}: {update.version}")
         return False
+
+    if var.get("version_strategy") == "checkmk_numeric_revision":
+        app_version = checkmk_app_version(update.version, str(config.get("version") or ""))
+    elif current_upstream_version == update.version:
+        current_app_version = str(config.get("version", ""))
+        revision_prefix = f"{update.version}."
+        revision = 0
+        if current_app_version.startswith(revision_prefix):
+            revision_text = current_app_version[len(revision_prefix) :]
+            if revision_text.isdigit():
+                revision = int(revision_text)
+        app_version = f"{update.version}.{revision + 1}"
+    elif var.get("version_strategy") == "upstream_revision":
+        app_version = f"{update.version}.1"
+    else:
+        app_version = update.version
+
     config_path, var_path = path / "config.yaml", path / ".var.yaml"
-    config_text = replace_scalar(config_path.read_text(encoding="utf-8"), "version", update.version)
+    config_text = replace_scalar(config_path.read_text(encoding="utf-8"), "version", app_version)
     var_text = var_path.read_text(encoding="utf-8")
     for key, value in (
         ("upstream_version", update.version),
@@ -377,14 +716,54 @@ def apply(path: Path, kind: str, identity: tuple[str, str]) -> bool:
     yaml.safe_load(var_text)
     config_path.write_text(config_text, encoding="utf-8", newline="\n")
     var_path.write_text(var_text, encoding="utf-8", newline="\n")
-    update_changelog(path / "CHANGELOG.md", update)
-    print(f"UPDATED {path.name}: {config.get('version', '')} -> {update.version}")
+    if var.get("version_strategy") in {"upstream_revision", "checkmk_numeric_revision"}:
+        dockerfile = path / "Dockerfile"
+        docker_text = dockerfile.read_text(encoding="utf-8")
+        docker_text, replacements = re.subn(
+            r"(?m)^ARG UPSTREAM_VERSION=.*$",
+            f"ARG UPSTREAM_VERSION={update.version}",
+            docker_text,
+            count=1,
+        )
+        if replacements != 1:
+            raise ValueError(f"{path.name}: Dockerfile has no ARG UPSTREAM_VERSION")
+        dockerfile.write_text(docker_text, encoding="utf-8", newline="\n")
+    update_changelog(
+        path / "CHANGELOG.md",
+        Update(
+            app_version,
+            update.commit,
+            update.updated,
+            update.source,
+            update.notes,
+            update.kind,
+        ),
+    )
+    print(f"UPDATED {path.name}: {config.get('version', '')} -> {app_version}")
     return True
 
 
 def preview(path: Path, kind: str, identity: tuple[str, str]) -> None:
     """Fetch and display an update without changing repository files."""
     config, var = load_app(path)
+    if var.get("version_strategy") == "portainer_selector":
+        namespace, repository = identity
+        lts = docker_update(namespace, repository, str(var.get("lts_tracking_tag") or "alpine"))
+        sts = docker_update(namespace, repository, str(var.get("sts_tracking_tag") or "alpine-sts"))
+        body = (
+            f"## Update-Vorschau: `{path.name}`\n\n"
+            "| Kanal | Aktuell | Ermittelt |\n"
+            "|---|---|---|\n"
+            f"| LTS | `{var.get('lts_version', '')}` | `{lts.version}` |\n"
+            f"| STS | `{var.get('sts_version', '')}` | `{sts.version}` |\n"
+            f"| Nächste App-Version | `{config.get('version', '')}` | "
+            f"`{calendar_revision(str(config.get('version') or ''), dt.date.today())}` |\n"
+        )
+        print(body)
+        if summary := os.getenv("GITHUB_STEP_SUMMARY"):
+            with open(summary, "a", encoding="utf-8") as handle:
+                handle.write(body)
+        return
     update = fetch_update(path, kind, identity)
     body = (
         f"## Update-Vorschau: `{path.name}`\n\n"
@@ -419,6 +798,11 @@ def main() -> int:
     parser.add_argument("--scheduled", action="store_true", help="only select autoupdater: true")
     parser.add_argument("--list", action="store_true", help="discover only; do not update")
     parser.add_argument("--preview", action="store_true", help="fetch and display values without changing files")
+    parser.add_argument(
+        "--bump-revision",
+        action="store_true",
+        help="increase each selected Home Assistant app revision after update detection",
+    )
     args = parser.parse_args()
     try:
         apps, messages = discover(args.app.strip(), args.scheduled)
@@ -429,6 +813,9 @@ def main() -> int:
         elif not args.list:
             for path, kind, identity in apps:
                 apply(path, kind, identity)
+            if args.bump_revision:
+                for path, _, _ in apps:
+                    bump_app_revision(path)
     except (OSError, ValueError, RuntimeError, urllib.error.URLError, yaml.YAMLError) as error:
         print(f"ERROR: {error}", file=sys.stderr)
         return 1

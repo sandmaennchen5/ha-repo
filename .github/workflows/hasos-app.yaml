@@ -4,10 +4,6 @@ env:
   MONITORED_FILES: "config.json config.yaml config.yml Dockerfile rootfs"
 
 on:
-  pull_request:
-    branches:
-      - main
-      - dev
   push:
     branches:
       - main
@@ -24,8 +20,12 @@ on:
         type: choice
         options:
           # BEGIN_APPS
+          - adsb-multi-portal-feeder
           - homey-shs
+          - homey-shs-hardened
           - newt
+          - olm
+          - pangolin-cli
           # END_APPS
       app_custom:
         description: "Oder App manuell eingeben (z.B. newt)"

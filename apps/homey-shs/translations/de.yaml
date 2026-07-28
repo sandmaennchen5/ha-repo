@@ -1,0 +1,78 @@
+configuration:
+  storage_location:
+    name: "Speicherort"
+    description: "Homey-Daten privat unter /data, sichtbar unter /config (App-Konfiguration) oder in einem Ordner unter /share speichern."
+  share_storage_directory:
+    name: "Homey-Ordner unter /share"
+    description: "Pfad relativ zu /share, zum Beispiel /homey-shs-config oder /config/homey-shs. Nur bei Speicherort share verwendet."
+  port_server_http:
+    name: "HTTP- und Socket.IO-Port"
+    description: "Port für die Weboberfläche und Socket.IO. Standard: 4859."
+  port_server_https:
+    name: "HTTPS-Port"
+    description: "Port für verschlüsselte HTTPS-Verbindungen. Standard: 4860."
+  port_server_bridge_v1:
+    name: "Homey-Bridge-v1-Port"
+    description: "Port für die Kommunikation mit Homey Bridge v1. Standard: 4861."
+  port_server_bridge_v2:
+    name: "Homey-Bridge-v2-Port"
+    description: "Port für die Kommunikation mit Homey Bridge v2. Standard: 4862."
+  remember_ingress_users:
+    name: "Homey-Anmeldung je HA-Benutzer merken"
+    description: "Ordnet jedem über Ingress angemeldeten Home-Assistant-Benutzer nach seiner ersten Homey-Anmeldung eine eigene Homey-Sitzung zu. Passwörter werden nicht gespeichert."
+  extras:
+    name: "Erweiterte Einstellungen"
+    description: "Optionale und experimentelle Homey-SHS-Einstellungen."
+    fields:
+      port_server_webrtc:
+        name: "WebRTC-Port (experimentell)"
+        description: "Port des internen WebRTC-Dienstes. Standard: 8555. Diese Option ist nicht offiziell dokumentiert."
+      homey_local_address:
+        name: "Lokale IPv4-Adresse"
+        description: "Optionale LAN-IP-Adresse des Home-Assistant-Hosts, falls die automatische Erkennung nicht funktioniert. Leer lassen für automatische Erkennung."
+      matter_mdns_interfaces:
+        name: "Matter-mDNS-Schnittstellen (experimentell)"
+        description: "Optionale Netzwerkschnittstellen für Matter-mDNS. Leer lassen, damit Homey die Schnittstellen automatisch auswählt."
+      homey_app_log_to_console:
+        name: "App-Protokolle in der Konsole (experimentell)"
+        description: "Gibt die Standardausgabe und Fehlerausgabe installierter Homey-Apps zusätzlich im App-Protokoll aus."
+      homey_web_app_proxy_url:
+        name: "Web-App-Proxy-URL (experimentell)"
+        description: "Optionale Proxy-Zieladresse für die Homey-Web-App. Leer lassen, um die integrierte Web-App zu verwenden."
+      homey_app_devmode:
+        name: "App-Entwicklermodus (experimentell)"
+        description: "Startet installierte Homey-Apps im Entwicklermodus. Nur zur Entwicklung und Fehlersuche aktivieren."
+      delegation_token_public_key:
+        name: "Öffentlicher Delegation-Token-Schlüssel (experimentell)"
+        description: "Optionaler Base64-Inhalt des öffentlichen Schlüssels ohne BEGIN-/END-Zeilen. Leer lassen, um Homeys Standardschlüssel zu verwenden."
+  import_export:
+    name: "Import/Export"
+    description: "Optionale Sicherung und Wiederherstellung der Homey-Daten über /share."
+    fields:
+      export_on_stop:
+        name: "Beim Stoppen exportieren"
+        description: "Homey zuerst sauber beenden und danach den gewählten Datenspeicher nach /share exportieren."
+      export_directory:
+        name: "Exportverzeichnis"
+        description: "Relativer Zielpfad unter /share."
+      export_filename:
+        name: "Exportdateiname"
+        description: "Dateinamenvorlage mit {version}, {timestamp}, {storage} und {slug}."
+      import_mode:
+        name: "Importmodus"
+        description: "Kein Import, automatische Suche oder manuell angegebene Importdatei."
+      import_search_directory:
+        name: "Suchverzeichnis"
+        description: "Relativer /share-Pfad für die automatische Suche."
+      import_source:
+        name: "Manuelle Importquelle"
+        description: "Relativer Pfad zu einem .tar.gz-Archiv unter /share."
+      overwrite_existing_data:
+        name: "Bestehende Daten überschreiben"
+        description: "Ersetzt vorhandene Homey-Daten nach erfolgreicher Prüfung des Importarchivs. /data/options.json bleibt erhalten."
+      allow_version_downgrade:
+        name: "Versions-Downgrade erlauben"
+        description: "Erlaubt den Import von Daten einer neueren Homey-Version in eine ältere Version. Kann zu inkompatiblen oder unbrauchbaren Daten führen."
+      delete_after_import:
+        name: "Archiv nach Import löschen"
+        description: "Importiertes Archiv und Manifest nach erfolgreicher Übernahme entfernen."

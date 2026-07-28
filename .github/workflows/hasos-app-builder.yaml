@@ -11,6 +11,14 @@ on:
       publish:
         required: true
         type: boolean
+      checkout_ref:
+        required: false
+        default: ""
+        type: string
+      defer_image_size_commit:
+        required: false
+        default: false
+        type: boolean
 
 jobs:
 
@@ -27,16 +35,41 @@ jobs:
       url: ${{ steps.normalize.outputs.url }}
       registry_prefix: ${{ steps.normalize.outputs.registry_prefix }}
       version: ${{ steps.normalize.outputs.version }}
+      upstream_version: ${{ steps.upstream.outputs.version }}
 
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.checkout_ref || github.sha }}
 
       - name: Get app information
         id: info
         uses: home-assistant/actions/helpers/info@master
         with:
           path: "./${{ inputs.app }}"
+
+      - name: Get upstream version
+        id: upstream
+        env:
+          APP_PATH: ${{ inputs.app }}
+        shell: bash
+        run: |
+          upstream_version="$(
+            awk -F: '
+              $1 == "upstream_version" {
+                value = substr($0, index($0, ":") + 1)
+                gsub(/^[[:space:]"]+|[[:space:]"]+$/, "", value)
+                print value
+                exit
+              }
+            ' "${APP_PATH}/.var.yaml"
+          )"
+          if [[ -z "${upstream_version}" ]]; then
+            echo "::error::.var.yaml does not define upstream_version"
+            exit 1
+          fi
+          echo "version=${upstream_version}" >> "$GITHUB_OUTPUT"
 
       - name: Normalize app information
         id: normalize
@@ -79,7 +112,47 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v7
         with:
+          ref: ${{ inputs.checkout_ref || github.sha }}
           persist-credentials: false
+
+      - name: Resolve app build arguments
+        id: build_args
+        shell: bash
+        env:
+          APP_PATH: ${{ inputs.app }}
+          BUILD_ARCH: ${{ matrix.arch }}
+          UPSTREAM_VERSION: ${{ needs.prepare.outputs.upstream_version }}
+        run: |
+          read_var() {
+            awk -F: -v key="$1" '
+              $1 == key {
+                value = substr($0, index($0, ":") + 1)
+                gsub(/^[[:space:]\"]+|[[:space:]\"]+$/, "", value)
+                print value
+                exit
+              }
+            ' "${APP_PATH}/.var.yaml"
+          }
+
+          {
+            echo 'values<<EOF'
+            echo "UPSTREAM_VERSION=${UPSTREAM_VERSION}"
+
+            case "${APP_PATH#apps/}" in
+              portainer)
+                echo "PORTAINER_CE_LTS_IMAGE=portainer/portainer-ce:$(read_var lts_version)-alpine"
+                echo "PORTAINER_CE_STS_IMAGE=portainer/portainer-ce:$(read_var sts_version)-alpine"
+                echo "PORTAINER_EE_LTS_IMAGE=portainer/portainer-ee:$(read_var secondary_lts_version)-alpine"
+                echo "PORTAINER_EE_STS_IMAGE=portainer/portainer-ee:$(read_var secondary_sts_version)-alpine"
+                ;;
+              portainer-agent)
+                echo "AGENT_LTS_IMAGE=portainer/agent:$(read_var lts_version)-alpine"
+                echo "AGENT_STS_IMAGE=portainer/agent:$(read_var sts_version)-alpine"
+                ;;
+            esac
+
+            echo 'EOF'
+          } >> "${GITHUB_OUTPUT}"
 
       - name: Build image
         uses: home-assistant/builder/actions/build-image@2026.06.0
@@ -87,6 +160,7 @@ jobs:
           arch: ${{ matrix.arch }}
           container-registry-password: ${{ secrets.GITHUB_TOKEN }}
           context: "./${{ inputs.app }}"
+          build-args: ${{ steps.build_args.outputs.values }}
           image: ${{ matrix.image }}
           image-tags: |
             ${{ needs.prepare.outputs.version }}
@@ -113,6 +187,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.checkout_ref || github.sha }}
 
       - name: Publish multi-arch manifest
         uses: home-assistant/builder/actions/publish-multi-arch-manifest@2026.06.0
@@ -125,13 +201,35 @@ jobs:
             latest
           registry-prefix: ${{ needs.prepare.outputs.registry_prefix }}
 
+      - name: Collect compressed image size
+        if: inputs.defer_image_size_commit
+        env:
+          APP_PATH: ${{ inputs.app }}
+        run: |
+          app_slug="${APP_PATH#apps/}"
+          python .github/scripts/update_image_size.py \
+            --image "${{ needs.prepare.outputs.registry_prefix }}/${{ needs.prepare.outputs.image_name }}:${{ needs.prepare.outputs.version }}" \
+            --app "${app_slug}" \
+            --result-file "image-size-result/${app_slug}.json"
+
       - name: Update compressed image size
+        if: ${{ ! inputs.defer_image_size_commit }}
         run: |
           python .github/scripts/update_image_size.py \
             --image "${{ needs.prepare.outputs.registry_prefix }}/${{ needs.prepare.outputs.image_name }}:${{ needs.prepare.outputs.version }}" \
             --var-file "${{ inputs.app }}/.var.yaml"
 
+      - name: Upload image size result
+        if: inputs.defer_image_size_commit
+        uses: actions/upload-artifact@v7
+        with:
+          name: image-size-${{ needs.prepare.outputs.image_name }}
+          path: image-size-result/*.json
+          if-no-files-found: error
+          retention-days: 1
+
       - name: Commit image size
+        if: ${{ ! inputs.defer_image_size_commit }}
         env:
           APP_PATH: ${{ inputs.app }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

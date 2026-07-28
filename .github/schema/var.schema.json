@@ -55,6 +55,26 @@
     "upstream_version": { "type": "string" },
     "upstream_repo": { "type": "string" },
     "upstream_commit": { "type": "string" },
+    "upstream_tracking_tag": { "type": "string" },
+    "version_strategy": {
+      "type": "string",
+      "enum": ["upstream_revision", "portainer_selector", "checkmk_numeric_revision"]
+    },
+    "upstream_strategy": {
+      "type": "string",
+      "enum": ["github_release_branch"]
+    },
+    "lts_tracking_tag": { "type": "string" },
+    "lts_version": { "type": "string" },
+    "lts_commit": { "type": "string" },
+    "sts_tracking_tag": { "type": "string" },
+    "sts_version": { "type": "string" },
+    "sts_commit": { "type": "string" },
+    "selector_secondary_repo": { "type": "string" },
+    "secondary_lts_version": { "type": "string" },
+    "secondary_lts_commit": { "type": "string" },
+    "secondary_sts_version": { "type": "string" },
+    "secondary_sts_commit": { "type": "string" },
     "autoupdater": { "type": "boolean" },
     "build": { "type": "string" },
     "lint": { "type": "string" },

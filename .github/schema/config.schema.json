@@ -16,8 +16,12 @@
     "docker_api": { "type": "boolean" },
     "kernel_modules": { "type": "boolean" },
     "ingress": { "type": "boolean" },
+    "ingress_port": { "type": "integer" },
+    "ingress_entry": { "type": "string" },
+    "ingress_stream": { "type": "boolean" },
     "panel_icon": { "type": "string" },
     "panel_title": { "type": "string" },
+    "panel_admin": { "type": "boolean" },
     "watchdog": {},
     "auto_update": { "type": "boolean" },
     "hassio_api": { "type": "boolean" },
@@ -32,7 +36,21 @@
     "boot": { "type": "string" },
     "map": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": {
+        "oneOf": [
+          { "type": "string" },
+          {
+            "type": "object",
+            "properties": {
+              "type": { "type": "string" },
+              "read_only": { "type": "boolean" },
+              "path": { "type": "string" }
+            },
+            "required": ["type"],
+            "additionalProperties": false
+          }
+        ]
+      }
     },
     "ports": { "type": "object" },
     "options": { "type": "object" },

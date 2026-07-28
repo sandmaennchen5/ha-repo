@@ -6,7 +6,6 @@ on:
       - "Update README Badges"
     types:
       - completed
-
   push:
     branches:
       - main

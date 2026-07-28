@@ -1,5 +1,5 @@
 name: "Newt - Pangolin Tunnels"
-version: "1.15.0"
+version: "1.15.0.1"
 slug: "newt"
 description: "Secure remote access with Pangolin tunnels."
 url: "https://github.com/fosrl/newt"
@@ -9,12 +9,18 @@ arch:
 image: ghcr.io/sandmaennchen5/ha-repo-newt
 init: false
 docker_api: true
+protected: false
 host_network: true
 privileged:
   - NET_ADMIN
   - SYS_MODULE
 ports:
   2112/tcp: null
+  8095/tcp: null
+ports_description:
+  2112/tcp: "Optional metrics endpoint"
+  8095/tcp: "Internal health endpoint"
+watchdog: "http://[HOST]:[PORT:8095]/health"
 kernel_modules: true
 options:
   endpoint: "https://app.pangolin.de"

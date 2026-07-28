@@ -131,4 +131,3 @@ Newt verbindet sich per WebSocket mit dem Pangolin-Server und erstellt einen Wir
 
 - [Pangolin Site-Konfiguration](https://docs.pangolin.net/manage/sites/configure-site)
 - [Newt GitHub Repository](https://github.com/fosrl/newt)
-- [Newt Release 1.13.0](https://github.com/fosrl/newt/releases/tag/1.13.0)

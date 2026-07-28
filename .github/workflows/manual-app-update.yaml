@@ -7,9 +7,14 @@ on:
         description: "App slug"
         required: true
         type: string
-      version:
-        description: "New semantic version, for example 1.2.3"
+      upstream_version:
+        description: "Upstream version, for example 13.4.0"
         required: true
+        type: string
+      app_version:
+        description: "Optional Home Assistant app version, for example 13.4.0.1; empty uses the upstream version"
+        required: false
+        default: ""
         type: string
       updated:
         description: "Update date in YYYY-MM-DD format"
@@ -41,7 +46,7 @@ concurrency:
 
 jobs:
   update:
-    name: Update ${{ inputs.app }} to ${{ inputs.version }}
+    name: Update ${{ inputs.app }} to upstream ${{ inputs.upstream_version }}
     runs-on: ubuntu-latest
 
     steps:
@@ -61,7 +66,8 @@ jobs:
       - name: Apply supplied metadata
         env:
           INPUT_APP: ${{ inputs.app }}
-          INPUT_VERSION: ${{ inputs.version }}
+          INPUT_UPSTREAM_VERSION: ${{ inputs.upstream_version }}
+          INPUT_APP_VERSION: ${{ inputs.app_version }}
           INPUT_UPDATED: ${{ inputs.updated }}
           INPUT_COMMIT: ${{ inputs.upstream_commit }}
           INPUT_SOURCE: ${{ inputs.source }}
@@ -69,7 +75,8 @@ jobs:
         run: |
           python .github/scripts/manual_update_app.py \
             --app "$INPUT_APP" \
-            --version "$INPUT_VERSION" \
+            --upstream-version "$INPUT_UPSTREAM_VERSION" \
+            --app-version "$INPUT_APP_VERSION" \
             --updated "$INPUT_UPDATED" \
             --commit "$INPUT_COMMIT" \
             --source "$INPUT_SOURCE" \
@@ -93,7 +100,8 @@ jobs:
       - name: Commit and push manual update
         env:
           INPUT_APP: ${{ inputs.app }}
-          INPUT_VERSION: ${{ inputs.version }}
+          INPUT_UPSTREAM_VERSION: ${{ inputs.upstream_version }}
+          INPUT_APP_VERSION: ${{ inputs.app_version }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -102,9 +110,10 @@ jobs:
             echo "No app metadata changed." >> "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
-          git commit -m "chore($INPUT_APP): update to $INPUT_VERSION"
+          display_version="${INPUT_APP_VERSION:-$INPUT_UPSTREAM_VERSION}"
+          git commit -m "chore($INPUT_APP): update to $display_version"
           git push
-          echo "Updated \`$INPUT_APP\` to \`$INPUT_VERSION\`." >> "$GITHUB_STEP_SUMMARY"
+          echo "Updated \`$INPUT_APP\` to app version \`$display_version\` with upstream \`$INPUT_UPSTREAM_VERSION\`." >> "$GITHUB_STEP_SUMMARY"
 
       - name: Build and publish updated app
         env:

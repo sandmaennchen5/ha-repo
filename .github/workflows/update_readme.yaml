@@ -1,10 +1,10 @@
 name: Update README Badges
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
-      - dev
     paths:
       - "apps/**/config.yaml"
       - "apps/**/.var.yaml"
@@ -14,8 +14,6 @@ on:
       - ".github/scripts/utils.py"
       - ".github/scripts/plugin_loader.py"
       - ".github/scripts/plugins/**"
-
-  workflow_dispatch:
 
 permissions:
   contents: write
