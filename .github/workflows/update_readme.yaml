@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - dev
     paths:
       - "apps/**/config.yaml"
       - "apps/**/.var.yaml"
