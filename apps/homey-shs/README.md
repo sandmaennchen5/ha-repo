@@ -8,15 +8,15 @@
 [![CodeFactor][codefactor-badge]][codefactor-url]
 
 <!-- BADGES-START -->
-![Version](https://img.shields.io/badge/version-v13.3.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--07--24-green)
+![Version](https://img.shields.io/badge/version-v13.4.0-blue)
+![Updated](https://img.shields.io/badge/updated-2026--07--28-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Host Network](https://img.shields.io/badge/host_network-True-blue)
-![Image Size](https://img.shields.io/badge/size-263_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v13.3.1-yellow)
+![Image Size](https://img.shields.io/badge/size-265_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v13.4.0-yellow)
 ![Repo](https://img.shields.io/badge/repo-ghcr.io%2Fathombv%2Fhomey--shs-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3A2d1319272af33f46bbfefbfca3e61332110e485487212e5301d38f01866e8cad-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3A97b00d6a074f8abc5d14a457f32e1c7a2b0bcbadfd56999932292efbe071abb9-informational)
 <!-- BADGES-END -->
 
 Homey Self-Hosted Server als Home Assistant-Add-on ausführen
