@@ -1,0 +1,143 @@
+name: ADS-B Multi-Portal Feeder
+slug: adsb-multi-portal-feeder
+version: "2.8.0.1"
+description: Dump1090 based feeder for FlightRadar24, FlightAware and more
+arch:
+  - aarch64
+  - amd64
+image: ghcr.io/sandmaennchen5/ha-adsb-multi-portal-feeder
+url: https://github.com/sandmaennchen5/ha-repo
+usb: true
+hassio_api: true
+homeassistant_api: true
+ingress: true
+ingress_port: 8080
+watchdog: "http://[HOST]:[PORT:8080]/"
+init: false
+options:
+  # Common
+  SERVICE_ENABLE_DUMP1090: true
+  SERVICE_ENABLE_PIAWARE: true
+  SERVICE_ENABLE_FR24FEED: true
+  SERVICE_ENABLE_HTTP: true
+  PIAWARE_FEEDER_DASH_ID: ""
+  FR24FEED_FR24KEY: ""
+  ADSBEXCHANGE_UUID: ""
+  PLANEFINDER_SHARECODE: ""
+  HTML_SITE_LAT: HOMEASSISTANT_LATITUDE
+  HTML_SITE_LON: HOMEASSISTANT_LONGITUDE
+  HTML_SITE_ALT: HOMEASSISTANT_ELEVATION
+  DUMP1090_ADDITIONAL_ARGS: ""
+  SYSTEM_HTTP_ULIMIT_N: 1048576
+  SYSTEM_FR24FEED_ULIMIT_N: 1024
+panel_icon: mdi:airplane
+panel_title: ADS-B Feeder
+ports:
+  30001/tcp: null
+  30002/tcp: null
+  30003/tcp: null
+  30004/tcp: null
+  30005/tcp: null
+  8080/tcp: null
+  8754/tcp: null
+  30053/tcp: null
+ports_description:
+  30001/tcp: TCP raw input
+  30002/tcp: TCP raw output
+  30003/tcp: TCP BaseStation output
+  30004/tcp: TCP Beast input
+  30005/tcp: TCP Beast output
+  8080/tcp: Dump1090 status site
+  8754/tcp: Flightrader24 feeder status site
+  30053/tcp: Plane Finder feeder status site
+schema:
+  # Common
+  SERVICE_ENABLE_DUMP1090: bool
+  SERVICE_ENABLE_PIAWARE: bool
+  SERVICE_ENABLE_FR24FEED: bool
+  SERVICE_ENABLE_HTTP: bool
+  SERVICE_ENABLE_IMPORT_OVER_NETCAT: bool?
+  SERVICE_ENABLE_ADSBEXCHANGE: bool?
+  SERVICE_ENABLE_PLANEFINDER: bool?
+  SERVICE_ENABLE_OPENSKY: bool?
+  SERVICE_ENABLE_ADSBFI: bool?
+  SERVICE_ENABLE_RADARBOX: bool?
+  SERVICE_ENABLE_ADSBHUB: bool?
+  SERVICE_ENABLE_BIAST: bool?
+  BIAST_ARGS: str?
+  # FlightAware (piaware)
+  PIAWARE_FEEDER_DASH_ID: str?
+  PIAWARE_RECEIVER_DASH_TYPE: str?
+  PIAWARE_RECEIVER_DASH_HOST: str?
+  PIAWARE_RECEIVER_DASH_PORT: port?
+  # Flightradar24
+  FR24FEED_RECEIVER: str?
+  FR24FEED_FR24KEY: str?
+  FR24FEED_HOST: str?
+  FR24FEED_BS: str?
+  FR24FEED_RAW: str?
+  FR24FEED_LOGMODE: int?
+  FR24FEED_LOGPATH: str?
+  FR24FEED_MLAT: str?
+  FR24FEED_MLAT_DASH_WITHOUT_DASH_GPS: str?
+  # ADS-B Exchange
+  ADSBEXCHANGE_UUID: str?
+  ADSBEXCHANGE_STATION_NAME: str?
+  ADSBEXCHANGE_MLAT: bool?
+  # Exact coordinates for MLAT
+  MLAT_EXACT_LAT: match([+-]?(([1-9][0-9]*)|(0))([.,][0-9]+)?|HOMEASSISTANT_LATITUDE)?
+  MLAT_EXACT_LON: match([+-]?(([1-9][0-9]*)|(0))([.,][0-9]+)?|HOMEASSISTANT_LONGITUDE)?
+  MLAT_ALTITUDE_MSL_METERS: match([+-]?(([1-9][0-9]*)|(0))([.,][0-9]+)?|HOMEASSISTANT_ELEVATION)?
+  # Plane Finder
+  PLANEFINDER_SHARECODE: str?
+  PLANEFINDER_INPUT_HOST: str?
+  PLANEFINDER_INPUT_PORT: port?
+  # Opensky
+  OPENSKY_USERNAME: str?
+  OPENSKY_SERIAL: str?
+  OPENSKY_DEVICE_TYPE: str?
+  OPENSKY_INPUT_HOST: str?
+  OPENSKY_INPUT_PORT: port?
+  # adsb.fi
+  ADSBFI_UUID: str?
+  ADSBFI_STATION_NAME: str?
+  ADSBFI_MLAT: bool?
+  # RadarBox
+  RADARBOX_SHARING_KEY: str?
+  RADARBOX_INPUT_HOST: str?
+  RADARBOX_INPUT_PORT: port?
+  RADARBOX_MLAT: bool?
+  # ADSBHub
+  ADSBHUB_CKEY: str?
+  # Dump1090 & Web UI
+  HTML_SITE_LAT: match([+-]?(([1-9][0-9]*)|(0))([.,][0-9]+)?|HOMEASSISTANT_LATITUDE)?
+  HTML_SITE_LON: match([+-]?(([1-9][0-9]*)|(0))([.,][0-9]+)?|HOMEASSISTANT_LONGITUDE)?
+  HTML_SITE_ALT: match([+-]?(([1-9][0-9]*)|(0))([.,][0-9]+)?|HOMEASSISTANT_ELEVATION)?
+  HTML_SITE_NAME: str?
+  HTML_DEFAULT_TRACKER: list(FlightAware|Flightradar24|Adsbexchange|Planefinder|OpenskyNetwork)?
+  HTML_RECEIVER_STATS_PAGE_FLIGHTAWARE: url?
+  HTML_RECEIVER_STATS_PAGE_FLIGHTRADAR24: url?
+  HTML_RECEIVER_STATS_PAGE_ADSBEXCHANGE: url?
+  HTML_RECEIVER_STATS_PAGE_PLANEFINDER: url?
+  HTML_RECEIVER_STATS_PAGE_OPENSKY_NETWORK: url?
+  HTML_RECEIVER_STATS_PAGE_RADARBOX: url?
+  HTML_RECEIVER_STATS_PAGE_ADSBFI: url?
+  HTML_RECEIVER_STATS_PAGE_ADSBHUB: url?
+  HTML_FR24_FEEDER_STATUS_PAGE: url?
+  DUMP1090_ADDITIONAL_ARGS: str?
+  # DUMP1090 forwarding
+  DUMP1090_LOCAL_PORT: port?
+  DUMP1090_REMOTE_HOST: str?
+  DUMP1090_REMOTE_PORT: port?
+  # RTL_TCP forwarding
+  RTL_TCP_OVER_NETCAT: bool?
+  RTL_TCP_REMOTE_HOST: str?
+  RTL_TCP_REMOTE_PORT: port?
+  # Terrain-limit rings (optional):
+  PANORAMA_ID: str?
+  PANORAMA_ALTS: str?
+  # Open Weather Map layers
+  LAYERS_OWM_API_KEY: str?
+  # System
+  SYSTEM_HTTP_ULIMIT_N: int?
+  SYSTEM_FR24FEED_ULIMIT_N: int?

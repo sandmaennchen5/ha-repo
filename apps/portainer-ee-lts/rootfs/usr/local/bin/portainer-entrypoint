@@ -1,0 +1,78 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+OPTIONS=/data/options.json
+opt() { jq -r --arg p "$1" --arg d "$2" 'getpath($p|split(".")) // $d' "$OPTIONS"; }
+export -f opt
+read_option() { opt "$@"; }
+
+if [[ ! -S /var/run/docker.sock ]]; then
+  echo "ERROR: Docker socket /var/run/docker.sock is unavailable."
+  echo "Disable 'Protected mode' for this app in Home Assistant and restart it."
+  exit 1
+fi
+
+. /usr/local/bin/portainer-migration
+
+edition="${FIXED_EDITION:-$(opt edition ce)}"
+channel="${FIXED_CHANNEL:-$(opt release_channel lts)}"
+case "${edition}-${channel}" in ce-lts|ce-sts|ee-lts|ee-sts) ;; *) echo "Invalid edition/channel"; exit 1;; esac
+share_relative="$(opt share_storage_directory portainer-config)"
+if [[ "$(opt storage_location data)" == share ]] && {
+  migration_paths_overlap "$share_relative" "$(opt import_export.export_directory portainer-backups)" ||
+  migration_paths_overlap "$share_relative" "$(opt import_export.import_search_directory portainer-backups)";
+}; then
+  echo "Storage directory must not overlap the import/export directory"
+  exit 1
+fi
+share_dir="$(migration_share_directory "$share_relative")"
+case "$(opt storage_location data)" in
+  data) data_dir=/data ;;
+  config) data_dir=/config ;;
+  share) data_dir="$share_dir" ;;
+  *) echo "Invalid storage location"; exit 1 ;;
+esac
+mkdir -p "$data_dir" /data/ingress-sessions
+reconcile_portainer_storage "$(opt storage_location data)" "$data_dir" "$share_dir"
+migration_import "$data_dir" "${BUILD_VERSION:-0.0.0}"
+
+export REMEMBER_INGRESS_USERS="$(opt remember_ingress_users false)"
+node /usr/local/bin/portainer-session-store.mjs & session_pid=$!
+nginx -g 'daemon off;' & nginx_pid=$!
+
+binary="/opt/portainer/${edition}-${channel}/portainer"
+cd "/opt/portainer/${edition}-${channel}"
+args=(--data "$data_dir" --bind :9000 --bind-https :9443 --host unix:///var/run/docker.sock)
+[[ "$(opt advanced.compact_database false)" == true ]] && args+=(--compact-db)
+[[ "$(opt advanced.edge_compute false)" == true ]] && args+=(--edge-compute)
+[[ "$(opt advanced.disable_content_security_policy false)" == true ]] && args+=(--no-csp)
+for pair in 'advanced.log_level:--log-level:INFO' 'advanced.log_mode:--log-mode:PRETTY' 'advanced.snapshot_interval:--snapshot-interval:5m' 'advanced.templates_url:--templates:' 'advanced.logo_url:--logo:' 'advanced.trusted_origins:--trusted-origins:' 'advanced.tunnel_address:--tunnel-addr:0.0.0.0' 'advanced.tunnel_port:--tunnel-port:8000'; do
+  IFS=: read -r key flag default <<<"$pair"; value="$(opt "$key" "$default")"; [[ -n "$value" ]] && args+=("$flag" "$value")
+done
+while IFS= read -r label; do [[ -n "$label" ]] && args+=(--hide-label "$label"); done < <(jq -r '.advanced.hide_labels[]? // empty' "$OPTIONS")
+admin_password="$(opt advanced.admin_password '')"
+if [[ -n "$admin_password" ]]; then printf '%s' "$admin_password" >/tmp/portainer-admin-password; chmod 600 /tmp/portainer-admin-password; args+=(--admin-password-file /tmp/portainer-admin-password); fi
+license="$(opt advanced.license_key '')"; [[ "$edition" == ee && -n "$license" ]] && args+=(--license-key "$license")
+secret="$(opt agent_secret '')"; [[ -n "$secret" ]] && export AGENT_SECRET="$secret"
+while IFS=$'\t' read -r name value; do [[ -n "$name" ]] && export "$name=$value"; done < <(jq -r '.advanced.environment[]? | [.name,.value] | @tsv' "$OPTIONS")
+
+echo "Starting Portainer edition=${edition} channel=${channel} storage=${data_dir}"
+"$binary" "${args[@]}" & portainer_pid=$!
+stopping=false
+shutdown_requested=false
+stop_all() {
+  [[ "$stopping" == true ]] && return; stopping=true
+  echo "Stopping Portainer before optional export"
+  kill -TERM "$portainer_pid" 2>/dev/null || true; wait "$portainer_pid" 2>/dev/null || true
+  migration_export "$data_dir" "${BUILD_VERSION:-0.0.0}" || echo "Export failed"
+  session_count="$(find /data/ingress-sessions -maxdepth 1 -type f -name '*.json' 2>/dev/null | wc -l | tr -d ' ')"
+  echo "Portainer ingress session files before stop: ${session_count}"
+  sync
+  kill -TERM "$nginx_pid" "$session_pid" 2>/dev/null || true
+  wait "$nginx_pid" "$session_pid" 2>/dev/null || true
+}
+request_shutdown() { shutdown_requested=true; stop_all; }
+trap request_shutdown TERM INT
+wait "$portainer_pid" || status=$?
+stop_all
+[[ "$shutdown_requested" == true ]] && exit 0
+exit "${status:-0}"

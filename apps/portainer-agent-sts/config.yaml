@@ -1,0 +1,41 @@
+name: "Portainer Agent STS"
+version: "2.44.0.1"
+slug: "portainer-agent-sts"
+description: "Portainer Agent with selectable LTS/STS channel."
+stage: stable
+url: "https://docs.portainer.io/admin/environments/add/docker/agent"
+arch: [aarch64, amd64]
+image: ghcr.io/sandmaennchen5/ha-repo-portainer-agent-sts
+init: false
+startup: services
+boot: auto
+docker_api: true
+protected: false
+apparmor: true
+watchdog: "tcp://[HOST]:[PORT:9001]"
+ports:
+  9001/tcp: 9001
+ports_description:
+  9001/tcp: "Portainer Agent API (HTTPS)"
+panel_icon: "mdi:docker"
+options:
+  agent_secret: ""
+  log_level: INFO
+  cluster_address: ""
+  advertise_address: ""
+  probe_interval: ""
+  probe_timeout: ""
+  environment: []
+schema:
+  agent_secret: password?
+  log_level: list(DEBUG|INFO|WARN|ERROR)
+  cluster_address: str?
+  advertise_address: str?
+  probe_interval: str?
+  probe_timeout: str?
+  environment:
+    - name: match(^[A-Za-z_][A-Za-z0-9_]*$)
+      value: password
+
+
+

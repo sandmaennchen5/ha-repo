@@ -1,0 +1,25 @@
+#!/usr/bin/with-contenv bashio
+set -e
+
+endpoint=$(bashio::config 'endpoint')
+client_id=$(bashio::config 'client_id')
+client_secret=$(bashio::config 'client_secret')
+
+if [[ -z "${client_id}" || -z "${client_secret}" ]]; then
+  bashio::log.fatal "Client ID and client secret are required."
+  exit 1
+fi
+
+export PANGOLIN_ENDPOINT="${endpoint}"
+export CLIENT_ID="${client_id}"
+export CLIENT_SECRET="${client_secret}"
+export LOG_LEVEL="$(bashio::config 'extras.log_level')"
+
+bashio::log.info "Connecting Pangolin CLI to ${endpoint}"
+
+if bashio::config.has_value 'extras.additional_args'; then
+  # Intended for advanced users. shellcheck disable=SC2086
+  exec pangolin-cli up --attach --id "${client_id}" --secret "${client_secret}" --endpoint "${endpoint}" $(bashio::config 'extras.additional_args')
+fi
+
+exec pangolin-cli up --attach --id "${client_id}" --secret "${client_secret}" --endpoint "${endpoint}"

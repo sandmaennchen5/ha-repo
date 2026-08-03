@@ -1,0 +1,18 @@
+configuration:
+  endpoint:
+    name: "Pangolin-Endpunkt"
+    description: "URL von Pangolin Cloud oder der selbst gehosteten Pangolin-Instanz."
+  client_id:
+    name: "Client-ID"
+    description: "ID des Machine Clients aus Pangolin."
+  client_secret:
+    name: "Client-Secret"
+    description: "Geheimes Kennwort des Machine Clients."
+  extras:
+    name: "Erweiterte Einstellungen"
+    fields:
+      log_level:
+        name: "Protokollstufe"
+      additional_args:
+        name: "Zusätzliche Argumente"
+        description: "Optionale zusätzliche Argumente für `pangolin-cli up --attach`."

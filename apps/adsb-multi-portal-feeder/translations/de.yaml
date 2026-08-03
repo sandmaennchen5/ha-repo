@@ -1,0 +1,231 @@
+name: ADS-B Multi-Portal Feeder
+description: >-
+  Leitet ADS-B-Daten von einem RTL-SDR-Empfänger an FlightRadar24,
+  FlightAware, ADSBexchange, PlaneFinder und weitere Portale weiter.
+configuration:
+  ADSBEXCHANGE_MLAT:
+    description: MLAT-Beitrag aktivieren oder deaktivieren.
+    name: ADSBexchange MLAT
+  ADSBEXCHANGE_STATION_NAME:
+    description: Stationsname für die MLAT-Karte.
+    name: ADSBexchange-Stationsname
+  ADSBEXCHANGE_UUID:
+    description: Eindeutige UUID für den ADSBexchange-Feeder.
+    name: ADSBexchange-UUID
+  ADSBFI_MLAT:
+    description: MLAT-Beitrag aktivieren oder deaktivieren.
+    name: ADSB.fi MLAT
+  ADSBFI_STATION_NAME:
+    description: Stationsname für die MLAT-Karte.
+    name: ADSB.fi – Name der Station
+  ADSBFI_UUID:
+    description: Eindeutige UUID für den ADSB.fi-Feeder.
+    name: ADSB.fi UUID
+  ADSBHUB_CKEY:
+    description: Freigabeschlüssel für ADSBHub.
+    name: ADSBHub-Freigabeschlüssel
+  BIAST_ARGS:
+    description: Argumente für rtl_biast.
+    name: Bias-T-Argumente
+  DUMP1090_ADDITIONAL_ARGS:
+    description: >-
+      Optionale, durch Leerzeichen getrennte dump1090-Parameter, zum Beispiel
+      --device 0, --device 00000001, --gain 40, --ppm 1 oder --freq
+      1090000000. --device akzeptiert einen Geräteindex oder eine Seriennummer.
+      Nur vom eingesetzten dump1090-Build unterstützte Parameter verwenden.
+    name: Zusätzliche dump1090-Argumente
+  DUMP1090_LOCAL_PORT:
+    description: Anschluss für lokale Geräte.
+    name: Lokaler Port 1090
+  DUMP1090_REMOTE_HOST:
+    description: Host des Remote-Dump1090-Servers.
+    name: Remote-Host für dump1090
+  DUMP1090_REMOTE_PORT:
+    description: Port des Remote-Dump1090-Servers.
+    name: Remote-Port für Dump1090
+  FR24FEED_BS:
+    description: BS-Modus aktivieren oder deaktivieren.
+    name: FR24 BS-Modus
+  FR24FEED_FR24KEY:
+    description: Dein FlugRadar24-Freigabeschlüssel.
+    name: FR24-Schlüssel
+  FR24FEED_HOST:
+    description: Host für die FR24-Dateneingabe.
+    name: FR24-Moderator
+  FR24FEED_LOGMODE:
+    description: Protokollierungsmodus für FR24.
+    name: FR24-Protokollmodus
+  FR24FEED_LOGPATH:
+    description: Pfad für FR24-Protokolle.
+    name: Pfad zum FR24-Protokoll
+  FR24FEED_MLAT:
+    description: MLAT für FR24 aktivieren oder deaktivieren.
+    name: FR24 MLAT
+  FR24FEED_MLAT_DASH_WITHOUT_DASH_GPS:
+    description: MLAT ohne GPS aktivieren.
+    name: FR24 MLAT ohne GPS
+  FR24FEED_RAW:
+    description: RAW-Modus aktivieren oder deaktivieren.
+    name: FR24-RAW-Modus
+  FR24FEED_RECEIVER:
+    description: Empfängertyp für FlightRadar24.
+    name: FR24-Empfängertyp
+  HTML_DEFAULT_TRACKER:
+    description: Standard-Website für Flugverfolgung.
+    name: Standard-Tracker
+  HTML_FR24_FEEDER_STATUS_PAGE:
+    description: URL der lokalen FR24-Statusseite für Feeder-Flüge.
+    name: FR24-Feed-Statusseite
+  HTML_RECEIVER_STATS_PAGE_ADSBEXCHANGE:
+    description: URL Ihrer ADSBexchange-Statistikseite.
+    name: ADSBexchange-Statistik-URL
+  HTML_RECEIVER_STATS_PAGE_ADSBFI:
+    description: URL Ihrer ADSB.fi-Statistikseite.
+    name: ADSB.fi-URL
+  HTML_RECEIVER_STATS_PAGE_ADSBHUB:
+    description: URL Ihrer ADSBHub-Statistikseite.
+    name: ADSBHub-Statistik-URL
+  HTML_RECEIVER_STATS_PAGE_FLIGHTAWARE:
+    description: URL Ihrer FlightAware-Statistikseite.
+    name: URL zu den FlightAware-Statistiken
+  HTML_RECEIVER_STATS_PAGE_FLIGHTRADAR24:
+    description: URL Ihrer FR24-Statistikseite.
+    name: URL der FlightRadar24-Statistiken
+  HTML_RECEIVER_STATS_PAGE_OPENSKY_NETWORK:
+    description: URL Ihrer Opensky-Statistikseite.
+    name: URL von Opensky anzeigen
+  HTML_RECEIVER_STATS_PAGE_PLANEFINDER:
+    description: URL Ihrer PlaneFinder-Statistikseite.
+    name: PlaneFinder-Statistik-URL
+  HTML_RECEIVER_STATS_PAGE_RADARBOX:
+    description: URL Ihrer Radarbox-Statistikseite.
+    name: Radarbox-Statistik-URL
+  HTML_SITE_ALT:
+    description: Höhe Ihres Empfängers.
+    name: Lage in der Höhe
+  HTML_SITE_LAT:
+    description: Breitengrad Ihres Empfängers.
+    name: Breitengrad
+  HTML_SITE_LON:
+    description: Längengrad Ihres Empfängers.
+    name: Längengrad
+  HTML_SITE_NAME:
+    description: Name Ihrer Empfangsseite.
+    name: Name der Website
+  LAYERS_OWM_API_KEY:
+    description: API-Schlüssel für OWM-Wetter-Ebenen.
+    name: OpenWeatherMap-API-Schlüssel
+  MLAT_ALTITUDE_MSL_METERS:
+    description: Höhe über dem mittleren Meeresspiegel in Metern.
+    name: MLAT-Höhe (MSL)
+  MLAT_EXACT_LAT:
+    description: Genaue Breite für MLAT.
+    name: MLAT-Breitengrad
+  MLAT_EXACT_LON:
+    description: Genaue Längengradangabe für MLAT.
+    name: Längengrad des MLAT
+  OPENSKY_DEVICE_TYPE:
+    description: Gerätetyp für Opensky.
+    name: Opensky-Gerätetyp
+  OPENSKY_INPUT_HOST:
+    description: Host für Opensky-Eingaben.
+    name: Host-Eingabe öffnen
+  OPENSKY_INPUT_PORT:
+    description: Anschluss für Opensky-Eingang.
+    name: Öffnen Sie den Eingangsanschluss
+  OPENSKY_SERIAL:
+    description: Von Opensky generierte Seriennummer.
+    name: Serie „Open Sky“
+  OPENSKY_USERNAME:
+    description: Dein Opensky-Benutzername.
+    name: Opensky-Benutzername
+  PANORAMA_ALTS:
+    description: Durch Kommas getrennte Liste von Höhenangaben.
+    name: Höhenübersicht
+  PANORAMA_ID:
+    description: Hey, wie lautet die Panorama-ID?
+    name: Panorama-ID
+  PIAWARE_FEEDER_DASH_ID:
+    description: Ihre FlightAware-Feeder-ID.
+    name: FlightAware-Feeder-ID
+  PIAWARE_RECEIVER_DASH_HOST:
+    description: Host-Adresse für den PiAware-Empfänger.
+    name: Empfänger-Host
+  PIAWARE_RECEIVER_DASH_PORT:
+    description: Port für den PiAware-Empfänger.
+    name: Empfängeranschluss
+  PIAWARE_RECEIVER_DASH_TYPE:
+    description: Empfängertyp für PiAware.
+    name: Empfängertyp
+  PLANEFINDER_INPUT_HOST:
+    description: Host für PlaneFinder-Eingaben.
+    name: PlaneFinder-Eingabefeld
+  PLANEFINDER_INPUT_PORT:
+    description: Schnittstelle für PlaneFinder-Eingaben.
+    name: PlaneFinder-Eingangsanschluss
+  PLANEFINDER_SHARECODE:
+    description: Dein PlaneFinder-Freigabecode.
+    name: PlaneFinder-Freigabecode
+  RADARBOX_INPUT_HOST:
+    description: Host für den Radarbox-Eingang.
+    name: Radarbox-Eingangs-Host
+  RADARBOX_INPUT_PORT:
+    description: Anschluss für den Radarbox-Eingang.
+    name: Radarbox-Eingangsanschluss
+  RADARBOX_MLAT:
+    description: MLAT aktivieren oder deaktivieren.
+    name: Radarbox MLAT
+  RADARBOX_SHARING_KEY:
+    description: Dein Radarbox-Freigabeschlüssel.
+    name: Radarbox-Freigabeschlüssel
+  RTL_TCP_OVER_NETCAT:
+    description: Aktivieren Sie die Übertragung von rtl_tcp-Daten über netcat.
+    name: RTL_TCP über netcat
+  RTL_TCP_REMOTE_HOST:
+    description: Host des rtl_tcp-Servers.
+    name: RTL_TCP-Remote-Host
+  RTL_TCP_REMOTE_PORT:
+    description: Port des rtl_tcp-Servers.
+    name: RTL_TCP-Remote-Port
+  SERVICE_ENABLE_ADSBEXCHANGE:
+    description: ADSBexchange-Feeder aktivieren oder deaktivieren.
+    name: ADSBexchange aktivieren
+  SERVICE_ENABLE_ADSBFI:
+    description: ADSB.fi-Feeder aktivieren oder deaktivieren.
+    name: ADSB.fi aktivieren
+  SERVICE_ENABLE_ADSBHUB:
+    description: ADSBHub-Feeder aktivieren oder deaktivieren.
+    name: ADSBHub aktivieren
+  SERVICE_ENABLE_BIAST:
+    description: Aktivieren Sie die Bias-Tee-Stromversorgung für RTL-SDR-Geräte.
+    name: Bias-T aktivieren
+  SERVICE_ENABLE_DUMP1090:
+    description: Den Dienst „dump1090“ aktivieren oder deaktivieren.
+    name: dump1090 aktivieren
+  SERVICE_ENABLE_FR24FEED:
+    description: Den FlightRadar24-Feed aktivieren oder deaktivieren.
+    name: FR24-Feeder aktivieren
+  SERVICE_ENABLE_HTTP:
+    description: Aktivieren oder deaktivieren Sie die Weboberfläche von dump1090.
+    name: HTTP-Server aktivieren
+  SERVICE_ENABLE_IMPORT_OVER_NETCAT:
+    description: Beast-Daten aus einer entfernten dump1090-Instanz importieren.
+    name: Netcat-Import aktivieren
+  SERVICE_ENABLE_OPENSKY:
+    description: Opensky-Feeder aktivieren oder deaktivieren.
+    name: Opensky aktivieren
+  SERVICE_ENABLE_PIAWARE:
+    description: Den PiAware-Dienst aktivieren oder deaktivieren.
+    name: PiAware aktivieren
+  SERVICE_ENABLE_PLANEFINDER:
+    description: PlaneFinder-Feeder aktivieren oder deaktivieren.
+    name: PlaneFinder aktivieren
+  SERVICE_ENABLE_RADARBOX:
+    description: Radarbox-Feeder aktivieren oder deaktivieren.
+    name: Radarbox aktivieren
+  SYSTEM_FR24FEED_ULIMIT_N:
+    description: Maximale Anzahl geöffneter Dateien für den FR24-Feeder.
+    name: FR24-Dateilimit
+  SYSTEM_HTTP_ULIMIT_N:
+    description: Maximale Anzahl geöffneter Dateien für den HTTP-Dienst zur Vermeidung von OOM-Problemen.
+    name: HTTP-Dateilimit

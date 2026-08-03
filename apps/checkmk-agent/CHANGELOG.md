@@ -1,0 +1,25 @@
+# Changelog
+
+## [2.5.0.10.1] - 2026-07-28
+
+### Upstream Release Notes
+
+- Checkmk release branch: `release/2.5.0p10`
+- Agent source: `agents/check_mk_agent.openwrt`
+- Commit: `a197bee7557196aa3e94ec523c570f3ff5039884`
+
+Weitere Informationen: https://github.com/Checkmk/checkmk/releases/latest
+
+---
+
+## [2.5.0.6.2] - 2026-07-31
+
+- Der gemeinsame App-Workflow übernimmt `BUILD_FROM` architekturspezifisch aus `build.json`.
+- Das Basisimage wird nur noch in `build.json` gepflegt.
+
+## [2.5.0.6.1] - 2026-07-31
+
+- Auf die architekturspezifische Home-Assistant-Basis dieses Repositories umgestellt.
+- Watchdog und Container-Healthcheck ergänzt.
+- Home-Assistant-kompatible Versionierung eingerichtet: Checkmk `X.Y.ZpN` wird als `X.Y.Z.N.R` veröffentlicht.
+- Dokumentation und Sicherheitsinformationen überarbeitet.

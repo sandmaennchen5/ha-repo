@@ -1,0 +1,17 @@
+configuration:
+  edition:
+    name: Edition
+  release_channel:
+    name: Veröffentlichungskanal
+  storage_location:
+    name: Speicherort
+  share_storage_directory:
+    name: Ordner unter /share
+  remember_ingress_users:
+    name: Ingress-Anmeldung je Home-Assistant-Benutzer speichern
+  agent_secret:
+    name: Gemeinsames Agent-Secret
+  advanced:
+    name: Erweiterte Portainer-Optionen
+  import_export:
+    name: Import / Export

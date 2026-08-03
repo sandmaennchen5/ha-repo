@@ -1,0 +1,20 @@
+hidden: false
+icon: "🦎"
+stage: "stable"
+
+version_strategy: "upstream_revision"
+upstream_version: "0.15.0"
+upstream_repo: "github.com/fosrl/cli"
+upstream_commit: "91aed8f6aef125aa7e20d259c94167cd92d2ebd9"
+autoupdater: true
+
+build: ""
+lint: ""
+yaml_lint: ""
+code_quality: ""
+image_size: "23 MB"
+custom_shield: ""
+custom_flag: ""
+
+updated: "2026-07-20"
+source: "github.com/fosrl/cli"

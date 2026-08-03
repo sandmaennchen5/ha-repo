@@ -1,0 +1,21 @@
+name: "Checkmk Agent"
+version: "2.5.0.10.1"
+slug: "checkmk-agent"
+description: "Expose the Checkmk monitoring agent on port 6556."
+stage: stable
+url: "https://checkmk.com/"
+arch:
+  - aarch64
+  - amd64
+image: ghcr.io/sandmaennchen5/ha-repo-checkmk-agent
+init: false
+startup: services
+boot: auto
+watchdog: "tcp://[HOST]:[PORT:6556]"
+ports:
+  6556/tcp: 6556
+ports_description:
+  6556/tcp: "Checkmk agent data (plain text; secure at network level)"
+panel_icon: "mdi:monitor-dashboard"
+options: {}
+schema: {}

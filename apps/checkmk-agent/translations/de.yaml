@@ -1,0 +1,2 @@
+network:
+  6556/tcp: "Checkmk-Agentendaten (Klartext; auf Netzwerkebene absichern)"

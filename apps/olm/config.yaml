@@ -1,0 +1,54 @@
+name: "Olm - Pangolin Client"
+version: "1.8.1.1"
+slug: "olm"
+description: "Advanced WireGuard client for remote access to Pangolin and Newt sites."
+url: "https://github.com/fosrl/olm"
+arch:
+  - aarch64
+  - amd64
+image: "ghcr.io/sandmaennchen5/ha-repo-olm"
+init: false
+host_network: true
+kernel_modules: true
+privileged:
+  - NET_ADMIN
+  - SYS_MODULE
+devices:
+  - /dev/net/tun
+ports:
+  8096/tcp: null
+ports_description:
+  8096/tcp: "Internal health endpoint"
+watchdog: "http://[HOST]:[PORT:8096]/health"
+options:
+  endpoint: "https://app.pangolin.net"
+  id: ""
+  secret: ""
+  network:
+    mtu: 1280
+    dns: "8.8.8.8"
+    upstream_dns: "8.8.8.8:53"
+    interface: "olm"
+  extras:
+    log_level: "INFO"
+    disable_holepunch: false
+    disable_relay: false
+    prefer_local_routes: false
+    override_dns: true
+    tunnel_dns: false
+schema:
+  endpoint: url
+  id: str
+  secret: password
+  network:
+    mtu: int(576,9000)
+    dns: str
+    upstream_dns: str
+    interface: str
+  extras:
+    log_level: list(DEBUG|INFO|WARN|ERROR|FATAL)
+    disable_holepunch: bool
+    disable_relay: bool
+    prefer_local_routes: bool
+    override_dns: bool
+    tunnel_dns: bool

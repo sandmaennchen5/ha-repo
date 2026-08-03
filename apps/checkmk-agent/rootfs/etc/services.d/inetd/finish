@@ -1,0 +1,8 @@
+#!/usr/bin/with-contenv bashio
+
+if [[ "$1" -ne 0 ]] && [[ "$1" -ne 256 ]]; then
+    bashio::log.error "inetd stopped unexpectedly; halting the app."
+    exec /run/s6/basedir/bin/halt
+fi
+
+bashio::log.info "inetd stopped normally."

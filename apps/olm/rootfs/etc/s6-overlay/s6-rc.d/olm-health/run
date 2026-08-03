@@ -1,0 +1,2 @@
+#!/usr/bin/with-contenv bash
+exec socat TCP-LISTEN:8096,reuseaddr,fork EXEC:/usr/local/bin/olm-health-response

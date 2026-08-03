@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+OPTIONS=/data/options.json
+opt() { jq -r --arg p "$1" --arg d "$2" 'getpath($p|split(".")) // $d' "$OPTIONS"; }
+
+if [[ ! -S /var/run/docker.sock ]]; then
+  echo "ERROR: Docker socket /var/run/docker.sock is unavailable."
+  echo "Disable 'Protected mode' for this app in Home Assistant and restart it."
+  exit 1
+fi
+
+channel="${FIXED_CHANNEL:-$(opt release_channel lts)}"
+case "$channel" in lts|sts) ;; *) echo "Invalid release channel"; exit 1;; esac
+export LOG_LEVEL="$(opt log_level INFO)"
+export AGENT_PORT=9001
+for mapping in 'agent_secret:AGENT_SECRET' 'cluster_address:AGENT_CLUSTER_ADDR' 'advertise_address:AGENT_CLUSTER_ADVERTISE_ADDR' 'probe_interval:AGENT_PROBE_INTERVAL' 'probe_timeout:AGENT_PROBE_TIMEOUT'; do
+  IFS=: read -r key env_name <<<"$mapping"; value="$(opt "$key" '')"; [[ -n "$value" ]] && export "$env_name=$value"
+done
+while IFS=$'\t' read -r name value; do [[ -n "$name" ]] && export "$name=$value"; done < <(jq -r '.environment[]? | [.name,.value] | @tsv' "$OPTIONS")
+echo "Starting Portainer Agent channel=${channel} port=${AGENT_PORT}"
+"/opt/portainer-agent/${channel}/agent" & agent_pid=$!
+shutdown_requested=false
+request_shutdown() {
+  shutdown_requested=true
+  echo "Stopping Portainer Agent cleanly"
+  kill -TERM "$agent_pid" 2>/dev/null || true
+  wait "$agent_pid" 2>/dev/null || true
+}
+trap request_shutdown TERM INT
+wait "$agent_pid" || status=$?
+[[ "$shutdown_requested" == true ]] && exit 0
+exit "${status:-0}"

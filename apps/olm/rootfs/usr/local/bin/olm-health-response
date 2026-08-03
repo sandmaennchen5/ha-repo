@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+read -r _request || true
+if pgrep -x olm >/dev/null 2>&1; then
+  status="200 OK"
+  body=$'OK\n'
+else
+  status="503 Service Unavailable"
+  body=$'Olm unavailable\n'
+fi
+printf 'HTTP/1.1 %s\r\nContent-Type: text/plain\r\nContent-Length: %d\r\nConnection: close\r\n\r\n%s' \
+  "$status" "${#body}" "$body"

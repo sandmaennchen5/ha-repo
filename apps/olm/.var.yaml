@@ -1,0 +1,20 @@
+hidden: false
+icon: "🍃"
+stage: "stable"
+
+version_strategy: "upstream_revision"
+upstream_version: "1.8.1"
+upstream_repo: "github.com/fosrl/olm"
+upstream_commit: "96e1d0f98c4480dd066fbe73dfba5ec0b95d5f7a"
+autoupdater: true
+
+build: ""
+lint: ""
+yaml_lint: ""
+code_quality: ""
+image_size: "26 MB"
+custom_shield: ""
+custom_flag: ""
+
+updated: "2026-07-30"
+source: "github.com/fosrl/olm"

@@ -1,0 +1,37 @@
+configuration:
+  endpoint:
+    name: "Pangolin-Endpunkt"
+    description: "URL des Pangolin-Servers."
+  id:
+    name: "Olm-ID"
+    description: "Client-ID aus Pangolin."
+  secret:
+    name: "Olm-Secret"
+    description: "Geheimes Client-Kennwort aus Pangolin."
+  network:
+    name: "Netzwerk"
+    description: "WireGuard- und DNS-Einstellungen."
+    fields:
+      mtu:
+        name: "MTU"
+      dns:
+        name: "Tunnel-DNS"
+      upstream_dns:
+        name: "Upstream-DNS"
+      interface:
+        name: "Interface-Name"
+  extras:
+    name: "Erweiterte Einstellungen"
+    fields:
+      log_level:
+        name: "Protokollstufe"
+      disable_holepunch:
+        name: "Hole Punching deaktivieren"
+      disable_relay:
+        name: "Relay deaktivieren"
+      prefer_local_routes:
+        name: "Lokale Routen bevorzugen"
+      override_dns:
+        name: "System-DNS überschreiben"
+      tunnel_dns:
+        name: "DNS durch Tunnel leiten"

@@ -1,0 +1,10 @@
+#!/usr/bin/with-contenv bashio
+set -e
+
+if ! bashio::var.has_value "$(bashio::addon.port 6556)"; then
+    bashio::log.warning "Port 6556 is disabled; the Checkmk agent will not start."
+    exec sleep infinity
+fi
+
+bashio::log.info "Starting Checkmk agent through inetd on port 6556..."
+exec /usr/sbin/inetd -fe

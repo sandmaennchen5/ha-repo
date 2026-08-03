@@ -1,0 +1,17 @@
+configuration:
+  release_channel:
+    name: Veröffentlichungskanal
+  agent_secret:
+    name: Gemeinsames Agent-Secret
+  log_level:
+    name: Protokollstufe
+  cluster_address:
+    name: Cluster-Adresse
+  advertise_address:
+    name: Angekündigte Cluster-Adresse
+  probe_interval:
+    name: Prüfintervall
+  probe_timeout:
+    name: Zeitlimit der Prüfung
+  environment:
+    name: Zusätzliche Umgebungsvariablen

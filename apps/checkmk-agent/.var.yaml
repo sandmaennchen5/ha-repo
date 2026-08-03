@@ -1,0 +1,21 @@
+hidden: false
+icon: "📊"
+stage: "stable"
+
+version_strategy: "checkmk_numeric_revision"
+upstream_strategy: "github_release_branch"
+upstream_version: "2.5.0p10"
+upstream_repo: "github.com/Checkmk/checkmk"
+upstream_commit: "a197bee7557196aa3e94ec523c570f3ff5039884"
+autoupdater: true
+
+build: ""
+lint: ""
+yaml_lint: ""
+code_quality: ""
+image_size: "11 MB"
+custom_shield: ""
+custom_flag: ""
+
+updated: "2026-07-28"
+source: "github.com/Checkmk/checkmk"

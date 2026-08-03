@@ -1,0 +1,33 @@
+#!/usr/bin/with-contenv bashio
+set -e
+
+endpoint=$(bashio::config 'endpoint')
+id=$(bashio::config 'id')
+secret=$(bashio::config 'secret')
+
+if [[ -z "${id}" || -z "${secret}" ]]; then
+  bashio::log.fatal "Olm ID and secret are required."
+  exit 1
+fi
+
+export PANGOLIN_ENDPOINT="${endpoint}"
+export OLM_ID="${id}"
+export OLM_SECRET="${secret}"
+export MTU="$(bashio::config 'network.mtu')"
+export DNS="$(bashio::config 'network.dns')"
+export UPSTREAM_DNS="$(bashio::config 'network.upstream_dns')"
+export INTERFACE="$(bashio::config 'network.interface')"
+export LOG_LEVEL="$(bashio::config 'extras.log_level')"
+export DISABLE_HOLEPUNCH="$(bashio::config 'extras.disable_holepunch')"
+export DISABLE_RELAY="$(bashio::config 'extras.disable_relay')"
+export PREFER_LOCAL_ROUTES="$(bashio::config 'extras.prefer_local_routes')"
+export OVERRIDE_DNS="$(bashio::config 'extras.override_dns')"
+export TUNNEL_DNS="$(bashio::config 'extras.tunnel_dns')"
+
+bashio::log.info "Starting Olm for ${endpoint}"
+exec olm \
+  --disable-holepunch="$(bashio::config 'extras.disable_holepunch')" \
+  --disable-relay="$(bashio::config 'extras.disable_relay')" \
+  --prefer-local-routes="$(bashio::config 'extras.prefer_local_routes')" \
+  --override-dns="$(bashio::config 'extras.override_dns')" \
+  --tunnel-dns="$(bashio::config 'extras.tunnel_dns')"

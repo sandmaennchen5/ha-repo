@@ -1,0 +1,18 @@
+hidden: false
+icon: "💼"
+stage: "stable"
+version_strategy: "upstream_revision"
+upstream_version: "2.39.5"
+upstream_repo: "docker.io/portainer/portainer-ee"
+upstream_tracking_tag: "alpine"
+upstream_commit: "sha256:7f7408b8336701055b87446e87978f26d5ead271de64ffad07b2173acf3165d8"
+autoupdater: true
+build: ""
+lint: ""
+yaml_lint: ""
+code_quality: ""
+image_size: "76 MB"
+custom_shield: ""
+custom_flag: ""
+updated: "2026-07-13"
+source: "docker.io/portainer/portainer-ee"
