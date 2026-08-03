@@ -3,7 +3,7 @@
   "properties": {
     "hidden": { "type": "boolean" },
     "icon": { "type": "string" },
-    "stage": { "type": "string", "enum": ["stable", "beta", "lab", ""] },
+    "stage": { "type": "string", "enum": ["stable", "beta", "experimental", ""] },
     "hide_root_readme": { "type": "boolean" },
     "hide_app_readme": { "type": "boolean" },
     "hide_badges": {
