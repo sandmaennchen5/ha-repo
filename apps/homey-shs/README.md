@@ -9,7 +9,6 @@
 
 <!-- BADGES-START -->
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Watchdog](https://img.shields.io/badge/watchdog-http%3A%2F%2F%5BHOST%5D%3A%5BPORT%3A8099%5D%2F__health-green)
 ![Version](https://img.shields.io/badge/version-v13.4.0.3-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--07--28-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)

@@ -7,11 +7,9 @@
 [![CodeFactor][codefactor-badge]][codefactor-url]
 
 <!-- BADGES-START -->
-![Watchdog](https://img.shields.io/badge/watchdog-tcp%3A%2F%2F%5BHOST%5D%3A%5BPORT%3A9001%5D-green)
 ![Version](https://img.shields.io/badge/version-v2026.8.1-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--07--31-green)
 ![Stage](https://img.shields.io/badge/stage-experimental-orange)
-![AppArmor](https://img.shields.io/badge/apparmor-True-blue)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
 ![Image Size](https://img.shields.io/badge/size-64_MB-informational)

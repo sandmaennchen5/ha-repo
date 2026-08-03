@@ -8,7 +8,6 @@
 
 <!-- BADGES-START -->
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Watchdog](https://img.shields.io/badge/watchdog-http%3A%2F%2F%5BHOST%5D%3A%5BPORT%3A8080%5D%2F-green)
 ![Hass.io API](https://img.shields.io/badge/hassio_api-True-blue)
 ![HA API](https://img.shields.io/badge/ha_api-True-blue)
 ![Version](https://img.shields.io/badge/version-v2.8.0.1-blue)

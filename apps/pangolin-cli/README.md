@@ -7,7 +7,6 @@
 [![CodeFactor][codefactor-badge]][codefactor-url]
 
 <!-- BADGES-START -->
-![Watchdog](https://img.shields.io/badge/watchdog-http%3A%2F%2F%5BHOST%5D%3A%5BPORT%3A8097%5D%2Fhealth-green)
 ![Version](https://img.shields.io/badge/version-v0.15.0.1-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--07--20-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)

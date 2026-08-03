@@ -49,7 +49,6 @@ Home-Assistant-Apps](docs/app-storage-and-migration.md) erklärt `/data`,
 Dump1090 based feeder for FlightRadar24, FlightAware and more
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Watchdog](https://img.shields.io/badge/watchdog-http%3A%2F%2F%5BHOST%5D%3A%5BPORT%3A8080%5D%2F-green)
 ![Hass.io API](https://img.shields.io/badge/hassio_api-True-blue)
 ![HA API](https://img.shields.io/badge/ha_api-True-blue)
 ![Version](https://img.shields.io/badge/version-v2.8.0.1-blue)
@@ -65,7 +64,6 @@ Dump1090 based feeder for FlightRadar24, FlightAware and more
 
 Expose the Checkmk monitoring agent on port 6556.
 
-![Watchdog](https://img.shields.io/badge/watchdog-tcp%3A%2F%2F%5BHOST%5D%3A%5BPORT%3A6556%5D-green)
 ![Version](https://img.shields.io/badge/version-v2.5.0.10.1-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--07--28-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
@@ -80,7 +78,6 @@ Expose the Checkmk monitoring agent on port 6556.
 Run Homey Self-Hosted Server on Home Assistant OS.
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Watchdog](https://img.shields.io/badge/watchdog-http%3A%2F%2F%5BHOST%5D%3A%5BPORT%3A8099%5D%2F__health-green)
 ![Version](https://img.shields.io/badge/version-v13.4.0.3-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--07--28-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
@@ -95,7 +92,6 @@ Run Homey Self-Hosted Server on Home Assistant OS.
 
 Secure remote access with Pangolin tunnels.
 
-![Watchdog](https://img.shields.io/badge/watchdog-http%3A%2F%2F%5BHOST%5D%3A%5BPORT%3A8095%5D%2Fhealth-green)
 ![Version](https://img.shields.io/badge/version-v1.15.0.1-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--07--19-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
@@ -113,7 +109,6 @@ Secure remote access with Pangolin tunnels.
 
 Advanced WireGuard client for remote access to Pangolin and Newt sites.
 
-![Watchdog](https://img.shields.io/badge/watchdog-http%3A%2F%2F%5BHOST%5D%3A%5BPORT%3A8096%5D%2Fhealth-green)
 ![Version](https://img.shields.io/badge/version-v1.8.1.1-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--07--30-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
@@ -130,7 +125,6 @@ Advanced WireGuard client for remote access to Pangolin and Newt sites.
 
 Official Pangolin CLI and WireGuard VPN client for Linux.
 
-![Watchdog](https://img.shields.io/badge/watchdog-http%3A%2F%2F%5BHOST%5D%3A%5BPORT%3A8097%5D%2Fhealth-green)
 ![Version](https://img.shields.io/badge/version-v0.15.0.1-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--07--20-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
@@ -147,11 +141,9 @@ Official Pangolin CLI and WireGuard VPN client for Linux.
 Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Watchdog](https://img.shields.io/badge/watchdog-http%3A%2F%2F%5BHOST%5D%3A%5BPORT%3A9000%5D%2Fapi%2Fsystem%2Fstatus-green)
 ![Version](https://img.shields.io/badge/version-v2026.8.1-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--07--31-green)
 ![Stage](https://img.shields.io/badge/stage-experimental-orange)
-![AppArmor](https://img.shields.io/badge/apparmor-True-blue)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
 ![Image Size](https://img.shields.io/badge/size-201_MB-informational)
@@ -163,11 +155,9 @@ Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.
 
 Portainer Agent with selectable LTS/STS channel.
 
-![Watchdog](https://img.shields.io/badge/watchdog-tcp%3A%2F%2F%5BHOST%5D%3A%5BPORT%3A9001%5D-green)
 ![Version](https://img.shields.io/badge/version-v2026.8.1-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--07--31-green)
 ![Stage](https://img.shields.io/badge/stage-experimental-orange)
-![AppArmor](https://img.shields.io/badge/apparmor-True-blue)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
 ![Image Size](https://img.shields.io/badge/size-64_MB-informational)
@@ -179,11 +169,9 @@ Portainer Agent with selectable LTS/STS channel.
 
 Portainer Agent with selectable LTS/STS channel.
 
-![Watchdog](https://img.shields.io/badge/watchdog-tcp%3A%2F%2F%5BHOST%5D%3A%5BPORT%3A9001%5D-green)
 ![Version](https://img.shields.io/badge/version-v2.39.5.1-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--07--13-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
-![AppArmor](https://img.shields.io/badge/apparmor-True-blue)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
 ![Image Size](https://img.shields.io/badge/size-35_MB-informational)
@@ -195,11 +183,9 @@ Portainer Agent with selectable LTS/STS channel.
 
 Portainer Agent with selectable LTS/STS channel.
 
-![Watchdog](https://img.shields.io/badge/watchdog-tcp%3A%2F%2F%5BHOST%5D%3A%5BPORT%3A9001%5D-green)
 ![Version](https://img.shields.io/badge/version-v2.44.0.1-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--07--30-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
-![AppArmor](https://img.shields.io/badge/apparmor-True-blue)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
 ![Image Size](https://img.shields.io/badge/size-39_MB-informational)
@@ -212,11 +198,9 @@ Portainer Agent with selectable LTS/STS channel.
 Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Watchdog](https://img.shields.io/badge/watchdog-http%3A%2F%2F%5BHOST%5D%3A%5BPORT%3A9000%5D%2Fapi%2Fsystem%2Fstatus-green)
 ![Version](https://img.shields.io/badge/version-v2.39.5.1-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--07--13-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
-![AppArmor](https://img.shields.io/badge/apparmor-True-blue)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
 ![Image Size](https://img.shields.io/badge/size-62_MB-informational)
@@ -229,11 +213,9 @@ Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.
 Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Watchdog](https://img.shields.io/badge/watchdog-http%3A%2F%2F%5BHOST%5D%3A%5BPORT%3A9000%5D%2Fapi%2Fsystem%2Fstatus-green)
 ![Version](https://img.shields.io/badge/version-v2.44.0.1-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--07--30-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
-![AppArmor](https://img.shields.io/badge/apparmor-True-blue)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
 ![Image Size](https://img.shields.io/badge/size-65_MB-informational)
@@ -246,11 +228,9 @@ Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.
 Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Watchdog](https://img.shields.io/badge/watchdog-http%3A%2F%2F%5BHOST%5D%3A%5BPORT%3A9000%5D%2Fapi%2Fsystem%2Fstatus-green)
 ![Version](https://img.shields.io/badge/version-v2.39.5.1-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--07--13-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
-![AppArmor](https://img.shields.io/badge/apparmor-True-blue)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
 ![Image Size](https://img.shields.io/badge/size-76_MB-informational)
@@ -263,11 +243,9 @@ Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.
 Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Watchdog](https://img.shields.io/badge/watchdog-http%3A%2F%2F%5BHOST%5D%3A%5BPORT%3A9000%5D%2Fapi%2Fsystem%2Fstatus-green)
 ![Version](https://img.shields.io/badge/version-v2.44.0.1-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--07--30-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
-![AppArmor](https://img.shields.io/badge/apparmor-True-blue)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
 ![Image Size](https://img.shields.io/badge/size-80_MB-informational)
