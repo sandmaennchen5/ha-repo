@@ -7,6 +7,18 @@
 [![CodeFactor][codefactor-badge]][codefactor-url]
 
 <!-- BADGES-START -->
+![Ingress](https://img.shields.io/badge/ingress-True-blue)
+![Watchdog](https://img.shields.io/badge/watchdog-http%3A%2F%2F%5BHOST%5D%3A%5BPORT%3A9000%5D%2Fapi%2Fsystem%2Fstatus-green)
+![Version](https://img.shields.io/badge/version-v2.39.5.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--07--13-green)
+![Stage](https://img.shields.io/badge/stage-stable-orange)
+![AppArmor](https://img.shields.io/badge/apparmor-True-blue)
+![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
+![Docker API](https://img.shields.io/badge/docker_api-True-blue)
+![Image Size](https://img.shields.io/badge/size-62_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v2.39.5-yellow)
+![Repo](https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fportainer--ce-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3Ad9771805f1757233d706b5995ec4418d5d4310299c383822ae3bdafb54e753df-informational)
 <!-- BADGES-END -->
 
 Portainer CE/BE with LTS/STS selection, Home Assistant Ingress, per-user login retention, selectable storage, import/export and Watchdog support.

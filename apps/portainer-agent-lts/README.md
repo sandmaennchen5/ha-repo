@@ -7,6 +7,17 @@
 [![CodeFactor][codefactor-badge]][codefactor-url]
 
 <!-- BADGES-START -->
+![Watchdog](https://img.shields.io/badge/watchdog-tcp%3A%2F%2F%5BHOST%5D%3A%5BPORT%3A9001%5D-green)
+![Version](https://img.shields.io/badge/version-v2.39.5.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--07--13-green)
+![Stage](https://img.shields.io/badge/stage-stable-orange)
+![AppArmor](https://img.shields.io/badge/apparmor-True-blue)
+![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
+![Docker API](https://img.shields.io/badge/docker_api-True-blue)
+![Image Size](https://img.shields.io/badge/size-35_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v2.39.5-yellow)
+![Repo](https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fagent-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3Aec9223788fe62872bc78d23ad4f4a5558ff560500d2602f378ea191f560f491e-informational)
 <!-- BADGES-END -->
 
 Portainer Agent with LTS/STS selection, environment options and Watchdog support. It intentionally has no Web UI, storage migration, import or export.
