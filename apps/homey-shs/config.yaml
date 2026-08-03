@@ -2,7 +2,6 @@ name: "Homey Self-Hosted Server"
 version: "13.4.0.3"
 slug: "homey-shs"
 description: "Run Homey Self-Hosted Server on Home Assistant OS."
-stage: stable
 url: "https://support.homey.app/hc/en-us/categories/23974566220572"
 arch:
   - aarch64
@@ -15,8 +14,6 @@ full_access: true
 ingress: true
 ingress_port: 8099
 ingress_stream: true
-watchdog: "http://[HOST]:[PORT:8099]/__health"
-panel_admin: true
 panel_title: "Homey"
 panel_icon: "mdi:router"
 environment:

@@ -9,7 +9,6 @@ arch:
 image: ghcr.io/sandmaennchen5/ha-repo-newt
 init: false
 docker_api: true
-protected: false
 host_network: true
 privileged:
   - NET_ADMIN
@@ -20,7 +19,6 @@ ports:
 ports_description:
   2112/tcp: "Optional metrics endpoint"
   8095/tcp: "Internal health endpoint"
-watchdog: "http://[HOST]:[PORT:8095]/health"
 kernel_modules: true
 options:
   endpoint: "https://app.pangolin.de"

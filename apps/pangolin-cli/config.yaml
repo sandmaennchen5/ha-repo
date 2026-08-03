@@ -19,7 +19,6 @@ ports:
 ports_description:
   2112/tcp: "Optional admin and Prometheus metrics endpoint"
   8097/tcp: "Internal health endpoint"
-watchdog: "http://[HOST]:[PORT:8097]/health"
 options:
   endpoint: "https://app.pangolin.net"
   client_id: ""

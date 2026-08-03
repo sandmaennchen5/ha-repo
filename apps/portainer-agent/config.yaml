@@ -8,11 +8,7 @@ arch: [aarch64, amd64]
 image: ghcr.io/sandmaennchen5/ha-repo-portainer-agent
 init: false
 startup: services
-boot: auto
 docker_api: true
-protected: false
-apparmor: true
-watchdog: "tcp://[HOST]:[PORT:9001]"
 ports:
   9001/tcp: 9001
 ports_description:
@@ -38,4 +34,3 @@ schema:
   environment:
     - name: match(^[A-Za-z_][A-Za-z0-9_]*$)
       value: password
-
