@@ -1,6 +1,16 @@
 # Changelog
 
 
+## [13.4.0.4] - 2026-08-03
+
+### Manuelles Update
+
+- App-Revision für einen vollständigen Neuaufbau um eins erhöht.
+
+Weitere Informationen: https://ghcr.io/athombv/homey-shs
+
+---
+
 ## [13.4.0.3] - 2026-07-31
 
 - Home-Assistant-Ingress mit angepassten HTML-, API-, Ressourcen- und
