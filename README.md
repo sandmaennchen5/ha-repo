@@ -1,4 +1,4 @@
-# Home Assistant Repository – sandmaennchen5 (DEV)
+# Home Assistant Repository – sandmaennchen5
 
 [![Builder][builder-badge]][builder-url]
 [![Lint][lint-badge]][lint-url]
