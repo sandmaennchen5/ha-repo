@@ -12,7 +12,6 @@ startup: services
 host_network: true
 full_access: true
 ingress: true
-ingress_port: 8099
 ingress_stream: true
 panel_title: "Homey"
 panel_icon: "mdi:router"

@@ -14,5 +14,3 @@ ports:
 ports_description:
   6556/tcp: "Checkmk agent data (plain text; secure at network level)"
 panel_icon: "mdi:monitor-dashboard"
-options: {}
-schema: {}
