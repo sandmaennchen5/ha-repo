@@ -21,11 +21,19 @@ on:
         options:
           # BEGIN_APPS
           - adsb-multi-portal-feeder
+          - checkmk-agent
           - homey-shs
-          - homey-shs-hardened
           - newt
           - olm
           - pangolin-cli
+          - portainer
+          - portainer-agent
+          - portainer-agent-lts
+          - portainer-agent-sts
+          - portainer-ce-lts
+          - portainer-ce-sts
+          - portainer-ee-lts
+          - portainer-ee-sts
           # END_APPS
       app_custom:
         description: "Oder App manuell eingeben (z.B. newt)"
