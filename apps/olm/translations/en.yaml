@@ -1,0 +1,37 @@
+configuration:
+  endpoint:
+    name: Pangolin endpoint
+    description: Pangolin server URL.
+  id:
+    name: Olm ID
+    description: Client ID from Pangolin.
+  secret:
+    name: Olm Secret
+    description: Secret client password from Pangolin.
+  network:
+    name: network
+    description: WireGuard and DNS settings.
+    fields:
+      mtu:
+        name: MTU
+      dns:
+        name: Tunnel DNS
+      upstream_dns:
+        name: Upstream DNS
+      interface:
+        name: Interface name
+  extras:
+    name: Advanced Settings
+    fields:
+      log_level:
+        name: Protocol level
+      disable_holepunch:
+        name: Disable hole punching
+      disable_relay:
+        name: Disable relay
+      prefer_local_routes:
+        name: Prefer local routes
+      override_dns:
+        name: Overwrite system DNS
+      tunnel_dns:
+        name: Route DNS through tunnels

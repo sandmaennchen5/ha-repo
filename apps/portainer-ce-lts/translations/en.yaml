@@ -1,0 +1,17 @@
+configuration:
+  edition:
+    name: edition
+  release_channel:
+    name: Publishing channel
+  storage_location:
+    name: Location
+  share_storage_directory:
+    name: Folder under /share
+  remember_ingress_users:
+    name: Save Ingress login for each Home Assistant user
+  agent_secret:
+    name: Joint Agent Secret
+  advanced:
+    name: Advanced Portainer options
+  import_export:
+    name: Import/Export

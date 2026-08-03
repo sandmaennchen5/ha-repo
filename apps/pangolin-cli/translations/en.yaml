@@ -1,0 +1,18 @@
+configuration:
+  endpoint:
+    name: Pangolin endpoint
+    description: URL of Pangolin Cloud or the self-hosted Pangolin instance.
+  client_id:
+    name: Client ID
+    description: ID of the machine client from Pangolin.
+  client_secret:
+    name: Client Secret
+    description: Secret password of the Machine Client.
+  extras:
+    name: Advanced Settings
+    fields:
+      log_level:
+        name: Protocol level
+      additional_args:
+        name: Additional arguments
+        description: Optional additional arguments for `pangolin-cli up --attach`.

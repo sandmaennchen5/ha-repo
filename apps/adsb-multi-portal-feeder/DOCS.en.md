@@ -1,0 +1,466 @@
+# Home Assistant add-on:
+# adsb-multi-portal-feeder
+
+The available options are based on the current one
+[Thom-x upstream documentation](https://github.com/Thom-x/docker-fr24feed-piaware-dump1090#configuration).
+Explicitly documented environment variables are displayed in the Home Assistant app as
+Configuration fields offered. Those also supported by upstream are free
+Definable `FR24FEED_*` and `PIAWARE_*` properties cannot be dynamic
+are displayed as individual Home Assistant fields.
+
+![Image of Dump1090 webapp](https://raw.githubusercontent.com/sandmaennchen5/hassio-addons/master/images/screenshot.png)
+
+# Requirements
+
+- Docker
+- RTL-SDR DVBT USB dongle (RTL2832)
+
+# Configuration
+
+## Sensors for Home Assistant
+
+### Sensors added automatically
+
+With version `1.27.0` I integrated the great project [adsb-hassio-sensors](https://github.com/plo53/adsb-hassio-sensors/tree/master) from [plo53](https://github.com/plo53).
+
+This provides sensors related to the feeder, e.g. E.g. `sensor.adsbfi_icao`, `sensor.adsbfi_mlat`, `sensor.adsbfi_mode_s`, `sensor.adsbfi_status` for the Adsb.fi feeder.
+
+![Assistant ADS-B Sensors](https://raw.githubusercontent.com/sandmaennchen5/hassio-addons/main/images/Home%20Assistant%20ADS-B%20sensors.jpg)
+![Assistant adsb.fi stats.jpg](https://raw.githubusercontent.com/sandmaennchen5/hassio-addons/main/images/Home%20Assistant%20adsb.fi%20stats.jpg)
+
+### REST sensors
+
+If you want nice statistics, you can use a REST sensor with some template magic to e.g. B. to display the number of aircraft currently being tracked:
+
+![Tracked Aircraft Sensor](https://raw.githubusercontent.com/sandmaennchen5/hassio-addons/main/images/sensor_aircraft_tracked.png)
+
+<figure>Example of the Tracked Aircraft sensor</figure>
+
+See this [Home Assistant Community post](https://community.home-assistant.io/t/flightradar24-as-an-add-on/75081).
+Simply replace the IP address with `<raspberry pi>`
+
+```yaml
+resource: http://f1c878cb-adsb-multi-portal-feeder:8754/monitor.json
+```
+
+## General
+
+To disable a service from starting, you can add an environment variable:
+
+| Environment variable | Value | Description | Default value |
+| ----------------------------------- | ------- | -------------------------- | ------------- |
+| `SERVICE_ENABLE_DUMP1090` | `false` | Disable Dump1090 service | `true` |
+| `SERVICE_ENABLE_PIAWARE` | `false` | Disable Piaware service | `true` |
+| `SERVICE_ENABLE_FR24FEED` | `false` | Disable fr24feed service | `true` |
+| `SERVICE_ENABLE_HTTP` | `false` | Disable HTTP service | `true` |
+| `SERVICE_ENABLE_IMPORT_OVER_NETCAT` | `false` | Disable import via Netcat | `false` |
+| `SERVICE_ENABLE_ADSBEXCHANGE` | `false` | Disable Adsbexchange feed | `false` |
+| `SERVICE_ENABLE_PLANEFINDER` | `false` | Disable Plane Finder Feed | `false` |
+| `SERVICE_ENABLE_OPENSKY` | `false` | Disable Opensky feeder | `false` |
+| `SERVICE_ENABLE_ADSBFI` | `false` | Disable ADSB.FI feed | `false` |
+| `SERVICE_ENABLE_RADARBOX` | `false` | Disable Radarbox feed | `false` |
+| `SERVICE_ENABLE_ADSBHUB` | `false` | Disable ADSBHUB feeder | `false` |
+| `SERVICE_ENABLE_BIAST` | `false` | Disable BIAST-T option | `false` |
+
+
+## FlightAware
+
+Register at https://flightaware.com/account/join/.
+
+When the container starts, you should see the feeder ID - note this down. Wait 5 minutes, then a new recipient should appear at https://fr.flightaware.com/adsb/piaware/claim (use the same IP as your Docker host), claim it and exit the container.
+If not, just open https://fr.flightaware.com/adsb/piaware/claim/ `Your-Feeder-ID`
+
+Add the environment variable `PIAWARE_FEEDER_DASH_ID` with your feeder ID.
+
+| Environment variable | Configuration property | Default value |
+| ---------------------------- | ---------------------- | ------------- |
+| `PIAWARE_FEEDER_DASH_ID` | `feeder-id (required)` | empty |
+| `PIAWARE_RECEIVER_DASH_TYPE` | `receiver-type` | `other` |
+| `PIAWARE_RECEIVER_DASH_HOST` | `receiver-host` | `127.0.0.1` |
+| `PIAWARE_RECEIVER_DASH_PORT` | `receiver-port` | `30005` |
+
+
+## FlightRadar24
+
+| Environment variable | Configuration property | Default value || ------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | ----------------- |
+| `FR24FEED_RECEIVER` | `receiver` | `beast-tcp` |
+| `FR24FEED_FR24KEY` | `fr24key (required)` | empty |
+| `FR24FEED_HOST` | `host` | `127.0.0.1:30005` |
+| `FR24FEED_BS` | `bs` | `no` |
+| `FR24FEED_RAW` | `raw` | `no` |
+| `FR24FEED_LOGMODE` | `logmode` | `1` |
+| `FR24FEED_LOGPATH` | `logpath` | `/tmp` |
+| `FR24FEED_MLAT` | `mlat` | `no` |
+| `FR24FEED_MLAT_DASH_WITHOUT_DASH_GPS` | `mlat-without-gps` | `no` |
+| `SYSTEM_FR24FEED_ULIMIT_N` | FR24 feeder file limit; upstream uses `-1` without limit. | App default `1024` |
+
+Example: `-e 'FR24FEED_FR24KEY=0123456789'`
+
+## ADS-B Exchange
+
+Add the environment variable `ADSBEXCHANGE_UUID` with a UUID generated by <https://www.uuidgenerator.net/>.
+If there are multiple recipients, please use a different UUID for each recipient.
+
+Add the environment variable `SERVICE_ENABLE_ADSBEXCHANGE` and set it to `true`.
+
+| Environment variable | Description | Default value |
+| ----------------------------- | ------------------------- | ------------- |
+| `ADSBEXCHANGE_UUID` | UUID (required) | empty |
+| `ADSBEXCHANGE_STATION_NAME` | Station name | empty |
+| `ADSBEXCHANGE_MLAT` | mlat | `true` |
+
+Configure the MLAT coordinates for adsbexchange MLAT to work. (see separate section below)
+If you do not want to provide your exact coordinates, please set the environment variable `ADSBEXCHANGE_MLAT` to `false`. (You will then not receive MLAT results and will not contribute to MLAT)
+
+Add the environment variable `ADSBEXCHANGE_STATION_NAME`; it is used for the MLAT map and synchronization status.
+You can check if your MLAT is working correctly by searching for your station name here: <https://map.adsbexchange.com/mlat-map/>
+(The MLAT map marker is arranged on a 5 mile grid and then randomly offset to avoid overlapping markers. The exact latitude and longitude for MLAT are not publicly available on adsbexchange.)
+
+The ADS-B Exchange Anywhere card is available at: <https://www.adsbexchange.com/api/feeders/?feed=MY_UUID>
+
+
+## adsb.fi
+
+Add the environment variable `ADSBFI_UUID` with a UUID generated with `cat /proc/sys/kernel/random/uuid` or `uuidgen` if you don't have `/proc`.
+
+
+If there are multiple recipients, please use a different UUID for each recipient.
+
+Add the environment variable `SERVICE_ENABLE_ADSBFI` and set it to `true`.
+
+| Environment variable | Description | Default value |
+| ----------------------------- | ------------------------- | ------------- |
+| `ADSBFI_UUID` | UUID (required) | empty |
+| `ADSBFI_STATION_NAME` | Station name | empty |
+| `ADSBFI_MLAT` | Enable/Disable MLAT | `true` |
+
+Configure the MLAT coordinates for adsbfi MLAT to work. (see separate section below)
+If you do not want to provide your exact coordinates, please set the environment variable `ADSBFI_MLAT` to `false`. (You will then not receive MLAT results and will not contribute to MLAT)
+
+Add the environment variable `ADSBFI_STATION_NAME`; it is used for the MLAT map and synchronization status.
+You can check if your MLAT is working correctly by searching for your station name here: <https://map.adsbfi.com/mlat-map/>
+(The MLAT map marker is placed on a 5 mile grid and then randomly offset to avoid overlapping markers; the exact latitude and longitude for MLAT are not publicly available at adsbfi)
+
+The ADS-B Exchange Anywhere card is available at: <https://www.adsbfi.com/api/feeders/?feed=MY_UUID>
+
+
+## Accurate coordinates for MLAT
+
+Get your exact coordinates and altitude above sea level in meters on one of these websites:
+
+- <https://www.freemaptools.com/elevation-finder.htm>
+- <https://www.mapcoordinates.net/en>
+
+For the accuracy of MLAT, it is important that these do not deviate by more than about 10 m / 30 ft.
+
+| Environment variable | Description | Default value |
+| -------------------------- | ------------------------- | ------------- |
+| `MLAT_EXACT_LAT` | Decimal latitude | empty |
+| `MLAT_EXACT_LON` | Decimal longitude | empty || `MLAT_ALTITUDE_MSL_METERS` | Height above MSL in m | empty |
+
+## Plane Finder
+
+First-time users should get a PlaneFinder unlock code.
+
+To get a PlaneFinder release code, we start a temporary container running `pfclient`. This goes through a configuration wizard and generates a release code.
+
+
+Once the container has started, you should see a message like this:
+
+```text
+2020-04-11 06:45:25.823307 [-] We couldn't find a configuration file and defaulted to configuration mode. Please visit: http://172.22.7.12:30053 to complete the configuration.
+```
+
+Now open a web browser and go to <http://dockerhost:30053>. Replace `dockerhost` with the IP address of your host running Docker. You cannot use the URL specified in the log because the IP address specified is the private IP of the Docker container.
+
+Follow the configuration wizard instructions in your browser. Once the process is complete, you will receive a PlaneFinder unlock code. Store this in a safe place.
+
+You can now exit the container by pressing `CTRL-C`.
+
+Add the environment variable `SERVICE_ENABLE_PLANEFINDER` and set it to `true`.
+
+| Environment variable | Description | Default value |
+| ---------------------------- | --------------------------------- | ------------- |
+| `PLANEFINDER_SHARECODE` | generated release code (required) | empty |
+| `PLENEFINDER_INPUT_HOST` | input host | `127.0.0.1` |
+| ` PLANEFINDER_INPUT_PORT` | Input port | `30005` |
+
+Example: `-e 'SERVICE_ENABLE_PLANEFINDER=true' -e 'PLANEFINDER_SHARECODE=65dsfsd56f'`
+
+## Opensky
+
+First-time users should get an Opensky serial number.
+
+To get an Opensky serial number, we start a temporary container with minimal configuration to get Opensky running, which generates the serial number.
+
+
+
+Once the container has started, you should see a message like this:
+
+```text
+[opensky-feeder] [INFO] [SERIAL] Request new serial number
+[opensky-feeder] [INFO] [SERIAL] Received new serial number: -16546546532
+```
+
+Write down the serial number and add it to the `OPENSKY_SERIAL` environment variable for the next run.
+
+You can now exit the container by pressing `CTRL-D`.
+
+Add the environment variable `SERVICE_ENABLE_OPENSKY` and set it to `true`.
+
+| Environment variable | Default value | Description |
+| ---------------------- | ------------- | ----------------------------------------------- |
+| `OPENSKY_USERNAME` | empty | Opensky username (required) |
+| `OPENSKY_SERIAL` | empty | Generated serial number (required after first run) |
+| `OPENSKY_DEVICE_TYPE` | `default` | Device type |
+| `OPENSKY_INPUT_HOST` | `127.0.0.1` | input host |
+| `OPENSKY_INPUT_PORT` | `30005` | Input port |
+| `HTML_SITE_LAT` | `45.0` | Receiver latitude |
+| `HTML_SITE_LON` | `9.0` | Receiver longitude |
+| `HTML_SITE_ALT` | `0` | Receiver height |
+
+Example: `-e 'SERVICE_ENABLE_OPENSKY=true' -e 'OPENSKY_USERNAME=MyUserName' -e 'OPENSKY_SERIAL=-462168426854'`
+
+## Airnavradar (formerly Radarbox)
+
+First-time users should get a release key.
+
+To get a release key, we start a temporary container with minimal configuration to get Radarbox running, which generates the key.
+
+Once the container has started, you should see a message like this:
+
+```text
+[radarbox-feeder] [2023-06-20 18:51:01] CPU serial number empty. Use MAC address instead.
+[radarbox-feeder] [2023-06-20 18:51:02] Your new key is 35345bf2258aea6b9c7280fbe4467fcd. Please save this key for future use. You will need this key to link this recipient to your RadarBox24.com account. This key is also stored in the configuration file (/etc/rbfeeder.ini).
+```
+
+Note the serial number and add it to the `RADARBOX_SHARING_KEY` environment variable for the next run.
+
+You can now exit the container by pressing `CTRL-D`.
+
+Add the environment variable `SERVICE_ENABLE_RADARBOX` and set it to `true`.
+
+| Environment variable | Default value | Description || ---------------------- | ------------- | ------------------------------------------------ |
+| `RADARBOX_SHARING_KEY` | empty | Generated unlock key (required after first run) |
+| `RADARBOX_INPUT_HOST` | `127.0.0.1` | input host |
+| `RADARBOX_INPUT_PORT` | `30005` | Input port |
+| `RADARBOX_MLAT` | `false` | Enable/Disable MLAT |
+| `HTML_SITE_LAT` | `45.0` | Receiver latitude |
+| `HTML_SITE_LON` | `9.0` | Receiver longitude |
+| `HTML_SITE_ALT` | `0` | Receiver height |
+
+_Note: This error can occur on Windows: `[radarbox-feeder] /usr/bin/rbfeeder: Line 17: 208 Segmentation fault /usr/bin/rbfeeder_armhf "$@"`, there is no solution for this._
+_Note: A segmentation error may occur; a solution can be found at https://github.com/mikenye/docker-radarbox/issues/9#issuecomment-633068833_
+_Note: You may receive an “already claimed” error message for the provided share key; see https://github.com/Thom-x/docker-fr24feed-piaware-dump1090/issues/145_
+
+##Adsbhub
+
+First-time users should request a release key.
+
+To receive a release key, you must register at https://www.adsbhub.org/ and create a new station under “Settings”. Set up the station as follows:
+
+- Station mode: Client
+- Feeder type: Linux
+- Data protocol: Raw
+- Station Host (IP): Your public IP address
+
+
+Add the environment variable `ADSBHUB_CKEY` and set it to the value under “Station dynamic IP update ckey”.
+Add the environment variable `SERVICE_ENABLE_ADSBHUB` and set it to `true`.
+
+
+| Environment variable | Default value | Description |
+| ---------------------- | ------------- | -------------------------------------------------- |
+| `ADSBHUB_CKEY` | empty | Release key for connecting your station to adsbhub |
+
+
+## Add custom properties
+
+**Note**: You can add any properties to the fr24feed or piaware configuration file by adding an environment variable starting with `PIAWARE_...` or `FR24FEED_...`.
+
+Example:
+
+| Environment variable | Configuration property | Value | Configuration file |
+| -------------------------------- | ---------------------- | -------- | ------------------ |
+| `FR24FEED_TEST=Value` | `test` | `value` | `fr24feed.init` |
+| `FR24FEED_TEST_DASH_TEST=Value2` | `test-test` | `value2` | `fr24feed.init` |
+| `PIAWARE_TEST=value` | `test` | `value` | `piaware.conf` |
+
+## Dump1090 & Web UI
+
+| Environment variable | Default value | Description |
+| ------------------------------------------ | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `HTML_SITE_LAT` | `45.0` | Receiver latitude |
+| `HTML_SITE_LON` | `9.0` | Longitude of receiver |
+| `HTML_SITE_ALT` | `0` | Receiver height |
+| `HTML_SITE_NAME` | `My Radar Site` | Recipient name |
+| `HTML_DEFAULT_TRACKER` | `FlightAware` | Which flight tracking website to use by default. Possible values ​​are `FlightAware` or `Flightradar24` or `Adsbexchange` or `Planefinder` or `OpenskyNetwork` |
+| `HTML_RECEIVER_STATS_PAGE_FLIGHTAWARE` | empty | URL of your recipient's statistics page on FlightAware. Typically https://flightaware.com/adsb/stats/user/ |
+| `HTML_RECEIVER_STATS_PAGE_FLIGHTRADAR24` | empty | URL of your recipient's statistics page on Flightradar24. Usually https://www.flightradar24.com/account/feed-stats/?id=<ID> |
+| `HTML_RECEIVER_STATS_PAGE_ADSBEXCHANGE` | empty | URL of your recipient's statistics page on ADS-B Exchange. Usually https://www.adsbexchange.com/api/feeders/?feed=<ID> |
+| `HTML_RECEIVER_STATS_PAGE_PLANEFINDER` | empty | URL of your recipient's statistics page on PlaneFinder. Usually https://planefinder.net/coverage/receiver/<ID> |
+| `HTML_RECEIVER_STATS_PAGE_OPENSKY_NETWORK` | empty | URL of your recipient's statistics page on Opensky Network. Usually https://opensky-network.org/receiver-profile?s=<ID> |
+| `HTML_RECEIVER_STATS_PAGE_RADARBOX` | empty | URL of your recipient's statistics page on Radarbox. Usually https://www.radarbox.com/stations/<ID> || `HTML_RECEIVER_STATS_PAGE_ADSBFI` | empty | URL of your recipient's statistics page on ADSB.fi. Usually https://adsb.fi/ |
+| `HTML_RECEIVER_STATS_PAGE_ADSBHUB` | empty | URL of your recipient's statistics page on ADSBHub. Usually https://www.adsbhub.org/statistic.php |
+| `HTML_FR24_FEEDER_STATUS_PAGE` | empty | URL of your local FR24 feeder status page. Typically http://<dockerhost>:8754/ (depending on the port you specified when starting the container) |
+| `DUMP1090_ADDITIONAL_ARGS` | empty | Optional space-separated arguments for dump1090. |
+| `SYSTEM_HTTP_ULIMIT_N` | App default `1048576` | HTTP service file limit; upstream defaults to `-1`. |
+
+Example: `-e 'HTML_SITE_NAME=My Website'`
+
+### Additional dump1090 arguments
+
+The app option `DUMP1090_ADDITIONAL_ARGS` passes additional parameters directly
+to dump1090. Multiple parameters are separated with spaces.
+
+Commonly used parameters:
+
+| Parameters | Meaning | Example |
+| --- | --- | --- |
+| `--device-type` | Selects the SDR type; Default is `rtlsdr`. | `--device-type rtlsdr` |
+| `--device` | Selects the device based on its index or serial number. | `--device 0` or `--device 00000001` |
+| `--enable-agc` | Enables dump1090's digital AGC (not the tuner AGC). | `--enable-agc` |
+| `--gain` | Sets the gain. The permitted range depends on the receiver. | `--gain 40` |
+| `--ppm` | Corrects the receiver frequency deviation in PPM. | `--ppm 1` |
+| `--freq` | Sets the reception frequency in Hertz; ADS-B typically uses 1090 MHz. | `--freq 1090000000` |
+| `--json-location-accuracy` | Sets the precision of the location values ​​in the JSON outputs. | `--json-location-accuracy 2` |
+
+Example of multiple parameters:
+
+```text
+--device 00000001 --gain 40 --ppm 1 --freq 1090000000
+```
+
+The available arguments depend on the included dump1090 version and its
+Build options. The output of `dump1090 --help` is therefore always relevant
+in the app log. The currently included version uses `dump1090-fa v10.2`
+for index and serial number together `--device`; `--device-index` and
+It does not support `--device-serial`.
+
+Not every dump1090 build supports everything described on the Internet
+Parameters. If the argument is unknown, dump1090 may exit;
+in this case remove the argument in question and restart the app.
+
+On Home Assistant OS from major version 16 onwards, `SYSTEM_HTTP_ULIMIT_N` and
+`SYSTEM_FR24FEED_ULIMIT_N` not sent to the container for compatibility reasons
+passed on. The fields are still present for older HA-OS versions.
+
+## DUMP1090 redirect
+
+| Environment variable | Default value | Description |
+| ----------------------------------- | ------------- | --------------------------------------------------------------------------------------------------------------- |
+| `SERVICE_ENABLE_IMPORT_OVER_NETCAT` | `false` | Enables Netcat forwarding of a remote Dump1090 server's beast output to the local Dump1090 beast input |
+| `DUMP1090_LOCAL_PORT` | empty | Must be the same port specified as `--net-bi-port` in `DUMP1090_ADDITIONAL_ARGS` |
+| `DUMP1090_REMOTE_HOST` | empty | IP address of the remote dump1090 server |
+| `DUMP1090_REMOTE_PORT` | empty | Port of the remote dump190 server specified on the remote system as the argument `--net-bo-port` |
+
+## RTL_TCP forwarding
+
+**WARNING:** This type of forwarding uses a lot of bandwidth and can be unstable in WiFi environments.
+
+| Environment variable | Default value | Description |
+| --------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `RTL_TCP_OVER_NETCAT` | `false` | Use dump1090 in combination with netcat to transfer data from the rtl_tcp server. (Requires approximately 35-40 Mbps). Example RTL_TCP command: `./rtl_tcp -a 0.0.0.0 -f 1090000000 -s 2400000 -p 30005 -P 28 -g -10` |
+| `RTL_TCP_REMOTE_HOST` | empty | IP address of the rtl_tcp server |
+| `RTL_TCP_REMOTE_PORT` | empty | Port of the rtl_tcp server |
+
+## BIAS-T optionYou can enable the BIAS-T option for the RTL-SDR device by setting the environment variable `SERVICE_ENABLE_BIAST` to `true`. This enables bias tee power on the RTL-SDR device, useful for powering external LNA (Low Noise Amplifier) ​​devices.
+The command `rtl_biast -b 1` is executed to enable the bias T option.
+
+| Environment variable | Default value | Description |
+|----------------------|---------------|------------------------------------------|
+| `SERVICE_ENABLE_BIAST` | `false` | Enables the Bias T option for the RTL-SDR device. |
+| `BIAST_ARGS` | `-b 1` | Arguments for Bias-T |
+
+## Terrain boundary rings (optional):
+
+If you don't need this feature, ignore this section.
+
+Create a panorama of your recipient's location at http://www.heywhatsthat.com.
+
+| Environment variable | Default value | Description |
+| -------------------- | ------------- | ------------------------------------------ |
+| `PANORAMA_ID` | empty | Panorama ID |
+| `PANORAMA_ALTS` | `1000,10000` | Comma separated list of heights in meters |
+
+_Note: The Panorama ID value corresponds to the URL at the top of the Panorama http://www.heywhatsthat.com/?view=XXXX. Elevations are given in meters. You can provide a list of elevations._
+
+Example: `-e 'PANORAMA_ID=FRUXK2G7'`
+
+If you don't want to re-download the data every time you start the container, you can download the file `http://www.heywhatsthat.com/api/upintheair.json?id=${PANORAMA_ID}&refraction=0.25&alts=${PANORAMA_ALTS}` as upintheair.json and save it to `/usr/lib/fr24/public_html/upintheair.json` incorporate.
+
+## Open Weather Map layers:
+
+If you don't need this feature, ignore this section.
+
+If you provide an API key, OWM levels are available.
+Create an account and get an API key at https://home.openweathermap.org/users/sign_up.
+Note that OWM offers a free trial for its API; However, after a certain period of time you have to pay.
+See: https://openweathermap.org/price
+
+| Environment variable | Default value | Description |
+| -------------------- | ------------- | ------------------------ |
+| `LAYERS_OWM_API_KEY` | empty | Open Weather Map API Key |
+
+
+## Installation
+
+- If not already done, add the add-on repository ([see](https://github.com/sandmaennchen5/homeassistant-addons#installation))
+- If you want to share data with FlightRadar24 and/or FlightAware and/or ADSBexchange and/or Plane Finder, generate the required keys ([see below](https://github.com/sandmaennchen5/hassio-addons/tree/main/adsb-multi-portal-feeder#flightaware-feeder-id--flightrader24-key--adsbexchange-uuid))
+- If you want to use the dump1090 web interface (as in the screenshot above) you need to set the longitude and latitude for your location ([see below](https://github.com/sandmaennchen5/hassio-addons/tree/main/adsb-multi-portal-feeder#latitude--longitude))
+
+## Configuration
+
+The entire configuration is intended to work similarly to the original Docker image.
+For more information, see [docker-fr24feed-piaware-dump1090](https://github.com/Thom-x/docker-fr24feed-piaware-dump1090).
+
+I've pre-built the (probably) most commonly used workflow: send data from the USB ADS-B stick to FlightRadar24, FlightAware, ADSBexchange and Plane Finder and get a nice little web-based overview as a Home Assistant menu item.
+
+It is possible to retrieve and use the location information from Home Assistant itself using some “magic” variables that are automatically replaced:
+
+- `HOMEASSISTANT_LATITUDE`
+- `HOMEASSISTANT_LONGITUDE`
+- `HOMEASSISTANT_ELEVATION`
+
+If you want to add something else, just add the appropriate environment variable as a configuration option.
+You may need to click on the three small dots in the top right corner and select 'Edit in YAML'.
+
+Example: Want to change the default tracker on the HTML page from FlightAware to Flightradar24?
+
+```json
+...
+HTML_DEFAULT_TRACKER: 'Flightradar24'
+...
+```
+
+### Latitude / Longitude
+
+You can- Use Google Maps for this: Go to https://www.google.com/maps/ and simply right-click on your house. The latitude and longitude should be displayed
+- obtain the data via a website: https://latitudelongitude.org/
+
+## Access to WebIF
+
+
+- This add-on provides access features to a responsive map with received data.
+  Simply activate the _Show in sidebar_ function or access it via the _OPEN WEB UI_ button.
+- fr24feed (FlightRadar24's feeder) provides some statistics on its internal port 8754.
+  To access it, add an external port under “Network” in the “Configuration” tab as follows:
+  ![network](https://raw.githubusercontent.com/sandmaennchen5/hassio-addons/main/images/port-8754.png)
+  ![fr24stats](https://raw.githubusercontent.com/sandmaennchen5/hassio-addons/main/images/flightradar24-stats.png)
+
+## Data, backups and migration
+
+For persistent data, Home Assistant backups, storage locations, and manual restore, see the shared guide [Locations and Data Migration](../../docs/app-storage-and-migration.md). App-specific import/export options are described in the previous sections.
+
+## Security
+
+Enable only required features and ports. Access data belongs exclusively in the app configuration and not in protocols or additional command arguments. The actually required permissions are in the respective config.yaml.
+
+## Known issues and limitations
+
+If you have problems, first check the app protocol, the availability of the upstream service and the configured ports. Architecture and upstream restrictions apply according to the linked manufacturer documentation.
+
+## Support
+
+- App integration: [Issues in the Home Assistant app repository](https://github.com/sandmaennchen5/ha-repo/issues)
+- Program function: [Upstream project](https://github.com/sandmaennchen5/ha-repo)

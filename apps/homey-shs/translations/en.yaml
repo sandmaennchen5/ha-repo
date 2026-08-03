@@ -1,0 +1,92 @@
+configuration:
+  storage_location:
+    name: Location
+    description: Store Homey data privately under /data, visible under /config (app
+      configuration) or in a folder under /share.
+  share_storage_directory:
+    name: Homey folder under /share
+    description: Path relative to /share, for example /homey-shs-config or /config/homey-shs.
+      Only used for storage location share.
+  port_server_http:
+    name: HTTP and Socket.IO port
+    description: 'Port for the web interface and Socket.IO. Default: 4859.'
+  port_server_https:
+    name: HTTPS port
+    description: 'Port for encrypted HTTPS connections. Default: 4860.'
+  port_server_bridge_v1:
+    name: Homey Bridge v1 port
+    description: 'Port for communication with Homey Bridge v1. Default: 4861.'
+  port_server_bridge_v2:
+    name: Homey Bridge v2 port
+    description: 'Port for communication with Homey Bridge v2. Default: 4862.'
+  remember_ingress_users:
+    name: Remember Homey login for each HA user
+    description: Assigns each Home Assistant user logged in via Ingress their own
+      Homey session after their first Homey login. Passwords are not saved.
+  extras:
+    name: Advanced Settings
+    description: Optional and experimental Homey SHS settings.
+    fields:
+      port_server_webrtc:
+        name: WebRTC port (experimental)
+        description: 'Port of the internal WebRTC service. Default: 8555. This option
+          is not officially documented.'
+      homey_local_address:
+        name: Local IPv4 address
+        description: Optional LAN IP address of the Home Assistant host if auto-discovery
+          does not work. Leave blank for automatic detection.
+      matter_mdns_interfaces:
+        name: Matter mDNS interfaces (experimental)
+        description: Optional network interfaces for Matter mDNS. Leave blank so that
+          Homey automatically selects the interfaces.
+      homey_app_log_to_console:
+        name: App logs in the console (experimental)
+        description: Additionally prints the standard output and error output of installed
+          Homey apps in the app log.
+      homey_web_app_proxy_url:
+        name: Web app proxy URL (experimental)
+        description: Optional proxy destination address for the Homey web app. Leave
+          blank to use the built-in web app.
+      homey_app_devmode:
+        name: App developer mode (experimental)
+        description: Launches installed Homey apps in developer mode. Enable for development
+          and debugging purposes only.
+      delegation_token_public_key:
+        name: Delegation public token key (experimental)
+        description: Optional Base64 public key content without BEGIN/END lines. Leave
+          blank to use Homey's default key.
+  import_export:
+    name: Import/Export
+    description: Optional backup and restore of Homey data via /share.
+    fields:
+      export_on_stop:
+        name: Export on stop
+        description: First exit Homey cleanly and then export the selected data storage
+          to /share.
+      export_directory:
+        name: Export directory
+        description: Relative target path under /share.
+      export_filename:
+        name: Export file name
+        description: Filename template with {version}, {timestamp}, {storage} and
+          {slug}.
+      import_mode:
+        name: Import mode
+        description: No import, automatic search or manually specified import file.
+      import_search_directory:
+        name: Search directory
+        description: Relative /share path for automatic search.
+      import_source:
+        name: Manual import source
+        description: Relative path to a .tar.gz archive under /share.
+      overwrite_existing_data:
+        name: Overwrite existing data
+        description: Replaces existing Homey data after the import archive has been
+          successfully checked. /data/options.json remains.
+      allow_version_downgrade:
+        name: Allow version downgrade
+        description: Allows importing data from a newer Homey version into an older
+          version. May result in incompatible or unusable data.
+      delete_after_import:
+        name: Delete archive after import
+        description: Remove imported archive and manifest after successful takeover.

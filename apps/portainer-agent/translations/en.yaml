@@ -1,0 +1,17 @@
+configuration:
+  release_channel:
+    name: Publishing channel
+  agent_secret:
+    name: Joint Agent Secret
+  log_level:
+    name: Protocol level
+  cluster_address:
+    name: Cluster address
+  advertise_address:
+    name: Advertised cluster address
+  probe_interval:
+    name: Check interval
+  probe_timeout:
+    name: Exam time limit
+  environment:
+    name: Additional environment variables
