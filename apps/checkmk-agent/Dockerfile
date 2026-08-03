@@ -21,4 +21,4 @@ LABEL io.hass.version="${BUILD_VERSION}" \
       org.opencontainers.image.source="https://github.com/Checkmk/checkmk"
 
 HEALTHCHECK --interval=30s --timeout=5s --start-period=15s --retries=3 \
-  CMD nc -z 127.0.0.1 6556 || exit 1
+  CMD ["nc", "-z", "127.0.0.1", "6556"]

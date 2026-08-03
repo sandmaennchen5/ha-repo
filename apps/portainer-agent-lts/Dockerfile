@@ -9,4 +9,4 @@ ENV FIXED_CHANNEL=lts
 ENTRYPOINT ["/usr/local/bin/portainer-agent-entrypoint"]
 ARG BUILD_VERSION BUILD_ARCH BUILD_NAME
 LABEL io.hass.version="${BUILD_VERSION}" io.hass.arch="${BUILD_ARCH}" io.hass.type="addon" io.hass.name="${BUILD_NAME}"
-HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 CMD nc -z 127.0.0.1 9001 || exit 1
+HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 CMD ["nc", "-z", "127.0.0.1", "9001"]

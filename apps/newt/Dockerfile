@@ -1,5 +1,5 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-dockerfile
-# Base image 
+# Base image
 ARG BUILD_FROM=ghcr.io/home-assistant/base:3.23
 FROM $BUILD_FROM
 
@@ -46,4 +46,4 @@ RUN chmod 0755 \
 ENV NEWT_SYSTEM_SUBSTRATE="CONTAINER"
 
 HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
-    CMD test -f /tmp/newt_healthy && pgrep -x newt >/dev/null || exit 1
+    CMD ["sh", "-c", "test -f /tmp/newt_healthy && pgrep -x newt >/dev/null"]

@@ -18,8 +18,8 @@ RUN apt-get update && apt-get install -y curl jq bc && mkdir /tmp/bashio \
 ARG version=1.1.2-1
 ARG sha256sum=2b8e660c304448972779011c3f15e37ba659403508c632bb498bcb41aeb4f75b
 ADD https://github.com/plo53/adsb-hassio-sensors/archive/refs/tags/${version}.tar.gz /tmp/
-RUN echo "${sha256sum}  /tmp/${version}.tar.gz" | sha256sum --check
-RUN tar xvfz /tmp/${version}.tar.gz \
+RUN echo "${sha256sum}  /tmp/${version}.tar.gz" | sha256sum --check \
+    && tar xvfz /tmp/${version}.tar.gz \
     adsb-hassio-sensors-${version}/etc \
     adsb-hassio-sensors-${version}/usr \
     --strip-components=1 -C /
@@ -27,8 +27,8 @@ RUN tar xvfz /tmp/${version}.tar.gz \
 # add the options.json to environment variable magic
 COPY export-env-from-config.sh /export-env-from-config.sh
 RUN find /etc/s6-overlay/s6-rc.d/ -name script \
-    -exec sed -i '1 a\source /export-env-from-config.sh' {} +
-RUN find /etc/s6-overlay/s6-rc.d/ -name run \
+    -exec sed -i '1 a\source /export-env-from-config.sh' {} + \
+    && find /etc/s6-overlay/s6-rc.d/ -name run \
     -exec sed -i '1 a\source /export-env-from-config.sh' {} +
 
 
@@ -53,4 +53,4 @@ RUN mkdir -p /etc/s6-overlay/s6-rc.d/banner \
 ENV S6_CMD_WAIT_FOR_SERVICES_MAXTIME=30000
 
 HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
-    CMD curl -fsS http://127.0.0.1:8080/ >/dev/null || exit 1
+    CMD ["curl", "-fsS", "-o", "/dev/null", "http://127.0.0.1:8080/"]
