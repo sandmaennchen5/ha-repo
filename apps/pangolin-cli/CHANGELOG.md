@@ -1,5 +1,28 @@
 # Changelog
 
+
+## [0.15.1.1] - 2026-08-03
+
+### Upstream Release Notes
+
+## Container Images
+- GHCR: `ghcr.io/fosrl/cli@sha256:18575106ba5c2e705df293396d7edeca36fab39fa551fe4ccfb0977f644cc82a`
+- Docker Hub: `docker.io/fosrl/pangolin-cli@sha256:18575106ba5c2e705df293396d7edeca36fab39fa551fe4ccfb0977f644cc82a`
+**Tag:** `0.15.1`
+
+
+## What's Changed
+* Fix some websocket disconnections by adding deadlines to websocket
+* Fix local to relay flapping if there is an overlapping CIDR route with a site local address
+* Support -i in the native Pangolin ssh command
+
+
+**Full Changelog**: https://github.com/fosrl/cli/compare/0.15.0...0.15.1
+
+Weitere Informationen: https://github.com/fosrl/cli/releases/latest
+
+---
+
 ## [0.15.0.1] - 2026-07-31
 
 - `BUILD_FROM` wird zentral und architekturspezifisch aus `build.json` übernommen.

@@ -6,7 +6,7 @@ version_strategy: "checkmk_numeric_revision"
 upstream_strategy: "github_release_branch"
 upstream_version: "2.5.0p10"
 upstream_repo: "github.com/Checkmk/checkmk"
-upstream_commit: "a197bee7557196aa3e94ec523c570f3ff5039884"
+upstream_commit: "2de4bf83740de3e75f2e515ab4a233a04ad40533"
 autoupdater: true
 
 build: ""
