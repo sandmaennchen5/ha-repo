@@ -1,6 +1,16 @@
 # Changelog
 
 
+## [1.15.0.2] - 2026-08-04
+
+### Manuelles Update
+
+- App-Revision für einen vollständigen Neuaufbau um eins erhöht.
+
+Weitere Informationen: https://github.com/fosrl/newt
+
+---
+
 ## [1.15.0.1] - 2026-07-31
 
 ### Manuelles Update
