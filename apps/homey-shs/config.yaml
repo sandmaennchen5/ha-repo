@@ -1,5 +1,5 @@
 name: "Homey Self-Hosted Server"
-version: "13.4.0.4"
+version: "13.4.0.5"
 slug: "homey-shs"
 description: "Run Homey Self-Hosted Server on Home Assistant OS."
 url: "https://support.homey.app/hc/en-us/categories/23974566220572"
