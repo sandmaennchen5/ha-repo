@@ -4,9 +4,9 @@ stage: "stable"
 
 version_strategy: "checkmk_numeric_revision"
 upstream_strategy: "github_release_branch"
-upstream_version: "2.5.0p10"
+upstream_version: "2.5.0p11"
 upstream_repo: "github.com/Checkmk/checkmk"
-upstream_commit: "2de4bf83740de3e75f2e515ab4a233a04ad40533"
+upstream_commit: "666e2404c3f03e211d5619bcca7437a20758f77c"
 autoupdater: true
 
 build: ""
@@ -17,5 +17,5 @@ image_size: "11 MB"
 custom_shield: ""
 custom_flag: ""
 
-updated: "2026-07-28"
+updated: "2026-08-05"
 source: "github.com/Checkmk/checkmk"
