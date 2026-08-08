@@ -15,10 +15,10 @@ privileged:
   - SYS_MODULE
 ports:
   2112/tcp: null
-  8095/tcp: null
+  8096/tcp: null
 ports_description:
   2112/tcp: "Optional metrics endpoint"
-  8095/tcp: "Internal health endpoint"
+  8096/tcp: "Internal health endpoint"
 kernel_modules: true
 options:
   endpoint: "https://app.pangolin.de"
