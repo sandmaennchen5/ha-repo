@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+
+        
+History
+
+
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/ha-repo/assets/dashboard.css">
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/chart.js">
+
+    </script>
+
+</head>
+
+<body
+
+class="
+
+
+rounded
+
+
+
+
+
+
+">
+
+<div class="layout">
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <h1>
+
+                HassOS Apps Dashboard
+
+            </h1>
+
+            <div class="subtitle">
+
+                Home Assistant Apps & Add-ons
+
+            </div>
+
+        </div>
+
+        <nav>
+
+        
+
+            
+
+            <a href="/ha-repo/">
+
+                
+                📊
+                
+
+                Dashboard
+
+            </a>
+
+            
+
+            <a href="/ha-repo/apps/">
+
+                
+                📦
+                
+
+                Apps
+
+            </a>
+
+            
+
+            <a href="/ha-repo/matrix.html">
+
+                
+                🧩
+                
+
+                Matrix
+
+            </a>
+
+            
+
+            <a href="/ha-repo/health.html">
+
+                
+                🏥
+                
+
+                Health
+
+            </a>
+
+            
+
+            <a href="/ha-repo/history.html">
+
+                
+                📈
+                
+
+                History
+
+            </a>
+
+            
+
+            <a href="/ha-repo/lab.html">
+
+                
+                🔬
+                
+
+                Badge Lab
+
+            </a>
+
+            
+
+            <a href="/ha-repo/settings.html">
+
+                
+                ⚙️
+                
+
+                Settings
+
+            </a>
+
+            
+
+        
+
+        </nav>
+
+    </aside>
+
+    <main class="main">
+
+        <div class="topbar">
+
+            <h1>
+
+                
+History
+
+
+            </h1>
+
+        </div>
+
+        <div class="content">
+
+            
+
+<div class="panel">
+
+    <h2>
+
+        Verlauf
+
+    </h2>
+
+    <canvas id="historyChart">
+
+    </canvas>
+
+</div>
+
+
+<div class="panel">
+
+    <h2>
+
+        Snapshots
+
+    </h2>
+
+    <table>
+
+        <thead>
+
+        <tr>
+
+            <th>Zeit</th>
+            <th>Apps</th>
+            <th>Badges</th>
+
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        
+
+        <tr>
+
+            <td>
+
+                2026-08-08T07:01:30.955347+00:00
+
+            </td>
+
+            <td>
+
+                [{'slug': 'adsb-multi-portal-feeder', 'name': 'ADS-B Multi-Portal Feeder', 'score': 100, 'green': 0, 'yellow': 0, 'red': 0, 'badges': 11}, {'slug': 'checkmk-agent', 'name': 'Checkmk Agent', 'score': 100, 'green': 0, 'yellow': 0, 'red': 0, 'badges': 8}, {'slug': 'homey-shs', 'name': 'Homey Self-Hosted Server', 'score': 100, 'green': 0, 'yellow': 0, 'red': 0, 'badges': 10}, {'slug': 'newt', 'name': 'Newt - Pangolin Tunnels', 'score': 100, 'green': 0, 'yellow': 0, 'red': 0, 'badges': 12}, {'slug': 'olm', 'name': 'Olm - Pangolin Client', 'score': 100, 'green': 0, 'yellow': 0, 'red': 0, 'badges': 11}, {'slug': 'pangolin-cli', 'name': 'Pangolin CLI Client', 'score': 100, 'green': 0, 'yellow': 0, 'red': 0, 'badges': 10}, {'slug': 'portainer', 'name': 'Portainer (Edition Selector)', 'score': 100, 'green': 0, 'yellow': 0, 'red': 0, 'badges': 10}, {'slug': 'portainer-agent', 'name': 'Portainer Agent (Channel Selector)', 'score': 100, 'green': 0, 'yellow': 0, 'red': 0, 'badges': 9}, {'slug': 'portainer-agent-lts', 'name': 'Portainer Agent LTS', 'score': 100, 'green': 0, 'yellow': 0, 'red': 0, 'badges': 9}, {'slug': 'portainer-agent-sts', 'name': 'Portainer Agent STS', 'score': 100, 'green': 0, 'yellow': 0, 'red': 0, 'badges': 9}, {'slug': 'portainer-ce-lts', 'name': 'Portainer CE LTS', 'score': 100, 'green': 0, 'yellow': 0, 'red': 0, 'badges': 10}, {'slug': 'portainer-ce-sts', 'name': 'Portainer CE STS', 'score': 100, 'green': 0, 'yellow': 0, 'red': 0, 'badges': 10}, {'slug': 'portainer-ee-lts', 'name': 'Portainer EE LTS', 'score': 100, 'green': 0, 'yellow': 0, 'red': 0, 'badges': 10}, {'slug': 'portainer-ee-sts', 'name': 'Portainer EE STS', 'score': 100, 'green': 0, 'yellow': 0, 'red': 0, 'badges': 10}]
+
+            </td>
+
+            <td>
+
+                
+
+            </td>
+
+        </tr>
+
+        
+
+        </tbody>
+
+    </table>
+
+</div>
+
+
+<script>
+
+const historyData = [
+
+
+
+{
+    timestamp: "2026-08-08T07:01:30.955347+00:00",
+    apps: [{'slug': 'adsb-multi-portal-feeder', 'name': 'ADS-B Multi-Portal Feeder', 'score': 100, 'green': 0, 'yellow': 0, 'red': 0, 'badges': 11}, {'slug': 'checkmk-agent', 'name': 'Checkmk Agent', 'score': 100, 'green': 0, 'yellow': 0, 'red': 0, 'badges': 8}, {'slug': 'homey-shs', 'name': 'Homey Self-Hosted Server', 'score': 100, 'green': 0, 'yellow': 0, 'red': 0, 'badges': 10}, {'slug': 'newt', 'name': 'Newt - Pangolin Tunnels', 'score': 100, 'green': 0, 'yellow': 0, 'red': 0, 'badges': 12}, {'slug': 'olm', 'name': 'Olm - Pangolin Client', 'score': 100, 'green': 0, 'yellow': 0, 'red': 0, 'badges': 11}, {'slug': 'pangolin-cli', 'name': 'Pangolin CLI Client', 'score': 100, 'green': 0, 'yellow': 0, 'red': 0, 'badges': 10}, {'slug': 'portainer', 'name': 'Portainer (Edition Selector)', 'score': 100, 'green': 0, 'yellow': 0, 'red': 0, 'badges': 10}, {'slug': 'portainer-agent', 'name': 'Portainer Agent (Channel Selector)', 'score': 100, 'green': 0, 'yellow': 0, 'red': 0, 'badges': 9}, {'slug': 'portainer-agent-lts', 'name': 'Portainer Agent LTS', 'score': 100, 'green': 0, 'yellow': 0, 'red': 0, 'badges': 9}, {'slug': 'portainer-agent-sts', 'name': 'Portainer Agent STS', 'score': 100, 'green': 0, 'yellow': 0, 'red': 0, 'badges': 9}, {'slug': 'portainer-ce-lts', 'name': 'Portainer CE LTS', 'score': 100, 'green': 0, 'yellow': 0, 'red': 0, 'badges': 10}, {'slug': 'portainer-ce-sts', 'name': 'Portainer CE STS', 'score': 100, 'green': 0, 'yellow': 0, 'red': 0, 'badges': 10}, {'slug': 'portainer-ee-lts', 'name': 'Portainer EE LTS', 'score': 100, 'green': 0, 'yellow': 0, 'red': 0, 'badges': 10}, {'slug': 'portainer-ee-sts', 'name': 'Portainer EE STS', 'score': 100, 'green': 0, 'yellow': 0, 'red': 0, 'badges': 10}]
+}
+
+
+
+
+
+];
+
+</script>
+
+
+
+        </div>
+
+    </main>
+
+</div>
+
+<script>
+
+const BASE_URL = "/ha-repo";
+
+</script>
+
+<script src="/ha-repo/assets/dashboard.js"></script>
+
+<script src="/ha-repo/assets/charts.js"></script>
+
+<script src="/ha-repo/assets/matrix.js"></script>
+
+<script src="/ha-repo/assets/lab.js"></script>
+
+<script src="/ha-repo/assets/theme.js"></script>
+
+<script src="/ha-repo/assets/favorites.js"></script>
+
+<script src="/ha-repo/assets/settings.js"></script>
+
+</body>
+
+</html>

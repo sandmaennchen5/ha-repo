@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+
+        
+Homey Self-Hosted Server
+
+
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/ha-repo/assets/dashboard.css">
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/chart.js">
+
+    </script>
+
+</head>
+
+<body
+
+class="
+
+
+rounded
+
+
+
+
+
+
+">
+
+<div class="layout">
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <h1>
+
+                HassOS Apps Dashboard
+
+            </h1>
+
+            <div class="subtitle">
+
+                Home Assistant Apps & Add-ons
+
+            </div>
+
+        </div>
+
+        <nav>
+
+        
+
+            
+
+            <a href="/ha-repo/">
+
+                
+                📊
+                
+
+                Dashboard
+
+            </a>
+
+            
+
+            <a href="/ha-repo/apps/">
+
+                
+                📦
+                
+
+                Apps
+
+            </a>
+
+            
+
+            <a href="/ha-repo/matrix.html">
+
+                
+                🧩
+                
+
+                Matrix
+
+            </a>
+
+            
+
+            <a href="/ha-repo/health.html">
+
+                
+                🏥
+                
+
+                Health
+
+            </a>
+
+            
+
+            <a href="/ha-repo/history.html">
+
+                
+                📈
+                
+
+                History
+
+            </a>
+
+            
+
+            <a href="/ha-repo/lab.html">
+
+                
+                🔬
+                
+
+                Badge Lab
+
+            </a>
+
+            
+
+            <a href="/ha-repo/settings.html">
+
+                
+                ⚙️
+                
+
+                Settings
+
+            </a>
+
+            
+
+        
+
+        </nav>
+
+    </aside>
+
+    <main class="main">
+
+        <div class="topbar">
+
+            <h1>
+
+                
+                Dashboard
+                
+
+            </h1>
+
+        </div>
+
+        <div class="content">
+
+            
+
+<div class="cards">
+
+    <div class="card">
+
+        <div class="card-title">
+
+            Version
+
+        </div>
+
+        <div class="card-value">
+
+            13.4.0.5
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <div class="card-title">
+
+            Health Score
+
+        </div>
+
+        <div class="card-value">
+
+            50%
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <div class="card-title">
+
+            🟢 Green
+
+        </div>
+
+        <div class="card-value">
+
+            0
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <div class="card-title">
+
+            🟡 Yellow
+
+        </div>
+
+        <div class="card-value">
+
+            10
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <div class="card-title">
+
+            🔴 Red
+
+        </div>
+
+        <div class="card-value">
+
+            0
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <div class="card-title">
+
+            Verlauf
+
+        </div>
+
+        <div class="card-value">
+
+            <a href="/ha-repo/apps/homey-shs/history.html">
+
+                📈
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <div class="card-title">
+
+            Aktive Badges
+
+        </div>
+
+        <div class="card-value">
+
+            10
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="panel">
+
+    <h2>
+
+        Beschreibung
+
+    </h2>
+
+    <p>
+
+        Run Homey Self-Hosted Server on Home Assistant OS.
+
+    </p>
+
+</div>
+
+<div class="panel">
+
+    <h2>
+
+        Health
+
+    </h2>
+
+    <div class="health-bar">
+
+        <div
+            class="health-fill"
+            style="width: 50%;">
+
+        </div>
+
+    </div>
+
+    <strong>
+
+        50%
+
+    </strong>
+
+</div>
+
+<div class="panel">
+
+    <div class="panel-header">
+
+        <h2>
+
+            Badges
+
+        </h2>
+
+        <input
+            id="badgeSearch"
+            placeholder="Badge suchen">
+
+        <label>
+
+            <input
+                type="checkbox"
+                id="hideEmptyBadges"
+
+                
+                checked
+                >
+
+            Leere Badges ausblenden
+
+        </label>
+
+    </div>
+
+    <table id="badgesTable">
+
+        <thead>
+
+        <tr>
+
+            <th>
+
+                Badge
+
+            </th>
+
+            <th>
+
+                Preview
+
+            </th>
+
+            <th>
+
+                Value
+
+            </th>
+
+            <th>
+
+                Group
+
+            </th>
+
+            <th>
+
+                Link
+
+            </th>
+
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        
+
+        <tr
+            data-label="ingress"
+            data-value="True">
+
+            <td>
+
+                Ingress
+
+            </td>
+
+            <td>
+
+                <img
+                    src="https://img.shields.io/badge/ingress-True-blue"
+                    alt="Ingress">
+
+            </td>
+
+            <td>
+
+                True
+
+            </td>
+
+            <td>
+
+                ha
+
+            </td>
+
+            <td>
+
+                <a href="/ha-repo/apps/homey-shs/badges/ingress.html">
+
+                    Details
+
+                </a>
+
+            </td>
+
+        </tr>
+
+        
+
+        <tr
+            data-label="version"
+            data-value="v13.4.0.5">
+
+            <td>
+
+                Version
+
+            </td>
+
+            <td>
+
+                <img
+                    src="https://img.shields.io/badge/version-v13.4.0.5-blue"
+                    alt="Version">
+
+            </td>
+
+            <td>
+
+                v13.4.0.5
+
+            </td>
+
+            <td>
+
+                meta
+
+            </td>
+
+            <td>
+
+                <a href="/ha-repo/apps/homey-shs/badges/version.html">
+
+                    Details
+
+                </a>
+
+            </td>
+
+        </tr>
+
+        
+
+        <tr
+            data-label="updated"
+            data-value="2026--08--05">
+
+            <td>
+
+                Updated
+
+            </td>
+
+            <td>
+
+                <img
+                    src="https://img.shields.io/badge/updated-2026--08--05-green"
+                    alt="Updated">
+
+            </td>
+
+            <td>
+
+                2026--08--05
+
+            </td>
+
+            <td>
+
+                meta
+
+            </td>
+
+            <td>
+
+                <a href="/ha-repo/apps/homey-shs/badges/updated.html">
+
+                    Details
+
+                </a>
+
+            </td>
+
+        </tr>
+
+        
+
+        <tr
+            data-label="stage"
+            data-value="stable">
+
+            <td>
+
+                Stage
+
+            </td>
+
+            <td>
+
+                <img
+                    src="https://img.shields.io/badge/stage-stable-orange"
+                    alt="Stage">
+
+            </td>
+
+            <td>
+
+                stable
+
+            </td>
+
+            <td>
+
+                meta
+
+            </td>
+
+            <td>
+
+                <a href="/ha-repo/apps/homey-shs/badges/stage.html">
+
+                    Details
+
+                </a>
+
+            </td>
+
+        </tr>
+
+        
+
+        <tr
+            data-label="arch"
+            data-value="aarch64, amd64">
+
+            <td>
+
+                Arch
+
+            </td>
+
+            <td>
+
+                <img
+                    src="https://img.shields.io/badge/arch-aarch64%2C%20amd64-green"
+                    alt="Arch">
+
+            </td>
+
+            <td>
+
+                aarch64, amd64
+
+            </td>
+
+            <td>
+
+                system
+
+            </td>
+
+            <td>
+
+                <a href="/ha-repo/apps/homey-shs/badges/arch.html">
+
+                    Details
+
+                </a>
+
+            </td>
+
+        </tr>
+
+        
+
+        <tr
+            data-label="host network"
+            data-value="True">
+
+            <td>
+
+                Host Network
+
+            </td>
+
+            <td>
+
+                <img
+                    src="https://img.shields.io/badge/host_network-True-blue"
+                    alt="Host Network">
+
+            </td>
+
+            <td>
+
+                True
+
+            </td>
+
+            <td>
+
+                system
+
+            </td>
+
+            <td>
+
+                <a href="/ha-repo/apps/homey-shs/badges/host_network.html">
+
+                    Details
+
+                </a>
+
+            </td>
+
+        </tr>
+
+        
+
+        <tr
+            data-label="image size"
+            data-value="265 MB">
+
+            <td>
+
+                Image Size
+
+            </td>
+
+            <td>
+
+                <img
+                    src="https://img.shields.io/badge/size-265_MB-informational"
+                    alt="Image Size">
+
+            </td>
+
+            <td>
+
+                265 MB
+
+            </td>
+
+            <td>
+
+                system
+
+            </td>
+
+            <td>
+
+                <a href="/ha-repo/apps/homey-shs/badges/image_size.html">
+
+                    Details
+
+                </a>
+
+            </td>
+
+        </tr>
+
+        
+
+        <tr
+            data-label="upstream"
+            data-value="v13.4.0">
+
+            <td>
+
+                Upstream
+
+            </td>
+
+            <td>
+
+                <img
+                    src="https://img.shields.io/badge/upstream-v13.4.0-yellow"
+                    alt="Upstream">
+
+            </td>
+
+            <td>
+
+                v13.4.0
+
+            </td>
+
+            <td>
+
+                upstream
+
+            </td>
+
+            <td>
+
+                <a href="/ha-repo/apps/homey-shs/badges/upstream_version.html">
+
+                    Details
+
+                </a>
+
+            </td>
+
+        </tr>
+
+        
+
+        <tr
+            data-label="repo"
+            data-value="ghcr.io/athombv/homey-shs">
+
+            <td>
+
+                Repo
+
+            </td>
+
+            <td>
+
+                <img
+                    src="https://img.shields.io/badge/repo-ghcr.io%2Fathombv%2Fhomey--shs-informational"
+                    alt="Repo">
+
+            </td>
+
+            <td>
+
+                ghcr.io/athombv/homey-shs
+
+            </td>
+
+            <td>
+
+                upstream
+
+            </td>
+
+            <td>
+
+                <a href="/ha-repo/apps/homey-shs/badges/upstream_repo.html">
+
+                    Details
+
+                </a>
+
+            </td>
+
+        </tr>
+
+        
+
+        <tr
+            data-label="commit"
+            data-value="sha256:aa9db022515a40479076fe2d3196f10e0d5d572a61a5d1353bebfd40441d168c">
+
+            <td>
+
+                Commit
+
+            </td>
+
+            <td>
+
+                <img
+                    src="https://img.shields.io/badge/commit-sha256%3Aaa9db022515a40479076fe2d3196f10e0d5d572a61a5d1353bebfd40441d168c-informational"
+                    alt="Commit">
+
+            </td>
+
+            <td>
+
+                sha256:aa9db022515a40479076fe2d3196f10e0d5d572a61a5d1353bebfd40441d168c
+
+            </td>
+
+            <td>
+
+                upstream
+
+            </td>
+
+            <td>
+
+                <a href="/ha-repo/apps/homey-shs/badges/upstream_commit.html">
+
+                    Details
+
+                </a>
+
+            </td>
+
+        </tr>
+
+        
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<div class="panel">
+
+    <h2>
+
+        History
+
+    </h2>
+
+    <p>
+
+        <a href="/ha-repo/apps/homey-shs/history.html">
+
+            Verlauf anzeigen →
+
+        </a>
+
+    </p>
+
+</div>
+
+<script>
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    () => {
+
+        const search =
+            document.getElementById(
+                "badgeSearch"
+            );
+
+        const hideEmpty =
+            document.getElementById(
+                "hideEmptyBadges"
+            );
+
+        const rows =
+            document.querySelectorAll(
+                "#badgesTable tbody tr"
+            );
+
+        function updateBadges() {
+
+            const filter =
+                (
+                    search?.value ||
+                    ""
+                )
+                .toLowerCase();
+
+            rows.forEach(
+
+                row => {
+
+                    const label =
+                        (
+                            row.dataset.label ||
+                            ""
+                        )
+                        .toLowerCase();
+
+                    const value =
+                        (
+                            row.dataset.value ||
+                            ""
+                        )
+                        .toLowerCase();
+
+                    let visible =
+                        true;
+
+                    if (
+
+                        filter &&
+                        !label.includes(
+                            filter
+                        )
+
+                    ) {
+
+                        visible =
+                            false;
+
+                    }
+
+                    if (
+
+                        hideEmpty?.checked &&
+                        (
+                            value === "" ||
+                            value === "none" ||
+                            value === "null" ||
+                            value === "-" ||
+                            value === "n/a"
+                        )
+
+                    ) {
+
+                        visible =
+                            false;
+
+                    }
+
+                    row.style.display =
+                        visible
+                        ? ""
+                        : "none";
+
+                }
+
+            );
+
+        }
+
+        search?.addEventListener(
+
+            "input",
+
+            updateBadges
+
+        );
+
+        hideEmpty?.addEventListener(
+
+            "change",
+
+            updateBadges
+
+        );
+
+        updateBadges();
+
+    }
+
+);
+
+</script>
+
+
+
+        </div>
+
+    </main>
+
+</div>
+
+<script>
+
+const BASE_URL = "/ha-repo";
+
+</script>
+
+<script src="/ha-repo/assets/dashboard.js"></script>
+
+<script src="/ha-repo/assets/charts.js"></script>
+
+<script src="/ha-repo/assets/matrix.js"></script>
+
+<script src="/ha-repo/assets/lab.js"></script>
+
+<script src="/ha-repo/assets/theme.js"></script>
+
+<script src="/ha-repo/assets/favorites.js"></script>
+
+<script src="/ha-repo/assets/settings.js"></script>
+
+</body>
+
+</html>
