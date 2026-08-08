@@ -1,2 +1,2 @@
 #!/usr/bin/with-contenv bash
-exec socat TCP-LISTEN:8095,reuseaddr,fork EXEC:/usr/local/bin/newt-health-response
+exec socat TCP-LISTEN:8096,reuseaddr,fork EXEC:/usr/local/bin/newt-health-response
