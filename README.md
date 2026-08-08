@@ -64,35 +64,35 @@ Dump1090 based feeder for FlightRadar24, FlightAware and more
 
 Expose the Checkmk monitoring agent on port 6556.
 
-![Version](https://img.shields.io/badge/version-v2.5.0.10.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--07--28-green)
+![Version](https://img.shields.io/badge/version-v2.5.0.11.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--05-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Image Size](https://img.shields.io/badge/size-11_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v2.5.0p10-yellow)
+![Upstream](https://img.shields.io/badge/upstream-v2.5.0p11-yellow)
 ![Repo](https://img.shields.io/badge/repo-github.com%2FCheckmk%2Fcheckmk-informational)
-![Commit](https://img.shields.io/badge/commit-a197bee7557196aa3e94ec523c570f3ff5039884-informational)
+![Commit](https://img.shields.io/badge/commit-666e2404c3f03e211d5619bcca7437a20758f77c-informational)
 
 ## [🏠 Homey Self-Hosted Server](apps/homey-shs/)
 
 Run Homey Self-Hosted Server on Home Assistant OS.
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v13.4.0.3-blue)
-![Updated](https://img.shields.io/badge/updated-2026--07--28-green)
+![Version](https://img.shields.io/badge/version-v13.4.0.5-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--05-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Host Network](https://img.shields.io/badge/host_network-True-blue)
 ![Image Size](https://img.shields.io/badge/size-265_MB-informational)
 ![Upstream](https://img.shields.io/badge/upstream-v13.4.0-yellow)
 ![Repo](https://img.shields.io/badge/repo-ghcr.io%2Fathombv%2Fhomey--shs-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3A97b00d6a074f8abc5d14a457f32e1c7a2b0bcbadfd56999932292efbe071abb9-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3Aaa9db022515a40479076fe2d3196f10e0d5d572a61a5d1353bebfd40441d168c-informational)
 
 ## [🛰️ Newt - Pangolin Tunnels](apps/newt/)
 
 Secure remote access with Pangolin tunnels.
 
-![Version](https://img.shields.io/badge/version-v1.15.0.1-blue)
+![Version](https://img.shields.io/badge/version-v1.15.0.3-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--07--19-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN%7CSYS_MODULE-red)
@@ -109,32 +109,32 @@ Secure remote access with Pangolin tunnels.
 
 Advanced WireGuard client for remote access to Pangolin and Newt sites.
 
-![Version](https://img.shields.io/badge/version-v1.8.1.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--07--30-green)
+![Version](https://img.shields.io/badge/version-v1.8.2.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--03-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN%7CSYS_MODULE-red)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Host Network](https://img.shields.io/badge/host_network-True-blue)
 ![Kernel Modules](https://img.shields.io/badge/kernel_modules-True-blue)
 ![Image Size](https://img.shields.io/badge/size-26_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v1.8.1-yellow)
+![Upstream](https://img.shields.io/badge/upstream-v1.8.2-yellow)
 ![Repo](https://img.shields.io/badge/repo-github.com%2Ffosrl%2Folm-informational)
-![Commit](https://img.shields.io/badge/commit-96e1d0f98c4480dd066fbe73dfba5ec0b95d5f7a-informational)
+![Commit](https://img.shields.io/badge/commit-4f54e27b22afe4d42ed662f4b1320cf400221244-informational)
 
 ## [🦎 Pangolin CLI Client](apps/pangolin-cli/)
 
 Official Pangolin CLI and WireGuard VPN client for Linux.
 
-![Version](https://img.shields.io/badge/version-v0.15.0.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--07--20-green)
+![Version](https://img.shields.io/badge/version-v0.15.1.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--03-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN-red)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Host Network](https://img.shields.io/badge/host_network-True-blue)
 ![Image Size](https://img.shields.io/badge/size-23_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v0.15.0-yellow)
+![Upstream](https://img.shields.io/badge/upstream-v0.15.1-yellow)
 ![Repo](https://img.shields.io/badge/repo-github.com%2Ffosrl%2Fcli-informational)
-![Commit](https://img.shields.io/badge/commit-91aed8f6aef125aa7e20d259c94167cd92d2ebd9-informational)
+![Commit](https://img.shields.io/badge/commit-fa90273f53fe77d1cbd950cb0bcba69dd4318faf-informational)
 
 ## [🐳 Portainer (Edition Selector)](apps/portainer/)
 
