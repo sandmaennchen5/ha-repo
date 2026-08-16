@@ -202,13 +202,18 @@ def docker_digests(tag: dict[str, Any]) -> set[str]:
 
 @functools.lru_cache(maxsize=None)
 def docker_update(namespace: str, repository: str, tracking_tag: str = "latest") -> Update:
-    base = f"https://hub.docker.com/v2/repositories/{namespace}/{repository}/tags"
+    base = (
+        f"https://hub.docker.com/v2/namespaces/{namespace}"
+        f"/repositories/{repository}/tags"
+    )
     url = f"{base}?page_size=100&ordering=last_updated"
     tags: list[dict[str, Any]] = []
-    while url:
+    page_number = 1
+    while url and page_number <= 10:
         page, _ = request_json(url)
         tags.extend(page.get("results", []))
         url = page.get("next")
+        page_number += 1
 
     latest = next((tag for tag in tags if tag.get("name") == tracking_tag), None)
     semver_tags = [(docker_version(tag.get("name", "")), tag) for tag in tags]
