@@ -1,5 +1,20 @@
 # Changelog
 
+
+## [2026.8.2] - 2026-08-16
+
+### Enthaltene Upstream-Versionen
+
+- LTS: `CE 2.39.6, EE 2.39.6`
+- STS: `CE 2.44.0, EE 2.44.0` (keine Änderung)
+
+### Änderungen
+
+- LTS: `2.39.5` → `2.39.6`
+- EE LTS: `2.39.5` → `2.39.6`
+
+---
+
 ## [2026.8.1] - 2026-08-02
 
 - Neue Selector-App für Portainer CE/EE und LTS/STS.

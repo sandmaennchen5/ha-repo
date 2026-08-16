@@ -1,5 +1,5 @@
 ARG BUILD_ARCH=amd64
-ARG UPSTREAM_VERSION=2.39.5
+ARG UPSTREAM_VERSION=2.39.6
 FROM portainer/portainer-ce:${UPSTREAM_VERSION}-alpine AS upstream
 FROM ghcr.io/hassio-addons/base/${BUILD_ARCH}:16.0.0
 RUN apk add --no-cache nginx nodejs tar

@@ -1,5 +1,18 @@
 # Changelog
 
+
+## [2.39.6.1] - 2026-08-12
+
+### Docker Hub
+
+- Docker Hub image: `docker.io/portainer/portainer-ce:2.39.6-alpine`
+- Digest: `sha256:f35a74e590973d9c77fa2c4930c64c1a05626eedf64462b3d2eebef5a7c710e3`
+- Aktualisiert auf Docker Hub: 2026-08-12
+
+Weitere Informationen: https://docker.io/portainer/portainer-ce
+
+---
+
 ## [2.39.5.1] - 2026-08-02
 
 - Die benutzerbezogene Ingress-Anmeldung bleibt mit einem automatisch erzeugten Portainer Access Token auch nach App-Neustarts erhalten.

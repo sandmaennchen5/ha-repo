@@ -1,5 +1,5 @@
 name: "Portainer CE LTS"
-version: "2.39.5.1"
+version: "2.39.6.1"
 slug: "portainer-ce-lts"
 description: "Portainer CE/BE with selectable LTS/STS channel, ingress and data migration."
 url: "https://docs.portainer.io/"

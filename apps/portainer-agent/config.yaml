@@ -1,5 +1,5 @@
 name: "Portainer Agent (Channel Selector)"
-version: "2026.8.1"
+version: "2026.8.2"
 slug: "portainer-agent"
 description: "Portainer Agent with selectable LTS/STS channel."
 stage: experimental
