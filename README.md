@@ -141,12 +141,12 @@ Official Pangolin CLI and WireGuard VPN client for Linux.
 Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v2026.8.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--07--31-green)
+![Version](https://img.shields.io/badge/version-v2026.8.2-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--16-green)
 ![Stage](https://img.shields.io/badge/stage-experimental-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
-![Image Size](https://img.shields.io/badge/size-201_MB-informational)
+![Image Size](https://img.shields.io/badge/size-213_MB-informational)
 ![Upstream](https://img.shields.io/badge/upstream-v2.44.0-yellow)
 ![Repo](https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fportainer--ce-informational)
 ![Commit](https://img.shields.io/badge/commit-sha256%3A5376fd96f0bae14be7285ceb24c5cf9470dc23f19cdde74ff4c65d11cbe96eb2-informational)
@@ -155,12 +155,12 @@ Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.
 
 Portainer Agent with selectable LTS/STS channel.
 
-![Version](https://img.shields.io/badge/version-v2026.8.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--07--31-green)
+![Version](https://img.shields.io/badge/version-v2026.8.2-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--16-green)
 ![Stage](https://img.shields.io/badge/stage-experimental-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
-![Image Size](https://img.shields.io/badge/size-64_MB-informational)
+![Image Size](https://img.shields.io/badge/size-69_MB-informational)
 ![Upstream](https://img.shields.io/badge/upstream-v2.44.0-yellow)
 ![Repo](https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fagent-informational)
 ![Commit](https://img.shields.io/badge/commit-sha256%3Ad57c3d57774d524f9738d07e743a2e8d3d65ea74bc2a39bc17b20ac0fd768e75-informational)
@@ -169,15 +169,15 @@ Portainer Agent with selectable LTS/STS channel.
 
 Portainer Agent with selectable LTS/STS channel.
 
-![Version](https://img.shields.io/badge/version-v2.39.5.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--07--13-green)
+![Version](https://img.shields.io/badge/version-v2.39.6.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--12-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
-![Image Size](https://img.shields.io/badge/size-35_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v2.39.5-yellow)
+![Image Size](https://img.shields.io/badge/size-37_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v2.39.6-yellow)
 ![Repo](https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fagent-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3Aec9223788fe62872bc78d23ad4f4a5558ff560500d2602f378ea191f560f491e-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3A6d2fd88d1cf0284f61971854e9a65e5eeaaf48456a0b8a903a1e64842073dcfc-informational)
 
 ## [🔗 Portainer Agent STS](apps/portainer-agent-sts/)
 
@@ -198,15 +198,15 @@ Portainer Agent with selectable LTS/STS channel.
 Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v2.39.5.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--07--13-green)
+![Version](https://img.shields.io/badge/version-v2.39.6.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--12-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
-![Image Size](https://img.shields.io/badge/size-62_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v2.39.5-yellow)
+![Image Size](https://img.shields.io/badge/size-65_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v2.39.6-yellow)
 ![Repo](https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fportainer--ce-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3Ad9771805f1757233d706b5995ec4418d5d4310299c383822ae3bdafb54e753df-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3Af35a74e590973d9c77fa2c4930c64c1a05626eedf64462b3d2eebef5a7c710e3-informational)
 
 ## [🐳 Portainer CE STS](apps/portainer-ce-sts/)
 
@@ -228,15 +228,15 @@ Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.
 Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v2.39.5.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--07--13-green)
+![Version](https://img.shields.io/badge/version-v2.39.6.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--12-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
-![Image Size](https://img.shields.io/badge/size-76_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v2.39.5-yellow)
+![Image Size](https://img.shields.io/badge/size-82_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v2.39.6-yellow)
 ![Repo](https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fportainer--ee-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3A7f7408b8336701055b87446e87978f26d5ead271de64ffad07b2173acf3165d8-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3Ac233e9205e4c2171cf0be87f3afed67c4cea0a809db8872f630a25b4dbc60c63-informational)
 
 ## [💼 Portainer EE STS](apps/portainer-ee-sts/)
 
