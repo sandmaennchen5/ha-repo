@@ -1,6 +1,27 @@
 # Changelog
 
 
+## [13.4.1] - 2026-08-19
+
+### GitHub Container Registry
+
+### Security
+- This release includes an important security fix. We recommend keeping your Homey up to date.
+### Z-Wave
+- Fixes various issues with (multi channel) associations on older devices.
+### Matter
+- Fixes an issue where 21-digit pairing codes could not be used when adding a device.
+- Decreases the priority to use the “Generic Switch” device type to use as the Homey Device’s device class.
+- Improved device class assignment for bridges.
+- Adds “start”, “stop”, “resume”, and “pause” Flow cards for “operational state” actions.
+- Adds “Go to charging dock” Flow card for robot vacuum cleaners.
+
+Release Notes: https://homey.app/en-us/wiki/homey-shs-changelog/
+
+Weitere Informationen: https://ghcr.io/athombv/homey-shs
+
+---
+
 ## [13.4.0.5] - 2026-08-05
 
 ### GitHub Container Registry
