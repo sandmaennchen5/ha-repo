@@ -92,34 +92,34 @@ Run Homey Self-Hosted Server on Home Assistant OS.
 
 Secure remote access with Pangolin tunnels.
 
-![Version](https://img.shields.io/badge/version-v1.15.0.3-blue)
-![Updated](https://img.shields.io/badge/updated-2026--07--19-green)
+![Version](https://img.shields.io/badge/version-v1.16.0-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--19-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN%7CSYS_MODULE-red)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Host Network](https://img.shields.io/badge/host_network-True-blue)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
 ![Kernel Modules](https://img.shields.io/badge/kernel_modules-True-blue)
-![Image Size](https://img.shields.io/badge/size-34_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v1.15.0-yellow)
+![Image Size](https://img.shields.io/badge/size-36_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v1.16.0-yellow)
 ![Repo](https://img.shields.io/badge/repo-github.com%2Ffosrl%2Fnewt-informational)
-![Commit](https://img.shields.io/badge/commit-15224904a0e0981245662a55a2e75fa2aa5a6619-informational)
+![Commit](https://img.shields.io/badge/commit-0e415f0a01223dd53d19185083048e0017c755b3-informational)
 
 ## [🍃 Olm - Pangolin Client](apps/olm/)
 
 Advanced WireGuard client for remote access to Pangolin and Newt sites.
 
-![Version](https://img.shields.io/badge/version-v1.8.2.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--08--03-green)
+![Version](https://img.shields.io/badge/version-v1.9.0.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--19-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN%7CSYS_MODULE-red)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Host Network](https://img.shields.io/badge/host_network-True-blue)
 ![Kernel Modules](https://img.shields.io/badge/kernel_modules-True-blue)
-![Image Size](https://img.shields.io/badge/size-26_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v1.8.2-yellow)
+![Image Size](https://img.shields.io/badge/size-27_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v1.9.0-yellow)
 ![Repo](https://img.shields.io/badge/repo-github.com%2Ffosrl%2Folm-informational)
-![Commit](https://img.shields.io/badge/commit-4f54e27b22afe4d42ed662f4b1320cf400221244-informational)
+![Commit](https://img.shields.io/badge/commit-8c1db4bada7e7425a2500ea5d76df8b85f407a91-informational)
 
 ## [🦎 Pangolin CLI Client](apps/pangolin-cli/)
 

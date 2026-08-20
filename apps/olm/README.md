@@ -7,17 +7,17 @@
 [![CodeFactor][codefactor-badge]][codefactor-url]
 
 <!-- BADGES-START -->
-![Version](https://img.shields.io/badge/version-v1.8.2.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--08--03-green)
+![Version](https://img.shields.io/badge/version-v1.9.0.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--19-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN%7CSYS_MODULE-red)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Host Network](https://img.shields.io/badge/host_network-True-blue)
 ![Kernel Modules](https://img.shields.io/badge/kernel_modules-True-blue)
-![Image Size](https://img.shields.io/badge/size-26_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v1.8.2-yellow)
+![Image Size](https://img.shields.io/badge/size-27_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v1.9.0-yellow)
 ![Repo](https://img.shields.io/badge/repo-github.com%2Ffosrl%2Folm-informational)
-![Commit](https://img.shields.io/badge/commit-4f54e27b22afe4d42ed662f4b1320cf400221244-informational)
+![Commit](https://img.shields.io/badge/commit-8c1db4bada7e7425a2500ea5d76df8b85f407a91-informational)
 <!-- BADGES-END -->
 
 Olm verbindet Home Assistant OS über einen verschlüsselten WireGuard-Tunnel mit
