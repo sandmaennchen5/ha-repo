@@ -3,7 +3,7 @@ FROM ghcr.io/home-assistant/${BUILD_ARCH}-base:3.23
 
 ARG BUILD_VERSION
 ARG BUILD_ARCH
-ARG UPSTREAM_VERSION=1.8.2
+ARG UPSTREAM_VERSION=1.9.0
 
 LABEL \
   io.hass.version="${BUILD_VERSION}" \
