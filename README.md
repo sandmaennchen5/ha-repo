@@ -64,14 +64,14 @@ Dump1090 based feeder for FlightRadar24, FlightAware and more
 
 Expose the Checkmk monitoring agent on port 6556.
 
-![Version](https://img.shields.io/badge/version-v2.5.0.11.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--08--05-green)
+![Version](https://img.shields.io/badge/version-v2.5.0.12.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--19-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
-![Image Size](https://img.shields.io/badge/size-11_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v2.5.0p11-yellow)
+![Image Size](https://img.shields.io/badge/size-12_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v2.5.0p12-yellow)
 ![Repo](https://img.shields.io/badge/repo-github.com%2FCheckmk%2Fcheckmk-informational)
-![Commit](https://img.shields.io/badge/commit-666e2404c3f03e211d5619bcca7437a20758f77c-informational)
+![Commit](https://img.shields.io/badge/commit-888be9b83fef64cb54c5c8b2b808f37880059b5e-informational)
 
 ## [🏠 Homey Self-Hosted Server](apps/homey-shs/)
 
