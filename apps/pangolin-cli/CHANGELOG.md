@@ -1,6 +1,26 @@
 # Changelog
 
 
+## [0.16.0.1] - 2026-08-21
+
+### Upstream Release Notes
+
+## Container Images
+- GHCR: `ghcr.io/fosrl/cli@sha256:a25a6d81b1f6c20f9f4c47fda4c82e61ec5a7cf72f6465174db552b0fe616434`
+- Docker Hub: `docker.io/fosrl/pangolin-cli@sha256:a25a6d81b1f6c20f9f4c47fda4c82e61ec5a7cf72f6465174db552b0fe616434`
+**Tag:** `0.16.0`
+
+
+## What's Changed
+* Add support for Pangolin (>= 1.22.0) AI Gateway private resources
+* Add support for configuring common AI clients to connect to Pangolin AI Gateway resources
+
+**Full Changelog**: https://github.com/fosrl/cli/compare/0.15.1...0.16.0
+
+Weitere Informationen: https://github.com/fosrl/cli/releases/latest
+
+---
+
 ## [0.15.1.1] - 2026-08-03
 
 ### Upstream Release Notes

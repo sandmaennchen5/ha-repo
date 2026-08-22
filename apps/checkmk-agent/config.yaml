@@ -1,5 +1,5 @@
 name: "Checkmk Agent"
-version: "2.5.0.12.1"
+version: "2.5.0.12.2"
 slug: "checkmk-agent"
 description: "Expose the Checkmk monitoring agent on port 6556."
 url: "https://checkmk.com/"
