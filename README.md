@@ -64,14 +64,14 @@ Dump1090 based feeder for FlightRadar24, FlightAware and more
 
 Expose the Checkmk monitoring agent on port 6556.
 
-![Version](https://img.shields.io/badge/version-v2.5.0.12.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--08--19-green)
+![Version](https://img.shields.io/badge/version-v2.5.0.12.2-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--21-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Image Size](https://img.shields.io/badge/size-12_MB-informational)
 ![Upstream](https://img.shields.io/badge/upstream-v2.5.0p12-yellow)
 ![Repo](https://img.shields.io/badge/repo-github.com%2FCheckmk%2Fcheckmk-informational)
-![Commit](https://img.shields.io/badge/commit-888be9b83fef64cb54c5c8b2b808f37880059b5e-informational)
+![Commit](https://img.shields.io/badge/commit-1a1870ce0c8a0b27932ffb5c5f400971551a9f8d-informational)
 
 ## [🏠 Homey Self-Hosted Server](apps/homey-shs/)
 
@@ -125,16 +125,16 @@ Advanced WireGuard client for remote access to Pangolin and Newt sites.
 
 Official Pangolin CLI and WireGuard VPN client for Linux.
 
-![Version](https://img.shields.io/badge/version-v0.15.1.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--08--03-green)
+![Version](https://img.shields.io/badge/version-v0.16.0.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--21-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN-red)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Host Network](https://img.shields.io/badge/host_network-True-blue)
-![Image Size](https://img.shields.io/badge/size-23_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v0.15.1-yellow)
+![Image Size](https://img.shields.io/badge/size-25_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v0.16.0-yellow)
 ![Repo](https://img.shields.io/badge/repo-github.com%2Ffosrl%2Fcli-informational)
-![Commit](https://img.shields.io/badge/commit-fa90273f53fe77d1cbd950cb0bcba69dd4318faf-informational)
+![Commit](https://img.shields.io/badge/commit-dd61170ef18ee8b76286f18416ce6124a86e4098-informational)
 
 ## [🐳 Portainer (Edition Selector)](apps/portainer/)
 
