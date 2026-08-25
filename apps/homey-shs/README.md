@@ -14,7 +14,7 @@
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Host Network](https://img.shields.io/badge/host_network-True-blue)
-![Image Size](https://img.shields.io/badge/size-265_MB-informational)
+![Image Size](https://img.shields.io/badge/size-282_MB-informational)
 ![Upstream](https://img.shields.io/badge/upstream-v13.4.0-yellow)
 ![Repo](https://img.shields.io/badge/repo-ghcr.io%2Fathombv%2Fhomey--shs-informational)
 ![Commit](https://img.shields.io/badge/commit-sha256%3Aaa9db022515a40479076fe2d3196f10e0d5d572a61a5d1353bebfd40441d168c-informational)

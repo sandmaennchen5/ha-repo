@@ -13,7 +13,7 @@
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
-![Image Size](https://img.shields.io/badge/size-62_MB-informational)
+![Image Size](https://img.shields.io/badge/size-65_MB-informational)
 ![Upstream](https://img.shields.io/badge/upstream-v2.39.5-yellow)
 ![Repo](https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fportainer--ce-informational)
 ![Commit](https://img.shields.io/badge/commit-sha256%3Ad9771805f1757233d706b5995ec4418d5d4310299c383822ae3bdafb54e753df-informational)

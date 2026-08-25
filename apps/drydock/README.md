@@ -7,6 +7,7 @@
 ![Stage](https://img.shields.io/badge/stage-experimental-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
+![Image Size](https://img.shields.io/badge/size-149_MB-informational)
 ![Upstream](https://img.shields.io/badge/upstream-v1.6.0-yellow)
 ![Repo](https://img.shields.io/badge/repo-docker.io%2Fcodeswhat%2Fdrydock-informational)
 <!-- BADGES-END -->

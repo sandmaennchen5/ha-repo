@@ -16,7 +16,7 @@
 ![Host Network](https://img.shields.io/badge/host_network-True-blue)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
 ![Kernel Modules](https://img.shields.io/badge/kernel_modules-True-blue)
-![Image Size](https://img.shields.io/badge/size-34_MB-informational)
+![Image Size](https://img.shields.io/badge/size-36_MB-informational)
 ![Upstream](https://img.shields.io/badge/upstream-v1.15.0-yellow)
 ![Repo](https://img.shields.io/badge/repo-github.com%2Ffosrl%2Fnewt-informational)
 ![Commit](https://img.shields.io/badge/commit-15224904a0e0981245662a55a2e75fa2aa5a6619-informational)

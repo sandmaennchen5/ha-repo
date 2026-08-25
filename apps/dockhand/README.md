@@ -7,6 +7,7 @@
 ![Stage](https://img.shields.io/badge/stage-experimental-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
+![Image Size](https://img.shields.io/badge/size-181_MB-informational)
 ![Upstream](https://img.shields.io/badge/upstream-v1.0.44-yellow)
 ![Repo](https://img.shields.io/badge/repo-github.com%2FFinsys%2Fdockhand-informational)
 ![Commit](https://img.shields.io/badge/commit-674d80b178455541e6aaa65a7b88c66757eed18f-informational)

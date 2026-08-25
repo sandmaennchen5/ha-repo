@@ -11,7 +11,7 @@
 ![Updated](https://img.shields.io/badge/updated-2026--08--05-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
-![Image Size](https://img.shields.io/badge/size-11_MB-informational)
+![Image Size](https://img.shields.io/badge/size-12_MB-informational)
 ![Upstream](https://img.shields.io/badge/upstream-v2.5.0p11-yellow)
 ![Repo](https://img.shields.io/badge/repo-github.com%2FCheckmk%2Fcheckmk-informational)
 ![Commit](https://img.shields.io/badge/commit-666e2404c3f03e211d5619bcca7437a20758f77c-informational)
