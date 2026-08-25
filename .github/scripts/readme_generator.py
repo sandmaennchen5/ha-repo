@@ -8,7 +8,7 @@ from badge_generator import (
     build_markdown
 )
 
-ROOT_README = Path("README.md")
+ROOT_READMES = (Path("README.md"), Path("README.en.md"))
 
 
 def replace_marker(text, marker, content):
@@ -83,7 +83,8 @@ def build_root_section():
 def update_root_readme():
 
     content = build_root_section()
-    update_file(ROOT_README, "APPS-LIST", content)
+    for readme in ROOT_READMES:
+        update_file(readme, "APPS-LIST", content)
 
 
 def update_app_readme(app_path):

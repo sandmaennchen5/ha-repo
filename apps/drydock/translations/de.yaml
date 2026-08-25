@@ -1,0 +1,5 @@
+configuration:
+  {}
+network:
+  3000/tcp: Direkte Weboberfläche (optionale Portzuweisung)
+

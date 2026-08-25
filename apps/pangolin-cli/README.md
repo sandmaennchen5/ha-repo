@@ -7,16 +7,16 @@
 [![CodeFactor][codefactor-badge]][codefactor-url]
 
 <!-- BADGES-START -->
-![Version](https://img.shields.io/badge/version-v0.15.0.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--07--20-green)
+![Version](https://img.shields.io/badge/version-v0.15.1.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--03-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN-red)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Host Network](https://img.shields.io/badge/host_network-True-blue)
 ![Image Size](https://img.shields.io/badge/size-23_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v0.15.0-yellow)
+![Upstream](https://img.shields.io/badge/upstream-v0.15.1-yellow)
 ![Repo](https://img.shields.io/badge/repo-github.com%2Ffosrl%2Fcli-informational)
-![Commit](https://img.shields.io/badge/commit-91aed8f6aef125aa7e20d259c94167cd92d2ebd9-informational)
+![Commit](https://img.shields.io/badge/commit-fa90273f53fe77d1cbd950cb0bcba69dd4318faf-informational)
 <!-- BADGES-END -->
 
 Die offizielle Pangolin CLI verbindet Home Assistant OS als WireGuard-VPN-Client

@@ -1,0 +1,30 @@
+name: "Drydock"
+version: "1.6.0.1"
+slug: "drydock"
+description: "Container update monitoring and automation with Home Assistant Ingress."
+stage: experimental
+url: "https://getdrydock.com/docs/"
+arch:
+  - aarch64
+  - amd64
+image: "ghcr.io/sandmaennchen5/ha-repo-drydock"
+init: false
+startup: services
+docker_api: true
+ingress: true
+ingress_port: 3000
+ingress_stream: true
+panel_title: "Drydock"
+panel_icon: "mdi:docker"
+ports:
+  3000/tcp: null
+ports_description:
+  3000/tcp: "Direct Web UI (optional assignment)"
+environment:
+  DD_STORE_PATH: "/data"
+  DD_ANONYMOUS_AUTH_CONFIRM: "true"
+  DD_SERVER_TRUSTPROXY: "1"
+options: {}
+schema: {}
+timeout: 120
+
