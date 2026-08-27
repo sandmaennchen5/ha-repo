@@ -83,6 +83,8 @@ jobs:
         id: discover
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+          DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
           SELECTED_APP: ${{ inputs.app }}
           REBUILD_ALL: ${{ inputs.rebuild_all }}
           BUMP_APP_REVISION: ${{ inputs.bump_app_revision }}

@@ -18,6 +18,66 @@ spec.loader.exec_module(updater)
 
 
 class UpdateFailureTests(unittest.TestCase):
+    def test_docker_auth_is_only_used_after_denial(self):
+        url = 'https://hub.docker.com/v2/repositories/portainer/agent/tags'
+        with patch.dict(os.environ, {'DOCKERHUB_USERNAME':'user', 'DOCKERHUB_TOKEN':'secret'}):
+            with patch.object(updater, 'request_json', return_value=({}, {})) as request, patch.object(updater, 'docker_hub_token') as login:
+                updater.docker_hub_json(url)
+                request.assert_called_once_with(url)
+                login.assert_not_called()
+            for code in (401, 403):
+                with patch.object(updater, 'request_json', side_effect=[HTTPError(url, code, 'denied', {}, None), ({'ok':True}, {})]) as request:
+                    with patch.object(updater, 'docker_hub_token', return_value='jwt') as login:
+                        self.assertEqual(updater.docker_hub_json(url)[0], {'ok':True})
+                        self.assertEqual(request.call_args_list[-1].args, (url, 'jwt'))
+                        login.assert_called_once()
+
+    def test_no_auth_without_both_secrets_or_for_other_errors(self):
+        url = 'https://hub.docker.com/v2/repositories/test/test/tags'
+        for code, user, token in [(403, '', ''), (403, 'user', ''), (404, 'user', 'secret'), (429, 'user', 'secret')]:
+            with patch.dict(os.environ, {'DOCKERHUB_USERNAME':user, 'DOCKERHUB_TOKEN':token}):
+                with patch.object(updater, 'request_json', side_effect=HTTPError(url, code, 'denied', {}, None)), patch.object(updater, 'docker_hub_token') as login:
+                    with self.assertRaises(HTTPError):
+                        updater.docker_hub_json(url)
+                    login.assert_not_called()
+
+    def test_reject_foreign_pagination_host(self):
+        with patch.object(updater, 'request_json') as request:
+            with self.assertRaises(ValueError):
+                updater.docker_hub_json('https://example.com/steal')
+            request.assert_not_called()
+
+    def test_token_exchange_payload_and_cache(self):
+        updater.docker_hub_token.cache_clear()
+        self.addCleanup(updater.docker_hub_token.cache_clear)
+        with patch.dict(os.environ, {'DOCKERHUB_USERNAME':'user', 'DOCKERHUB_TOKEN':'pat'}):
+            with patch.object(updater.urllib.request, 'urlopen', return_value=io.BytesIO(b'{"access_token":"jwt"}')) as request:
+                self.assertEqual(updater.docker_hub_token(), 'jwt')
+                self.assertEqual(updater.docker_hub_token(), 'jwt')
+                request.assert_called_once()
+                sent = request.call_args.args[0]
+                self.assertEqual(sent.full_url, 'https://hub.docker.com/v2/auth/token')
+                self.assertEqual(json.loads(sent.data), {'identifier':'user','secret':'pat'})
+
+    def test_channel_match_stops_before_historical_pages(self):
+        updater.docker_update.cache_clear()
+        self.addCleanup(updater.docker_update.cache_clear)
+        channel = {'name':'alpine','digest':'sha256:matching'}
+        tag = {'name':'2.39.6-alpine','digest':'sha256:matching','last_updated':'2026-08-27T00:00:00Z'}
+        with patch.object(updater, 'docker_hub_json', side_effect=[(channel, {}), ({'results':[tag], 'next':'unused'}, {})]) as request:
+            result = updater.docker_update('portainer', 'portainer-ce', 'alpine')
+            self.assertEqual(result.version, '2.39.6')
+            self.assertEqual(request.call_count, 2)
+            self.assertTrue(request.call_args_list[0].args[0].endswith('/tags/alpine'))
+
+    def test_wrong_digest_is_not_accepted_for_channel(self):
+        updater.docker_update.cache_clear()
+        self.addCleanup(updater.docker_update.cache_clear)
+        responses = [({'name':'alpine','digest':'a'}, {}), ({'results':[{'name':'2.99.0','digest':'b'}], 'next':None}, {})]
+        with patch.object(updater, 'docker_hub_json', side_effect=responses):
+            with self.assertRaisesRegex(RuntimeError, 'no version tag matches'):
+                updater.docker_update('portainer','portainer-ce','alpine')
+
     def test_http_error_has_endpoint_and_rate_limit_without_secrets(self):
         error = HTTPError('https://user:password@hub.docker.com/v2/repositories/portainer/tags?token=secret',
                           403, 'Forbidden', {'X-RateLimit-Remaining': '0'}, None)
