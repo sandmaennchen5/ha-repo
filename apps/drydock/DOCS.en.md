@@ -36,6 +36,18 @@ Drydock login, set `auth_username` and a Drydock-compatible Argon2id password
 hash in `auth_password_hash`. This disables anonymous access. Do not enter a
 plaintext password as a hash.
 
+### Login across restarts
+
+With `remember_ingress_users: true`, Ingress reuses a valid login per HA user.
+Since 1.6.0.6, server-side sessions are stored separately in `dd.json.sessions`
+next to the application database. Login/logout changes are saved before they
+are acknowledged. Back up both files in the selected storage directory.
+
+Log in manually once after updating if the previous session was already lost.
+Valid sessions then survive restarts. Explicit logout, session expiry, or a
+changed session secret still requires authentication. No additional plaintext
+passwords are stored.
+
 `environment` accepts a list of `name`/`value` pairs with a `DD_` prefix.
 Storage path, internal port, TLS and proxy trust are fixed by this app.
 OIDC and external redirects have not been tested through Ingress.

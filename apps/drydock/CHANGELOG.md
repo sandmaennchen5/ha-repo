@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.6.0.6
+
+- Isolate server-side login sessions from the main Drydock database to prevent independent Loki stores overwriting each other.
+- Persist session mutations before acknowledging login/logout, preserving valid remembered Ingress sessions across restarts.
+- Existing lost sessions require one manual login after updating. Logout and session expiry still require authentication.
+
 
 ## [1.6.0.5] - 2026-08-27
 

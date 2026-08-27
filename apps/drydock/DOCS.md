@@ -38,6 +38,19 @@ Für einen eigenen Drydock-Login `auth_username` und einen von Drydock unterstü
 Argon2id-Passworthash in `auth_password_hash` setzen. Dadurch wird anonymer Zugriff
 deaktiviert. Keinen Klartext als Hash eintragen.
 
+### Anmeldung nach einem Neustart
+
+Mit `remember_ingress_users: true` wird eine gültige Anmeldung pro HA-Benutzer
+im Ingress wiederverwendet. Seit 1.6.0.6 liegen die serverseitigen Sitzungen
+getrennt in `dd.json.sessions` neben der Anwendungsdatenbank. Änderungen werden
+vor der Bestätigung von An- und Abmeldung gespeichert. Beide Dateien müssen
+bei einem Backup des ausgewählten Speicherverzeichnisses berücksichtigt werden.
+
+Nach dem Update bitte einmal manuell anmelden, falls die alte Sitzung bereits
+verloren ging. Anschließend bleibt die gültige Sitzung über Neustarts erhalten.
+Abmelden, Sitzungsablauf oder der Wechsel des Sitzungsschlüssels erfordern eine
+erneute Anmeldung. Es werden keine zusätzlichen Klartextpasswörter gespeichert.
+
 Weitere Drydock-Einstellungen lassen sich über `environment` als Liste von
 `name`/`value`-Paaren mit `DD_`-Präfix setzen. Speicherpfad, interner Port,
 TLS und Proxy-Vertrauen werden von der App festgelegt und sind hier nicht überschreibbar.

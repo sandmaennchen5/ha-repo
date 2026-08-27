@@ -18,6 +18,7 @@ LABEL \
 USER root
 COPY rootfs/usr/local/lib/drydock-ha /usr/local/lib/drydock-ha
 RUN node /usr/local/lib/drydock-ha/patch-ui.mjs
+RUN node /usr/local/lib/drydock-ha/patch-session.mjs
 
 ENV DD_STORE_PATH=/data/drydock \
     DD_ANONYMOUS_AUTH_CONFIRM=true \
