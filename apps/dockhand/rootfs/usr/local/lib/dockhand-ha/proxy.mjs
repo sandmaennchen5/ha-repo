@@ -5,13 +5,19 @@ import crypto from 'node:crypto';
 
 const cookieName = 'dockhand_session';
 const runtime = fs.readFileSync(new URL('./runtime.js', import.meta.url));
-const roots = 'activity|alerts|api|audit|backups|containers|dashboard|environments|images|login|logs|metrics|networks|profile|registry|schedules|settings|stacks|templates|terminal|volumes|_app|logo-dark\\.webp|logo-light\\.webp|favicon[^/"\'` ]*|apple-touch-icon[^/"\'` ]*|android-chrome[^/"\'` ]*|site\\.webmanifest';
+// Never rewrite route IDs in SvelteKit's generated dictionary or hydration data.
+// Browser requests are prefixed by runtime.js; only static assets belong here.
+const roots = '_app|logo-dark\\.webp|logo-light\\.webp|favicon[^/"\'` ]*|apple-touch-icon[^/"\'` ]*|android-chrome[^/"\'` ]*|site\\.webmanifest';
 const literalPaths = new RegExp('(["\'`])/(?!/)(?=(?:' + roots + ')(?:[/?#"\'`]|$))', 'g');
 const trustedPeers = new Set(['172.30.32.2', '::ffff:172.30.32.2']);
 
 export function rewriteText(text, prefix, type) {
   text = text.replace(literalPaths, `$1${prefix}/`);
   if (type.includes('text/html')) {
+    // SvelteKit 2.50 emits this assignment before importing the client modules.
+    // Set the actual base before those modules snapshot it, not after hydration.
+    text = text.replace(/(\b__sveltekit_[\w]+\s*=\s*\{\s*base\s*:\s*)(?:new URL\(\s*["'][./]*["']\s*,\s*location\s*\)\.pathname\.slice\(\s*0\s*,\s*-1\s*\)|["'][^"']*["'])/g,
+      (_, assignment) => assignment + JSON.stringify(prefix));
     // The upstream client router is built for '/'. Let the server resolve
     // prefixed link navigation after this proxy strips the HA ingress path.
     text = text.replace(/<html\b([^>]*)>/i, (_, attrs) => '<html' + attrs.replace(/\sdata-sveltekit-(?:reload|preload-data|preload-code)(?:=(?:"[^"]*"|'[^']*'|[^\s>]+))?/gi, '') + ' data-sveltekit-reload data-sveltekit-preload-data="false" data-sveltekit-preload-code="false">');
