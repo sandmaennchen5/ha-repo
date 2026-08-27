@@ -33,6 +33,13 @@
   }
   function fix(element) {
     if (!(element instanceof Element)) return;
+    if (element.tagName === 'A') {
+      // Also cover links inserted by hydration, including attributes that
+      // would otherwise override the inherited document navigation policy.
+      element.setAttribute('data-sveltekit-reload', '');
+      element.setAttribute('data-sveltekit-preload-data', 'false');
+      element.setAttribute('data-sveltekit-preload-code', 'false');
+    }
     for (const attr of ['href', 'src', 'action']) {
       const value = element.getAttribute(attr);
       if (value?.startsWith('/') && !value.startsWith('//') && !value.startsWith(prefix + '/')) element.setAttribute(attr, rewrite(value));

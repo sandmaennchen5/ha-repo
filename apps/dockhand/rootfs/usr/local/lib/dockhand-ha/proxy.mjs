@@ -12,6 +12,9 @@ const trustedPeers = new Set(['172.30.32.2', '::ffff:172.30.32.2']);
 export function rewriteText(text, prefix, type) {
   text = text.replace(literalPaths, `$1${prefix}/`);
   if (type.includes('text/html')) {
+    // The upstream client router is built for '/'. Let the server resolve
+    // prefixed link navigation after this proxy strips the HA ingress path.
+    text = text.replace(/<html\b([^>]*)>/i, (_, attrs) => '<html' + attrs.replace(/\sdata-sveltekit-(?:reload|preload-data|preload-code)(?:=(?:"[^"]*"|'[^']*'|[^\s>]+))?/gi, '') + ' data-sveltekit-reload data-sveltekit-preload-data="false" data-sveltekit-preload-code="false">');
     text = text.replace(/(\b(?:href|src|action)=(["']))\/(?!\/|api\/hassio_ingress\/)/gi, `$1${prefix}/`);
     text = text.replace(/<head([^>]*)>/i, `<head$1><script src="${prefix}/__dockhand_ingress.js"></script>`);
   }

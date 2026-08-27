@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.44.4 - 2026-08-27
+
+- Ingress-Menülinks laden Seiten serverseitig, damit der für `/` gebaute Client-Router keine HA-Ingress-Unterpfade als unbekannte Routen behandelt.
+- Gilt auch für dynamisch eingefügte Links; Direktzugriff auf Port 3000 bleibt unverändert.
+- Seitenwechsel laden die Oberfläche neu. Gespeicherte Anmeldungen bleiben unverändert.
+
 
 ## [1.0.44.3] - 2026-08-27
 
