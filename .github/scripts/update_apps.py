@@ -450,6 +450,11 @@ def discover(selected: str, scheduled: bool) -> tuple[list[tuple[Path, str, tupl
             messages.append(f"SKIP {path.name}: config.yaml or .var.yaml missing")
             continue
         _, var = load_app(path)
+        if var.get("upstream_strategy") == "openccu_overlay":
+            messages.append(f"SKIP {path.name}: managed by openccu-update.yaml (build before version commit)")
+            if selected:
+                raise ValueError("Use the OpenCCU Update workflow for this app; generic updates bypass patch validation")
+            continue
         raw_source = str(var.get("upstream_repo") or var.get("source") or "").strip()
         parsed = source_kind(raw_source) if raw_source else None
         if not parsed:

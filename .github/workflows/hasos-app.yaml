@@ -27,6 +27,10 @@ on:
           - homey-shs
           - newt
           - olm
+          - openccu
+          - openccu-dev
+          - openccu-hapdrap
+          - openccu-proxy
           - pangolin-cli
           - portainer
           - portainer-agent

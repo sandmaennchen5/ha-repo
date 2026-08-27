@@ -1,0 +1,3 @@
+# Stable checksums for the vendored OpenCCU overlay and generated image files.
+.github/openccu/** text eol=lf
+apps/openccu*/rootfs/** text eol=lf

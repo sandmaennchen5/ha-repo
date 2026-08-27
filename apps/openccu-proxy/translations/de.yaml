@@ -1,0 +1,7 @@
+configuration:
+  remember_ingress_users:
+    name: Ingress-Sitzung merken
+  remember_ingress_credentials:
+    name: Zugangsdaten verschlüsselt speichern
+  ingress_keepalive_interval:
+    name: Sitzung erneuern (Sekunden)

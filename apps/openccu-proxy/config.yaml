@@ -1,0 +1,30 @@
+name: OpenCCU (Proxy) (HA Repo)
+version: 0.7.0-ha1
+slug: openccu-proxy
+image: ghcr.io/sandmaennchen5/ha-repo-openccu-proxy
+arch:
+- aarch64
+- amd64
+description: Proxy to externally running OpenCCU
+url: https://github.com/sandmaennchen5/ha-repo/tree/main/apps/openccu-proxy
+ingress: true
+ingress_stream: true
+panel_title: OpenCCU
+panel_icon: mdi:router-wireless
+startup: services
+boot: auto
+init: false
+timeout: 30
+options:
+  webui-url: http://openccu
+  remember_ingress_users: false
+  remember_ingress_credentials: false
+  ingress_keepalive_interval: 250
+schema:
+  webui-url: str?
+  remember_ingress_users: bool
+  remember_ingress_credentials: bool
+  ingress_keepalive_interval: int(1,599)
+environment:
+  HM_HAPROXY_SRC: 172.30.32.2/32
+stage: experimental

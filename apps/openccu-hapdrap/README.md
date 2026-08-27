@@ -1,0 +1,14 @@
+# openccu-hapdrap
+
+<!-- BADGES-START -->
+<!-- BADGES-END -->
+
+HAP/DRAP-Helfer für eine OpenCCU-Instanz. Kein Ingress und kein Login-Patch.
+
+Original-Updates mit geprüftem, festem Login-Overlay aus dem angegebenen Fork.
+Die Helper-App benötigt kein Login-Overlay. Experimentelle ha-repo-Variante.
+
+Installation über dieses HA-Repository. Vor einem Wechsel unbedingt die
+[Dokumentation und Migrationshinweise](DOCS.md) lesen.
+
+[Original](https://github.com/OpenCCU/OpenCCU)
