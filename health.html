@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+
+        
+Health
+
+
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/ha-repo/assets/dashboard.css">
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/chart.js">
+
+    </script>
+
+</head>
+
+<body
+
+class="
+
+
+rounded
+
+
+
+
+
+
+">
+
+<div class="layout">
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <h1>
+
+                HassOS Apps Dashboard
+
+            </h1>
+
+            <div class="subtitle">
+
+                Home Assistant Apps & Add-ons
+
+            </div>
+
+        </div>
+
+        <nav>
+
+        
+
+            
+
+            <a href="/ha-repo/">
+
+                
+                📊
+                
+
+                Dashboard
+
+            </a>
+
+            
+
+            <a href="/ha-repo/apps/">
+
+                
+                📦
+                
+
+                Apps
+
+            </a>
+
+            
+
+            <a href="/ha-repo/matrix.html">
+
+                
+                🧩
+                
+
+                Matrix
+
+            </a>
+
+            
+
+            <a href="/ha-repo/health.html">
+
+                
+                🏥
+                
+
+                Health
+
+            </a>
+
+            
+
+            <a href="/ha-repo/history.html">
+
+                
+                📈
+                
+
+                History
+
+            </a>
+
+            
+
+            <a href="/ha-repo/lab.html">
+
+                
+                🔬
+                
+
+                Badge Lab
+
+            </a>
+
+            
+
+            <a href="/ha-repo/settings.html">
+
+                
+                ⚙️
+                
+
+                Settings
+
+            </a>
+
+            
+
+        
+
+        </nav>
+
+    </aside>
+
+    <main class="main">
+
+        <div class="topbar">
+
+            <h1>
+
+                
+Health
+
+
+            </h1>
+
+        </div>
+
+        <div class="content">
+
+            
+
+<div class="cards">
+
+    <div class="card">
+
+        <div class="card-title">
+
+            Health Score
+
+        </div>
+
+        <div class="card-value">
+
+            50%
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <div class="card-title">
+
+            🟢 Green
+
+        </div>
+
+        <div class="card-value">
+
+            0
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <div class="card-title">
+
+            🟡 Yellow
+
+        </div>
+
+        <div class="card-value">
+
+            200
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <div class="card-title">
+
+            🔴 Red
+
+        </div>
+
+        <div class="card-value">
+
+            0
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="panel">
+
+    <h2>
+
+        Health Chart
+
+    </h2>
+
+    <canvas id="healthChart">
+
+    </canvas>
+
+</div>
+
+
+<div class="panel">
+
+    <h2>
+
+        Beste Apps
+
+    </h2>
+
+    <table>
+
+        <thead>
+
+        <tr>
+
+            <th>
+
+                App
+
+            </th>
+
+            <th>
+
+                Score
+
+            </th>
+
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/adsb-multi-portal-feeder/">
+
+                    ADS-B Multi-Portal Feeder
+
+                </a>
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+        </tr>
+
+        
+
+        
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/checkmk-agent/">
+
+                    Checkmk Agent
+
+                </a>
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+        </tr>
+
+        
+
+        
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/dockhand/">
+
+                    Dockhand
+
+                </a>
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+        </tr>
+
+        
+
+        
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/drydock/">
+
+                    Drydock
+
+                </a>
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+        </tr>
+
+        
+
+        
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/homey-shs/">
+
+                    Homey Self-Hosted Server
+
+                </a>
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+        </tr>
+
+        
+
+        
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/newt/">
+
+                    Newt - Pangolin Tunnels
+
+                </a>
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+        </tr>
+
+        
+
+        
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/olm/">
+
+                    Olm - Pangolin Client
+
+                </a>
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+        </tr>
+
+        
+
+        
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/openccu/">
+
+                    OpenCCU (HA Repo)
+
+                </a>
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+        </tr>
+
+        
+
+        
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/openccu-proxy/">
+
+                    OpenCCU (Proxy) (HA Repo)
+
+                </a>
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+        </tr>
+
+        
+
+        
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/openccu-dev/">
+
+                    OpenCCU (snapshot) (HA Repo)
+
+                </a>
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+        </tr>
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        </tbody>
+
+    </table>
+
+</div>
+
+
+<script>
+
+const healthStats = {
+
+    green: 0,
+    yellow: 200,
+    red: 0
+
+};
+
+</script>
+
+
+
+        </div>
+
+    </main>
+
+</div>
+
+<script>
+
+const BASE_URL = "/ha-repo";
+
+</script>
+
+<script src="/ha-repo/assets/dashboard.js"></script>
+
+<script src="/ha-repo/assets/charts.js"></script>
+
+<script src="/ha-repo/assets/matrix.js"></script>
+
+<script src="/ha-repo/assets/lab.js"></script>
+
+<script src="/ha-repo/assets/theme.js"></script>
+
+<script src="/ha-repo/assets/favorites.js"></script>
+
+<script src="/ha-repo/assets/settings.js"></script>
+
+</body>
+
+</html>

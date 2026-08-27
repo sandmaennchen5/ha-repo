@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+
+        
+Portainer Agent (Channel Selector) History
+
+
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/ha-repo/assets/dashboard.css">
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/chart.js">
+
+    </script>
+
+</head>
+
+<body
+
+class="
+
+
+rounded
+
+
+
+
+
+
+">
+
+<div class="layout">
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <h1>
+
+                HassOS Apps Dashboard
+
+            </h1>
+
+            <div class="subtitle">
+
+                Home Assistant Apps & Add-ons
+
+            </div>
+
+        </div>
+
+        <nav>
+
+        
+
+            
+
+            <a href="/ha-repo/">
+
+                
+                📊
+                
+
+                Dashboard
+
+            </a>
+
+            
+
+            <a href="/ha-repo/apps/">
+
+                
+                📦
+                
+
+                Apps
+
+            </a>
+
+            
+
+            <a href="/ha-repo/matrix.html">
+
+                
+                🧩
+                
+
+                Matrix
+
+            </a>
+
+            
+
+            <a href="/ha-repo/health.html">
+
+                
+                🏥
+                
+
+                Health
+
+            </a>
+
+            
+
+            <a href="/ha-repo/history.html">
+
+                
+                📈
+                
+
+                History
+
+            </a>
+
+            
+
+            <a href="/ha-repo/lab.html">
+
+                
+                🔬
+                
+
+                Badge Lab
+
+            </a>
+
+            
+
+            <a href="/ha-repo/settings.html">
+
+                
+                ⚙️
+                
+
+                Settings
+
+            </a>
+
+            
+
+        
+
+        </nav>
+
+    </aside>
+
+    <main class="main">
+
+        <div class="topbar">
+
+            <h1>
+
+                
+                Dashboard
+                
+
+            </h1>
+
+        </div>
+
+        <div class="content">
+
+            
+
+<div class="cards">
+
+    <div class="card">
+
+        <div class="card-title">
+
+            App
+
+        </div>
+
+        <div class="card-value">
+
+            Portainer Agent (Channel Selector)
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <div class="card-title">
+
+            Version
+
+        </div>
+
+        <div class="card-value">
+
+            2026.8.3
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="panel">
+
+    <h2>
+
+        Score Verlauf
+
+    </h2>
+
+    <canvas id="scoreChart">
+
+    </canvas>
+
+</div>
+
+
+<div class="panel">
+
+    <h2>
+
+        Badge Verlauf
+
+    </h2>
+
+    <canvas id="badgeChart">
+
+    </canvas>
+
+</div>
+
+
+<div class="panel">
+
+    <h2>
+
+        Green / Yellow / Red
+
+    </h2>
+
+    <canvas id="statusChart">
+
+    </canvas>
+
+</div>
+
+
+<div class="panel">
+
+    <h2>
+
+        Snapshots
+
+    </h2>
+
+    <table>
+
+        <thead>
+
+        <tr>
+
+            <th>Zeit</th>
+            <th>Score</th>
+            <th>Badges</th>
+            <th>🟢</th>
+            <th>🟡</th>
+            <th>🔴</th>
+
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        
+
+        <tr>
+
+            <td>2026-08-27T18:36:54.932809+00:00</td>
+
+            <td>100%</td>
+
+            <td>9</td>
+
+            <td>0</td>
+
+            <td>0</td>
+
+            <td>0</td>
+
+        </tr>
+
+        
+
+        </tbody>
+
+    </table>
+
+</div>
+
+
+<script>
+
+const scoreHistory = [
+
+
+
+{
+
+timestamp:"2026-08-27T18:36:54.932809+00:00",
+
+score:100,
+
+badges:9,
+
+green:0,
+
+yellow:0,
+
+red:0
+
+}
+
+
+
+
+
+];
+
+</script>
+
+
+
+        </div>
+
+    </main>
+
+</div>
+
+<script>
+
+const BASE_URL = "/ha-repo";
+
+</script>
+
+<script src="/ha-repo/assets/dashboard.js"></script>
+
+<script src="/ha-repo/assets/charts.js"></script>
+
+<script src="/ha-repo/assets/matrix.js"></script>
+
+<script src="/ha-repo/assets/lab.js"></script>
+
+<script src="/ha-repo/assets/theme.js"></script>
+
+<script src="/ha-repo/assets/favorites.js"></script>
+
+<script src="/ha-repo/assets/settings.js"></script>
+
+</body>
+
+</html>

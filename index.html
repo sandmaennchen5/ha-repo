@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+
+        
+Dashboard
+
+
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/ha-repo/assets/dashboard.css">
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/chart.js">
+
+    </script>
+
+</head>
+
+<body
+
+class="
+
+
+rounded
+
+
+
+
+
+
+">
+
+<div class="layout">
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <h1>
+
+                HassOS Apps Dashboard
+
+            </h1>
+
+            <div class="subtitle">
+
+                Home Assistant Apps & Add-ons
+
+            </div>
+
+        </div>
+
+        <nav>
+
+        
+
+            
+
+            <a href="/ha-repo/">
+
+                
+                📊
+                
+
+                Dashboard
+
+            </a>
+
+            
+
+            <a href="/ha-repo/apps/">
+
+                
+                📦
+                
+
+                Apps
+
+            </a>
+
+            
+
+            <a href="/ha-repo/matrix.html">
+
+                
+                🧩
+                
+
+                Matrix
+
+            </a>
+
+            
+
+            <a href="/ha-repo/health.html">
+
+                
+                🏥
+                
+
+                Health
+
+            </a>
+
+            
+
+            <a href="/ha-repo/history.html">
+
+                
+                📈
+                
+
+                History
+
+            </a>
+
+            
+
+            <a href="/ha-repo/lab.html">
+
+                
+                🔬
+                
+
+                Badge Lab
+
+            </a>
+
+            
+
+            <a href="/ha-repo/settings.html">
+
+                
+                ⚙️
+                
+
+                Settings
+
+            </a>
+
+            
+
+        
+
+        </nav>
+
+    </aside>
+
+    <main class="main">
+
+        <div class="topbar">
+
+            <h1>
+
+                
+Dashboard
+
+
+            </h1>
+
+        </div>
+
+        <div class="content">
+
+            
+
+<div class="cards">
+
+    <div class="card">
+
+        <div class="card-title">
+
+            Apps
+
+        </div>
+
+        <div class="card-value">
+
+            20
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <div class="card-title">
+
+            Badges
+
+        </div>
+
+        <div class="card-value">
+
+            200
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <div class="card-title">
+
+            Health
+
+        </div>
+
+        <div class="card-value">
+
+            50%
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <div class="card-title">
+
+            History
+
+        </div>
+
+        <div class="card-value">
+
+            
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="panel">
+
+    <div class="panel-header">
+
+        <h2>
+
+            Apps
+
+        </h2>
+
+        <input
+            id="search"
+            placeholder="Suchen">
+
+    </div>
+
+    <table id="appsTable">
+
+        <thead>
+
+        <tr>
+
+            <th>
+
+                App
+
+            </th>
+
+            <th>
+
+                Version
+
+            </th>
+
+            <th>
+
+                Score
+
+            </th>
+
+            <th>
+
+                Badges
+
+            </th>
+
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/adsb-multi-portal-feeder/">
+
+                    ADS-B Multi-Portal Feeder
+
+                </a>
+
+            </td>
+
+            <td>
+
+                2.8.0.1
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+            <td>
+
+                11
+
+            </td>
+
+        </tr>
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/checkmk-agent/">
+
+                    Checkmk Agent
+
+                </a>
+
+            </td>
+
+            <td>
+
+                2.5.0.12.2
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+            <td>
+
+                8
+
+            </td>
+
+        </tr>
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/dockhand/">
+
+                    Dockhand
+
+                </a>
+
+            </td>
+
+            <td>
+
+                1.0.45.1
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+            <td>
+
+                10
+
+            </td>
+
+        </tr>
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/drydock/">
+
+                    Drydock
+
+                </a>
+
+            </td>
+
+            <td>
+
+                1.6.0.6
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+            <td>
+
+                10
+
+            </td>
+
+        </tr>
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/homey-shs/">
+
+                    Homey Self-Hosted Server
+
+                </a>
+
+            </td>
+
+            <td>
+
+                13.4.1
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+            <td>
+
+                10
+
+            </td>
+
+        </tr>
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/newt/">
+
+                    Newt - Pangolin Tunnels
+
+                </a>
+
+            </td>
+
+            <td>
+
+                1.16.0.2
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+            <td>
+
+                12
+
+            </td>
+
+        </tr>
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/olm/">
+
+                    Olm - Pangolin Client
+
+                </a>
+
+            </td>
+
+            <td>
+
+                1.9.0.4
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+            <td>
+
+                11
+
+            </td>
+
+        </tr>
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/openccu/">
+
+                    OpenCCU (HA Repo)
+
+                </a>
+
+            </td>
+
+            <td>
+
+                3.89.8.20260719-ha3
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+            <td>
+
+                11
+
+            </td>
+
+        </tr>
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/openccu-proxy/">
+
+                    OpenCCU (Proxy) (HA Repo)
+
+                </a>
+
+            </td>
+
+            <td>
+
+                0.7.0-ha3
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+            <td>
+
+                9
+
+            </td>
+
+        </tr>
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/openccu-dev/">
+
+                    OpenCCU (snapshot) (HA Repo)
+
+                </a>
+
+            </td>
+
+            <td>
+
+                3.89.8.20260826-dfd4f38-ha3
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+            <td>
+
+                11
+
+            </td>
+
+        </tr>
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/openccu-hapdrap/">
+
+                    OpenCCU HAP/DRAP-Helper (HA Repo)
+
+                </a>
+
+            </td>
+
+            <td>
+
+                0.3.1-ha1
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+            <td>
+
+                10
+
+            </td>
+
+        </tr>
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/pangolin-cli/">
+
+                    Pangolin CLI Client
+
+                </a>
+
+            </td>
+
+            <td>
+
+                0.16.0.3
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+            <td>
+
+                10
+
+            </td>
+
+        </tr>
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/portainer/">
+
+                    Portainer (Edition Selector)
+
+                </a>
+
+            </td>
+
+            <td>
+
+                2026.8.3
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+            <td>
+
+                10
+
+            </td>
+
+        </tr>
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/portainer-agent/">
+
+                    Portainer Agent (Channel Selector)
+
+                </a>
+
+            </td>
+
+            <td>
+
+                2026.8.3
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+            <td>
+
+                9
+
+            </td>
+
+        </tr>
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/portainer-agent-lts/">
+
+                    Portainer Agent LTS
+
+                </a>
+
+            </td>
+
+            <td>
+
+                2.45.0.1
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+            <td>
+
+                9
+
+            </td>
+
+        </tr>
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/portainer-agent-sts/">
+
+                    Portainer Agent STS
+
+                </a>
+
+            </td>
+
+            <td>
+
+                2.45.0.1
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+            <td>
+
+                9
+
+            </td>
+
+        </tr>
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/portainer-ce-lts/">
+
+                    Portainer CE LTS
+
+                </a>
+
+            </td>
+
+            <td>
+
+                2.45.0.1
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+            <td>
+
+                10
+
+            </td>
+
+        </tr>
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/portainer-ce-sts/">
+
+                    Portainer CE STS
+
+                </a>
+
+            </td>
+
+            <td>
+
+                2.45.0.1
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+            <td>
+
+                10
+
+            </td>
+
+        </tr>
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/portainer-ee-lts/">
+
+                    Portainer EE LTS
+
+                </a>
+
+            </td>
+
+            <td>
+
+                2.45.0.1
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+            <td>
+
+                10
+
+            </td>
+
+        </tr>
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/portainer-ee-sts/">
+
+                    Portainer EE STS
+
+                </a>
+
+            </td>
+
+            <td>
+
+                2.45.0.1
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+            <td>
+
+                10
+
+            </td>
+
+        </tr>
+
+        
+
+        </tbody>
+
+    </table>
+
+</div>
+
+
+<div class="panel">
+
+    <h2>
+
+        Top Apps
+
+    </h2>
+
+    <table>
+
+        <thead>
+
+        <tr>
+
+            <th>
+
+                App
+
+            </th>
+
+            <th>
+
+                Score
+
+            </th>
+
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/adsb-multi-portal-feeder/">
+
+                    ADS-B Multi-Portal Feeder
+
+                </a>
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+        </tr>
+
+        
+
+        
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/checkmk-agent/">
+
+                    Checkmk Agent
+
+                </a>
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+        </tr>
+
+        
+
+        
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/dockhand/">
+
+                    Dockhand
+
+                </a>
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+        </tr>
+
+        
+
+        
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/drydock/">
+
+                    Drydock
+
+                </a>
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+        </tr>
+
+        
+
+        
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/homey-shs/">
+
+                    Homey Self-Hosted Server
+
+                </a>
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+        </tr>
+
+        
+
+        
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/newt/">
+
+                    Newt - Pangolin Tunnels
+
+                </a>
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+        </tr>
+
+        
+
+        
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/olm/">
+
+                    Olm - Pangolin Client
+
+                </a>
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+        </tr>
+
+        
+
+        
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/openccu/">
+
+                    OpenCCU (HA Repo)
+
+                </a>
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+        </tr>
+
+        
+
+        
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/openccu-proxy/">
+
+                    OpenCCU (Proxy) (HA Repo)
+
+                </a>
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+        </tr>
+
+        
+
+        
+
+        
+
+        <tr>
+
+            <td>
+
+                <a href="/ha-repo/apps/openccu-dev/">
+
+                    OpenCCU (snapshot) (HA Repo)
+
+                </a>
+
+            </td>
+
+            <td>
+
+                50%
+
+            </td>
+
+        </tr>
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        </tbody>
+
+    </table>
+
+</div>
+
+
+
+        </div>
+
+    </main>
+
+</div>
+
+<script>
+
+const BASE_URL = "/ha-repo";
+
+</script>
+
+<script src="/ha-repo/assets/dashboard.js"></script>
+
+<script src="/ha-repo/assets/charts.js"></script>
+
+<script src="/ha-repo/assets/matrix.js"></script>
+
+<script src="/ha-repo/assets/lab.js"></script>
+
+<script src="/ha-repo/assets/theme.js"></script>
+
+<script src="/ha-repo/assets/favorites.js"></script>
+
+<script src="/ha-repo/assets/settings.js"></script>
+
+</body>
+
+</html>
