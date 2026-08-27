@@ -3,9 +3,9 @@ icon: "🦎"
 stage: "stable"
 
 version_strategy: "upstream_revision"
-upstream_version: "0.15.1"
+upstream_version: "0.16.0"
 upstream_repo: "github.com/fosrl/cli"
-upstream_commit: "fa90273f53fe77d1cbd950cb0bcba69dd4318faf"
+upstream_commit: "dd61170ef18ee8b76286f18416ce6124a86e4098"
 autoupdater: true
 
 build: ""
@@ -16,5 +16,5 @@ image_size: "24 MB"
 custom_shield: ""
 custom_flag: ""
 
-updated: "2026-08-03"
+updated: "2026-08-21"
 source: "github.com/fosrl/cli"
