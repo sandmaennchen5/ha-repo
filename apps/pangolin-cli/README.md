@@ -29,7 +29,7 @@ empfohlene Nachfolgerin von Olm für neue Client-Installationen.
 - Zugriff auf entfernte Pangolin-Ressourcen über WireGuard
 - Host-Netzwerkzugriff für direkt nutzbare Routen
 - optionaler Admin- und Prometheus-Endpunkt auf Port `2112`
-- interner Healthcheck auf Port `8097`
+- lokaler Prozess-Healthcheck ohne TCP-Port
 - unterstützt `aarch64` und `amd64`
 
 ## Voraussetzungen
@@ -63,7 +63,7 @@ Hinweise und Fehlerhilfe stehen in [DOCS.md](DOCS.md).
 ## Sicherheit
 
 Die App verwaltet mit `NET_ADMIN` Routen und ein WireGuard-Interface im
-Host-Netzwerk. Veröffentlichen Sie die Ports `2112` und `8097` nur, wenn dies
+Host-Netzwerk. Aktivieren Sie den optionalen Endpunkt auf Port `2112` nur, wenn dies
 wirklich benötigt wird, und beschränken Sie den Zugriff auf vertrauenswürdige
 Netze.
 

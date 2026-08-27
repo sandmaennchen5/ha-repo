@@ -131,3 +131,9 @@ Newt verbindet sich per WebSocket mit dem Pangolin-Server und erstellt einen Wir
 
 - [Pangolin Site-Konfiguration](https://docs.pangolin.net/manage/sites/configure-site)
 - [Newt GitHub Repository](https://github.com/fosrl/newt)
+
+## Portloser Healthcheck
+
+Der Docker-Healthcheck prüft lokal den Newt-Prozess und `/tmp/newt_healthy`.
+Der bestehende Health-Dienst prüft weiterhin die Erreichbarkeit des Endpoints.
+Ein HTTP-Healthserver und ein eigener Health-Port sind nicht mehr erforderlich.

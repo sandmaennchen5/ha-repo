@@ -1,5 +1,5 @@
 name: "Olm - Pangolin Client"
-version: "1.8.2.1"
+version: "1.8.2.2"
 slug: "olm"
 description: "Advanced WireGuard client for remote access to Pangolin and Newt sites."
 url: "https://github.com/fosrl/olm"
@@ -15,10 +15,6 @@ privileged:
   - SYS_MODULE
 devices:
   - /dev/net/tun
-ports:
-  8096/tcp: null
-ports_description:
-  8096/tcp: "Internal health endpoint"
 options:
   endpoint: "https://app.pangolin.net"
   id: ""

@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.8.2.2] - 2026-08-27
+
+- Healthcheck ohne TCP-Port; entfernt den HTTP-Healthserver und die socat-Abhängigkeit.
+- Verhindert Health-Port-Konflikte im Host-Netzwerk, auch bei parallelen App-Instanzen.
+- Der Docker-Healthcheck prüft den App-Prozess direkt.
+
 
 ## [1.8.2.1] - 2026-08-03
 

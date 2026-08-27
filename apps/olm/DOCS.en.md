@@ -68,10 +68,9 @@ The impact remains understandable.
 
 ## Network and health check
 
-The app works in the host network and can therefore route the
-Affect Home Assistant hosts. The optional port `8096/tcp` is for this only
-internal HTTP health check. It does not need to be on the host for normal operation
-be published. The watchdog detects a failed app process
+The app uses host networking and can affect the Home Assistant host's routes.
+The Docker healthcheck checks the app process directly, without a TCP port,
+and detects a failed app process
 but does not check every remote pangolin resource.
 
 Hole punching allows for a direct connection whenever possible. A relay

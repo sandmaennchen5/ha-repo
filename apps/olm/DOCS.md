@@ -70,9 +70,8 @@ Auswirkung nachvollziehbar bleibt.
 ## Netzwerk und Healthcheck
 
 Die App arbeitet im Host-Netzwerk und kann daher Routen des
-Home-Assistant-Hosts beeinflussen. Der optionale Port `8096/tcp` dient nur dem
-internen HTTP-Healthcheck. Er muss für den normalen Betrieb nicht am Host
-veröffentlicht werden. Der Watchdog erkennt einen ausgefallenen App-Prozess,
+Home-Assistant-Hosts beeinflussen. Der Docker-Healthcheck prüft den App-Prozess
+direkt, ohne TCP-Port. Er erkennt einen ausgefallenen App-Prozess,
 prüft aber nicht jede entfernte Pangolin-Ressource.
 
 Hole-Punching ermöglicht nach Möglichkeit eine direkte Verbindung. Ein Relay

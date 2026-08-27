@@ -70,8 +70,7 @@ Alle Optionen und eine vollständige Beispielkonfiguration stehen in
 
 ID und Secret gehören ausschließlich in die App-Konfiguration. Die App erhält
 weitreichende Netzwerkrechte; installieren Sie sie daher nur auf einem
-vertrauenswürdigen Home-Assistant-System und veröffentlichen Sie den internen
-Healthcheck-Port `8096` nicht im Internet.
+vertrauenswürdigen Home-Assistant-System. Der Healthcheck benötigt keinen TCP-Port.
 
 ## Weitere Dokumentation
 

@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.15.0.3] - 2026-08-27
+
+- Healthcheck ohne TCP-Port; entfernt den HTTP-Healthserver und die socat-Abhängigkeit.
+- Verhindert Health-Port-Konflikte im Host-Netzwerk, auch bei parallelen App-Instanzen.
+- Bestehende Prozess-, Statusdatei- und Endpoint-Prüfungen bleiben erhalten.
+
 
 ## [1.15.0.2] - 2026-08-04
 

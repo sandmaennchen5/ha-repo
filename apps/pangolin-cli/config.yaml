@@ -1,5 +1,5 @@
 name: "Pangolin CLI Client"
-version: "0.15.1.1"
+version: "0.15.1.2"
 slug: "pangolin_cli"
 description: "Official Pangolin CLI and WireGuard VPN client for Linux."
 url: "https://github.com/fosrl/cli"
@@ -15,10 +15,8 @@ devices:
   - /dev/net/tun
 ports:
   2112/tcp: null
-  8097/tcp: null
 ports_description:
   2112/tcp: "Optional admin and Prometheus metrics endpoint"
-  8097/tcp: "Internal health endpoint"
 options:
   endpoint: "https://app.pangolin.net"
   client_id: ""

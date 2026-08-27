@@ -12,7 +12,7 @@ LABEL \
   io.hass.name="olm" \
   org.opencontainers.image.source="https://github.com/fosrl/olm"
 
-RUN apk --no-cache add ca-certificates curl iputils socat tzdata
+RUN apk --no-cache add ca-certificates curl iputils tzdata
 
 RUN case "${BUILD_ARCH}" in \
       aarch64) asset="olm_linux_arm64" ;; \
@@ -24,9 +24,5 @@ RUN case "${BUILD_ARCH}" in \
 
 COPY rootfs /
 
-RUN chmod 0755 \
-    /usr/local/bin/olm-health-response \
-    /etc/s6-overlay/s6-rc.d/olm-health/run
-
 HEALTHCHECK --interval=30s --timeout=5s --start-period=30s --retries=3 \
-  CMD ["wget", "-q", "--spider", "http://127.0.0.1:8096/health"]
+  CMD ["sh", "-c", "pgrep -x olm >/dev/null"]

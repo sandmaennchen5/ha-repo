@@ -16,7 +16,7 @@ LABEL \
     org.opencontainers.image.source=https://github.com/sandmaennchen5/ha-repo
 
 # Install dependencies
-RUN apk --no-cache add ca-certificates tzdata iputils curl socat
+RUN apk --no-cache add ca-certificates tzdata iputils curl
 
 # Set newt version
 ENV NEWT_VERSION="${UPSTREAM_VERSION}"
@@ -38,9 +38,7 @@ RUN \
 # Copy root filesystem
 COPY rootfs /
 
-RUN chmod 0755 \
-    /usr/local/bin/newt-health-response \
-    /etc/s6-overlay/s6-rc.d/newt-health-http/run
+RUN chmod 0755 /etc/s6-overlay/s6-rc.d/newt-health/run
 
 # Mark as HA add-on container
 ENV NEWT_SYSTEM_SUBSTRATE="CONTAINER"
