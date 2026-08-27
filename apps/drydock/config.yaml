@@ -1,5 +1,5 @@
 name: "Drydock"
-version: "1.6.0.2"
+version: "1.6.0.3"
 slug: "drydock"
 description: "Container update monitoring and automation with Home Assistant Ingress."
 stage: experimental
