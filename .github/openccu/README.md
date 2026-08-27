@@ -12,7 +12,9 @@ by digest. Original entrypoints, libraries, hardware permissions and mounts rema
 - Fixed patch commit: `4a84f7aa7c69ac93685080a02f40832fc63fcbfa`
 - Modern baseline: OpenCCU `acf6acfd90dba9351b06fee2ccd314fbcc54b546`
 - Stable backport baseline: OpenCCU tag `3.89.8.20260719`
-- `overlay/` contains the two unmodified proxy files from that fork commit.
+- `overlay/` is based on the two proxy files from that fork commit, with the
+  local ha2 re-login correction: bounded browser loop guard, reset on successful
+  index load, and login-form detection even when served at `/index.htm`.
 - `modern/` contains the corresponding original files; `stable/` contains the
   older released proxy. The stable diff includes prerequisite upstream cookie,
   timeout and URL-handling changes present in the reviewed fork.

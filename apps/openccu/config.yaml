@@ -1,5 +1,5 @@
 name: OpenCCU (HA Repo)
-version: 3.89.8.20260719-ha1
+version: 3.89.8.20260719-ha2
 slug: openccu
 image: ghcr.io/sandmaennchen5/ha-repo-openccu
 arch:

@@ -228,10 +228,42 @@ function invalidateUserSid(req) {
   }
 }
 
-function loginRuntime(req) {
+function loginRuntime(req, authenticated = false) {
   const ingressPath = req.headers['x-ingress-path'] || '';
   const namespace = path.basename(sessionFile(req) || 'anonymous', '.json');
-  return `<script>(()=>{const endpoint=${JSON.stringify(`${ingressPath}/__openccu_ingress_credentials`)};const index=${JSON.stringify(`${ingressPath}/index.htm`)};const key=${JSON.stringify(`openccu-ingress-login:${namespace}`)};const original=window.FormSubmit;window.FormSubmit=async function(){const u=document.getElementById('UserNameShow');const p=document.getElementById('Password');if(u&&p&&u.value){try{await fetch(endpoint,{method:'POST',credentials:'same-origin',cache:'no-store',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:u.value,password:p.value})});}catch(e){}}return original.apply(this,arguments);};if(sessionStorage.getItem(key)!=='1'){fetch(endpoint,{credentials:'same-origin',cache:'no-store'}).then(r=>r.json()).then(c=>{if(!c.ok)return;sessionStorage.setItem(key,'1');window.location.replace(index);}).catch(()=>{});}})();</script>`;
+  const key = JSON.stringify(`openccu-ingress-login:${namespace}`);
+  if(authenticated) {
+    return `<script>try{sessionStorage.removeItem(${key});}catch(e){}</script>`;
+  }
+  // A permanent flag used to suppress re-login after a later CCU restart.
+  // Only suppress rapid redirect loops; a successful index load resets it.
+  return `<script>(() => {
+    const endpoint = ${JSON.stringify(`${ingressPath}/__openccu_ingress_credentials`)};
+    const index = ${JSON.stringify(`${ingressPath}/index.htm`)};
+    const key = ${key};
+    const original = window.FormSubmit;
+    window.FormSubmit = async function() {
+      const u = document.getElementById('UserNameShow');
+      const p = document.getElementById('Password');
+      if(u && p && u.value) {
+        try {
+          await fetch(endpoint, {method:'POST', credentials:'same-origin', cache:'no-store',
+            headers:{'Content-Type':'application/json'},
+            body:JSON.stringify({username:u.value.replace(' ',''), password:p.value})});
+        } catch(e) {}
+      }
+      return original.apply(this, arguments);
+    };
+    let last = 0;
+    try { last = Number(sessionStorage.getItem(key)) || 0; } catch(e) {}
+    if(Date.now() - last < 30000) return;
+    fetch(endpoint, {credentials:'same-origin', cache:'no-store'})
+      .then(r => r.json()).then(c => {
+        if(!c.ok) return;
+        try { sessionStorage.setItem(key, String(Date.now())); } catch(e) {}
+        window.location.replace(index);
+      }).catch(() => {});
+  })();</script>`;
 }
 
 function performSessionRpc(method, params, errorContext) {
@@ -458,8 +490,13 @@ const apiProxy = createProxyMiddleware({
                             'window.location.href=\'' + req.headers['x-ingress-path'] + '/\'');
         body = body.replace(/window\.location\.href='\/index\.htm'/g,
                             'window.location.href=\'' + req.headers['x-ingress-path'] + '/index.htm\'');
-        if(REMEMBER_INGRESS_CREDENTIALS && req.path.endsWith('/login.htm') && body.includes('</body>')) {
-          body = body.replace('</body>', `${loginRuntime(req)}</body>`);
+        // ReGa may render the login form at /index.htm after a stale SID.
+        const isLoginPage = /<form\b[^>]*\bid\s*=\s*["']gwlogin["']/i.test(body);
+        if(REMEMBER_INGRESS_CREDENTIALS && body.includes('</body>')) {
+          if(isLoginPage) body = body.replace('</body>', `${loginRuntime(req)}</body>`);
+          else if(proxyRes.statusCode === 200 && isIngressIndexPath(req.path) && validSid(req.query.sid)) {
+            body = body.replace('</body>', `${loginRuntime(req, true)}</body>`);
+          }
         }
 
         // convert back to a Buffer in the right character encoding

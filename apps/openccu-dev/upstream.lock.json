@@ -6,7 +6,7 @@
   "source_commit": "dfd4f38b7a031b120035078b60cf32326c1fc646",
   "patch_commit": "4a84f7aa7c69ac93685080a02f40832fc63fcbfa",
   "original_proxy_sha256": "e4aa50ade7dec5ea0c2678c33bd6b90157baec7086a3043df0914c8d9c4108c5",
-  "patched_proxy_sha256": "f0d02f10559b88395fbccb0575befc739388fab2ef29de7b8e9059b2bd1ecff9",
+  "patched_proxy_sha256": "1c2d12f000f5c9923b8f8cda21bf18ea29f1927662d2a5effd3aa9b6ace3e6a4",
   "config_sha256": "16a5f792825d6a328e53526d6b42f090ca6979567e90945defcaaece655f7e1e",
-  "revision": 1
+  "revision": 2
 }
