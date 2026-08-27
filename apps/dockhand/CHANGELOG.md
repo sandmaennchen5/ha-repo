@@ -1,5 +1,16 @@
 # Changelog
 
+
+## [1.0.44.3] - 2026-08-27
+
+### Manuelles Update
+
+- App-Revision für einen vollständigen Neuaufbau um eins erhöht.
+
+Weitere Informationen: https://github.com/Finsys/dockhand
+
+---
+
 ## 1.0.44.2
 
 - Ingress-Proxy mit Unterpfad-Unterstützung für Assets, Navigation, API, SSE und WebSockets.
