@@ -3,9 +3,9 @@ icon: "🛟"
 stage: "experimental"
 
 version_strategy: "upstream_revision"
-upstream_version: "1.0.44"
+upstream_version: "1.0.45"
 upstream_repo: "github.com/Finsys/dockhand"
-upstream_commit: "674d80b178455541e6aaa65a7b88c66757eed18f"
+upstream_commit: "5adb374c0d79c8df0f8524f6c7fe27bbc493a1dc"
 changelog_url: "https://github.com/Finsys/dockhand/releases"
 autoupdater: true
 
