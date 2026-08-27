@@ -7,7 +7,7 @@
 [![CodeFactor][codefactor-badge]][codefactor-url]
 
 <!-- BADGES-START -->
-![Version](https://img.shields.io/badge/version-v1.8.2.1-blue)
+![Version](https://img.shields.io/badge/version-v1.8.2.2-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--08--03-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN%7CSYS_MODULE-red)
