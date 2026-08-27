@@ -7,9 +7,12 @@ Dockhand packaged as a Home Assistant app with Ingress, persistent storage and
 local Docker/Compose management. It covers containers, images, stacks, volumes,
 networks, logs, terminals, Git deployments and multiple environments.
 
+Choose storage under `/data`, `/config` or a dedicated `/share` directory.
+Optional `remember_ingress_users` retains the session separately per HA user
+until Dockhand's session expires, without storing passwords.
+
 Add `https://github.com/sandmaennchen5/ha-repo` as an app repository, install
 **Dockhand**, then open its Web UI. See [DOCS.en.md](DOCS.en.md) for details.
 
 - [Dockhand documentation](https://dockhand.pro/manual/)
 - [Upstream repository](https://github.com/Finsys/dockhand)
-

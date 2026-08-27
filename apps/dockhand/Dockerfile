@@ -15,6 +15,12 @@ LABEL \
   org.opencontainers.image.source="https://github.com/sandmaennchen5/ha-repo" \
   org.opencontainers.image.vendor="Finsys"
 
-ENV DATA_DIR=/data \
+COPY rootfs/usr/local/lib/dockhand-ha /usr/local/lib/dockhand-ha
+
+ENV DATA_DIR=/data/dockhand \
     PUID=0 \
     PGID=0
+
+# Retain the original entrypoint for user/socket setup inside the launcher.
+ENTRYPOINT ["/sbin/tini", "-g", "--", "node", "/usr/local/lib/dockhand-ha/launcher.mjs"]
+CMD []

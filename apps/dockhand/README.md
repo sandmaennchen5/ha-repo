@@ -2,8 +2,8 @@
 
 <!-- BADGES-START -->
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v1.0.44.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--08--25-green)
+![Version](https://img.shields.io/badge/version-v1.0.44.2-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--27-green)
 ![Stage](https://img.shields.io/badge/stage-experimental-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
@@ -16,6 +16,10 @@
 Dockhand als Home-Assistant-App mit Ingress, persistentem Speicher und lokaler
 Docker-/Compose-Verwaltung. Der Funktionsumfang umfasst Container, Images, Stacks,
 Volumes, Netzwerke, Logs, Terminal, Git-Deployments und mehrere Umgebungen.
+
+Speicherwahl: `/data`, `/config` oder eigener `/share`-Unterordner.
+Optional merkt sich `remember_ingress_users` die Anmeldung getrennt je
+HA-Benutzer bis zum Dockhand-Sitzungsablauf; Passwörter werden nicht gespeichert.
 
 ## Installation
 

@@ -1,5 +1,5 @@
 name: "Dockhand"
-version: "1.0.44.1"
+version: "1.0.44.2"
 slug: "dockhand"
 description: "Modern Docker and Compose management with Home Assistant Ingress."
 stage: experimental
@@ -12,7 +12,7 @@ init: false
 startup: services
 docker_api: true
 ingress: true
-ingress_port: 3000
+ingress_port: 1337
 ingress_stream: true
 panel_title: "Dockhand"
 panel_icon: "mdi:docker"
@@ -21,9 +21,20 @@ ports:
 ports_description:
   3000/tcp: "Direct Web UI (optional assignment)"
 environment:
-  DATA_DIR: "/data"
+  DATA_DIR: "/data/dockhand"
   PUID: "0"
   PGID: "0"
-options: {}
-schema: {}
+options:
+  storage_location: data
+  share_storage_directory: dockhand-config
+  remember_ingress_users: false
+schema:
+  storage_location: list(data|config|share)
+  share_storage_directory: str
+  remember_ingress_users: bool
+map:
+  - type: addon_config
+    read_only: false
+  - type: share
+    read_only: false
 timeout: 120
