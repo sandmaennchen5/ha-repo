@@ -78,7 +78,7 @@ Expose the Checkmk monitoring agent on port 6556.
 Modern Docker and Compose management with Home Assistant Ingress.
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v1.0.44.4-blue)
+![Version](https://img.shields.io/badge/version-v1.0.44.6-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--08--27-green)
 ![Stage](https://img.shields.io/badge/stage-experimental-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
@@ -150,6 +150,66 @@ Advanced WireGuard client for remote access to Pangolin and Newt sites.
 ![Upstream](https://img.shields.io/badge/upstream-v1.8.2-yellow)
 ![Repo](https://img.shields.io/badge/repo-github.com%2Ffosrl%2Folm-informational)
 ![Commit](https://img.shields.io/badge/commit-4f54e27b22afe4d42ed662f4b1320cf400221244-informational)
+
+## [🏠 OpenCCU (HA Repo)](apps/openccu/)
+
+HomeMatic/homematicIP CCU central based on OpenCCU
+
+![Ingress](https://img.shields.io/badge/ingress-True-blue)
+![Version](https://img.shields.io/badge/version-v3.89.8.20260719-ha1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--27-green)
+![Stage](https://img.shields.io/badge/stage-experimental-orange)
+![Privileged](https://img.shields.io/badge/privileged-IPC_LOCK%7CSYS_ADMIN%7CSYS_RAWIO%7CSYS_RESOURCE%7CNET_ADMIN-red)
+![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
+![Kernel Modules](https://img.shields.io/badge/kernel_modules-True-blue)
+![Upstream](https://img.shields.io/badge/upstream-v3.89.8.20260719-yellow)
+![Repo](https://img.shields.io/badge/repo-https%3A%2F%2Fgithub.com%2FOpenCCU%2FOpenCCU-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3Ab2de2ff6e8e0f3d323714aecf20fb4c634f6aa114fd3e8404bae24f8e84db9b4-informational)
+
+## [🏠 OpenCCU (Proxy) (HA Repo)](apps/openccu-proxy/)
+
+Proxy to externally running OpenCCU
+
+![Ingress](https://img.shields.io/badge/ingress-True-blue)
+![Version](https://img.shields.io/badge/version-v0.7.0-ha1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--27-green)
+![Stage](https://img.shields.io/badge/stage-experimental-orange)
+![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
+![Upstream](https://img.shields.io/badge/upstream-v0.7.0-yellow)
+![Repo](https://img.shields.io/badge/repo-https%3A%2F%2Fgithub.com%2FOpenCCU%2FOpenCCU-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3A4ea40c4b0bfa2cfdbb531d4eb2b721d532bc1964bb497a434f8f4aecc233c733-informational)
+
+## [🏠 OpenCCU (snapshot) (HA Repo)](apps/openccu-dev/)
+
+HomeMatic/homematicIP CCU central based on OpenCCU (Snapshot)
+
+![Ingress](https://img.shields.io/badge/ingress-True-blue)
+![Version](https://img.shields.io/badge/version-v3.89.8.20260826-dfd4f38-ha1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--27-green)
+![Stage](https://img.shields.io/badge/stage-experimental-orange)
+![Privileged](https://img.shields.io/badge/privileged-IPC_LOCK%7CSYS_ADMIN%7CSYS_RAWIO%7CSYS_RESOURCE%7CNET_ADMIN-red)
+![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
+![Kernel Modules](https://img.shields.io/badge/kernel_modules-True-blue)
+![Image Size](https://img.shields.io/badge/size-247_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v3.89.8.20260826-dfd4f38-yellow)
+![Repo](https://img.shields.io/badge/repo-https%3A%2F%2Fgithub.com%2FOpenCCU%2FOpenCCU-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3A1acedc3698d9a053b8b37d8779f2ed67a9c2727d1350dd4498f258d442fc5ea4-informational)
+
+## [🏠 OpenCCU HAP/DRAP-Helper (HA Repo)](apps/openccu-hapdrap/)
+
+OpenCCU Helper App for HmIP-HAP / HmIPW-DRAP connectivity
+
+![Ingress](https://img.shields.io/badge/ingress-False-blue)
+![Version](https://img.shields.io/badge/version-v0.3.1-ha1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--27-green)
+![Stage](https://img.shields.io/badge/stage-experimental-orange)
+![AppArmor](https://img.shields.io/badge/apparmor-True-blue)
+![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
+![Host Network](https://img.shields.io/badge/host_network-True-blue)
+![Docker API](https://img.shields.io/badge/docker_api-True-blue)
+![Upstream](https://img.shields.io/badge/upstream-v0.3.1-yellow)
+![Repo](https://img.shields.io/badge/repo-https%3A%2F%2Fgithub.com%2FOpenCCU%2FOpenCCU-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3Ad433ff395bed9a64075c8d341fb9196dc3fc1b312c2e7cf79e79ef63a18b0f1c-informational)
 
 ## [🦎 Pangolin CLI Client](apps/pangolin-cli/)
 
