@@ -1,5 +1,21 @@
 configuration:
-  {}
+  storage_location:
+    name: Speicherort
+    description: Daten in /data/drydock, /config/drydock oder /share speichern. Das Ziel eines Wechsels muss leer sein; bisherige Daten bleiben erhalten.
+  share_storage_directory:
+    name: Unterordner in /share
+    description: Relativer Pfad, zum Beispiel drydock-config. Keine absoluten Pfade oder Punktsegmente.
+  remember_ingress_users:
+    name: Ingress-Anmeldung merken
+    description: Sitzung pro HA-Benutzer ohne Passwort speichern. Beim Drydock-Login zusätzlich Remember me aktivieren. Ablauf und Abmeldung werden berücksichtigt.
+  auth_username:
+    name: Drydock-Benutzername
+    description: Benutzername für Basic Auth, sobald ein Passworthash gesetzt ist.
+  auth_password_hash:
+    name: Drydock-Passworthash
+    description: Argon2id-Hash, kein Klartextpasswort. Aktiviert Basic Auth und deaktiviert anonymen Zugriff.
+  environment:
+    name: Weitere Drydock-Einstellungen
+    description: Liste von name/value-Paaren mit DD_-Präfix. Interner Port, TLS, Proxy-Vertrauen und Speicherpfad sind fest vorgegeben.
 network:
   3000/tcp: Direkte Weboberfläche (optionale Portzuweisung)
-

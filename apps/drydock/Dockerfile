@@ -16,12 +16,13 @@ LABEL \
   org.opencontainers.image.vendor="CodesWhat"
 
 USER root
-COPY --chmod=755 rootfs/usr/local/bin/drydock-storage-init /usr/local/bin/drydock-storage-init
+COPY rootfs/usr/local/lib/drydock-ha /usr/local/lib/drydock-ha
+RUN node /usr/local/lib/drydock-ha/patch-ui.mjs
 
 ENV DD_STORE_PATH=/data/drydock \
     DD_ANONYMOUS_AUTH_CONFIRM=true \
     DD_SERVER_TRUSTPROXY=1
 
 # Keep upstream signal forwarding, socket checks and privilege drop.
-ENTRYPOINT ["tini", "-g", "--", "/usr/local/bin/drydock-storage-init"]
-CMD ["node", "dist/index.js"]
+ENTRYPOINT ["tini", "-g", "--", "node", "/usr/local/lib/drydock-ha/launcher.mjs"]
+CMD []

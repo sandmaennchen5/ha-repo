@@ -1,5 +1,5 @@
 name: "Drydock"
-version: "1.6.0.3"
+version: "1.6.0.4"
 slug: "drydock"
 description: "Container update monitoring and automation with Home Assistant Ingress."
 stage: experimental
@@ -12,7 +12,7 @@ init: false
 startup: services
 docker_api: true
 ingress: true
-ingress_port: 3000
+ingress_port: 1337
 ingress_stream: true
 panel_title: "Drydock"
 panel_icon: "mdi:docker"
@@ -24,6 +24,25 @@ environment:
   DD_STORE_PATH: "/data/drydock"
   DD_ANONYMOUS_AUTH_CONFIRM: "true"
   DD_SERVER_TRUSTPROXY: "1"
-options: {}
-schema: {}
+options:
+  storage_location: data
+  share_storage_directory: drydock-config
+  remember_ingress_users: false
+  auth_username: admin
+  auth_password_hash: ""
+  environment: []
+schema:
+  storage_location: list(data|config|share)
+  share_storage_directory: str
+  remember_ingress_users: bool
+  auth_username: str
+  auth_password_hash: password?
+  environment:
+    - name: match(^DD_[A-Z0-9_]+$)
+      value: password
+map:
+  - type: addon_config
+    read_only: false
+  - type: share
+    read_only: false
 timeout: 120

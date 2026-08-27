@@ -16,7 +16,7 @@ image_size: "149 MB"
 custom_shield: ""
 custom_flag: ""
 
-updated: "2026-08-12"
+updated: "2026-08-27"
 source: "docker.io/codeswhat/drydock"
 
 upstream_commit: "sha256:43d4807aba1e39944275ed027d08f6ce670a07efa8916ba06a1d257a2bcbf786"

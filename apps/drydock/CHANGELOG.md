@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.6.0.4 - 2026-08-27
+
+- Behebt die weiße Ingress-Seite durch angepasste Vue-Router-Basis, Assets und Live-Verbindungen.
+- Wählbarer Speicherort in data/config/share mit nicht überschreibender Migration.
+- Optionale, getrennte Ingress-Sitzungen pro HA-Benutzer; keine Passwortspeicherung.
+- Basic-Auth-Hash und zusätzliche DD_-Einstellungen über die App-Konfiguration.
+
 
 ## [1.6.0.3] - 2026-08-12
 
