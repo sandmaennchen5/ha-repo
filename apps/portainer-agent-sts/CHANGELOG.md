@@ -1,6 +1,18 @@
 # Changelog
 
 
+## [2.45.0.1] - 2026-08-27
+
+### Docker Hub
+
+- Docker Hub image: `docker.io/portainer/agent:2.45.0-alpine`
+- Digest: `sha256:2a0e0fd85636b04b3e816b1c52ede8b3bf44e42420a0bbf2d9962ae8bfe6fea8`
+- Aktualisiert auf Docker Hub: 2026-08-27
+
+Weitere Informationen: https://docker.io/portainer/agent
+
+---
+
 ## [2.44.0.1] - 2026-08-02
 
 - Added LTS/STS selector and fixed-channel variants.

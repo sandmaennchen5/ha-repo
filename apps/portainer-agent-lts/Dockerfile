@@ -1,5 +1,5 @@
 ARG BUILD_ARCH=amd64
-ARG UPSTREAM_VERSION=2.39.6
+ARG UPSTREAM_VERSION=2.45.0
 FROM portainer/agent:${UPSTREAM_VERSION}-alpine AS upstream
 FROM ghcr.io/hassio-addons/base/${BUILD_ARCH}:16.0.0
 COPY --from=upstream /app/agent /opt/portainer-agent/lts/agent
