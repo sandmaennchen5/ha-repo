@@ -2,7 +2,7 @@
 
 <!-- BADGES-START -->
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v3.89.8.20260826-dfd4f38-ha1-blue)
+![Version](https://img.shields.io/badge/version-v3.89.8.20260826-dfd4f38-ha3-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--08--27-green)
 ![Stage](https://img.shields.io/badge/stage-experimental-orange)
 ![Privileged](https://img.shields.io/badge/privileged-IPC_LOCK%7CSYS_ADMIN%7CSYS_RAWIO%7CSYS_RESOURCE%7CNET_ADMIN-red)
