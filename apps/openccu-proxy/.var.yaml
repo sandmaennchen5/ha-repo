@@ -9,3 +9,4 @@ upstream_commit: sha256:4ea40c4b0bfa2cfdbb531d4eb2b721d532bc1964bb497a434f8f4aec
 autoupdater: true
 updated: '2026-08-27'
 source: github.com/OpenCCU/OpenCCU
+image_size: ""
