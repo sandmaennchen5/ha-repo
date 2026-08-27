@@ -78,15 +78,15 @@ Expose the Checkmk monitoring agent on port 6556.
 Modern Docker and Compose management with Home Assistant Ingress.
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v1.0.44.6-blue)
+![Version](https://img.shields.io/badge/version-v1.0.45.1-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--08--27-green)
 ![Stage](https://img.shields.io/badge/stage-experimental-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
 ![Image Size](https://img.shields.io/badge/size-181_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v1.0.44-yellow)
+![Upstream](https://img.shields.io/badge/upstream-v1.0.45-yellow)
 ![Repo](https://img.shields.io/badge/repo-github.com%2FFinsys%2Fdockhand-informational)
-![Commit](https://img.shields.io/badge/commit-674d80b178455541e6aaa65a7b88c66757eed18f-informational)
+![Commit](https://img.shields.io/badge/commit-5adb374c0d79c8df0f8524f6c7fe27bbc493a1dc-informational)
 
 ## [⚓ Drydock](apps/drydock/)
 
@@ -122,8 +122,8 @@ Run Homey Self-Hosted Server on Home Assistant OS.
 
 Secure remote access with Pangolin tunnels.
 
-![Version](https://img.shields.io/badge/version-v1.15.0.3-blue)
-![Updated](https://img.shields.io/badge/updated-2026--07--19-green)
+![Version](https://img.shields.io/badge/version-v1.16.0.2-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--19-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN%7CSYS_MODULE-red)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
@@ -131,25 +131,25 @@ Secure remote access with Pangolin tunnels.
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
 ![Kernel Modules](https://img.shields.io/badge/kernel_modules-True-blue)
 ![Image Size](https://img.shields.io/badge/size-35_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v1.15.0-yellow)
+![Upstream](https://img.shields.io/badge/upstream-v1.16.0-yellow)
 ![Repo](https://img.shields.io/badge/repo-github.com%2Ffosrl%2Fnewt-informational)
-![Commit](https://img.shields.io/badge/commit-15224904a0e0981245662a55a2e75fa2aa5a6619-informational)
+![Commit](https://img.shields.io/badge/commit-0e415f0a01223dd53d19185083048e0017c755b3-informational)
 
 ## [🍃 Olm - Pangolin Client](apps/olm/)
 
 Advanced WireGuard client for remote access to Pangolin and Newt sites.
 
-![Version](https://img.shields.io/badge/version-v1.8.2.2-blue)
-![Updated](https://img.shields.io/badge/updated-2026--08--03-green)
+![Version](https://img.shields.io/badge/version-v1.9.0.4-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--19-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN%7CSYS_MODULE-red)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Host Network](https://img.shields.io/badge/host_network-True-blue)
 ![Kernel Modules](https://img.shields.io/badge/kernel_modules-True-blue)
 ![Image Size](https://img.shields.io/badge/size-27_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v1.8.2-yellow)
+![Upstream](https://img.shields.io/badge/upstream-v1.9.0-yellow)
 ![Repo](https://img.shields.io/badge/repo-github.com%2Ffosrl%2Folm-informational)
-![Commit](https://img.shields.io/badge/commit-4f54e27b22afe4d42ed662f4b1320cf400221244-informational)
+![Commit](https://img.shields.io/badge/commit-8c1db4bada7e7425a2500ea5d76df8b85f407a91-informational)
 
 ## [🏠 OpenCCU (HA Repo)](apps/openccu/)
 
@@ -218,133 +218,133 @@ OpenCCU Helper App for HmIP-HAP / HmIPW-DRAP connectivity
 
 Official Pangolin CLI and WireGuard VPN client for Linux.
 
-![Version](https://img.shields.io/badge/version-v0.15.1.2-blue)
-![Updated](https://img.shields.io/badge/updated-2026--08--03-green)
+![Version](https://img.shields.io/badge/version-v0.16.0.3-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--21-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN-red)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Host Network](https://img.shields.io/badge/host_network-True-blue)
 ![Image Size](https://img.shields.io/badge/size-24_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v0.15.1-yellow)
+![Upstream](https://img.shields.io/badge/upstream-v0.16.0-yellow)
 ![Repo](https://img.shields.io/badge/repo-github.com%2Ffosrl%2Fcli-informational)
-![Commit](https://img.shields.io/badge/commit-fa90273f53fe77d1cbd950cb0bcba69dd4318faf-informational)
+![Commit](https://img.shields.io/badge/commit-dd61170ef18ee8b76286f18416ce6124a86e4098-informational)
 
 ## [🐳 Portainer (Edition Selector)](apps/portainer/)
 
 Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v2026.8.2-blue)
-![Updated](https://img.shields.io/badge/updated-2026--08--16-green)
+![Version](https://img.shields.io/badge/version-v2026.8.3-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--27-green)
 ![Stage](https://img.shields.io/badge/stage-experimental-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
-![Image Size](https://img.shields.io/badge/size-213_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v2.44.0-yellow)
+![Image Size](https://img.shields.io/badge/size-223_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v2.45.0-yellow)
 ![Repo](https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fportainer--ce-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3A5376fd96f0bae14be7285ceb24c5cf9470dc23f19cdde74ff4c65d11cbe96eb2-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3Ae6b0225f4bbc989e398c85062f7426f8cf4b61f8aca6f40bf44789d1dada1949-informational)
 
 ## [🔗 Portainer Agent (Channel Selector)](apps/portainer-agent/)
 
 Portainer Agent with selectable LTS/STS channel.
 
-![Version](https://img.shields.io/badge/version-v2026.8.2-blue)
-![Updated](https://img.shields.io/badge/updated-2026--08--16-green)
+![Version](https://img.shields.io/badge/version-v2026.8.3-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--27-green)
 ![Stage](https://img.shields.io/badge/stage-experimental-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
-![Image Size](https://img.shields.io/badge/size-69_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v2.44.0-yellow)
+![Image Size](https://img.shields.io/badge/size-74_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v2.45.0-yellow)
 ![Repo](https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fagent-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3Ad57c3d57774d524f9738d07e743a2e8d3d65ea74bc2a39bc17b20ac0fd768e75-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3A2a0e0fd85636b04b3e816b1c52ede8b3bf44e42420a0bbf2d9962ae8bfe6fea8-informational)
 
 ## [🔗 Portainer Agent LTS](apps/portainer-agent-lts/)
 
 Portainer Agent with selectable LTS/STS channel.
 
-![Version](https://img.shields.io/badge/version-v2.39.6.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--08--12-green)
+![Version](https://img.shields.io/badge/version-v2.45.0.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--27-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
-![Image Size](https://img.shields.io/badge/size-37_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v2.39.6-yellow)
+![Image Size](https://img.shields.io/badge/size-42_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v2.45.0-yellow)
 ![Repo](https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fagent-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3A6d2fd88d1cf0284f61971854e9a65e5eeaaf48456a0b8a903a1e64842073dcfc-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3A2a0e0fd85636b04b3e816b1c52ede8b3bf44e42420a0bbf2d9962ae8bfe6fea8-informational)
 
 ## [🔗 Portainer Agent STS](apps/portainer-agent-sts/)
 
 Portainer Agent with selectable LTS/STS channel.
 
-![Version](https://img.shields.io/badge/version-v2.44.0.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--07--30-green)
+![Version](https://img.shields.io/badge/version-v2.45.0.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--27-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
-![Image Size](https://img.shields.io/badge/size-39_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v2.44.0-yellow)
+![Image Size](https://img.shields.io/badge/size-42_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v2.45.0-yellow)
 ![Repo](https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fagent-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3Ad57c3d57774d524f9738d07e743a2e8d3d65ea74bc2a39bc17b20ac0fd768e75-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3A2a0e0fd85636b04b3e816b1c52ede8b3bf44e42420a0bbf2d9962ae8bfe6fea8-informational)
 
 ## [🐳 Portainer CE LTS](apps/portainer-ce-lts/)
 
 Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v2.39.6.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--08--12-green)
+![Version](https://img.shields.io/badge/version-v2.45.0.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--27-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
-![Image Size](https://img.shields.io/badge/size-65_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v2.39.6-yellow)
+![Image Size](https://img.shields.io/badge/size-68_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v2.45.0-yellow)
 ![Repo](https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fportainer--ce-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3Af35a74e590973d9c77fa2c4930c64c1a05626eedf64462b3d2eebef5a7c710e3-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3Ae6b0225f4bbc989e398c85062f7426f8cf4b61f8aca6f40bf44789d1dada1949-informational)
 
 ## [🐳 Portainer CE STS](apps/portainer-ce-sts/)
 
 Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v2.44.0.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--07--30-green)
+![Version](https://img.shields.io/badge/version-v2.45.0.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--27-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
-![Image Size](https://img.shields.io/badge/size-65_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v2.44.0-yellow)
+![Image Size](https://img.shields.io/badge/size-68_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v2.45.0-yellow)
 ![Repo](https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fportainer--ce-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3A5376fd96f0bae14be7285ceb24c5cf9470dc23f19cdde74ff4c65d11cbe96eb2-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3Ae6b0225f4bbc989e398c85062f7426f8cf4b61f8aca6f40bf44789d1dada1949-informational)
 
 ## [💼 Portainer EE LTS](apps/portainer-ee-lts/)
 
 Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v2.39.6.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--08--12-green)
+![Version](https://img.shields.io/badge/version-v2.45.0.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--27-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
-![Image Size](https://img.shields.io/badge/size-82_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v2.39.6-yellow)
+![Image Size](https://img.shields.io/badge/size-87_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v2.45.0-yellow)
 ![Repo](https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fportainer--ee-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3Ac233e9205e4c2171cf0be87f3afed67c4cea0a809db8872f630a25b4dbc60c63-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3A379f8ca470e9d442f4742f33a50449638810c82e572b670354db5dbef32ed090-informational)
 
 ## [💼 Portainer EE STS](apps/portainer-ee-sts/)
 
 Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v2.44.0.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--07--30-green)
+![Version](https://img.shields.io/badge/version-v2.45.0.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--27-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
-![Image Size](https://img.shields.io/badge/size-80_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v2.44.0-yellow)
+![Image Size](https://img.shields.io/badge/size-85_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v2.45.0-yellow)
 ![Repo](https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fportainer--ee-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3Adbb2ae19e5e690105b087201c12f78b7f0c7e8a4694094258105fe040cc18b32-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3A379f8ca470e9d442f4742f33a50449638810c82e572b670354db5dbef32ed090-informational)
 
 <!-- APPS-LIST-END -->
 

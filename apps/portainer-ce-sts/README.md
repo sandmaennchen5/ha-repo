@@ -8,15 +8,15 @@
 
 <!-- BADGES-START -->
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v2.44.0.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--07--30-green)
+![Version](https://img.shields.io/badge/version-v2.45.0.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--27-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
-![Image Size](https://img.shields.io/badge/size-65_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v2.44.0-yellow)
+![Image Size](https://img.shields.io/badge/size-68_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v2.45.0-yellow)
 ![Repo](https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fportainer--ce-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3A5376fd96f0bae14be7285ceb24c5cf9470dc23f19cdde74ff4c65d11cbe96eb2-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3Ae6b0225f4bbc989e398c85062f7426f8cf4b61f8aca6f40bf44789d1dada1949-informational)
 <!-- BADGES-END -->
 
 Portainer CE/BE with LTS/STS selection, Home Assistant Ingress, per-user login retention, selectable storage, import/export and Watchdog support.
