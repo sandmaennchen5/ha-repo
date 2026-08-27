@@ -201,11 +201,9 @@ HomeMatic/homematicIP CCU central based on OpenCCU (Snapshot)
 
 OpenCCU Helper App for HmIP-HAP / HmIPW-DRAP connectivity
 
-![Ingress](https://img.shields.io/badge/ingress-False-blue)
 ![Version](https://img.shields.io/badge/version-v0.3.1-ha1-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--08--27-green)
 ![Stage](https://img.shields.io/badge/stage-experimental-orange)
-![AppArmor](https://img.shields.io/badge/apparmor-True-blue)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Host Network](https://img.shields.io/badge/host_network-True-blue)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
