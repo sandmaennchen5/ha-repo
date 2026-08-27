@@ -1,0 +1,12 @@
+{
+  "upstream_version": "0.3.1",
+  "image": "ghcr.io/openccu/openccu-hapdrap",
+  "image_digest": "sha256:d433ff395bed9a64075c8d341fb9196dc3fc1b312c2e7cf79e79ef63a18b0f1c",
+  "metadata_commit": "acf6acfd90dba9351b06fee2ccd314fbcc54b546",
+  "source_commit": "acf6acfd90dba9351b06fee2ccd314fbcc54b546",
+  "patch_commit": null,
+  "original_proxy_sha256": null,
+  "patched_proxy_sha256": null,
+  "config_sha256": "2ff3bef599cabd34e1d501e8594ebf879e367cb7f87f35e02718d149b7caf1a9",
+  "revision": 1
+}

@@ -1,0 +1,33 @@
+#!/bin/sh
+set -eu
+umask 077
+
+# /data is owned by Supervisor. Never chmod/chown that mount or options.json.
+store=/data/drydock
+if [ -L "$store" ] || { [ -e "$store" ] && [ ! -d "$store" ]; }; then
+    echo "Drydock storage must be a real directory: $store" >&2
+    exit 1
+fi
+mkdir -p "$store"
+if [ -L "$store/dd.json" ]; then
+    echo "Refusing a symlink as the Drydock database" >&2
+    exit 1
+fi
+
+# Copy the legacy database once; retain the original as a recovery copy.
+# Do not replace an existing destination (including an interrupted migration).
+if [ -e /data/dd.json ] && [ ! -e "$store/dd.json" ]; then
+    if [ -L /data/dd.json ] || [ ! -f /data/dd.json ]; then
+        echo "Refusing to migrate a non-regular /data/dd.json" >&2
+        exit 1
+    fi
+    migration_file=$(mktemp "$store/.dd.json.migrating.XXXXXX")
+    cp /data/dd.json "$migration_file"
+    mv "$migration_file" "$store/dd.json"
+    echo "Copied legacy Drydock database; original retained at /data/dd.json"
+fi
+
+chown -hR node:node "$store"
+chmod 0700 "$store"
+export DD_STORE_PATH="$store"
+exec /usr/bin/entrypoint.sh "$@"

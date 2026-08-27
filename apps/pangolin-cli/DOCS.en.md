@@ -65,7 +65,6 @@ creating the WireGuard interface and setting routes.
 | Port | Purpose | Publication necessary? |
 |---:|---|---|
 | `2112/tcp` | optional Admin/Prometheus endpoint of the CLI | usually no |
-| `8097/tcp` | internal health check and watchdog | no |
 
 Port mapping is only necessary if the admin or metrics endpoint is aware
 should be queried from the local network.
@@ -74,9 +73,8 @@ should be queried from the local network.
 
 Once started the log should show a successful login and setup
 of the tunnel. Then check a resource shared in Pangolin.
-The watchdog restarts the app when the internal health check stops
-answers; However, it does not automatically confirm everyone's availability
-individual resource.
+The Docker healthcheck checks the CLI process directly, without a TCP port.
+It does not confirm reachability of every individual resource.
 
 ## Data, backups and migration
 

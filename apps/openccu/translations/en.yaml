@@ -1,0 +1,7 @@
+configuration:
+  remember_ingress_users:
+    name: Remember Ingress session
+  remember_ingress_credentials:
+    name: Store encrypted credentials
+  ingress_keepalive_interval:
+    name: Session keep-alive interval (seconds)

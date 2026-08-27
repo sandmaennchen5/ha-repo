@@ -3,7 +3,7 @@ FROM ghcr.io/home-assistant/${BUILD_ARCH}-base:3.23
 
 ARG BUILD_VERSION
 ARG BUILD_ARCH
-ARG UPSTREAM_VERSION=0.16.0
+ARG UPSTREAM_VERSION=0.15.1
 
 LABEL \
   io.hass.version="${BUILD_VERSION}" \
@@ -12,7 +12,7 @@ LABEL \
   io.hass.name="pangolin-cli" \
   org.opencontainers.image.source="https://github.com/fosrl/cli"
 
-RUN apk --no-cache add ca-certificates curl iputils socat tzdata
+RUN apk --no-cache add ca-certificates curl iputils tzdata
 
 RUN case "${BUILD_ARCH}" in \
       aarch64) asset="pangolin-cli_linux_arm64" ;; \
@@ -24,9 +24,5 @@ RUN case "${BUILD_ARCH}" in \
 
 COPY rootfs /
 
-RUN chmod 0755 \
-    /usr/local/bin/pangolin-cli-health-response \
-    /etc/s6-overlay/s6-rc.d/pangolin-cli-health/run
-
 HEALTHCHECK --interval=30s --timeout=5s --start-period=30s --retries=3 \
-  CMD ["wget", "-q", "--spider", "http://127.0.0.1:8097/health"]
+  CMD ["sh", "-c", "pgrep -x pangolin-cli >/dev/null"]

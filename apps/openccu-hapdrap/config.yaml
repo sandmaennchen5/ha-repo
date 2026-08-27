@@ -1,0 +1,28 @@
+name: OpenCCU HAP/DRAP-Helper (HA Repo)
+version: 0.3.1-ha1
+slug: openccu-hapdrap
+image: ghcr.io/sandmaennchen5/ha-repo-openccu-hapdrap
+arch:
+- aarch64
+- amd64
+description: OpenCCU Helper App for HmIP-HAP / HmIPW-DRAP connectivity
+url: https://github.com/sandmaennchen5/ha-repo/tree/main/apps/openccu-hapdrap
+ingress: false
+startup: services
+init: false
+full_access: true
+docker_api: true
+host_network: true
+apparmor: true
+options:
+  openccu_ip: ''
+schema:
+  openccu_ip: str
+  openccu_mac: str?
+  check_interval: int(10,3600)?
+  openccu_slug: str?
+  network_name: str?
+  parent_interface: str?
+  subnet: str?
+  gateway: str?
+stage: experimental

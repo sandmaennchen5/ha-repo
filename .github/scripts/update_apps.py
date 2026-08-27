@@ -202,18 +202,13 @@ def docker_digests(tag: dict[str, Any]) -> set[str]:
 
 @functools.lru_cache(maxsize=None)
 def docker_update(namespace: str, repository: str, tracking_tag: str = "latest") -> Update:
-    base = (
-        f"https://hub.docker.com/v2/namespaces/{namespace}"
-        f"/repositories/{repository}/tags"
-    )
+    base = f"https://hub.docker.com/v2/repositories/{namespace}/{repository}/tags"
     url = f"{base}?page_size=100&ordering=last_updated"
     tags: list[dict[str, Any]] = []
-    page_number = 1
-    while url and page_number <= 10:
+    while url:
         page, _ = request_json(url)
         tags.extend(page.get("results", []))
         url = page.get("next")
-        page_number += 1
 
     latest = next((tag for tag in tags if tag.get("name") == tracking_tag), None)
     semver_tags = [(docker_version(tag.get("name", "")), tag) for tag in tags]
@@ -455,6 +450,11 @@ def discover(selected: str, scheduled: bool) -> tuple[list[tuple[Path, str, tupl
             messages.append(f"SKIP {path.name}: config.yaml or .var.yaml missing")
             continue
         _, var = load_app(path)
+        if var.get("upstream_strategy") == "openccu_overlay":
+            messages.append(f"SKIP {path.name}: managed by openccu-update.yaml (build before version commit)")
+            if selected:
+                raise ValueError("Use the OpenCCU Update workflow for this app; generic updates bypass patch validation")
+            continue
         raw_source = str(var.get("upstream_repo") or var.get("source") or "").strip()
         parsed = source_kind(raw_source) if raw_source else None
         if not parsed:

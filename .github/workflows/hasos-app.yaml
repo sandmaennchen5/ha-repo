@@ -22,9 +22,15 @@ on:
           # BEGIN_APPS
           - adsb-multi-portal-feeder
           - checkmk-agent
+          - dockhand
+          - drydock
           - homey-shs
           - newt
           - olm
+          - openccu
+          - openccu-dev
+          - openccu-hapdrap
+          - openccu-proxy
           - pangolin-cli
           - portainer
           - portainer-agent

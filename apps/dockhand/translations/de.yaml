@@ -1,0 +1,12 @@
+configuration:
+  storage_location:
+    name: Speicherort
+    description: Daten unter /data/dockhand, /config/dockhand oder /share speichern. Wechsel nur bei gestoppten verwalteten Stacks; das Ziel muss leer sein.
+  share_storage_directory:
+    name: Unterordner in /share
+    description: Relativer Pfad, zum Beispiel dockhand-config. Keine absoluten Pfade oder Punktsegmente.
+  remember_ingress_users:
+    name: Ingress-Anmeldung merken
+    description: Dockhand-Sitzung pro HA-Benutzer speichern, ohne Passwort. Gültig bis Ablauf oder Abmeldung. Nur für vertrauenswürdige HA-Installationen.
+network:
+  3000/tcp: Direkte Weboberfläche (optionale Portzuweisung)

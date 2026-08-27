@@ -65,7 +65,6 @@ das Erstellen der WireGuard-Schnittstelle und das Setzen von Routen.
 | Port | Zweck | Veröffentlichung nötig? |
 |---:|---|---|
 | `2112/tcp` | optionaler Admin-/Prometheus-Endpunkt der CLI | normalerweise nein |
-| `8097/tcp` | interner Healthcheck und Watchdog | nein |
 
 Eine Portzuordnung ist nur nötig, wenn der Admin- oder Metrikendpunkt bewusst
 aus dem lokalen Netz abgefragt werden soll.
@@ -74,9 +73,8 @@ aus dem lokalen Netz abgefragt werden soll.
 
 Nach dem Start sollte das Protokoll eine erfolgreiche Anmeldung und den Aufbau
 des Tunnels melden. Prüfen Sie danach eine in Pangolin freigegebene Ressource.
-Der Watchdog startet die App neu, wenn der interne Healthcheck nicht mehr
-antwortet; er bestätigt jedoch nicht automatisch die Erreichbarkeit jeder
-einzelnen Ressource.
+Der Docker-Healthcheck prüft den CLI-Prozess direkt, ohne TCP-Port.
+Er bestätigt nicht die Erreichbarkeit jeder einzelnen Ressource.
 
 ## Daten, Backups und Migration
 

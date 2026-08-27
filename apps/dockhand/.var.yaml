@@ -1,0 +1,21 @@
+hidden: false
+icon: "🛟"
+stage: "experimental"
+
+version_strategy: "upstream_revision"
+upstream_version: "1.0.44"
+upstream_repo: "github.com/Finsys/dockhand"
+upstream_commit: "674d80b178455541e6aaa65a7b88c66757eed18f"
+changelog_url: "https://github.com/Finsys/dockhand/releases"
+autoupdater: true
+
+build: ""
+lint: ""
+yaml_lint: ""
+code_quality: ""
+image_size: "181 MB"
+custom_shield: ""
+custom_flag: ""
+
+updated: "2026-08-27"
+source: "github.com/Finsys/dockhand"

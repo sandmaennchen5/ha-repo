@@ -1,0 +1,22 @@
+hidden: false
+icon: "⚓"
+stage: "experimental"
+
+version_strategy: "upstream_revision"
+upstream_version: "1.6.0"
+upstream_repo: "docker.io/codeswhat/drydock"
+changelog_url: "https://github.com/CodeSWhat/drydock/blob/main/CHANGELOG.md"
+autoupdater: true
+
+build: ""
+lint: ""
+yaml_lint: ""
+code_quality: ""
+image_size: "150 MB"
+custom_shield: ""
+custom_flag: ""
+
+updated: "2026-08-27"
+source: "docker.io/codeswhat/drydock"
+
+upstream_commit: "sha256:43d4807aba1e39944275ed027d08f6ce670a07efa8916ba06a1d257a2bcbf786"

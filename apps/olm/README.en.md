@@ -70,8 +70,7 @@ All options and a complete example configuration are available in
 
 ID and Secret belong exclusively in the app configuration. The app receives
 extensive network rights; therefore only install them on one
-trusted home assistant system and publish the internal one
-Healthcheck port `8096` not on the Internet.
+trusted Home Assistant system. The healthcheck requires no TCP port.
 
 ## Further documentation
 

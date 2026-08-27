@@ -129,3 +129,9 @@ Newt connects to the Pangolin server via WebSocket and creates a WireGuard tunne
 ## More information
 
 - [Pangolin Site Configuration](https://docs.pangolin.net/manage/sites/configure-site)- [Newt GitHub Repository](https://github.com/fosrl/newt)
+
+## Portless healthcheck
+
+The Docker healthcheck checks the local Newt process and `/tmp/newt_healthy`.
+The existing health service continues checking endpoint reachability.
+No HTTP health server or dedicated health port is required.

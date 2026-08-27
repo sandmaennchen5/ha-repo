@@ -62,7 +62,7 @@
     },
     "upstream_strategy": {
       "type": "string",
-      "enum": ["github_release_branch"]
+      "enum": ["github_release_branch", "openccu_overlay"]
     },
     "lts_tracking_tag": { "type": "string" },
     "lts_version": { "type": "string" },

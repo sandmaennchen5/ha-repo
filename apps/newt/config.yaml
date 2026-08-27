@@ -1,5 +1,5 @@
 name: "Newt - Pangolin Tunnels"
-version: "1.16.0"
+version: "1.15.0.3"
 slug: "newt"
 description: "Secure remote access with Pangolin tunnels."
 url: "https://github.com/fosrl/newt"
@@ -15,10 +15,8 @@ privileged:
   - SYS_MODULE
 ports:
   2112/tcp: null
-  8096/tcp: null
 ports_description:
   2112/tcp: "Optional metrics endpoint"
-  8096/tcp: "Internal health endpoint"
 kernel_modules: true
 options:
   endpoint: "https://app.pangolin.de"

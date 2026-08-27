@@ -7,16 +7,16 @@
 [![CodeFactor][codefactor-badge]][codefactor-url]
 
 <!-- BADGES-START -->
-![Version](https://img.shields.io/badge/version-v0.16.0.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--08--21-green)
+![Version](https://img.shields.io/badge/version-v0.15.1.2-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--03-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN-red)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Host Network](https://img.shields.io/badge/host_network-True-blue)
-![Image Size](https://img.shields.io/badge/size-25_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v0.16.0-yellow)
+![Image Size](https://img.shields.io/badge/size-24_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v0.15.1-yellow)
 ![Repo](https://img.shields.io/badge/repo-github.com%2Ffosrl%2Fcli-informational)
-![Commit](https://img.shields.io/badge/commit-dd61170ef18ee8b76286f18416ce6124a86e4098-informational)
+![Commit](https://img.shields.io/badge/commit-fa90273f53fe77d1cbd950cb0bcba69dd4318faf-informational)
 <!-- BADGES-END -->
 
 Die offizielle Pangolin CLI verbindet Home Assistant OS als WireGuard-VPN-Client
@@ -29,7 +29,7 @@ empfohlene Nachfolgerin von Olm für neue Client-Installationen.
 - Zugriff auf entfernte Pangolin-Ressourcen über WireGuard
 - Host-Netzwerkzugriff für direkt nutzbare Routen
 - optionaler Admin- und Prometheus-Endpunkt auf Port `2112`
-- interner Healthcheck auf Port `8097`
+- lokaler Prozess-Healthcheck ohne TCP-Port
 - unterstützt `aarch64` und `amd64`
 
 ## Voraussetzungen
@@ -63,7 +63,7 @@ Hinweise und Fehlerhilfe stehen in [DOCS.md](DOCS.md).
 ## Sicherheit
 
 Die App verwaltet mit `NET_ADMIN` Routen und ein WireGuard-Interface im
-Host-Netzwerk. Veröffentlichen Sie die Ports `2112` und `8097` nur, wenn dies
+Host-Netzwerk. Aktivieren Sie den optionalen Endpunkt auf Port `2112` nur, wenn dies
 wirklich benötigt wird, und beschränken Sie den Zugriff auf vertrauenswürdige
 Netze.
 
