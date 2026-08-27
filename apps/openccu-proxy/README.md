@@ -6,6 +6,7 @@
 ![Updated](https://img.shields.io/badge/updated-2026--08--27-green)
 ![Stage](https://img.shields.io/badge/stage-experimental-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
+![Image Size](https://img.shields.io/badge/size-57_MB-informational)
 ![Upstream](https://img.shields.io/badge/upstream-v0.7.0-yellow)
 ![Repo](https://img.shields.io/badge/repo-https%3A%2F%2Fgithub.com%2FOpenCCU%2FOpenCCU-informational)
 ![Commit](https://img.shields.io/badge/commit-sha256%3A4ea40c4b0bfa2cfdbb531d4eb2b721d532bc1964bb497a434f8f4aecc233c733-informational)
