@@ -797,12 +797,49 @@ def write_summary(messages: list[str], count: int, scheduled: bool) -> None:
             handle.write(body)
 
 
+def describe_error(error: Exception) -> str:
+    if isinstance(error, urllib.error.HTTPError):
+        # Do not log credentials, query tokens, or response bodies.
+        url = urllib.parse.urlsplit(error.geturl())
+        endpoint = f"{url.scheme}://{url.hostname}{url.path}"
+        details = []
+        for header in ("Retry-After", "X-RateLimit-Remaining", "X-RateLimit-Reset"):
+            value = error.headers.get(header) if error.headers else None
+            if value:
+                details.append(f"{header}={value}")
+        suffix = f" ({', '.join(details)})" if details else ""
+        return f"HTTP {error.code} at {endpoint}{suffix}"
+    return str(error)
+
+
+def process_app(path: Path, kind: str, identity: tuple[str, str], *, preview_only: bool, bump: bool) -> None:
+    # These are all files mutated by apply()/bump_app_revision(). Restore exact
+    # bytes on failure so a partial app update cannot enter the build matrix.
+    files = [path / name for name in ("config.yaml", ".var.yaml", "Dockerfile", "CHANGELOG.md")]
+    before = {file: file.read_bytes() if file.exists() else None for file in files}
+    try:
+        if preview_only:
+            preview(path, kind, identity)
+        else:
+            apply(path, kind, identity)
+            if bump:
+                bump_app_revision(path)
+    except Exception:
+        for file, content in before.items():
+            if content is None:
+                file.unlink(missing_ok=True)
+            else:
+                file.write_bytes(content)
+        raise
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--app", default="", help="single app slug; empty selects all")
     parser.add_argument("--scheduled", action="store_true", help="only select autoupdater: true")
     parser.add_argument("--list", action="store_true", help="discover only; do not update")
     parser.add_argument("--preview", action="store_true", help="fetch and display values without changing files")
+    parser.add_argument("--continue-on-error", action="store_true", help="report failed apps as outputs and allow successful apps to build")
     parser.add_argument(
         "--bump-revision",
         action="store_true",
@@ -812,15 +849,28 @@ def main() -> int:
     try:
         apps, messages = discover(args.app.strip(), args.scheduled)
         write_summary(messages, len(apps), args.scheduled)
-        if args.preview:
+        failures = []
+        if not args.list:
             for path, kind, identity in apps:
-                preview(path, kind, identity)
-        elif not args.list:
-            for path, kind, identity in apps:
-                apply(path, kind, identity)
-            if args.bump_revision:
-                for path, _, _ in apps:
-                    bump_app_revision(path)
+                print(f"CHECKING {path.name}: {kind} ({'/'.join(identity)})", flush=True)
+                try:
+                    process_app(path, kind, identity, preview_only=args.preview, bump=args.bump_revision)
+                except (OSError, ValueError, RuntimeError, urllib.error.URLError, yaml.YAMLError) as error:
+                    message = f"{path.name}: {describe_error(error)}"
+                    failures.append((path.name, message))
+                    print(f"FAILED {message}", file=sys.stderr, flush=True)
+        if output := os.getenv("GITHUB_OUTPUT"):
+            with open(output, "a", encoding="utf-8") as handle:
+                handle.write(f"failed_apps={json.dumps([name for name, _ in failures])}\n")
+        if failures:
+            body = "## Fehlgeschlagene App-Abfragen\n\n" + "\n".join(
+                f"- {message}" for _, message in failures
+            ) + "\n\nDiese Apps wurden nicht aktualisiert; andere Apps werden weiterverarbeitet.\n"
+            print(body)
+            if summary := os.getenv("GITHUB_STEP_SUMMARY"):
+                with open(summary, "a", encoding="utf-8") as handle:
+                    handle.write(body)
+            return 0 if args.continue_on_error else 1
     except (OSError, ValueError, RuntimeError, urllib.error.URLError, yaml.YAMLError) as error:
         print(f"ERROR: {error}", file=sys.stderr)
         return 1
