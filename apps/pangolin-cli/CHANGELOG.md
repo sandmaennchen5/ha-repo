@@ -1,6 +1,16 @@
 # Changelog
 
 
+## [0.16.0.3] - 2026-08-27
+
+### Manuelles Update
+
+- App-Revision für einen vollständigen Neuaufbau um eins erhöht.
+
+Weitere Informationen: https://github.com/fosrl/cli
+
+---
+
 ## [0.16.0.2] - 2026-08-27
 
 ### Manuelles Update
