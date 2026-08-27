@@ -1,5 +1,5 @@
 name: "Newt - Pangolin Tunnels"
-version: "1.15.0.3"
+version: "1.16.0.1"
 slug: "newt"
 description: "Secure remote access with Pangolin tunnels."
 url: "https://github.com/fosrl/newt"
