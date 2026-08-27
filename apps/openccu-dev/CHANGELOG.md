@@ -1,3 +1,8 @@
+## 3.89.8.20260826-dfd4f38-ha3
+
+- Restore expired sessions through the WebUI login form and verify the resulting WebUI session before redirecting.
+- Rate-limit automatic login per HA user on the server, including when browser storage is blocked.
+
 # Changelog
 
 ## 3.89.8.20260826-dfd4f38-ha2

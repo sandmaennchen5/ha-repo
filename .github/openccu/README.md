@@ -13,8 +13,9 @@ by digest. Original entrypoints, libraries, hardware permissions and mounts rema
 - Modern baseline: OpenCCU `acf6acfd90dba9351b06fee2ccd314fbcc54b546`
 - Stable backport baseline: OpenCCU tag `3.89.8.20260719`
 - `overlay/` is based on the two proxy files from that fork commit, with the
-  local ha2 re-login correction: bounded browser loop guard, reset on successful
-  index load, and login-form detection even when served at `/index.htm`.
+  local re-login corrections: login-form detection at `/index.htm` (ha2),
+  WebUI form login with session verification and a per-user server-side
+  attempt limit independent of browser storage (ha3).
 - `modern/` contains the corresponding original files; `stable/` contains the
   older released proxy. The stable diff includes prerequisite upstream cookie,
   timeout and URL-handling changes present in the reviewed fork.
@@ -77,4 +78,9 @@ The encryption key is next to the records, so a backup containing both can decry
 them. Do not describe this as protection against filesystem/backup access.
 The fork keeps sessions alive, weakening normal idle expiry by design. Disabling
 options stops using stored values; it does not automatically erase existing files.
-The fork's exact login/session behavior is retained; this is not a security audit.
+The fork's session storage is retained; automatic login uses the local corrections
+above. This is not a security audit. After installing ha3, enable both remember
+options and log in manually once if credentials have not yet been stored. Test a
+CCU restart without explicitly logging out: logout intentionally deletes the
+stored credentials. Automated tests simulate WebUI responses; a real CCU reboot
+and login must still be verified on the target installation.

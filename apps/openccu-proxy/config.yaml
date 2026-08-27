@@ -1,5 +1,5 @@
 name: OpenCCU (Proxy) (HA Repo)
-version: 0.7.0-ha2
+version: 0.7.0-ha3
 slug: openccu-proxy
 image: ghcr.io/sandmaennchen5/ha-repo-openccu-proxy
 arch:

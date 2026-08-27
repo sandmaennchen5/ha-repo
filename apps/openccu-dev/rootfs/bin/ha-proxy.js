@@ -33,6 +33,7 @@ const CREDENTIAL_KEY_FILE = path.join(SESSION_DIRECTORY, '.credentials.key');
 const UPSTREAM_URL = 'http://127.0.0.1:80';
 const UPSTREAM_BASE = new URL(`${UPSTREAM_URL}/`);
 const pendingCredentials = new Map();
+const loginAttempts = new Map();
 const sessionFileLocks = new Set();
 
 function addonOptions() {
@@ -311,23 +312,77 @@ function performSessionRpc(method, params, errorContext) {
 }
 
 async function performLoginAndGetSid(username, password) {
-  const result = await performSessionRpc(
-    'Session.login',
-    { username, password },
-    'OpenCCU ingress re-login failed'
-  );
-  return validSid(result) ? result : null;
+  // Use the same form login as ReGa's WebUI, not a JSON-RPC session.
+  const form = new URLSearchParams({tbUsernameShow: username, tbUsername: username, tbPassword: password});
+  const response = await requestWebUi('/login.htm', form.toString());
+  if(!response || ![200, 302, 303].includes(response.status)) return null;
+  const location = response.location || '';
+  const match = /[?&]sid=([^&#\s"']+)/.exec(location) ||
+    /\bSessionId\s*=\s*["']([^"']+)["']/.exec(response.body);
+  if(!match) return null;
+  let sid;
+  try { sid = decodeURIComponent(match[1]); } catch(error) { return null; }
+  return validSid(sid) && await probeStoredSid(sid) ? sid : null;
 }
 
 async function probeStoredSid(sid) {
   if(!validSid(sid)) return false;
-  const result = await performSessionRpc(
-    'Device.getNewDeviceCount',
-    { _session_id_: sid },
-    'OpenCCU ingress session probe failed'
-  );
-  const count = typeof(result) === 'string' && /^\d+$/.test(result) ? Number(result) : result;
-  return Number.isInteger(count) && count >= 0;
+  const response = await requestWebUi(`/index.htm?sid=${encodeURIComponent(sid)}`);
+  if(!response || response.status !== 200 || /<form\b[^>]*\bid\s*=\s*["']gwlogin["']/i.test(response.body)) return false;
+  const match = /\bSessionId\s*=\s*["']([^"']+)["']/.exec(response.body);
+  return Boolean(match && match[1] === sid);
+}
+
+function requestWebUi(relativePath, form) {
+  return new Promise(resolve => {
+    if(!UPSTREAM_BASE) return resolve(null);
+    const target = new URL(relativePath.replace(/^\//, ''), UPSTREAM_BASE);
+    const payload = form === undefined ? null : Buffer.from(form, 'utf8');
+    const client = target.protocol === 'https:' ? https : http;
+    const request = client.request(target, {
+      method: payload ? 'POST' : 'GET', timeout: 10000,
+      headers: payload ? {'Content-Type':'application/x-www-form-urlencoded', 'Content-Length':payload.length} : {},
+    }, response => {
+      const chunks = [];
+      let length = 0;
+      response.on('data', chunk => {
+        length += chunk.length;
+        if(length <= 2 * 1024 * 1024) chunks.push(chunk);
+        else response.destroy();
+      });
+      response.on('error', () => resolve(null));
+      response.on('aborted', () => resolve(null));
+      response.on('end', () => resolve(length > 2 * 1024 * 1024 ? null : {
+        status:response.statusCode, location:response.headers.location,
+        body:Buffer.concat(chunks).toString('latin1'),
+      }));
+    });
+    request.on('timeout', () => { resolve(null); request.destroy(); });
+    request.on('error', () => resolve(null));
+    request.end(payload);
+  });
+}
+
+async function restoreWebSession(file) {
+  // Reserve before awaiting network I/O: parallel tabs and blocked browser
+  // storage must not bypass this per-HA-user redirect/login throttle.
+  const now = Date.now();
+  for(const [key, time] of loginAttempts) if(now - time >= 30000) loginAttempts.delete(key);
+  if(loginAttempts.has(file)) return {ok:false, retryAfter:30};
+  loginAttempts.set(file, now);
+  const record = readSessionRecord(file);
+  const creds = decryptCredentials(record);
+  if(!creds) return {available:false};
+  const oldSid = validSid(record.sid) ? record.sid : null;
+  if(oldSid && await probeStoredSid(oldSid)) return {ok:true};
+  const newSid = await performLoginAndGetSid(creds.username, creds.password);
+  if(!newSid) return {available:false};
+  // Do not resurrect credentials removed by an explicit logout during login.
+  const current = readSessionRecord(file);
+  if(JSON.stringify(current.credentials) !== JSON.stringify(record.credentials)) return {available:false};
+  current.sid = newSid;
+  writeSessionRecord(file, current);
+  return {ok:true};
 }
 
 async function logoutStoredSid(sid) {
@@ -533,28 +588,8 @@ app.use((req, res, next) => {
     const file = sessionFile(req);
     if(!REMEMBER_INGRESS_CREDENTIALS || !file) return res.status(404).end('{"available":false}');
     if (req.method === 'GET') {
-      const record = readSessionRecord(file);
-      const creds = decryptCredentials(record);
-
-      if (!creds) {
-        return res.end(JSON.stringify({ available: false }));
-      }
-
-      const oldSid = validSid(record.sid) ? record.sid : null;
-      if(oldSid && await probeStoredSid(oldSid)) {
-        return res.end(JSON.stringify({ ok: true }));
-      }
-
-      const newSid = await performLoginAndGetSid(creds.username, creds.password);
-      if(!newSid) {
-        return res.end(JSON.stringify({ available: false }));
-      }
-
-      if(oldSid && oldSid !== newSid) await logoutStoredSid(oldSid);
-      record.sid = newSid;
-      writeSessionRecord(file, record);
-
-      return res.end(JSON.stringify({ ok: true }));
+      try { return res.end(JSON.stringify(await restoreWebSession(file))); }
+      catch(error) { return res.status(503).end('{"ok":false}'); }
     }
 
     if(req.method === 'POST') {
