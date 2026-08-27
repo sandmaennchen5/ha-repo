@@ -1,5 +1,41 @@
 # Changelog
 
+
+## [1.9.0.2] - 2026-08-27
+
+### Manuelles Update
+
+- App-Revision für einen vollständigen Neuaufbau um eins erhöht.
+
+Weitere Informationen: https://github.com/fosrl/olm
+
+---
+
+## [1.9.0.1] - 2026-08-19
+
+### Upstream Release Notes
+
+## Container Images
+- GHCR: `ghcr.io/fosrl/olm@sha256:9082c9cfccae6f977332ef996004e1b0f214de66292345e81fbf9d71f357427d`
+- Docker Hub: `docker.io/fosrl/olm@sha256:9082c9cfccae6f977332ef996004e1b0f214de66292345e81fbf9d71f357427d`
+**Tag:** `1.9.0`
+
+
+## What's Changed
+* Add exit node connections as a peer
+* Add aliases pointing to exit node
+* Fix attempt to reduce crashing on all platforms
+* Fix create nm conf directory if missing by @Gurkinator1 in https://github.com/fosrl/olm/pull/137
+
+## New Contributors
+* @Gurkinator1 made their first contribution in https://github.com/fosrl/olm/pull/137
+
+**Full Changelog**: https://github.com/fosrl/olm/compare/1.8.2...1.9.0
+
+Weitere Informationen: https://github.com/fosrl/olm/releases/latest
+
+---
+
 ## [1.8.2.2] - 2026-08-27
 
 - Healthcheck ohne TCP-Port; entfernt den HTTP-Healthserver und die socat-Abhängigkeit.
