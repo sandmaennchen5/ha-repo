@@ -38,6 +38,25 @@ SCHEMA = {'remember_ingress_users': 'bool', 'remember_ingress_credentials': 'boo
           'ingress_keepalive_interval': 'int(1,599)'}
 
 
+class IndentedSafeDumper(yaml.SafeDumper):
+    def increase_indent(self, flow=False, indentless=False):
+        return super().increase_indent(flow, False)
+
+
+def dump_yaml(value) -> bytes:
+    return yaml.dump(value, Dumper=IndentedSafeDumper, allow_unicode=True, sort_keys=False).encode()
+
+
+def normalize_config(config):
+    config = dict(config)
+    # Explicit HA defaults are discouraged by the app linter. Removing only
+    # exact default values preserves the upstream runtime behavior.
+    for key, default in {'ingress': False, 'apparmor': True, 'boot': 'auto'}.items():
+        if key in config and type(config[key]) is type(default) and config[key] == default:
+            del config[key]
+    return config
+
+
 def sha(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
@@ -166,7 +185,7 @@ def generate(slug: str, folder: str, metadata_ref: str) -> dict[str, bytes]:
                 'ingress_keepalive_interval': ('Sitzung erneuern (Sekunden)', 'Session keep-alive interval (seconds)'),
             }.items():
                 translations.setdefault('configuration', {})[key] = {'name': label[language == 'en']}
-        files[f'translations/{language}.yaml'] = yaml.safe_dump(translations, allow_unicode=True, sort_keys=False).encode()
+        files[f'translations/{language}.yaml'] = dump_yaml(translations)
     lock = {
         'upstream_version': upstream, 'image': image, 'image_digest': digest,
         'metadata_commit': metadata_ref, 'source_commit': source_ref,
@@ -184,7 +203,7 @@ def generate(slug: str, folder: str, metadata_ref: str) -> dict[str, bytes]:
     version = app_version(upstream, old)
     lock['revision'] = int(version.rsplit('-ha', 1)[1])
     config['version'] = version
-    files['config.yaml'] = yaml.safe_dump(config, allow_unicode=True, sort_keys=False).encode()
+    files['config.yaml'] = dump_yaml(normalize_config(config))
     files['upstream.lock.json'] = (json.dumps(lock, indent=2) + '\n').encode()
     # No dependency on a floating fork or ARG override: original image is immutable.
     docker = f'ARG UPSTREAM_VERSION={upstream}\nFROM {image}:{upstream}@{digest}\n'
@@ -200,7 +219,7 @@ def generate(slug: str, folder: str, metadata_ref: str) -> dict[str, bytes]:
            'upstream_version': upstream, 'upstream_repo': 'https://github.com/OpenCCU/OpenCCU',
            'upstream_commit': digest, 'autoupdater': True,
            'updated': dt.date.today().isoformat(), 'source': 'github.com/OpenCCU/OpenCCU'}
-    files['.var.yaml'] = yaml.safe_dump(var, allow_unicode=True, sort_keys=False).encode()
+    files['.var.yaml'] = dump_yaml(var)
     changelog = ROOT / 'apps' / slug / 'CHANGELOG.md'
     history = changelog.read_text(encoding='utf-8').removeprefix('# Changelog\n').lstrip() if changelog.exists() else ''
     files['CHANGELOG.md'] = (f'# Changelog\n\n## {version}\n\n- Original: `{image}:{upstream}`.\n'

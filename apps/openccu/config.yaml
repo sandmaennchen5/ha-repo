@@ -3,8 +3,8 @@ version: 3.89.8.20260719-ha3
 slug: openccu
 image: ghcr.io/sandmaennchen5/ha-repo-openccu
 arch:
-- aarch64
-- amd64
+  - aarch64
+  - amd64
 description: HomeMatic/homematicIP CCU central based on OpenCCU
 url: https://github.com/sandmaennchen5/ha-repo/tree/main/apps/openccu
 ingress: true
@@ -13,25 +13,25 @@ panel_title: OpenCCU
 panel_icon: mdi:router-wireless
 startup: services
 map:
-- type: data
-  read_only: false
-  path: /usr/local
-- type: backup
-  read_only: false
+  - type: data
+    read_only: false
+    path: /usr/local
+  - type: backup
+    read_only: false
 init: false
 backup_pre: /bin/sh -c "/bin/echo 'load tclrega.so; rega system.Save()' | /bin/tclsh
   && /bin/sync"
 backup_exclude:
-- '*/tmp/.watchdog'
+  - '*/tmp/.watchdog'
 timeout: 240
 devices:
-- /dev/raw-uart
-- /dev/raw-uart1
-- /dev/mmd_hmip
-- /dev/mmd_bidcos
-- /dev/eq3loop
-- /dev/i2c-0
-- /dev/i2c-1
+  - /dev/raw-uart
+  - /dev/raw-uart1
+  - /dev/mmd_hmip
+  - /dev/mmd_bidcos
+  - /dev/eq3loop
+  - /dev/i2c-0
+  - /dev/i2c-1
 udev: true
 usb: true
 uart: true
@@ -131,11 +131,11 @@ environment:
   HM_RUNNING_IN_HA: '1'
   HM_HAPROXY_SRC: 172.30.32.2/32
 privileged:
-- IPC_LOCK
-- SYS_ADMIN
-- SYS_RAWIO
-- SYS_RESOURCE
-- NET_ADMIN
+  - IPC_LOCK
+  - SYS_ADMIN
+  - SYS_RAWIO
+  - SYS_RESOURCE
+  - NET_ADMIN
 options:
   remember_ingress_users: false
   remember_ingress_credentials: false

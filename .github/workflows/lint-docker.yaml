@@ -7,6 +7,9 @@ on:
       - main
     paths:
       - "apps/**/Dockerfile"
+      - ".github/workflows/lint-docker.yaml"
+      - ".github/.hadolint.yaml"
+      - ".github/scripts/report_hadolint.py"
 
 jobs:
   find:
@@ -43,4 +46,10 @@ jobs:
         with:
           dockerfile: ${{ matrix.dockerfile }}
           config: .github/.hadolint.yaml
-          failure-threshold: warning
+          failure-threshold: error
+          format: json
+          output-file: hadolint.json
+          no-fail: true
+
+      - name: Report lint severity correctly
+        run: python3 .github/scripts/report_hadolint.py hadolint.json
