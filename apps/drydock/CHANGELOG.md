@@ -1,5 +1,16 @@
 # Changelog
 
+
+## [1.6.0.5] - 2026-08-27
+
+### Manuelles Update
+
+- App-Revision für einen vollständigen Neuaufbau um eins erhöht.
+
+Weitere Informationen: https://docker.io/codeswhat/drydock
+
+---
+
 ## 1.6.0.4 - 2026-08-27
 
 - Behebt die weiße Ingress-Seite durch angepasste Vue-Router-Basis, Assets und Live-Verbindungen.
