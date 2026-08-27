@@ -1,11 +1,5 @@
 # Changelog
 
-## 1.0.44.5 - 2026-08-27
-
-- Setzt die SvelteKit-Router-Basis in der HTML-Startkonfiguration vor dem Import der Client-Module auf den Ingress-Pfad.
-- Interne Routennamen und Hydrierungsdaten bleiben unverändert; das bisherige pauschale Umschreiben konnte Unterseiten beim Start als unbekannte Routen behandeln.
-- Regressionstest für direkten Unterseitenaufruf unter HTTP/HTTPS, relative/absolute Basis und dynamische Routen.
-- Keine Änderungen an Pangolin/Newt, Speicher oder Anmeldungen.
 
 ## 1.0.44.4 - 2026-08-27
 

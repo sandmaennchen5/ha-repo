@@ -78,8 +78,8 @@ Expose the Checkmk monitoring agent on port 6556.
 Modern Docker and Compose management with Home Assistant Ingress.
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v1.0.44.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--08--25-green)
+![Version](https://img.shields.io/badge/version-v1.0.44.4-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--27-green)
 ![Stage](https://img.shields.io/badge/stage-experimental-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
@@ -93,14 +93,15 @@ Modern Docker and Compose management with Home Assistant Ingress.
 Container update monitoring and automation with Home Assistant Ingress.
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v1.6.0.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--08--25-green)
+![Version](https://img.shields.io/badge/version-v1.6.0.5-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--27-green)
 ![Stage](https://img.shields.io/badge/stage-experimental-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
-![Image Size](https://img.shields.io/badge/size-149_MB-informational)
+![Image Size](https://img.shields.io/badge/size-150_MB-informational)
 ![Upstream](https://img.shields.io/badge/upstream-v1.6.0-yellow)
 ![Repo](https://img.shields.io/badge/repo-docker.io%2Fcodeswhat%2Fdrydock-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3A43d4807aba1e39944275ed027d08f6ce670a07efa8916ba06a1d257a2bcbf786-informational)
 
 ## [🏠 Homey Self-Hosted Server](apps/homey-shs/)
 
@@ -121,7 +122,7 @@ Run Homey Self-Hosted Server on Home Assistant OS.
 
 Secure remote access with Pangolin tunnels.
 
-![Version](https://img.shields.io/badge/version-v1.15.0.2-blue)
+![Version](https://img.shields.io/badge/version-v1.15.0.3-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--07--19-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN%7CSYS_MODULE-red)
@@ -138,7 +139,7 @@ Secure remote access with Pangolin tunnels.
 
 Advanced WireGuard client for remote access to Pangolin and Newt sites.
 
-![Version](https://img.shields.io/badge/version-v1.8.2.1-blue)
+![Version](https://img.shields.io/badge/version-v1.8.2.2-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--08--03-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN%7CSYS_MODULE-red)
@@ -154,7 +155,7 @@ Advanced WireGuard client for remote access to Pangolin and Newt sites.
 
 Official Pangolin CLI and WireGuard VPN client for Linux.
 
-![Version](https://img.shields.io/badge/version-v0.15.1.1-blue)
+![Version](https://img.shields.io/badge/version-v0.15.1.2-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--08--03-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN-red)
