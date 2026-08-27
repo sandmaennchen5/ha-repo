@@ -15,7 +15,13 @@ LABEL \
   org.opencontainers.image.source="https://github.com/sandmaennchen5/ha-repo" \
   org.opencontainers.image.vendor="CodesWhat"
 
-ENV DD_STORE_PATH=/data \
+USER root
+COPY --chmod=755 rootfs/usr/local/bin/drydock-storage-init /usr/local/bin/drydock-storage-init
+
+ENV DD_STORE_PATH=/data/drydock \
     DD_ANONYMOUS_AUTH_CONFIRM=true \
     DD_SERVER_TRUSTPROXY=1
 
+# Keep upstream signal forwarding, socket checks and privilege drop.
+ENTRYPOINT ["tini", "-g", "--", "/usr/local/bin/drydock-storage-init"]
+CMD ["node", "dist/index.js"]

@@ -1,5 +1,5 @@
 name: "Drydock"
-version: "1.6.0.1"
+version: "1.6.0.2"
 slug: "drydock"
 description: "Container update monitoring and automation with Home Assistant Ingress."
 stage: experimental
@@ -21,10 +21,9 @@ ports:
 ports_description:
   3000/tcp: "Direct Web UI (optional assignment)"
 environment:
-  DD_STORE_PATH: "/data"
+  DD_STORE_PATH: "/data/drydock"
   DD_ANONYMOUS_AUTH_CONFIRM: "true"
   DD_SERVER_TRUSTPROXY: "1"
 options: {}
 schema: {}
 timeout: 120
-
