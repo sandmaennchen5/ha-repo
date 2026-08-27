@@ -93,7 +93,7 @@ Modern Docker and Compose management with Home Assistant Ingress.
 Container update monitoring and automation with Home Assistant Ingress.
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v1.6.0.5-blue)
+![Version](https://img.shields.io/badge/version-v1.6.0.6-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--08--27-green)
 ![Stage](https://img.shields.io/badge/stage-experimental-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
