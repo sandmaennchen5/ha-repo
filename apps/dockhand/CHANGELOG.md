@@ -1,5 +1,16 @@
 # Changelog
 
+
+## [1.0.44.5] - 2026-08-27
+
+### Manuelles Update
+
+- App-Revision für einen vollständigen Neuaufbau um eins erhöht.
+
+Weitere Informationen: https://github.com/Finsys/dockhand
+
+---
+
 ## 1.0.44.4 - 2026-08-27
 
 - Ingress-Menülinks laden Seiten serverseitig, damit der für `/` gebaute Client-Router keine HA-Ingress-Unterpfade als unbekannte Routen behandelt.
