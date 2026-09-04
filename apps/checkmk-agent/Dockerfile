@@ -1,7 +1,7 @@
 ARG BUILD_ARCH=amd64
 FROM ghcr.io/hassio-addons/base/${BUILD_ARCH}:16.0.0
 
-ARG UPSTREAM_VERSION=2.5.0p12
+ARG UPSTREAM_VERSION=2.5.0p13
 
 RUN apk add --no-cache busybox-extras wget && \
     wget -qO /usr/local/bin/check_mk_agent \
