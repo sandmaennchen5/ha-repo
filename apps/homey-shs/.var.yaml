@@ -2,9 +2,9 @@ hidden: false
 icon: "🏠"
 stage: "stable"
 
-upstream_version: "13.4.1"
+upstream_version: "13.5.0"
 upstream_repo: "ghcr.io/athombv/homey-shs"
-upstream_commit: "sha256:268b146973bddce7ee14ed5a5a8225a1b58419c15941f54916f352ff8015283f"
+upstream_commit: "sha256:64c10fa439b8395e18f063447a8ef9c08b4d273ac74b6da325f995e2640aea5e"
 changelog_url: "https://homey.app/en-us/wiki/homey-shs-changelog/"
 autoupdater: true
 
@@ -18,5 +18,5 @@ image_size: "282 MB"
 custom_shield: ""
 custom_flag: ""
 
-updated: "2026-08-19"
+updated: "2026-09-08"
 source: "ghcr.io/athombv/homey-shs"

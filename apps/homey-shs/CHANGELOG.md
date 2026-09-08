@@ -1,6 +1,35 @@
 # Changelog
 
 
+## [13.5.0] - 2026-09-08
+
+### GitHub Container Registry
+
+### Core
+- Updates translations.
+- Fixes a Zone staying active because of a power cycle.
+### Flow
+- Adds Flow cards for numeric Logic variables “when a variable becomes greater than X” and “when a variable becomes less than X”.
+- Adds Flow cards for numeric Logic variables “when a variable becomes greater than X for Y minutes/seconds” and “when a variable becomes less than X for Y minutes/seconds”.
+### Users
+- Fixes user Flow cards not listing users whose account is disabled.
+### Matter
+- Fixes dim level reading slightly too high on devices that use Level Control.
+### Z-Wave
+- Fixes firmware updates being offered to devices they don’t apply to.
+- Fixes Fibaro FGS-101 pairing issue.
+### BLE
+- Fixes a number of issues that could cause BLE to stop working as expected until a reboot is performed.
+### Apps
+- Improves stability of Python apps by handling errors during inter-process communication.
+- Fixes an issue with the pin input pair templates that could cause focus to jump to the wrong input field.
+
+Release Notes: https://homey.app/en-us/wiki/homey-shs-changelog/
+
+Weitere Informationen: https://ghcr.io/athombv/homey-shs
+
+---
+
 ## [13.4.1] - 2026-08-19
 
 ### GitHub Container Registry
