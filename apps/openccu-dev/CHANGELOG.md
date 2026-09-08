@@ -1,3 +1,10 @@
+# Changelog
+
+## 3.89.8.20260901-56ed0b2-ha1
+
+- Original: `ghcr.io/openccu/openccu:3.89.8.20260901-56ed0b2`.
+- Pinned image and checked overlay; original runtime retained.
+
 ## 3.89.8.20260826-dfd4f38-ha3
 
 - Restore expired sessions through the WebUI login form and verify the resulting WebUI session before redirecting.
