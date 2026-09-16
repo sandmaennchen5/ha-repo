@@ -10,9 +10,9 @@ stage: "stable"
 # Upstream-Informationen
 # -----------------------------------------
 
-upstream_version: "1.16.0"
+upstream_version: "1.17.0"
 upstream_repo: "github.com/fosrl/newt"
-upstream_commit: "0e415f0a01223dd53d19185083048e0017c755b3"
+upstream_commit: "268d97cc40b0fc9cf7b90c7335efeca9470e89f3"
 autoupdater: true
 
 # -----------------------------------------
@@ -37,5 +37,5 @@ image_size: "35 MB"
 custom_shield: ""
 custom_flag: ""
 
-updated: "2026-08-19"
+updated: "2026-09-15"
 source: "github.com/fosrl/newt"

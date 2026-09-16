@@ -1,6 +1,28 @@
 # Changelog
 
 
+## [0.17.0.1] - 2026-09-15
+
+### Upstream Release Notes
+
+## Container Images
+- GHCR: `ghcr.io/fosrl/cli@sha256:cb9b46cb0e14966c50d49676e43b7206c77267fd0ec490a3d48b86faa419bc37`
+- Docker Hub: `docker.io/fosrl/pangolin-cli@sha256:cb9b46cb0e14966c50d49676e43b7206c77267fd0ec490a3d48b86faa419bc37`
+**Tag:** `0.17.0`
+
+## What's Changed
+* Add site support with `pangolin up site`
+* Support machine client use on Windows
+* Add service management support on Windows, Linux, MacOS for sites and clients `pangolin service install site/client`
+* Improve login command when already logged in  
+* Update dependencies
+
+**Full Changelog**: https://github.com/fosrl/cli/compare/0.16.0...0.17.0
+
+Weitere Informationen: https://github.com/fosrl/cli/releases/latest
+
+---
+
 ## [0.16.0.3] - 2026-08-27
 
 ### Manuelles Update

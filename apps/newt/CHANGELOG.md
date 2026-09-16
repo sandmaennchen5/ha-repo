@@ -1,6 +1,33 @@
 # Changelog
 
 
+## [1.17.0] - 2026-09-15
+
+### Upstream Release Notes
+
+## Container Images
+- GHCR: `ghcr.io/fosrl/newt@sha256:3465d85200cceb0f46dad8e63a40b69ec043a81df66ed0c514714302e9b83dde`
+- Docker Hub: `docker.io/fosrl/newt@sha256:3465d85200cceb0f46dad8e63a40b69ec043a81df66ed0c514714302e9b83dde`
+**Tag:** `1.17.0`
+
+
+## What's Changed
+* Add support for local endpoint interface allowlist
+* Add aliased SITE_ prefixed env vars
+* Add support for importing into the CLI package for running there with `pangolin up site`
+* Fix crashing with nil pointer checks
+* Fix accept bare site addresses in client WireGuard config by @totalolage in https://github.com/fosrl/newt/pull/435
+* Update dependencies
+
+## New Contributors
+* @totalolage made their first contribution in https://github.com/fosrl/newt/pull/435
+
+**Full Changelog**: https://github.com/fosrl/newt/compare/1.16.0...1.17.0
+
+Weitere Informationen: https://github.com/fosrl/newt/releases/latest
+
+---
+
 ## [1.16.0.2] - 2026-08-27
 
 ### Manuelles Update
