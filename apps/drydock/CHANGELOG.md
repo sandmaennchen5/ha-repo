@@ -1,5 +1,16 @@
 # Changelog
 
+
+## [1.7.0-rc.16] - 2026-09-16
+
+### Manuelles Update
+
+Manuell aktualisierte Version.
+
+Weitere Informationen: https://docker.io/codeswhat/drydock
+
+---
+
 ## 1.6.0.6
 
 - Isolate server-side login sessions from the main Drydock database to prevent independent Loki stores overwriting each other.
