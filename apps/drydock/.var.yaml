@@ -3,7 +3,7 @@ icon: "⚓"
 stage: "experimental"
 
 version_strategy: "upstream_revision"
-upstream_version: "1.7.0-rc.16"
+upstream_version: "1.6.0"
 upstream_repo: "docker.io/codeswhat/drydock"
 changelog_url: "https://github.com/CodeSWhat/drydock/blob/main/CHANGELOG.md"
 autoupdater: true
@@ -16,7 +16,7 @@ image_size: "152 MB"
 custom_shield: ""
 custom_flag: ""
 
-updated: "2026-09-16"
+updated: "2026-08-12"
 source: "docker.io/codeswhat/drydock"
 
 upstream_commit: "sha256:43d4807aba1e39944275ed027d08f6ce670a07efa8916ba06a1d257a2bcbf786"

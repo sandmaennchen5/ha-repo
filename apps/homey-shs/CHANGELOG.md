@@ -1,6 +1,39 @@
 # Changelog
 
 
+## [13.5.1] - 2026-09-29
+
+### GitHub Container Registry
+
+### Core
+- Security improvements.
+- Improves local network discovery of Homey Self-Hosted Server.
+- Fixes an issue where open doors and windows reported by certain devices did not activate their Zone.
+### Devices
+- Fixes an issue where changes to a device group’s members were not saved when its icon was changed at the same time.
+- Fixes an issue where removing a device from a group could leave its membership inconsistent.
+- Fixes device tiles incorrectly appearing off when their quick action has no on/off state.
+### Flow
+- Fixes incorrect value placeholders in Logic Flow cards in the Web App.
+- Fixes an issue where data passed when starting an Advanced Flow through the API was ignored.
+### Moods
+- Fixes an issue where a Mood could fail to determine its Zone when a device referenced a missing Zone.
+### Matter
+- Adds support for compatible chimes, soil moisture sensors and meter identification information.
+- Adds a Flow card to play a sound on compatible chimes.
+- Fixes an issue where some device data could occasionally fail to update correctly.
+### Z-Wave
+- Fixes an issue with Z-Wave Security S2 for Zooz devices.
+### Apps
+- Fixes an issue that could cause Homey to freeze when starting apps with very large numbers of drivers and Flow cards.
+- Fixes an issue that could prevent an app from stopping when Bluetooth was unavailable.
+
+Release Notes: https://homey.app/en-us/wiki/homey-shs-changelog/
+
+Weitere Informationen: https://ghcr.io/athombv/homey-shs
+
+---
+
 ## [13.5.0] - 2026-09-08
 
 ### GitHub Container Registry
