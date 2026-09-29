@@ -9,15 +9,15 @@
 
 <!-- BADGES-START -->
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v13.5.0-blue)
-![Updated](https://img.shields.io/badge/updated-2026--09--08-green)
+![Version](https://img.shields.io/badge/version-v13.5.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--09--29-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Host Network](https://img.shields.io/badge/host_network-True-blue)
-![Image Size](https://img.shields.io/badge/size-282_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v13.5.0-yellow)
+![Image Size](https://img.shields.io/badge/size-283_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v13.5.1-yellow)
 ![Repo](https://img.shields.io/badge/repo-ghcr.io%2Fathombv%2Fhomey--shs-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3A64c10fa439b8395e18f063447a8ef9c08b4d273ac74b6da325f995e2640aea5e-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3Ae52125f36392e237a98d837307b14017ea0d46070d1019dd559405ce0626afe3-informational)
 <!-- BADGES-END -->
 
 Homey Self-Hosted Server als Home Assistant-Add-on ausführen

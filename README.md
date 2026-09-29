@@ -93,13 +93,13 @@ Modern Docker and Compose management with Home Assistant Ingress.
 Container update monitoring and automation with Home Assistant Ingress.
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v1.7.0-rc.16-blue)
-![Updated](https://img.shields.io/badge/updated-2026--09--16-green)
+![Version](https://img.shields.io/badge/version-v1.6.0.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--08--12-green)
 ![Stage](https://img.shields.io/badge/stage-experimental-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
-![Image Size](https://img.shields.io/badge/size-152_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v1.7.0-rc.16-yellow)
+![Image Size](https://img.shields.io/badge/size-150_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v1.6.0-yellow)
 ![Repo](https://img.shields.io/badge/repo-docker.io%2Fcodeswhat%2Fdrydock-informational)
 ![Commit](https://img.shields.io/badge/commit-sha256%3A43d4807aba1e39944275ed027d08f6ce670a07efa8916ba06a1d257a2bcbf786-informational)
 
@@ -108,15 +108,15 @@ Container update monitoring and automation with Home Assistant Ingress.
 Run Homey Self-Hosted Server on Home Assistant OS.
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v13.5.0-blue)
-![Updated](https://img.shields.io/badge/updated-2026--09--08-green)
+![Version](https://img.shields.io/badge/version-v13.5.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--09--29-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Host Network](https://img.shields.io/badge/host_network-True-blue)
-![Image Size](https://img.shields.io/badge/size-282_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v13.5.0-yellow)
+![Image Size](https://img.shields.io/badge/size-283_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v13.5.1-yellow)
 ![Repo](https://img.shields.io/badge/repo-ghcr.io%2Fathombv%2Fhomey--shs-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3A64c10fa439b8395e18f063447a8ef9c08b4d273ac74b6da325f995e2640aea5e-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3Ae52125f36392e237a98d837307b14017ea0d46070d1019dd559405ce0626afe3-informational)
 
 ## [🛰️ Newt - Pangolin Tunnels](apps/newt/)
 
