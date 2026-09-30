@@ -2,6 +2,7 @@ name: "Portainer CE LTS"
 version: "2.45.1.1"
 slug: "portainer-ce-lts"
 description: "Portainer CE/BE with selectable LTS/STS channel, ingress and data migration."
+stage: deprecated
 url: "https://docs.portainer.io/"
 arch: [aarch64, amd64]
 image: ghcr.io/sandmaennchen5/ha-repo-portainer-ce-lts

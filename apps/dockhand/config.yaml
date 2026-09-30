@@ -2,7 +2,6 @@ name: "Dockhand"
 version: "1.0.50.1"
 slug: "dockhand"
 description: "Modern Docker and Compose management with Home Assistant Ingress."
-stage: experimental
 url: "https://dockhand.pro/manual/"
 arch:
   - aarch64

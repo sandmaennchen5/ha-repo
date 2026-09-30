@@ -2,7 +2,6 @@ name: "Portainer Agent (Channel Selector)"
 version: "2026.9.1"
 slug: "portainer-agent"
 description: "Portainer Agent with selectable LTS/STS channel."
-stage: experimental
 url: "https://docs.portainer.io/admin/environments/add/docker/agent"
 arch: [aarch64, amd64]
 image: ghcr.io/sandmaennchen5/ha-repo-portainer-agent
