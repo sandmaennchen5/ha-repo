@@ -8,8 +8,8 @@
 [![CodeFactor][codefactor-badge]][codefactor-url]
 
 <!-- BADGES-START -->
-![Version](https://img.shields.io/badge/version-v1.17.0-blue)
-![Updated](https://img.shields.io/badge/updated-2026--09--15-green)
+![Version](https://img.shields.io/badge/version-v1.18.0-blue)
+![Updated](https://img.shields.io/badge/updated-2026--09--29-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN%7CSYS_MODULE-red)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
@@ -17,9 +17,9 @@
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
 ![Kernel Modules](https://img.shields.io/badge/kernel_modules-True-blue)
 ![Image Size](https://img.shields.io/badge/size-36_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v1.17.0-yellow)
+![Upstream](https://img.shields.io/badge/upstream-v1.18.0-yellow)
 ![Repo](https://img.shields.io/badge/repo-github.com%2Ffosrl%2Fnewt-informational)
-![Commit](https://img.shields.io/badge/commit-268d97cc40b0fc9cf7b90c7335efeca9470e89f3-informational)
+![Commit](https://img.shields.io/badge/commit-9060bcaa76ba1069921d304e0fc1e2e8d0ca8b52-informational)
 <!-- BADGES-END -->
 
 Newt ist ein Home Assistant Add-on für den Pangolin WireGuard-Tunnel-Client und TCP/UDP-Proxy. Es verbindet deinen Home Assistant Host sicher mit einem Pangolin-Server und ermöglicht Zugriff auf private Dienste über einen User-Space WireGuard-Tunnel.
