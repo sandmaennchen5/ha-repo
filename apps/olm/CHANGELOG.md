@@ -1,6 +1,28 @@
 # Changelog
 
 
+## [1.10.0.1] - 2026-09-29
+
+### Upstream Release Notes
+
+## Container Images
+- GHCR: `ghcr.io/fosrl/olm@sha256:f537fffddc4aa5fe1a284fcc1d2881672bb44a5451eda1fc9f28ed0aa6070be4`
+- Docker Hub: `docker.io/fosrl/olm@sha256:f537fffddc4aa5fe1a284fcc1d2881672bb44a5451eda1fc9f28ed0aa6070be4`
+**Tag:** `1.10.0`
+
+
+## What's Changed
+* Add support for exit nodes
+* Add support for subnet routing
+* Improve batched relay,unrelay,local,unlocal messages
+
+
+**Full Changelog**: https://github.com/fosrl/olm/compare/v1.9.1...1.10.0
+
+Weitere Informationen: https://github.com/fosrl/olm/releases/latest
+
+---
+
 ## [1.9.1.1] - 2026-09-01
 
 ### Upstream Release Notes

@@ -1,6 +1,31 @@
 # Changelog
 
 
+## [0.18.0.1] - 2026-09-29
+
+### Upstream Release Notes
+
+## Container Images
+- GHCR: `ghcr.io/fosrl/cli@sha256:a3607f2aa23d830eef07f161cb342c3e2a442beda150c7bac013412f63e022ff`
+- Docker Hub: `docker.io/fosrl/pangolin-cli@sha256:a3607f2aa23d830eef07f161cb342c3e2a442beda150c7bac013412f63e022ff`
+**Tag:** `0.18.0`
+
+## What's Changed
+* Add support for exit nodes
+* Add support for subnet routing
+* Add ManagedBy build flag to disable auto-updates whne nessicary by @ToBinio in https://github.com/fosrl/cli/pull/117
+* Add `--config-file` support to site service by @itsjxck in https://github.com/fosrl/cli/pull/149
+
+## New Contributors
+* @ToBinio made their first contribution in https://github.com/fosrl/cli/pull/117
+* @itsjxck made their first contribution in https://github.com/fosrl/cli/pull/149
+
+**Full Changelog**: https://github.com/fosrl/cli/compare/0.17.0...0.18.0
+
+Weitere Informationen: https://github.com/fosrl/cli/releases/latest
+
+---
+
 ## [0.17.0.1] - 2026-09-15
 
 ### Upstream Release Notes

@@ -1,6 +1,24 @@
 # Changelog
 
 
+## [1.18.0] - 2026-09-29
+
+### Upstream Release Notes
+
+## Container Images
+- GHCR: `ghcr.io/fosrl/newt@sha256:07507a530f3f239bee4dc208aabdd25095df650f132e926245659e1a67aa5de9`
+- Docker Hub: `docker.io/fosrl/newt@sha256:07507a530f3f239bee4dc208aabdd25095df650f132e926245659e1a67aa5de9`
+**Tag:** `1.18.0`
+
+## What's Changed
+* Add exit node support
+
+**Full Changelog**: https://github.com/fosrl/newt/compare/1.17.0...1.18.0
+
+Weitere Informationen: https://github.com/fosrl/newt/releases/latest
+
+---
+
 ## [1.17.0] - 2026-09-15
 
 ### Upstream Release Notes
