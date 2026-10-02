@@ -1,6 +1,26 @@
 # Changelog
 
 
+## [0.18.1.1] - 2026-10-01
+
+### Upstream Release Notes
+
+## Container Images
+- GHCR: `ghcr.io/fosrl/cli@sha256:c64847e840302eab60cb3ec6fec0ee57e6a3534c23bff80621ad0c4b5e1dee27`
+- Docker Hub: `docker.io/fosrl/pangolin-cli@sha256:c64847e840302eab60cb3ec6fec0ee57e6a3534c23bff80621ad0c4b5e1dee27`
+**Tag:** `0.18.1`
+
+## What's Changed
+
+- Fix replace excluded routes if interface is removed
+- Fix add exclude routes for websocket endpoint
+
+**Full Changelog**: https://github.com/fosrl/cli/compare/0.18.0...0.18.1
+
+Weitere Informationen: https://github.com/fosrl/cli/releases/latest
+
+---
+
 ## [0.18.0.1] - 2026-09-29
 
 ### Upstream Release Notes

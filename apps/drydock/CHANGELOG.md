@@ -1,6 +1,18 @@
 # Changelog
 
 
+## [1.6.1.1] - 2026-10-02
+
+### Docker Hub
+
+- Docker Hub image: `docker.io/codeswhat/drydock:1.6.1`
+- Digest: `sha256:0c522e2a76cd46125478ac48f97ac4baba92b1f906f8dd91f8c9df8258bd1f8d`
+- Aktualisiert auf Docker Hub: 2026-10-02
+
+Weitere Informationen: https://docker.io/codeswhat/drydock
+
+---
+
 ## [1.6.0.1] - 2026-08-12
 
 ### Docker Hub
