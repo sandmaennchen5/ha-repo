@@ -1,6 +1,26 @@
 # Changelog
 
 
+## [1.18.1] - 2026-10-02
+
+### Upstream Release Notes
+
+## Container Images
+- GHCR: `ghcr.io/fosrl/newt@sha256:7fed6605e0a104a337e1cb903bbb1225f80c7f6e5e56ff1eb1d70c57740d8e0f`
+- Docker Hub: `docker.io/fosrl/newt@sha256:7fed6605e0a104a337e1cb903bbb1225f80c7f6e5e56ff1eb1d70c57740d8e0f`
+**Tag:** `1.18.1`
+
+
+## What's Changed
+* Watch override routes and maintain them in the route table by @oschwartz10612 in https://github.com/fosrl/newt/pull/459
+* Dependency updates
+
+**Full Changelog**: https://github.com/fosrl/newt/compare/1.18.0...1.18.1
+
+Weitere Informationen: https://github.com/fosrl/newt/releases/latest
+
+---
+
 ## [1.18.0] - 2026-09-29
 
 ### Upstream Release Notes

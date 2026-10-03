@@ -3,9 +3,9 @@ icon: "🍃"
 stage: "stable"
 
 version_strategy: "upstream_revision"
-upstream_version: "1.10.0"
+upstream_version: "1.10.1"
 upstream_repo: "github.com/fosrl/olm"
-upstream_commit: "b119feaf7fe2902a2d98c836c5e6236897326073"
+upstream_commit: "4901fde4b1850b56026b9740f34032dab37e7794"
 autoupdater: true
 
 build: ""
@@ -16,5 +16,5 @@ image_size: "28 MB"
 custom_shield: ""
 custom_flag: ""
 
-updated: "2026-09-29"
+updated: "2026-10-02"
 source: "github.com/fosrl/olm"

@@ -1,6 +1,25 @@
 # Changelog
 
 
+## [1.10.1.1] - 2026-10-02
+
+### Upstream Release Notes
+
+## Container Images
+- GHCR: `ghcr.io/fosrl/olm@sha256:19943d7087262a0786f347bbefc0e9b4f01e857c198cd07de164fe83bc5e4d55`
+- Docker Hub: `docker.io/fosrl/olm@sha256:19943d7087262a0786f347bbefc0e9b4f01e857c198cd07de164fe83bc5e4d55`
+**Tag:** `1.10.1`
+
+## What's Changed
+* Fix sync routes on host with when interface changes
+* Fix add exclude routes for websocket endpoint
+
+**Full Changelog**: https://github.com/fosrl/olm/compare/1.10.0...1.10.1
+
+Weitere Informationen: https://github.com/fosrl/olm/releases/latest
+
+---
+
 ## [1.10.0.1] - 2026-09-29
 
 ### Upstream Release Notes
