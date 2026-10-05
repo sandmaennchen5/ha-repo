@@ -141,8 +141,12 @@ Die folgenden Site-Optionen gelten in den Modi `site` und `dual`. Nur gesetzte W
 exportiert; auch `false` wird übergeben. CLI-Argumente haben Vorrang vor ENV,
 ENV vor JSON und JSON vor Upstream-Standardwerten. `trace` wird für Sites auf
 `DEBUG` abgebildet. `tls_client_ca` und `local_endpoint_interfaces` erwarten
-kommagetrennte Werte. Docker-Discovery benötigt einen erreichbaren externen
-Docker-Socket-Proxy; diese App bindet den Supervisor-Docker-Socket nicht ein.
+kommagetrennte Werte. Docker-Discovery kann mit
+`site.docker_socket: unix:///var/run/docker.sock` den lokalen Docker-Socket
+verwenden. Dieser ist über `docker_api: true` eingebunden und bei neuen
+Installationen voreingestellt. Dafür muss der Schutzmodus deaktiviert sein.
+Bei bestehenden Konfigurationen den Wert bei Bedarf unter `site` ergänzen.
+Ein externer Docker-Socket-Proxy bleibt als Alternative nutzbar.
 Netzwerkvalidierung funktioniert laut Upstream nicht im Host-Netzwerk.
 `otlp_endpoint` legt das OTLP-Ziel fest; mit `otlp: true` wird der Export aktiviert.
 Der Prozess-Healthcheck bleibt aktiv; `health_file` ist eine zusätzliche

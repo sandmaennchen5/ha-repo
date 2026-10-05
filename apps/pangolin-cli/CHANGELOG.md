@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.18.1.4] - 2026-10-05
+
+- Lokale Docker-Integration für Site- und Dual-Modus über `docker_api: true`.
+- Standard-Socket für neue Installationen: `unix:///var/run/docker.sock`.
+- Dokumentation und Übersetzungen für lokalen Socket und externe Socket-Proxys aktualisiert.
+
 ## [0.18.1.3] - 2026-10-05
 
 - Dual-Modus für gleichzeitigen Machine Client und Site Connector.

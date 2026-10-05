@@ -7,7 +7,7 @@
 [![CodeFactor][codefactor-badge]][codefactor-url]
 
 <!-- BADGES START -->
-![Version](https://img.shields.io/badge/version-v0.18.1.3-blue)
+![Version](https://img.shields.io/badge/version-v0.18.1.4-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--10--05-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN-red)
@@ -55,7 +55,7 @@ replaces Olm; site mode provides the functionality of Newt.
 | `mode` | `client` | `client`, `site` or `dual` |
 | `site_id` | empty | Site ID (site mode only) |
 | `site_secret` | empty | Site secret (site mode only) |
-| `site` | `{}` | optional site settings, see below |
+| `site` | local Docker socket | optional site settings, see below |
 | `client_id` | – | ID of the machine client |
 | `client_secret` | – | Secret of the Machine Client |
 | `extras.log_level` | `info` | `trace`, `debug`, `info`, `warn` or `error` |
@@ -179,3 +179,17 @@ by whitespace; shell quoting is not evaluated.
 
 Stop the old Newt app before connecting the same site. Both tunnels share the
 host network; destination networks and VPN routes must match your Pangolin setup.
+
+## Local Docker integration
+
+In `site` and `dual`, the CLI can discover local Docker containers.
+The socket is exposed through `docker_api: true`; disable protection mode.
+It is configured by default for new installations. Existing configurations can
+add it if needed:
+
+```yaml
+site:
+  docker_socket: "unix:///var/run/docker.sock"
+```
+
+An external socket proxy can still be used as `site.docker_socket`.

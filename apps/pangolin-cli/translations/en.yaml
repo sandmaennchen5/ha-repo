@@ -58,7 +58,7 @@ configuration:
         description: SITE_UDP_PROXY_IDLE_TIMEOUT
       docker_socket:
         name: docker socket
-        description: DOCKER_SOCKET
+        description: "DOCKER_SOCKET; local: unix:///var/run/docker.sock. Alternatively an external socket proxy. Disable protection mode."
       docker_enforce_network_validation:
         name: docker enforce network validation
         description: DOCKER_ENFORCE_NETWORK_VALIDATION

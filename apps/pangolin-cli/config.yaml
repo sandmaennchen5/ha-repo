@@ -1,5 +1,5 @@
 name: "Pangolin - CLI"
-version: "0.18.1.3"
+version: "0.18.1.4"
 slug: "pangolin-cli"
 description: "Official Pangolin CLI and WireGuard VPN client and Site Connector for Linux."
 url: "https://github.com/fosrl/cli"
@@ -8,6 +8,7 @@ arch:
   - amd64
 image: "ghcr.io/sandmaennchen5/ha-repo-pangolin-cli"
 init: false
+docker_api: true
 map:
   - addon_config:rw
 host_network: true
@@ -23,7 +24,8 @@ options:
   mode: "client"
   site_id: ""
   site_secret: ""
-  site: {}
+  site:
+    docker_socket: "unix:///var/run/docker.sock"
   client: {}
   endpoint: "https://app.pangolin.net"
   client_id: ""

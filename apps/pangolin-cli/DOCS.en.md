@@ -138,9 +138,12 @@ directory); all paths refer to the app container.
 These site options apply in `site` and `dual` modes. Only configured values are exported,
 including explicit `false`. Priority: CLI > ENV > JSON > upstream defaults.
 Site log level `trace` maps to `DEBUG`. `tls_client_ca` and
-`local_endpoint_interfaces` accept comma-separated values. Docker discovery
-requires a reachable external Docker socket proxy; this app does not mount the
-Supervisor Docker socket. Upstream network validation does not work with host
+`local_endpoint_interfaces` accept comma-separated values. Docker discovery can
+use the local socket with `site.docker_socket: unix:///var/run/docker.sock`.
+The socket is exposed through `docker_api: true` and is the default for new
+installations. Disable protection mode to make it available. Existing
+configurations can add this value under `site` if needed. An external Docker
+socket proxy remains supported. Upstream network validation does not work with host
 networking. `otlp_endpoint` sets the OTLP destination; `otlp: true` enables export.
 The process healthcheck stays active; `health_file` additionally indicates
 connection health and is not evaluated by the Docker healthcheck.

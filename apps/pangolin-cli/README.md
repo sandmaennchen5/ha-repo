@@ -8,7 +8,7 @@
 [![CodeFactor][codefactor-badge]][codefactor-url]
 
 <!-- BADGES-START -->
-![Version](https://img.shields.io/badge/version-v0.18.1.3-blue)
+![Version](https://img.shields.io/badge/version-v0.18.1.4-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--10--05-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN-red)
@@ -56,7 +56,7 @@ Der Client-Modus ersetzt Olm, der Site-Modus übernimmt die Funktionen von Newt.
 | `mode` | `client` | `client`, `site` oder `dual` |
 | `site_id` | leer | Site-ID (nur Site-Modus) |
 | `site_secret` | leer | Site-Secret (nur Site-Modus) |
-| `site` | `{}` | optionale Site-Einstellungen, siehe unten |
+| `site` | lokaler Docker-Socket | optionale Site-Einstellungen, siehe unten |
 | `client_id` | – | ID des Machine Clients |
 | `client_secret` | – | Secret des Machine Clients |
 | `extras.log_level` | `info` | `trace`, `debug`, `info`, `warn` oder `error` |
@@ -182,3 +182,17 @@ Leerzeichen getrennt; Shell-Quoting wird nicht ausgewertet.
 
 Die alte Newt-App vor dem Start derselben Site stoppen. Die Tunnel teilen das
 Host-Netzwerk; Zielnetze und VPN-Routen müssen zur Pangolin-Konfiguration passen.
+
+## Lokale Docker-Integration
+
+In `site` und `dual` kann die CLI die lokalen Docker-Container erkennen.
+Der Socket ist über `docker_api: true` eingebunden; Schutzmodus deaktivieren.
+Für neue Installationen ist er voreingestellt. Bei bestehenden Konfigurationen
+gegebenenfalls ergänzen:
+
+```yaml
+site:
+  docker_socket: "unix:///var/run/docker.sock"
+```
+
+Ein externer Socket-Proxy kann weiterhin als `site.docker_socket` verwendet werden.
