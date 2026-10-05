@@ -1,6 +1,6 @@
 hidden: false
 icon: "🍃"
-stage: "stable"
+stage: "deprecated"
 
 version_strategy: "upstream_revision"
 upstream_version: "1.10.1"

@@ -1,4 +1,4 @@
-# Pangolin CLI Client – Dokumentation
+# Pangolin CLI Client und Site – Dokumentation
 
 Die App führt die offizielle Pangolin CLI auf Home Assistant OS aus. Nach der
 Anmeldung baut sie einen WireGuard-Tunnel auf und hält ihn im Vordergrund
@@ -37,8 +37,11 @@ Upstream-Dokumentation: https://docs.pangolin.net/manage/clients/install-client#
 | Option | Pflicht | Standard | Beschreibung |
 |---|:---:|---|---|
 | `endpoint` | ja | `https://app.pangolin.net` | HTTPS-URL der Pangolin-Instanz |
-| `client_id` | ja | leer | ID des Machine Clients |
-| `client_secret` | ja | leer | Secret des Machine Clients |
+| `mode` | nein | `client` | `client`, `site` oder `dual` |
+| `site_id` | im Site-Modus | leer | Site-ID; alternativ Provisioning oder JSON |
+| `site_secret` | im Site-Modus | leer | Site-Secret; alternativ Provisioning oder JSON |
+| `client_id` | im Client-Modus | leer | ID des Machine Clients |
+| `client_secret` | im Client-Modus | leer | Secret des Machine Clients |
 | `extras.log_level` | nein | `info` | `trace`, `debug`, `info`, `warn` oder `error` |
 | `extras.additional_args` | nein | leer | weitere Argumente für `pangolin-cli up` |
 
@@ -101,3 +104,135 @@ Aktivieren Sie nur benötigte Funktionen und Ports. Zugangsdaten gehören aussch
 
 - App-Integration: [Issues im Home-Assistant-App-Repository](https://github.com/sandmaennchen5/ha-repo/issues)
 - Programmfunktion: [Upstream-Projekt](https://github.com/fosrl/cli)
+
+## Site-Modus (Newt-Nachfolger)
+
+Mit `mode: site` startet die App `pangolin-cli up site`. Client-Zugangsdaten
+werden in diesem Modus nicht benötigt. Bestehende Konfigurationen ohne `mode`
+starten weiterhin als Machine Client.
+
+```yaml
+mode: site
+endpoint: https://pangolin.example.com
+site_id: DEINE-NEWT-ID
+site_secret: DEIN-NEWT-SECRET
+site:
+  disable_clients: false
+  disable_ssh: false
+  metrics: true
+  metrics_admin_addr: 127.0.0.1:2112
+extras:
+  log_level: info
+  additional_args: ""
+```
+
+Für die Migration von Pangolin Newt dessen `id` und `secret` als `site_id` und
+`site_secret` übernehmen. Die alte Newt-App vor dem Start stoppen, damit dieselbe
+Site nicht doppelt verbunden wird. Erweiterte Newt-Optionen stehen unter `site`.
+
+Alternativ `site.provisioning_key` verwenden und beide Site-Zugangsdaten leer
+lassen. Die erhaltenen Zugangsdaten werden standardmäßig in
+`/data/pangolin-site.json` gespeichert und mit der App gesichert. Ein vorhandenes
+JSON kann mit `site.config_file` geladen werden. Eigene Dateien wie Blueprints,
+Zertifikate und Skripte können unter `/config` (App-Konfigurationsverzeichnis)
+abgelegt werden; Pfade beziehen sich immer auf den App-Container.
+
+Die folgenden Site-Optionen gelten in den Modi `site` und `dual`. Nur gesetzte Werte werden
+exportiert; auch `false` wird übergeben. CLI-Argumente haben Vorrang vor ENV,
+ENV vor JSON und JSON vor Upstream-Standardwerten. `trace` wird für Sites auf
+`DEBUG` abgebildet. `tls_client_ca` und `local_endpoint_interfaces` erwarten
+kommagetrennte Werte. Docker-Discovery benötigt einen erreichbaren externen
+Docker-Socket-Proxy; diese App bindet den Supervisor-Docker-Socket nicht ein.
+Netzwerkvalidierung funktioniert laut Upstream nicht im Host-Netzwerk.
+`otlp_endpoint` legt das OTLP-Ziel fest; mit `otlp: true` wird der Export aktiviert.
+Der Prozess-Healthcheck bleibt aktiv; `health_file` ist eine zusätzliche
+Verbindungsanzeige und wird vom Docker-Healthcheck nicht ausgewertet.
+
+| Option | ENV / Flag |
+|---|---|
+| `site.provisioning_key` | `SITE_PROVISIONING_KEY` |
+| `site.name` | `SITE_NAME` |
+| `site.config_file` | `CONFIG_FILE` |
+| `site.dns` | `DNS` |
+| `site.ping_interval` | `PING_INTERVAL` |
+| `site.ping_timeout` | `PING_TIMEOUT` |
+| `site.udp_proxy_idle_timeout` | `SITE_UDP_PROXY_IDLE_TIMEOUT` |
+| `site.docker_socket` | `DOCKER_SOCKET` |
+| `site.docker_enforce_network_validation` | `DOCKER_ENFORCE_NETWORK_VALIDATION` |
+| `site.disable_clients` | `DISABLE_CLIENTS` |
+| `site.disable_ssh` | `DISABLE_SSH` |
+| `site.health_file` | `HEALTH_FILE` |
+| `site.blueprint_file` | `BLUEPRINT_FILE` |
+| `site.provisioning_blueprint_file` | `PROVISIONING_BLUEPRINT_FILE` |
+| `site.updown` | `UPDOWN_SCRIPT` |
+| `site.no_cloud` | `NO_CLOUD` |
+| `site.metrics` | `SITE_METRICS_PROMETHEUS_ENABLED` |
+| `site.otlp` | `SITE_METRICS_OTLP_ENABLED` |
+| `site.otlp_endpoint` | `OTEL_EXPORTER_OTLP_ENDPOINT` |
+| `site.metrics_admin_addr` | `SITE_ADMIN_ADDR` |
+| `site.metrics_async_bytes` | `SITE_METRICS_ASYNC_BYTES` |
+| `site.pprof` | `SITE_PPROF_ENABLED` |
+| `site.region` | `SITE_REGION` |
+| `site.enforce_hc_cert` | `ENFORCE_HC_CERT` |
+| `site.tls_client_cert_file` | `TLS_CLIENT_CERT` |
+| `site.tls_client_key` | `TLS_CLIENT_KEY` |
+| `site.tls_client_ca` | `TLS_CLIENT_CAS` |
+| `site.tls_client_cert` | `TLS_CLIENT_CERT_PKCS12` |
+| `site.ad_pre_shared_key` | `AD_KEY` |
+| `site.ad_principals_file` | `AD_PRINCIPALS_FILE` |
+| `site.ad_ca_cert_path` | `AD_CA_CERT_PATH` |
+| `site.ad_generate_random_password` | `AD_GENERATE_RANDOM_PASSWORD` |
+| `site.interface` | `INTERFACE` |
+| `site.port` | `PORT` |
+| `site.mtu` | `MTU` |
+| `site.native` | `USE_NATIVE_INTERFACE` |
+| `site.native_main` | `USE_NATIVE_MAIN_INTERFACE` |
+| `site.interface_main` | `INTERFACE_MAIN` |
+| `site.local_endpoint_interfaces` | `LOCAL_ENDPOINT_INTERFACES` |
+| `site.prefer_endpoint` | `--prefer-endpoint` |
+
+[Upstream Site configuration](https://docs.pangolin.net/manage/sites/configure-site)
+
+## Dual-Modus: Client und Site gleichzeitig
+
+Mit `mode: dual` laufen Machine Client und Site Connector gleichzeitig als zwei
+getrennte s6-Dienste. Beide werden unabhängig neu gestartet, wenn ihr Prozess
+endet. Der Prozess-Healthcheck prüft im Dual-Modus beide CLI-Prozesse.
+
+```yaml
+mode: dual
+endpoint: https://pangolin.example.com
+client_id: DEINE-CLIENT-ID
+client_secret: DEIN-CLIENT-SECRET
+site_id: DEINE-SITE-ID
+site_secret: DEIN-SITE-SECRET
+site: {}
+extras:
+  log_level: info
+  additional_args: ""
+  client_additional_args: ""
+  site_additional_args: ""
+```
+
+Die IDs und Secrets gehören jeweils zum Machine Client bzw. zur Site. Beide
+verwenden denselben `endpoint`. Für die Site funktionieren weiterhin Provisioning
+und eine gespeicherte JSON-Konfiguration als Alternative zu ID und Secret.
+Beide IDs einzutragen aktiviert Dual nicht automatisch; dafür `mode: dual` wählen.
+
+Standard-Interfaces im Dual-Modus: Client `pangolin-client`, Site-Client-Tunnel
+`pangolin-site`, nativer Site-Haupttunnel `pangolin-main`. Eigene Namen über
+`client.interface_name`, `site.interface` und `site.interface_main` müssen
+unterschiedlich sein. Die beiden Site-Namen betreffen native Interfaces.
+
+`client.http_addr` aktiviert optional die HTTP-API des Clients, zum Beispiel
+`127.0.0.1:2113`. Ohne diese Option behält der Client seine Upstream-Konfiguration.
+Die Site-Metriken verwenden standardmäßig `127.0.0.1:2112`; wenn beide HTTP-Server
+aktiv sind, müssen sie verschiedene Bind-Adressen/Ports verwenden.
+
+`extras.additional_args` gilt im Dual-Modus nur für den Client. Zusätzlich
+stehen `extras.client_additional_args` und `extras.site_additional_args` für die
+jeweilige Rolle zur Verfügung, auch in den Einzelmodi. Werte werden durch
+Leerzeichen getrennt; Shell-Quoting wird nicht ausgewertet.
+
+Die alte Newt-App vor dem Start derselben Site stoppen. Die Tunnel teilen das
+Host-Netzwerk; Zielnetze und VPN-Routen müssen zur Pangolin-Konfiguration passen.

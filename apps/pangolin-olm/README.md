@@ -1,4 +1,5 @@
-# Olm – Pangolin Client
+### Home Assistant Repository – sandmaennchen5
+## App - Pangolin - OLM Client
 
 [![Builder][builder-badge]][builder-url]
 [![Lint][lint-badge]][lint-url]
@@ -26,7 +27,7 @@ Remote-Access-Szenarien, in denen Home Assistant auf entfernte private Netze
 zugreifen soll.
 
 > Olm wird upstream zugunsten der **Pangolin CLI** schrittweise abgelöst. Für
-> neue Installationen wird deshalb die App **Pangolin CLI Client** empfohlen.
+> neue Installationen wird deshalb die App **Pangolin CLI** empfohlen.
 
 ## Übersicht
 

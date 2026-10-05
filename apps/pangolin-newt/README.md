@@ -23,6 +23,8 @@
 <!-- BADGES-END -->
 
 Newt ist ein Home Assistant Add-on für den Pangolin WireGuard-Tunnel-Client und TCP/UDP-Proxy. Es verbindet deinen Home Assistant Host sicher mit einem Pangolin-Server und ermöglicht Zugriff auf private Dienste über einen User-Space WireGuard-Tunnel.
+> Newt wird upstream zugunsten der **Pangolin CLI** schrittweise abgelöst. Für
+> neue Installationen wird deshalb die App **Pangolin CLI** empfohlen.
 
 ## Übersicht
 

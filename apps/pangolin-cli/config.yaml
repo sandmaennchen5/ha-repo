@@ -1,13 +1,15 @@
-name: "Pangolin CLI Client"
-version: "0.18.1.1"
-slug: "pangolin_cli"
-description: "Official Pangolin CLI and WireGuard VPN client for Linux."
+name: "Pangolin - CLI"
+version: "0.18.1.3"
+slug: "pangolin-cli"
+description: "Official Pangolin CLI and WireGuard VPN client and Site Connector for Linux."
 url: "https://github.com/fosrl/cli"
 arch:
   - aarch64
   - amd64
 image: "ghcr.io/sandmaennchen5/ha-repo-pangolin-cli"
 init: false
+map:
+  - addon_config:rw
 host_network: true
 privileged:
   - NET_ADMIN
@@ -18,6 +20,11 @@ ports:
 ports_description:
   2112/tcp: "Optional admin and Prometheus metrics endpoint"
 options:
+  mode: "client"
+  site_id: ""
+  site_secret: ""
+  site: {}
+  client: {}
   endpoint: "https://app.pangolin.net"
   client_id: ""
   client_secret: ""
@@ -25,9 +32,58 @@ options:
     log_level: "info"
     additional_args: ""
 schema:
+  mode: list(client|site|dual)?
+  client:
+    interface_name: str?
+    http_addr: str?
+  site_id: str?
+  site_secret: password?
+  site:
+    provisioning_key: password?
+    name: str?
+    config_file: str?
+    dns: str?
+    ping_interval: str?
+    ping_timeout: str?
+    udp_proxy_idle_timeout: str?
+    docker_socket: str?
+    docker_enforce_network_validation: bool?
+    disable_clients: bool?
+    disable_ssh: bool?
+    health_file: str?
+    blueprint_file: str?
+    provisioning_blueprint_file: str?
+    updown: str?
+    no_cloud: bool?
+    metrics: bool?
+    otlp: bool?
+    otlp_endpoint: url?
+    metrics_admin_addr: str?
+    metrics_async_bytes: bool?
+    pprof: bool?
+    region: str?
+    enforce_hc_cert: bool?
+    tls_client_cert_file: str?
+    tls_client_key: str?
+    tls_client_ca: str?
+    tls_client_cert: str?
+    ad_pre_shared_key: password?
+    ad_principals_file: str?
+    ad_ca_cert_path: str?
+    ad_generate_random_password: bool?
+    interface: str?
+    port: int(1,65535)?
+    mtu: int(576,9000)?
+    native: bool?
+    native_main: bool?
+    interface_main: str?
+    local_endpoint_interfaces: str?
+    prefer_endpoint: str?
   endpoint: url
-  client_id: str
-  client_secret: password
+  client_id: str?
+  client_secret: password?
   extras:
     log_level: list(trace|debug|info|warn|error)
     additional_args: str?
+    client_additional_args: str?
+    site_additional_args: str?

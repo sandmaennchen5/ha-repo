@@ -1,6 +1,6 @@
 hidden: false
 icon: "💼"
-stage: "stable"
+stage: "deprecated"
 version_strategy: "upstream_revision"
 upstream_version: "2.45.1"
 upstream_repo: "docker.io/portainer/portainer-ee"

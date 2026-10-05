@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.18.1.3] - 2026-10-05
+
+- Dual-Modus für gleichzeitigen Machine Client und Site Connector.
+- Zwei getrennte s6-Dienste mit unabhängigen Neustarts; Healthcheck prüft beide aktiven Prozesse.
+- Unterschiedliche Standard-Interfaces und getrennte zusätzliche Argumente je Rolle.
+- Optionale Client-Interface- und HTTP-API-Einstellungen.
+
+## [0.18.1.2] - 2026-10-05
+
+- Wählbarer Client- und Site-Modus mit SITE_ID und SITE_SECRET.
+- Site-ENV-Optionen einschließlich Provisioning, Metriken, mTLS, Blueprints und nativen Interfaces.
+- Persistente Site-Konfiguration unter /data und Zugriff auf das App-Konfigurationsverzeichnis.
+- Bestehende Machine-Client-Konfigurationen bleiben kompatibel.
+
 
 ## [0.18.1.1] - 2026-10-01
 

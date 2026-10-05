@@ -1,25 +1,142 @@
 #!/usr/bin/with-contenv bashio
 set -e
 
-endpoint=$(bashio::config 'endpoint')
-client_id=$(bashio::config 'client_id')
-client_secret=$(bashio::config 'client_secret')
+# Export only configured values, including explicit false. Leave upstream
+# defaults and settings from CONFIG_FILE intact when an option is omitted.
+export_option() {
+  local key="$1" variable="$2" value
+  if bashio::config.has_value "${key}"; then
+    value=$(bashio::config "${key}")
+    export "${variable}=${value}"
+  fi
+}
 
-if [[ -z "${client_id}" || -z "${client_secret}" ]]; then
-  bashio::log.fatal "Client ID and client secret are required."
-  exit 1
+mode=client
+if bashio::config.has_value 'mode'; then
+  mode=$(bashio::config 'mode')
 fi
-
-export PANGOLIN_ENDPOINT="${endpoint}"
-export CLIENT_ID="${client_id}"
-export CLIENT_SECRET="${client_secret}"
+configured_mode="${mode}"
+# The second independently supervised service is active only in dual mode.
+if [[ "${1:-}" == site ]]; then
+  if [[ "${configured_mode}" != dual ]]; then
+    exec sleep infinity
+  fi
+  mode=site
+elif [[ "${mode}" == dual ]]; then
+  mode=client
+fi
+export PANGOLIN_ENDPOINT="$(bashio::config 'endpoint')"
 export LOG_LEVEL="$(bashio::config 'extras.log_level')"
+args=()
 
-bashio::log.info "Connecting Pangolin CLI to ${endpoint}"
+case "${mode}" in
+  client)
+    client_id=$(bashio::config 'client_id')
+    client_secret=$(bashio::config 'client_secret')
+    if [[ -z "${client_id}" || -z "${client_secret}" ]]; then
+      bashio::log.fatal "Client ID and client secret are required in client mode."
+      exit 1
+    fi
+    export CLIENT_ID="${client_id}" CLIENT_SECRET="${client_secret}"
+    args=(up --attach --id "${client_id}" --secret "${client_secret}" --endpoint "${PANGOLIN_ENDPOINT}")
+    if bashio::config.has_value 'client.interface_name'; then
+      args+=(--interface-name "$(bashio::config 'client.interface_name')")
+    elif [[ "${configured_mode}" == dual ]]; then
+      args+=(--interface-name pangolin-client)
+    fi
+    if bashio::config.has_value 'client.http_addr'; then
+      args+=(--http-addr "$(bashio::config 'client.http_addr')")
+    fi
+    ;;
+  site)
+    export_option 'site_id' SITE_ID
+    export_option 'site_secret' SITE_SECRET
+    export_option 'site.provisioning_key' SITE_PROVISIONING_KEY
+    export_option 'site.name' SITE_NAME
+    export_option 'site.config_file' CONFIG_FILE
+    export_option 'site.dns' DNS
+    export_option 'site.ping_interval' PING_INTERVAL
+    export_option 'site.ping_timeout' PING_TIMEOUT
+    export_option 'site.udp_proxy_idle_timeout' SITE_UDP_PROXY_IDLE_TIMEOUT
+    export_option 'site.docker_socket' DOCKER_SOCKET
+    export_option 'site.docker_enforce_network_validation' DOCKER_ENFORCE_NETWORK_VALIDATION
+    export_option 'site.disable_clients' DISABLE_CLIENTS
+    export_option 'site.disable_ssh' DISABLE_SSH
+    export_option 'site.health_file' HEALTH_FILE
+    export_option 'site.blueprint_file' BLUEPRINT_FILE
+    export_option 'site.provisioning_blueprint_file' PROVISIONING_BLUEPRINT_FILE
+    export_option 'site.updown' UPDOWN_SCRIPT
+    export_option 'site.no_cloud' NO_CLOUD
+    export_option 'site.metrics' SITE_METRICS_PROMETHEUS_ENABLED
+    export_option 'site.otlp' SITE_METRICS_OTLP_ENABLED
+    export_option 'site.otlp_endpoint' OTEL_EXPORTER_OTLP_ENDPOINT
+    export_option 'site.metrics_admin_addr' SITE_ADMIN_ADDR
+    export_option 'site.metrics_async_bytes' SITE_METRICS_ASYNC_BYTES
+    export_option 'site.pprof' SITE_PPROF_ENABLED
+    export_option 'site.region' SITE_REGION
+    export_option 'site.enforce_hc_cert' ENFORCE_HC_CERT
+    export_option 'site.tls_client_cert_file' TLS_CLIENT_CERT
+    export_option 'site.tls_client_key' TLS_CLIENT_KEY
+    export_option 'site.tls_client_ca' TLS_CLIENT_CAS
+    export_option 'site.tls_client_cert' TLS_CLIENT_CERT_PKCS12
+    export_option 'site.ad_pre_shared_key' AD_KEY
+    export_option 'site.ad_principals_file' AD_PRINCIPALS_FILE
+    export_option 'site.ad_ca_cert_path' AD_CA_CERT_PATH
+    export_option 'site.ad_generate_random_password' AD_GENERATE_RANDOM_PASSWORD
+    export_option 'site.interface' INTERFACE
+    export_option 'site.port' PORT
+    export_option 'site.mtu' MTU
+    export_option 'site.native' USE_NATIVE_INTERFACE
+    export_option 'site.native_main' USE_NATIVE_MAIN_INTERFACE
+    export_option 'site.interface_main' INTERFACE_MAIN
+    export_option 'site.local_endpoint_interfaces' LOCAL_ENDPOINT_INTERFACES
+    if [[ "${configured_mode}" == dual ]]; then
+      # Distinct names for the client tunnel, site client tunnel and site main
+      # tunnel. ENV overrides JSON defaults; explicit site options still win.
+      export INTERFACE="${INTERFACE:-pangolin-site}"
+      export INTERFACE_MAIN="${INTERFACE_MAIN:-pangolin-main}"
+    fi
+    # Persist provisioned credentials across container updates and backups.
+    export CONFIG_FILE="${CONFIG_FILE:-/data/pangolin-site.json}"
+    if [[ -n "${SITE_ID:-}" && -z "${SITE_SECRET:-}" ]] || \
+       [[ -z "${SITE_ID:-}" && -n "${SITE_SECRET:-}" ]]; then
+      bashio::log.fatal "Site ID and site secret must be configured together."
+      exit 1
+    fi
+    if [[ -z "${SITE_ID:-}" && -z "${SITE_PROVISIONING_KEY:-}" && ! -f "${CONFIG_FILE}" ]]; then
+      bashio::log.fatal "Site mode requires site credentials, a provisioning key or an existing site config file."
+      exit 1
+    fi
+    # Newt accepts uppercase log levels; trace is mapped to its DEBUG level.
+    LOG_LEVEL="${LOG_LEVEL^^}"
+    [[ "${LOG_LEVEL}" != TRACE ]] || LOG_LEVEL=DEBUG
+    export LOG_LEVEL
+    args=(up site)
+    # This setting has no environment variable in Newt v1.18.1.
+    if bashio::config.has_value 'site.prefer_endpoint'; then
+      args+=(--prefer-endpoint "$(bashio::config 'site.prefer_endpoint')")
+    fi
+    ;;
+  *)
+    bashio::log.fatal "Unsupported Pangolin mode: ${mode}"
+    exit 1
+    ;;
+esac
 
-if bashio::config.has_value 'extras.additional_args'; then
-  # Intended for advanced users. shellcheck disable=SC2086
-  exec pangolin-cli up --attach --id "${client_id}" --secret "${client_secret}" --endpoint "${endpoint}" $(bashio::config 'extras.additional_args')
+append_arguments() {
+  local key="$1"
+  local -a additional_args=()
+  if bashio::config.has_value "${key}"; then
+    # Preserve whitespace-separated arguments without globbing or shell eval.
+    read -r -a additional_args <<< "$(bashio::config "${key}")"
+    args+=("${additional_args[@]}")
+  fi
+}
+# Legacy additional_args applies to the client in dual mode, never both.
+if [[ "${configured_mode}" != dual || "${mode}" == client ]]; then
+  append_arguments 'extras.additional_args'
 fi
+append_arguments "extras.${mode}_additional_args"
 
-exec pangolin-cli up --attach --id "${client_id}" --secret "${client_secret}" --endpoint "${endpoint}"
+bashio::log.info "Starting Pangolin CLI in ${mode} mode"
+exec pangolin-cli "${args[@]}"
