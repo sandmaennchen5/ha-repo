@@ -1,0 +1,1594 @@
+[
+  {
+    "app": "adsb-multi-portal-feeder",
+    "app_name": "ADS-B Multi-Portal Feeder",
+    "label": "Ingress",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "adsb-multi-portal-feeder",
+    "app_name": "ADS-B Multi-Portal Feeder",
+    "label": "Hass.io API",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "adsb-multi-portal-feeder",
+    "app_name": "ADS-B Multi-Portal Feeder",
+    "label": "HA API",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "adsb-multi-portal-feeder",
+    "app_name": "ADS-B Multi-Portal Feeder",
+    "label": "Version",
+    "value": "v2.8.0.1",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "adsb-multi-portal-feeder",
+    "app_name": "ADS-B Multi-Portal Feeder",
+    "label": "Updated",
+    "value": "2026--05--28",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "adsb-multi-portal-feeder",
+    "app_name": "ADS-B Multi-Portal Feeder",
+    "label": "Stage",
+    "value": "stable",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "adsb-multi-portal-feeder",
+    "app_name": "ADS-B Multi-Portal Feeder",
+    "label": "Arch",
+    "value": "aarch64, amd64",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "adsb-multi-portal-feeder",
+    "app_name": "ADS-B Multi-Portal Feeder",
+    "label": "Image Size",
+    "value": "206 MB",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "adsb-multi-portal-feeder",
+    "app_name": "ADS-B Multi-Portal Feeder",
+    "label": "Upstream",
+    "value": "v2.8.0",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "adsb-multi-portal-feeder",
+    "app_name": "ADS-B Multi-Portal Feeder",
+    "label": "Repo",
+    "value": "docker.io/thomx/fr24feed-piaware",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "adsb-multi-portal-feeder",
+    "app_name": "ADS-B Multi-Portal Feeder",
+    "label": "Commit",
+    "value": "sha256:582c604751c9d30970bf0d11e4cb6da65b04e27bb02b7eed463d08e627a4f8c7",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "checkmk-agent",
+    "app_name": "Checkmk Agent",
+    "label": "Version",
+    "value": "v2.5.0.15.1",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "checkmk-agent",
+    "app_name": "Checkmk Agent",
+    "label": "Updated",
+    "value": "2026--09--30",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "checkmk-agent",
+    "app_name": "Checkmk Agent",
+    "label": "Stage",
+    "value": "stable",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "checkmk-agent",
+    "app_name": "Checkmk Agent",
+    "label": "Arch",
+    "value": "aarch64, amd64",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "checkmk-agent",
+    "app_name": "Checkmk Agent",
+    "label": "Image Size",
+    "value": "12 MB",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "checkmk-agent",
+    "app_name": "Checkmk Agent",
+    "label": "Upstream",
+    "value": "v2.5.0p15",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "checkmk-agent",
+    "app_name": "Checkmk Agent",
+    "label": "Repo",
+    "value": "github.com/Checkmk/checkmk",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "checkmk-agent",
+    "app_name": "Checkmk Agent",
+    "label": "Commit",
+    "value": "9a826f77b0738c5aa516cfd5b47c1155cc79a96d",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "dockhand",
+    "app_name": "Dockhand",
+    "label": "Ingress",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "dockhand",
+    "app_name": "Dockhand",
+    "label": "Version",
+    "value": "v1.0.51.1",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "dockhand",
+    "app_name": "Dockhand",
+    "label": "Updated",
+    "value": "2026--10--03",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "dockhand",
+    "app_name": "Dockhand",
+    "label": "Stage",
+    "value": "experimental",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "dockhand",
+    "app_name": "Dockhand",
+    "label": "Arch",
+    "value": "aarch64, amd64",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "dockhand",
+    "app_name": "Dockhand",
+    "label": "Docker API",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "dockhand",
+    "app_name": "Dockhand",
+    "label": "Image Size",
+    "value": "180 MB",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "dockhand",
+    "app_name": "Dockhand",
+    "label": "Upstream",
+    "value": "v1.0.51",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "dockhand",
+    "app_name": "Dockhand",
+    "label": "Repo",
+    "value": "github.com/Finsys/dockhand",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "dockhand",
+    "app_name": "Dockhand",
+    "label": "Commit",
+    "value": "9280f13c42adbdfb04395221930f3d7c589d98a2",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "drydock",
+    "app_name": "Drydock",
+    "label": "Ingress",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "drydock",
+    "app_name": "Drydock",
+    "label": "Version",
+    "value": "v1.6.1.1",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "drydock",
+    "app_name": "Drydock",
+    "label": "Updated",
+    "value": "2026--10--02",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "drydock",
+    "app_name": "Drydock",
+    "label": "Stage",
+    "value": "experimental",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "drydock",
+    "app_name": "Drydock",
+    "label": "Arch",
+    "value": "aarch64, amd64",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "drydock",
+    "app_name": "Drydock",
+    "label": "Docker API",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "drydock",
+    "app_name": "Drydock",
+    "label": "Image Size",
+    "value": "152 MB",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "drydock",
+    "app_name": "Drydock",
+    "label": "Upstream",
+    "value": "v1.6.1",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "drydock",
+    "app_name": "Drydock",
+    "label": "Repo",
+    "value": "docker.io/codeswhat/drydock",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "drydock",
+    "app_name": "Drydock",
+    "label": "Commit",
+    "value": "sha256:0c522e2a76cd46125478ac48f97ac4baba92b1f906f8dd91f8c9df8258bd1f8d",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "homey-shs",
+    "app_name": "Homey Self-Hosted Server",
+    "label": "Ingress",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "homey-shs",
+    "app_name": "Homey Self-Hosted Server",
+    "label": "Version",
+    "value": "v13.5.1",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "homey-shs",
+    "app_name": "Homey Self-Hosted Server",
+    "label": "Updated",
+    "value": "2026--09--29",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "homey-shs",
+    "app_name": "Homey Self-Hosted Server",
+    "label": "Stage",
+    "value": "stable",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "homey-shs",
+    "app_name": "Homey Self-Hosted Server",
+    "label": "Arch",
+    "value": "aarch64, amd64",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "homey-shs",
+    "app_name": "Homey Self-Hosted Server",
+    "label": "Host Network",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "homey-shs",
+    "app_name": "Homey Self-Hosted Server",
+    "label": "Image Size",
+    "value": "283 MB",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "homey-shs",
+    "app_name": "Homey Self-Hosted Server",
+    "label": "Upstream",
+    "value": "v13.5.1",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "homey-shs",
+    "app_name": "Homey Self-Hosted Server",
+    "label": "Repo",
+    "value": "ghcr.io/athombv/homey-shs",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "homey-shs",
+    "app_name": "Homey Self-Hosted Server",
+    "label": "Commit",
+    "value": "sha256:e52125f36392e237a98d837307b14017ea0d46070d1019dd559405ce0626afe3",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu",
+    "app_name": "OpenCCU (HA Repo)",
+    "label": "Ingress",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu",
+    "app_name": "OpenCCU (HA Repo)",
+    "label": "Version",
+    "value": "v3.89.11.20260919-ha1",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu",
+    "app_name": "OpenCCU (HA Repo)",
+    "label": "Updated",
+    "value": "2026--09--20",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu",
+    "app_name": "OpenCCU (HA Repo)",
+    "label": "Stage",
+    "value": "experimental",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu",
+    "app_name": "OpenCCU (HA Repo)",
+    "label": "Privileged",
+    "value": "IPC_LOCK|SYS_ADMIN|SYS_RAWIO|SYS_RESOURCE|NET_ADMIN",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu",
+    "app_name": "OpenCCU (HA Repo)",
+    "label": "Arch",
+    "value": "aarch64, amd64",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu",
+    "app_name": "OpenCCU (HA Repo)",
+    "label": "Kernel Modules",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu",
+    "app_name": "OpenCCU (HA Repo)",
+    "label": "Upstream",
+    "value": "v3.89.11.20260919",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu",
+    "app_name": "OpenCCU (HA Repo)",
+    "label": "Repo",
+    "value": "https://github.com/OpenCCU/OpenCCU",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu",
+    "app_name": "OpenCCU (HA Repo)",
+    "label": "Commit",
+    "value": "sha256:3cfcb30e1921b36812cf1adc49dbc7aaca21079c1818450a7f18491e891077c8",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu-proxy",
+    "app_name": "OpenCCU (Proxy) (HA Repo)",
+    "label": "Ingress",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu-proxy",
+    "app_name": "OpenCCU (Proxy) (HA Repo)",
+    "label": "Version",
+    "value": "v0.7.0-ha3",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu-proxy",
+    "app_name": "OpenCCU (Proxy) (HA Repo)",
+    "label": "Updated",
+    "value": "2026--08--27",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu-proxy",
+    "app_name": "OpenCCU (Proxy) (HA Repo)",
+    "label": "Stage",
+    "value": "experimental",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu-proxy",
+    "app_name": "OpenCCU (Proxy) (HA Repo)",
+    "label": "Arch",
+    "value": "aarch64, amd64",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu-proxy",
+    "app_name": "OpenCCU (Proxy) (HA Repo)",
+    "label": "Image Size",
+    "value": "57 MB",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu-proxy",
+    "app_name": "OpenCCU (Proxy) (HA Repo)",
+    "label": "Upstream",
+    "value": "v0.7.0",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu-proxy",
+    "app_name": "OpenCCU (Proxy) (HA Repo)",
+    "label": "Repo",
+    "value": "https://github.com/OpenCCU/OpenCCU",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu-proxy",
+    "app_name": "OpenCCU (Proxy) (HA Repo)",
+    "label": "Commit",
+    "value": "sha256:4ea40c4b0bfa2cfdbb531d4eb2b721d532bc1964bb497a434f8f4aecc233c733",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu-dev",
+    "app_name": "OpenCCU (snapshot) (HA Repo)",
+    "label": "Ingress",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu-dev",
+    "app_name": "OpenCCU (snapshot) (HA Repo)",
+    "label": "Version",
+    "value": "v3.89.11.20261004-5b166af-ha1",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu-dev",
+    "app_name": "OpenCCU (snapshot) (HA Repo)",
+    "label": "Updated",
+    "value": "2026--10--04",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu-dev",
+    "app_name": "OpenCCU (snapshot) (HA Repo)",
+    "label": "Stage",
+    "value": "experimental",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu-dev",
+    "app_name": "OpenCCU (snapshot) (HA Repo)",
+    "label": "Privileged",
+    "value": "IPC_LOCK|SYS_ADMIN|SYS_RAWIO|SYS_RESOURCE|NET_ADMIN",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu-dev",
+    "app_name": "OpenCCU (snapshot) (HA Repo)",
+    "label": "Arch",
+    "value": "aarch64, amd64",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu-dev",
+    "app_name": "OpenCCU (snapshot) (HA Repo)",
+    "label": "Kernel Modules",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu-dev",
+    "app_name": "OpenCCU (snapshot) (HA Repo)",
+    "label": "Upstream",
+    "value": "v3.89.11.20261004-5b166af",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu-dev",
+    "app_name": "OpenCCU (snapshot) (HA Repo)",
+    "label": "Repo",
+    "value": "https://github.com/OpenCCU/OpenCCU",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu-dev",
+    "app_name": "OpenCCU (snapshot) (HA Repo)",
+    "label": "Commit",
+    "value": "sha256:0b5f4683bf0626f90b4a329b372d428fecf6c66bd12d7579ad5527dd228681da",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu-hapdrap",
+    "app_name": "OpenCCU HAP/DRAP-Helper (HA Repo)",
+    "label": "Version",
+    "value": "v0.3.1-ha1",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu-hapdrap",
+    "app_name": "OpenCCU HAP/DRAP-Helper (HA Repo)",
+    "label": "Updated",
+    "value": "2026--08--27",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu-hapdrap",
+    "app_name": "OpenCCU HAP/DRAP-Helper (HA Repo)",
+    "label": "Stage",
+    "value": "experimental",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu-hapdrap",
+    "app_name": "OpenCCU HAP/DRAP-Helper (HA Repo)",
+    "label": "Arch",
+    "value": "aarch64, amd64",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu-hapdrap",
+    "app_name": "OpenCCU HAP/DRAP-Helper (HA Repo)",
+    "label": "Host Network",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu-hapdrap",
+    "app_name": "OpenCCU HAP/DRAP-Helper (HA Repo)",
+    "label": "Docker API",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu-hapdrap",
+    "app_name": "OpenCCU HAP/DRAP-Helper (HA Repo)",
+    "label": "Image Size",
+    "value": "21 MB",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu-hapdrap",
+    "app_name": "OpenCCU HAP/DRAP-Helper (HA Repo)",
+    "label": "Upstream",
+    "value": "v0.3.1",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu-hapdrap",
+    "app_name": "OpenCCU HAP/DRAP-Helper (HA Repo)",
+    "label": "Repo",
+    "value": "https://github.com/OpenCCU/OpenCCU",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "openccu-hapdrap",
+    "app_name": "OpenCCU HAP/DRAP-Helper (HA Repo)",
+    "label": "Commit",
+    "value": "sha256:d433ff395bed9a64075c8d341fb9196dc3fc1b312c2e7cf79e79ef63a18b0f1c",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "pangolin-cli",
+    "app_name": "Pangolin - CLI",
+    "label": "Version",
+    "value": "v0.18.1.4",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "pangolin-cli",
+    "app_name": "Pangolin - CLI",
+    "label": "Updated",
+    "value": "2026--10--05",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "pangolin-cli",
+    "app_name": "Pangolin - CLI",
+    "label": "Stage",
+    "value": "stable",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "pangolin-cli",
+    "app_name": "Pangolin - CLI",
+    "label": "Privileged",
+    "value": "NET_ADMIN",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "pangolin-cli",
+    "app_name": "Pangolin - CLI",
+    "label": "Arch",
+    "value": "aarch64, amd64",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "pangolin-cli",
+    "app_name": "Pangolin - CLI",
+    "label": "Host Network",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "pangolin-cli",
+    "app_name": "Pangolin - CLI",
+    "label": "Docker API",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "pangolin-cli",
+    "app_name": "Pangolin - CLI",
+    "label": "Image Size",
+    "value": "29 MB",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "pangolin-cli",
+    "app_name": "Pangolin - CLI",
+    "label": "Upstream",
+    "value": "v0.18.1",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "pangolin-cli",
+    "app_name": "Pangolin - CLI",
+    "label": "Repo",
+    "value": "github.com/fosrl/cli",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "pangolin-cli",
+    "app_name": "Pangolin - CLI",
+    "label": "Commit",
+    "value": "8f52452891eb9315af9e9cd31cbaa725d3ccb70d",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "pangolin-newt",
+    "app_name": "Pangolin - Newt Tunnel",
+    "label": "Version",
+    "value": "v1.18.1",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "pangolin-newt",
+    "app_name": "Pangolin - Newt Tunnel",
+    "label": "Updated",
+    "value": "2026--10--02",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "pangolin-newt",
+    "app_name": "Pangolin - Newt Tunnel",
+    "label": "Stage",
+    "value": "deprecated",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "pangolin-newt",
+    "app_name": "Pangolin - Newt Tunnel",
+    "label": "Privileged",
+    "value": "NET_ADMIN|SYS_MODULE",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "pangolin-newt",
+    "app_name": "Pangolin - Newt Tunnel",
+    "label": "Arch",
+    "value": "aarch64, amd64",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "pangolin-newt",
+    "app_name": "Pangolin - Newt Tunnel",
+    "label": "Host Network",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "pangolin-newt",
+    "app_name": "Pangolin - Newt Tunnel",
+    "label": "Docker API",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "pangolin-newt",
+    "app_name": "Pangolin - Newt Tunnel",
+    "label": "Kernel Modules",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "pangolin-newt",
+    "app_name": "Pangolin - Newt Tunnel",
+    "label": "Image Size",
+    "value": "36 MB",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "pangolin-newt",
+    "app_name": "Pangolin - Newt Tunnel",
+    "label": "Upstream",
+    "value": "v1.18.1",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "pangolin-newt",
+    "app_name": "Pangolin - Newt Tunnel",
+    "label": "Repo",
+    "value": "github.com/fosrl/newt",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "pangolin-newt",
+    "app_name": "Pangolin - Newt Tunnel",
+    "label": "Commit",
+    "value": "7856d5f4c12e2afcadad182cca357bbbb6c80dc3",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "pangolin-olm",
+    "app_name": "Pangolin - Olm Client",
+    "label": "Version",
+    "value": "v1.10.1.1",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "pangolin-olm",
+    "app_name": "Pangolin - Olm Client",
+    "label": "Updated",
+    "value": "2026--10--02",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "pangolin-olm",
+    "app_name": "Pangolin - Olm Client",
+    "label": "Stage",
+    "value": "deprecated",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "pangolin-olm",
+    "app_name": "Pangolin - Olm Client",
+    "label": "Privileged",
+    "value": "NET_ADMIN|SYS_MODULE",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "pangolin-olm",
+    "app_name": "Pangolin - Olm Client",
+    "label": "Arch",
+    "value": "aarch64, amd64",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "pangolin-olm",
+    "app_name": "Pangolin - Olm Client",
+    "label": "Host Network",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "pangolin-olm",
+    "app_name": "Pangolin - Olm Client",
+    "label": "Kernel Modules",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "pangolin-olm",
+    "app_name": "Pangolin - Olm Client",
+    "label": "Image Size",
+    "value": "28 MB",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "pangolin-olm",
+    "app_name": "Pangolin - Olm Client",
+    "label": "Upstream",
+    "value": "v1.10.1",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "pangolin-olm",
+    "app_name": "Pangolin - Olm Client",
+    "label": "Repo",
+    "value": "github.com/fosrl/olm",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "pangolin-olm",
+    "app_name": "Pangolin - Olm Client",
+    "label": "Commit",
+    "value": "4901fde4b1850b56026b9740f34032dab37e7794",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer",
+    "app_name": "Portainer (Edition Selector)",
+    "label": "Ingress",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer",
+    "app_name": "Portainer (Edition Selector)",
+    "label": "Version",
+    "value": "v2026.9.2",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer",
+    "app_name": "Portainer (Edition Selector)",
+    "label": "Updated",
+    "value": "2026--09--18",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer",
+    "app_name": "Portainer (Edition Selector)",
+    "label": "Stage",
+    "value": "stable",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer",
+    "app_name": "Portainer (Edition Selector)",
+    "label": "Arch",
+    "value": "aarch64, amd64",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer",
+    "app_name": "Portainer (Edition Selector)",
+    "label": "Docker API",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer",
+    "app_name": "Portainer (Edition Selector)",
+    "label": "Image Size",
+    "value": "223 MB",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer",
+    "app_name": "Portainer (Edition Selector)",
+    "label": "Upstream",
+    "value": "v2.45.1",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer",
+    "app_name": "Portainer (Edition Selector)",
+    "label": "Repo",
+    "value": "docker.io/portainer/portainer-ce",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer",
+    "app_name": "Portainer (Edition Selector)",
+    "label": "Commit",
+    "value": "sha256:4d9a99f4495c005388842b94d72377d5239eac8686543428c3ff7c9b6c0882bb",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-agent",
+    "app_name": "Portainer Agent (Channel Selector)",
+    "label": "Version",
+    "value": "v2026.9.1",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-agent",
+    "app_name": "Portainer Agent (Channel Selector)",
+    "label": "Updated",
+    "value": "2026--09--17",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-agent",
+    "app_name": "Portainer Agent (Channel Selector)",
+    "label": "Stage",
+    "value": "stable",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-agent",
+    "app_name": "Portainer Agent (Channel Selector)",
+    "label": "Arch",
+    "value": "aarch64, amd64",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-agent",
+    "app_name": "Portainer Agent (Channel Selector)",
+    "label": "Docker API",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-agent",
+    "app_name": "Portainer Agent (Channel Selector)",
+    "label": "Image Size",
+    "value": "74 MB",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-agent",
+    "app_name": "Portainer Agent (Channel Selector)",
+    "label": "Upstream",
+    "value": "v2.45.0",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-agent",
+    "app_name": "Portainer Agent (Channel Selector)",
+    "label": "Repo",
+    "value": "docker.io/portainer/agent",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-agent",
+    "app_name": "Portainer Agent (Channel Selector)",
+    "label": "Commit",
+    "value": "sha256:2a0e0fd85636b04b3e816b1c52ede8b3bf44e42420a0bbf2d9962ae8bfe6fea8",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-agent-lts",
+    "app_name": "Portainer Agent LTS",
+    "label": "Version",
+    "value": "v2.45.1.1",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-agent-lts",
+    "app_name": "Portainer Agent LTS",
+    "label": "Updated",
+    "value": "2026--09--17",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-agent-lts",
+    "app_name": "Portainer Agent LTS",
+    "label": "Stage",
+    "value": "deprecated",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-agent-lts",
+    "app_name": "Portainer Agent LTS",
+    "label": "Arch",
+    "value": "aarch64, amd64",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-agent-lts",
+    "app_name": "Portainer Agent LTS",
+    "label": "Docker API",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-agent-lts",
+    "app_name": "Portainer Agent LTS",
+    "label": "Image Size",
+    "value": "42 MB",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-agent-lts",
+    "app_name": "Portainer Agent LTS",
+    "label": "Upstream",
+    "value": "v2.45.1",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-agent-lts",
+    "app_name": "Portainer Agent LTS",
+    "label": "Repo",
+    "value": "docker.io/portainer/agent",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-agent-lts",
+    "app_name": "Portainer Agent LTS",
+    "label": "Commit",
+    "value": "sha256:8f72f176270ac41ae0260c26a86e42e09929d2e6c1fc0f029218721be7b33bd9",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-agent-sts",
+    "app_name": "Portainer Agent STS",
+    "label": "Version",
+    "value": "v2.45.0.1",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-agent-sts",
+    "app_name": "Portainer Agent STS",
+    "label": "Updated",
+    "value": "2026--08--27",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-agent-sts",
+    "app_name": "Portainer Agent STS",
+    "label": "Stage",
+    "value": "deprecated",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-agent-sts",
+    "app_name": "Portainer Agent STS",
+    "label": "Arch",
+    "value": "aarch64, amd64",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-agent-sts",
+    "app_name": "Portainer Agent STS",
+    "label": "Docker API",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-agent-sts",
+    "app_name": "Portainer Agent STS",
+    "label": "Image Size",
+    "value": "42 MB",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-agent-sts",
+    "app_name": "Portainer Agent STS",
+    "label": "Upstream",
+    "value": "v2.45.0",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-agent-sts",
+    "app_name": "Portainer Agent STS",
+    "label": "Repo",
+    "value": "docker.io/portainer/agent",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-agent-sts",
+    "app_name": "Portainer Agent STS",
+    "label": "Commit",
+    "value": "sha256:2a0e0fd85636b04b3e816b1c52ede8b3bf44e42420a0bbf2d9962ae8bfe6fea8",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ce-lts",
+    "app_name": "Portainer CE LTS",
+    "label": "Ingress",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ce-lts",
+    "app_name": "Portainer CE LTS",
+    "label": "Version",
+    "value": "v2.45.1.1",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ce-lts",
+    "app_name": "Portainer CE LTS",
+    "label": "Updated",
+    "value": "2026--09--17",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ce-lts",
+    "app_name": "Portainer CE LTS",
+    "label": "Stage",
+    "value": "deprecated",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ce-lts",
+    "app_name": "Portainer CE LTS",
+    "label": "Arch",
+    "value": "aarch64, amd64",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ce-lts",
+    "app_name": "Portainer CE LTS",
+    "label": "Docker API",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ce-lts",
+    "app_name": "Portainer CE LTS",
+    "label": "Image Size",
+    "value": "68 MB",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ce-lts",
+    "app_name": "Portainer CE LTS",
+    "label": "Upstream",
+    "value": "v2.45.1",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ce-lts",
+    "app_name": "Portainer CE LTS",
+    "label": "Repo",
+    "value": "docker.io/portainer/portainer-ce",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ce-lts",
+    "app_name": "Portainer CE LTS",
+    "label": "Commit",
+    "value": "sha256:4d9a99f4495c005388842b94d72377d5239eac8686543428c3ff7c9b6c0882bb",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ce-sts",
+    "app_name": "Portainer CE STS",
+    "label": "Ingress",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ce-sts",
+    "app_name": "Portainer CE STS",
+    "label": "Version",
+    "value": "v2.45.1.1",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ce-sts",
+    "app_name": "Portainer CE STS",
+    "label": "Updated",
+    "value": "2026--09--17",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ce-sts",
+    "app_name": "Portainer CE STS",
+    "label": "Stage",
+    "value": "deprecated",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ce-sts",
+    "app_name": "Portainer CE STS",
+    "label": "Arch",
+    "value": "aarch64, amd64",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ce-sts",
+    "app_name": "Portainer CE STS",
+    "label": "Docker API",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ce-sts",
+    "app_name": "Portainer CE STS",
+    "label": "Image Size",
+    "value": "68 MB",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ce-sts",
+    "app_name": "Portainer CE STS",
+    "label": "Upstream",
+    "value": "v2.45.1",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ce-sts",
+    "app_name": "Portainer CE STS",
+    "label": "Repo",
+    "value": "docker.io/portainer/portainer-ce",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ce-sts",
+    "app_name": "Portainer CE STS",
+    "label": "Commit",
+    "value": "sha256:4d9a99f4495c005388842b94d72377d5239eac8686543428c3ff7c9b6c0882bb",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ee-lts",
+    "app_name": "Portainer EE LTS",
+    "label": "Ingress",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ee-lts",
+    "app_name": "Portainer EE LTS",
+    "label": "Version",
+    "value": "v2.45.1.1",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ee-lts",
+    "app_name": "Portainer EE LTS",
+    "label": "Updated",
+    "value": "2026--09--17",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ee-lts",
+    "app_name": "Portainer EE LTS",
+    "label": "Stage",
+    "value": "deprecated",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ee-lts",
+    "app_name": "Portainer EE LTS",
+    "label": "Arch",
+    "value": "aarch64, amd64",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ee-lts",
+    "app_name": "Portainer EE LTS",
+    "label": "Docker API",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ee-lts",
+    "app_name": "Portainer EE LTS",
+    "label": "Image Size",
+    "value": "87 MB",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ee-lts",
+    "app_name": "Portainer EE LTS",
+    "label": "Upstream",
+    "value": "v2.45.1",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ee-lts",
+    "app_name": "Portainer EE LTS",
+    "label": "Repo",
+    "value": "docker.io/portainer/portainer-ee",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ee-lts",
+    "app_name": "Portainer EE LTS",
+    "label": "Commit",
+    "value": "sha256:28161a92383825450c275ac6fb5ad1ccec93de5cd331ac842fa065cad63df250",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ee-sts",
+    "app_name": "Portainer EE STS",
+    "label": "Ingress",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ee-sts",
+    "app_name": "Portainer EE STS",
+    "label": "Version",
+    "value": "v2.45.1.1",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ee-sts",
+    "app_name": "Portainer EE STS",
+    "label": "Updated",
+    "value": "2026--09--17",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ee-sts",
+    "app_name": "Portainer EE STS",
+    "label": "Stage",
+    "value": "deprecated",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ee-sts",
+    "app_name": "Portainer EE STS",
+    "label": "Arch",
+    "value": "aarch64, amd64",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ee-sts",
+    "app_name": "Portainer EE STS",
+    "label": "Docker API",
+    "value": "True",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ee-sts",
+    "app_name": "Portainer EE STS",
+    "label": "Image Size",
+    "value": "85 MB",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ee-sts",
+    "app_name": "Portainer EE STS",
+    "label": "Upstream",
+    "value": "v2.45.1",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ee-sts",
+    "app_name": "Portainer EE STS",
+    "label": "Repo",
+    "value": "docker.io/portainer/portainer-ee",
+    "color": "blue",
+    "status": "OK"
+  },
+  {
+    "app": "portainer-ee-sts",
+    "app_name": "Portainer EE STS",
+    "label": "Commit",
+    "value": "sha256:28161a92383825450c275ac6fb5ad1ccec93de5cd331ac842fa065cad63df250",
+    "color": "blue",
+    "status": "OK"
+  }
+]
