@@ -1,4 +1,4 @@
-ARG UPSTREAM_VERSION=1.6.0
+ARG UPSTREAM_VERSION=1.6.1
 FROM codeswhat/drydock:${UPSTREAM_VERSION}
 
 ARG BUILD_VERSION
@@ -18,6 +18,7 @@ LABEL \
 USER root
 COPY rootfs/usr/local/lib/drydock-ha /usr/local/lib/drydock-ha
 RUN node /usr/local/lib/drydock-ha/patch-ui.mjs
+RUN node /usr/local/lib/drydock-ha/patch-session.mjs
 
 ENV DD_STORE_PATH=/data/drydock \
     DD_ANONYMOUS_AUTH_CONFIRM=true \

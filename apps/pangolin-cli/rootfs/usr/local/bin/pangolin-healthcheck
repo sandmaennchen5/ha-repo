@@ -1,0 +1,22 @@
+#!/usr/bin/with-contenv bashio
+set -e
+
+check_service() {
+  local service="$1" up pid name
+  read -r up pid < <(s6-svstat -o up,pid "/run/service/${service}")
+  [[ "${up}" == true && "${pid}" =~ ^[0-9]+$ && "${pid}" -gt 0 ]] || return 1
+  kill -0 "${pid}" 2>/dev/null || return 1
+  read -r name < "/proc/${pid}/comm" || return 1
+  # Reject a still-starting launcher or a disabled service's sleep process.
+  [[ "${name}" == pangolin-cli || "${name}" == pangolin ]]
+}
+
+mode=client
+if bashio::config.has_value 'mode'; then
+  mode=$(bashio::config 'mode')
+fi
+case "${mode}" in
+  client|site) check_service pangolin-cli ;;
+  dual) check_service pangolin-cli && check_service pangolin-site ;;
+  *) exit 1 ;;
+esac

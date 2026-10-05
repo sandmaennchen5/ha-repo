@@ -1,2 +1,0 @@
-network:
-  6556/tcp: Checkmk agent data (plain text; secure at network level)

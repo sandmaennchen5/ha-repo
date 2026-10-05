@@ -1,0 +1,2 @@
+#!/usr/bin/with-contenv bashio
+exec /etc/s6-overlay/s6-rc.d/pangolin-cli/run site

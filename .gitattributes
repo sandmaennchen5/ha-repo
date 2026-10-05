@@ -1,3 +1,6 @@
+# Keep text files on LF, including checkouts on Windows.
+* text=auto eol=lf
+
 # Stable checksums for the vendored OpenCCU overlay and generated image files.
 .github/openccu/** text eol=lf
 apps/openccu*/rootfs/** text eol=lf

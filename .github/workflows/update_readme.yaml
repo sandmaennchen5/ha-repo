@@ -45,4 +45,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: "chore(badges): update README badges"
-          file_pattern: "README.md apps/**/README.md"
+          file_pattern: "README.md README.en.md apps/**/README.md"

@@ -11,6 +11,16 @@ spec.loader.exec_module(sync)
 
 
 class OpenCCUTests(unittest.TestCase):
+    def test_config_format_and_defaults(self):
+        import yaml
+        original = {'arch': ['amd64'], 'ingress': False, 'apparmor': True, 'boot': 'auto'}
+        normalized = sync.normalize_config(original)
+        text = sync.dump_yaml(normalized).decode()
+        self.assertIn('  - amd64', text)
+        self.assertEqual(yaml.safe_load(text), {'arch': ['amd64']})
+        nondefault = {'ingress': True, 'apparmor': False, 'boot': 'manual'}
+        self.assertEqual(sync.normalize_config(nondefault), nondefault)
+
     def test_stable_and_modern_backports(self):
         for baseline, name in [('stable', 'ha-proxy.js'), ('modern', 'ha-proxy.js'), ('modern', 'ha-proxy.js.gtpl')]:
             source = (sync.PATCH / baseline / name).read_text().encode()
@@ -48,7 +58,7 @@ class OpenCCUTests(unittest.TestCase):
             self.assertIn('@' + lock['image_digest'], docker)
             self.assertTrue(config['image'].startswith('ghcr.io/sandmaennchen5/ha-repo-'))
             if slug == 'openccu-hapdrap':
-                self.assertFalse(config['ingress'])
+                self.assertFalse(config.get('ingress', False))
                 self.assertNotIn('remember_ingress_users', config['options'])
                 continue
             self.assertFalse(config['options']['remember_ingress_users'])

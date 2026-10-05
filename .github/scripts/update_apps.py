@@ -48,7 +48,8 @@ def request_json(url: str, token: str = "") -> tuple[Any, dict[str, str]]:
     headers = {"Accept": "application/vnd.github+json", "User-Agent": USER_AGENT}
     if token:
         headers["Authorization"] = f"Bearer {token}"
-        headers["X-GitHub-Api-Version"] = "2022-11-28"
+        if urllib.parse.urlsplit(url).hostname == "api.github.com":
+            headers["X-GitHub-Api-Version"] = "2022-11-28"
     request = urllib.request.Request(url, headers=headers)
     for attempt in range(4):
         try:
@@ -200,17 +201,62 @@ def docker_digests(tag: dict[str, Any]) -> set[str]:
     return digests
 
 
+@functools.lru_cache(maxsize=1)
+def docker_hub_token() -> str:
+    payload = json.dumps({
+        "identifier": os.environ["DOCKERHUB_USERNAME"],
+        "secret": os.environ["DOCKERHUB_TOKEN"],
+    }).encode()
+    request = urllib.request.Request(
+        "https://hub.docker.com/v2/auth/token", data=payload,
+        headers={"Content-Type": "application/json", "User-Agent": USER_AGENT},
+    )
+    with urllib.request.urlopen(request, timeout=30) as response:
+        token = json.load(response).get("access_token")
+    if not isinstance(token, str) or not token or any(c in token for c in "\r\n"):
+        raise RuntimeError("Docker Hub login returned no valid access token")
+    return token
+
+
+def docker_hub_json(url: str) -> tuple[Any, dict[str, str]]:
+    parsed = urllib.parse.urlsplit(url)
+    if parsed.scheme != "https" or parsed.netloc != "hub.docker.com":
+        raise ValueError("Docker Hub returned an unexpected pagination host")
+    try:
+        return request_json(url)
+    except urllib.error.HTTPError as error:
+        if error.code not in (401, 403) or not (
+            os.getenv("DOCKERHUB_USERNAME") and os.getenv("DOCKERHUB_TOKEN")
+        ):
+            raise
+        print("Docker Hub: anonymous request denied; retrying with configured credentials.", flush=True)
+        return request_json(url, docker_hub_token())
+
+
 @functools.lru_cache(maxsize=None)
 def docker_update(namespace: str, repository: str, tracking_tag: str = "latest") -> Update:
     base = f"https://hub.docker.com/v2/repositories/{namespace}/{repository}/tags"
     url = f"{base}?page_size=100&ordering=last_updated"
+    try:
+        latest, _ = docker_hub_json(f"{base}/{urllib.parse.quote(tracking_tag, safe='')}")
+    except urllib.error.HTTPError as error:
+        if error.code != 404 or tracking_tag != "latest":
+            raise
+        latest = None
+    tracked_digests = docker_digests(latest) if latest else set()
     tags: list[dict[str, Any]] = []
     while url:
-        page, _ = request_json(url)
+        page, _ = docker_hub_json(url)
         tags.extend(page.get("results", []))
+        # A digest match identifies the channel release; historical pages are
+        # unnecessary and can exceed Docker Hub's anonymous pagination limit.
+        if tracked_digests and any(
+            docker_version(tag.get("name", "")) is not None
+            and tracked_digests.intersection(docker_digests(tag)) for tag in tags
+        ):
+            break
         url = page.get("next")
 
-    latest = next((tag for tag in tags if tag.get("name") == tracking_tag), None)
     semver_tags = [(docker_version(tag.get("name", "")), tag) for tag in tags]
     semver_tags = [(version, tag) for version, tag in semver_tags if version is not None]
     if not semver_tags:
@@ -797,12 +843,49 @@ def write_summary(messages: list[str], count: int, scheduled: bool) -> None:
             handle.write(body)
 
 
+def describe_error(error: Exception) -> str:
+    if isinstance(error, urllib.error.HTTPError):
+        # Do not log credentials, query tokens, or response bodies.
+        url = urllib.parse.urlsplit(error.geturl())
+        endpoint = f"{url.scheme}://{url.hostname}{url.path}"
+        details = []
+        for header in ("Retry-After", "X-RateLimit-Remaining", "X-RateLimit-Reset"):
+            value = error.headers.get(header) if error.headers else None
+            if value:
+                details.append(f"{header}={value}")
+        suffix = f" ({', '.join(details)})" if details else ""
+        return f"HTTP {error.code} at {endpoint}{suffix}"
+    return str(error)
+
+
+def process_app(path: Path, kind: str, identity: tuple[str, str], *, preview_only: bool, bump: bool) -> None:
+    # These are all files mutated by apply()/bump_app_revision(). Restore exact
+    # bytes on failure so a partial app update cannot enter the build matrix.
+    files = [path / name for name in ("config.yaml", ".var.yaml", "Dockerfile", "CHANGELOG.md")]
+    before = {file: file.read_bytes() if file.exists() else None for file in files}
+    try:
+        if preview_only:
+            preview(path, kind, identity)
+        else:
+            apply(path, kind, identity)
+            if bump:
+                bump_app_revision(path)
+    except Exception:
+        for file, content in before.items():
+            if content is None:
+                file.unlink(missing_ok=True)
+            else:
+                file.write_bytes(content)
+        raise
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--app", default="", help="single app slug; empty selects all")
     parser.add_argument("--scheduled", action="store_true", help="only select autoupdater: true")
     parser.add_argument("--list", action="store_true", help="discover only; do not update")
     parser.add_argument("--preview", action="store_true", help="fetch and display values without changing files")
+    parser.add_argument("--continue-on-error", action="store_true", help="report failed apps as outputs and allow successful apps to build")
     parser.add_argument(
         "--bump-revision",
         action="store_true",
@@ -812,15 +895,28 @@ def main() -> int:
     try:
         apps, messages = discover(args.app.strip(), args.scheduled)
         write_summary(messages, len(apps), args.scheduled)
-        if args.preview:
+        failures = []
+        if not args.list:
             for path, kind, identity in apps:
-                preview(path, kind, identity)
-        elif not args.list:
-            for path, kind, identity in apps:
-                apply(path, kind, identity)
-            if args.bump_revision:
-                for path, _, _ in apps:
-                    bump_app_revision(path)
+                print(f"CHECKING {path.name}: {kind} ({'/'.join(identity)})", flush=True)
+                try:
+                    process_app(path, kind, identity, preview_only=args.preview, bump=args.bump_revision)
+                except (OSError, ValueError, RuntimeError, urllib.error.URLError, yaml.YAMLError) as error:
+                    message = f"{path.name}: {describe_error(error)}"
+                    failures.append((path.name, message))
+                    print(f"FAILED {message}", file=sys.stderr, flush=True)
+        if output := os.getenv("GITHUB_OUTPUT"):
+            with open(output, "a", encoding="utf-8") as handle:
+                handle.write(f"failed_apps={json.dumps([name for name, _ in failures])}\n")
+        if failures:
+            body = "## Fehlgeschlagene App-Abfragen\n\n" + "\n".join(
+                f"- {message}" for _, message in failures
+            ) + "\n\nDiese Apps wurden nicht aktualisiert; andere Apps werden weiterverarbeitet.\n"
+            print(body)
+            if summary := os.getenv("GITHUB_STEP_SUMMARY"):
+                with open(summary, "a", encoding="utf-8") as handle:
+                    handle.write(body)
+            return 0 if args.continue_on_error else 1
     except (OSError, ValueError, RuntimeError, urllib.error.URLError, yaml.YAMLError) as error:
         print(f"ERROR: {error}", file=sys.stderr)
         return 1

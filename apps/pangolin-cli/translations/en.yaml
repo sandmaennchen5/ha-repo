@@ -15,4 +15,152 @@ configuration:
         name: Protocol level
       additional_args:
         name: Additional arguments
-        description: Optional additional arguments for `pangolin-cli up --attach`.
+        description: Additional arguments; in dual mode these apply only to the client.
+      client_additional_args:
+        name: Client arguments
+        description: Additional arguments only for client, separated by whitespace.
+      site_additional_args:
+        name: Site arguments
+        description: Additional arguments only for site, separated by whitespace.
+  mode:
+    name: Mode
+    description: 'client: machine client; site: site connector; dual: both simultaneously.'
+  site_id:
+    name: Site ID
+    description: SITE_ID
+  site_secret:
+    name: Site secret
+    description: SITE_SECRET
+  site:
+    name: Site settings
+    description: Site settings for site and dual; omitted options use defaults.
+    fields:
+      provisioning_key:
+        name: provisioning key
+        description: SITE_PROVISIONING_KEY
+      name:
+        name: name
+        description: SITE_NAME
+      config_file:
+        name: config file
+        description: CONFIG_FILE
+      dns:
+        name: dns
+        description: DNS
+      ping_interval:
+        name: ping interval
+        description: PING_INTERVAL
+      ping_timeout:
+        name: ping timeout
+        description: PING_TIMEOUT
+      udp_proxy_idle_timeout:
+        name: udp proxy idle timeout
+        description: SITE_UDP_PROXY_IDLE_TIMEOUT
+      docker_socket:
+        name: docker socket
+        description: "DOCKER_SOCKET; local: unix:///var/run/docker.sock. Alternatively an external socket proxy. Disable protection mode."
+      docker_enforce_network_validation:
+        name: docker enforce network validation
+        description: DOCKER_ENFORCE_NETWORK_VALIDATION
+      disable_clients:
+        name: disable clients
+        description: DISABLE_CLIENTS
+      disable_ssh:
+        name: disable ssh
+        description: DISABLE_SSH
+      health_file:
+        name: health file
+        description: HEALTH_FILE
+      blueprint_file:
+        name: blueprint file
+        description: BLUEPRINT_FILE
+      provisioning_blueprint_file:
+        name: provisioning blueprint file
+        description: PROVISIONING_BLUEPRINT_FILE
+      updown:
+        name: updown
+        description: UPDOWN_SCRIPT
+      no_cloud:
+        name: no cloud
+        description: NO_CLOUD
+      metrics:
+        name: metrics
+        description: SITE_METRICS_PROMETHEUS_ENABLED
+      otlp:
+        name: otlp
+        description: SITE_METRICS_OTLP_ENABLED
+      otlp_endpoint:
+        name: otlp endpoint
+        description: OTEL_EXPORTER_OTLP_ENDPOINT
+      metrics_admin_addr:
+        name: metrics admin addr
+        description: SITE_ADMIN_ADDR
+      metrics_async_bytes:
+        name: metrics async bytes
+        description: SITE_METRICS_ASYNC_BYTES
+      pprof:
+        name: pprof
+        description: SITE_PPROF_ENABLED
+      region:
+        name: region
+        description: SITE_REGION
+      enforce_hc_cert:
+        name: enforce hc cert
+        description: ENFORCE_HC_CERT
+      tls_client_cert_file:
+        name: tls client cert file
+        description: TLS_CLIENT_CERT
+      tls_client_key:
+        name: tls client key
+        description: TLS_CLIENT_KEY
+      tls_client_ca:
+        name: tls client ca
+        description: TLS_CLIENT_CAS
+      tls_client_cert:
+        name: tls client cert
+        description: TLS_CLIENT_CERT_PKCS12
+      ad_pre_shared_key:
+        name: ad pre shared key
+        description: AD_KEY
+      ad_principals_file:
+        name: ad principals file
+        description: AD_PRINCIPALS_FILE
+      ad_ca_cert_path:
+        name: ad ca cert path
+        description: AD_CA_CERT_PATH
+      ad_generate_random_password:
+        name: ad generate random password
+        description: AD_GENERATE_RANDOM_PASSWORD
+      interface:
+        name: interface
+        description: INTERFACE
+      port:
+        name: port
+        description: PORT
+      mtu:
+        name: mtu
+        description: MTU
+      native:
+        name: native
+        description: USE_NATIVE_INTERFACE
+      native_main:
+        name: native main
+        description: USE_NATIVE_MAIN_INTERFACE
+      interface_main:
+        name: interface main
+        description: INTERFACE_MAIN
+      local_endpoint_interfaces:
+        name: local endpoint interfaces
+        description: LOCAL_ENDPOINT_INTERFACES
+      prefer_endpoint:
+        name: Prefer endpoint
+        description: --prefer-endpoint
+  client:
+    name: Client settings
+    fields:
+      interface_name:
+        name: Interface name
+        description: '--interface-name; dual default: pangolin-client.'
+      http_addr:
+        name: HTTP API address
+        description: --http-addr; optional, e.g. 127.0.0.1:2113.

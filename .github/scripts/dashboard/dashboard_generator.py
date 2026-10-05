@@ -3,7 +3,7 @@ import bootstrap
 from pathlib import Path
 import json
 
-from badge_generator import get_apps, load_app, generate_app_badges
+from badge_generator import get_apps, load_app, get_app_stage, generate_app_badges
 
 from common import (
     ensure_dirs,
@@ -83,6 +83,7 @@ def build_apps():
             "name": app["app"].get("name", app_path.name),
             "description": app["app"].get("description", ""),
             "version": app["app"].get("version", ""),
+            "stage": get_app_stage(app),
             "badges": badges,
             "real_badges": real_badges,
             "green": green,
