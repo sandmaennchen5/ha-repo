@@ -78,15 +78,15 @@ Expose the Checkmk monitoring agent on port 6556.
 Modern Docker and Compose management with Home Assistant Ingress.
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v1.0.50.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--09--30-green)
+![Version](https://img.shields.io/badge/version-v1.0.51.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--10--03-green)
 ![Stage](https://img.shields.io/badge/stage-experimental-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
 ![Image Size](https://img.shields.io/badge/size-180_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v1.0.50-yellow)
+![Upstream](https://img.shields.io/badge/upstream-v1.0.51-yellow)
 ![Repo](https://img.shields.io/badge/repo-github.com%2FFinsys%2Fdockhand-informational)
-![Commit](https://img.shields.io/badge/commit-d67cc4210a5e1d6daefc1c258bf3ed73afbe02cc-informational)
+![Commit](https://img.shields.io/badge/commit-9280f13c42adbdfb04395221930f3d7c589d98a2-informational)
 
 ## [⚓ Drydock](apps/drydock/)
 
@@ -117,39 +117,6 @@ Run Homey Self-Hosted Server on Home Assistant OS.
 ![Upstream](https://img.shields.io/badge/upstream-v13.5.1-yellow)
 ![Repo](https://img.shields.io/badge/repo-ghcr.io%2Fathombv%2Fhomey--shs-informational)
 ![Commit](https://img.shields.io/badge/commit-sha256%3Ae52125f36392e237a98d837307b14017ea0d46070d1019dd559405ce0626afe3-informational)
-
-## [🛰️ Newt - Pangolin Tunnels](apps/newt/)
-
-Secure remote access with Pangolin tunnels.
-
-![Version](https://img.shields.io/badge/version-v1.18.0-blue)
-![Updated](https://img.shields.io/badge/updated-2026--09--29-green)
-![Stage](https://img.shields.io/badge/stage-stable-orange)
-![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN%7CSYS_MODULE-red)
-![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
-![Host Network](https://img.shields.io/badge/host_network-True-blue)
-![Docker API](https://img.shields.io/badge/docker_api-True-blue)
-![Kernel Modules](https://img.shields.io/badge/kernel_modules-True-blue)
-![Image Size](https://img.shields.io/badge/size-36_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v1.18.0-yellow)
-![Repo](https://img.shields.io/badge/repo-github.com%2Ffosrl%2Fnewt-informational)
-![Commit](https://img.shields.io/badge/commit-9060bcaa76ba1069921d304e0fc1e2e8d0ca8b52-informational)
-
-## [🍃 Olm - Pangolin Client](apps/olm/)
-
-Advanced WireGuard client for remote access to Pangolin and Newt sites.
-
-![Version](https://img.shields.io/badge/version-v1.10.0.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--09--29-green)
-![Stage](https://img.shields.io/badge/stage-stable-orange)
-![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN%7CSYS_MODULE-red)
-![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
-![Host Network](https://img.shields.io/badge/host_network-True-blue)
-![Kernel Modules](https://img.shields.io/badge/kernel_modules-True-blue)
-![Image Size](https://img.shields.io/badge/size-28_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v1.10.0-yellow)
-![Repo](https://img.shields.io/badge/repo-github.com%2Ffosrl%2Folm-informational)
-![Commit](https://img.shields.io/badge/commit-b119feaf7fe2902a2d98c836c5e6236897326073-informational)
 
 ## [🏠 OpenCCU (HA Repo)](apps/openccu/)
 
@@ -185,15 +152,15 @@ Proxy to externally running OpenCCU
 HomeMatic/homematicIP CCU central based on OpenCCU (Snapshot)
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v3.89.11.20261001-e49a57c-ha1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--10--01-green)
+![Version](https://img.shields.io/badge/version-v3.89.11.20261004-5b166af-ha1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--10--04-green)
 ![Stage](https://img.shields.io/badge/stage-experimental-orange)
 ![Privileged](https://img.shields.io/badge/privileged-IPC_LOCK%7CSYS_ADMIN%7CSYS_RAWIO%7CSYS_RESOURCE%7CNET_ADMIN-red)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Kernel Modules](https://img.shields.io/badge/kernel_modules-True-blue)
-![Upstream](https://img.shields.io/badge/upstream-v3.89.11.20261001-e49a57c-yellow)
+![Upstream](https://img.shields.io/badge/upstream-v3.89.11.20261004-5b166af-yellow)
 ![Repo](https://img.shields.io/badge/repo-https%3A%2F%2Fgithub.com%2FOpenCCU%2FOpenCCU-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3Ad481c3da97a93a45818ee44f0f5101edf062f465cc22ba93ca2e02c4fd73ca74-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3A0b5f4683bf0626f90b4a329b372d428fecf6c66bd12d7579ad5527dd228681da-informational)
 
 ## [🏠 OpenCCU HAP/DRAP-Helper (HA Repo)](apps/openccu-hapdrap/)
 
@@ -210,20 +177,54 @@ OpenCCU Helper App for HmIP-HAP / HmIPW-DRAP connectivity
 ![Repo](https://img.shields.io/badge/repo-https%3A%2F%2Fgithub.com%2FOpenCCU%2FOpenCCU-informational)
 ![Commit](https://img.shields.io/badge/commit-sha256%3Ad433ff395bed9a64075c8d341fb9196dc3fc1b312c2e7cf79e79ef63a18b0f1c-informational)
 
-## [🦎 Pangolin CLI Client](apps/pangolin-cli/)
+## [🦎 Pangolin - CLI](apps/pangolin-cli/)
 
-Official Pangolin CLI and WireGuard VPN client for Linux.
+Official Pangolin CLI and WireGuard VPN client and Site Connector for Linux.
 
-![Version](https://img.shields.io/badge/version-v0.18.1.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--10--01-green)
+![Version](https://img.shields.io/badge/version-v0.18.1.4-blue)
+![Updated](https://img.shields.io/badge/updated-2026--10--05-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN-red)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Host Network](https://img.shields.io/badge/host_network-True-blue)
+![Docker API](https://img.shields.io/badge/docker_api-True-blue)
 ![Image Size](https://img.shields.io/badge/size-29_MB-informational)
 ![Upstream](https://img.shields.io/badge/upstream-v0.18.1-yellow)
 ![Repo](https://img.shields.io/badge/repo-github.com%2Ffosrl%2Fcli-informational)
 ![Commit](https://img.shields.io/badge/commit-8f52452891eb9315af9e9cd31cbaa725d3ccb70d-informational)
+
+## [🛰️ Pangolin - Newt Tunnel](apps/pangolin-newt/)
+
+Secure remote access with Pangolin tunnels.
+
+![Version](https://img.shields.io/badge/version-v1.18.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--10--02-green)
+![Stage](https://img.shields.io/badge/stage-deprecated-orange)
+![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN%7CSYS_MODULE-red)
+![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
+![Host Network](https://img.shields.io/badge/host_network-True-blue)
+![Docker API](https://img.shields.io/badge/docker_api-True-blue)
+![Kernel Modules](https://img.shields.io/badge/kernel_modules-True-blue)
+![Image Size](https://img.shields.io/badge/size-36_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v1.18.1-yellow)
+![Repo](https://img.shields.io/badge/repo-github.com%2Ffosrl%2Fnewt-informational)
+![Commit](https://img.shields.io/badge/commit-7856d5f4c12e2afcadad182cca357bbbb6c80dc3-informational)
+
+## [🍃 Pangolin - Olm Client](apps/pangolin-olm/)
+
+Advanced WireGuard client for remote access to Pangolin and Newt sites.
+
+![Version](https://img.shields.io/badge/version-v1.10.1.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--10--02-green)
+![Stage](https://img.shields.io/badge/stage-deprecated-orange)
+![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN%7CSYS_MODULE-red)
+![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
+![Host Network](https://img.shields.io/badge/host_network-True-blue)
+![Kernel Modules](https://img.shields.io/badge/kernel_modules-True-blue)
+![Image Size](https://img.shields.io/badge/size-28_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v1.10.1-yellow)
+![Repo](https://img.shields.io/badge/repo-github.com%2Ffosrl%2Folm-informational)
+![Commit](https://img.shields.io/badge/commit-4901fde4b1850b56026b9740f34032dab37e7794-informational)
 
 ## [🐳 Portainer (Edition Selector)](apps/portainer/)
 
@@ -232,7 +233,7 @@ Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
 ![Version](https://img.shields.io/badge/version-v2026.9.2-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--09--18-green)
-![Stage](https://img.shields.io/badge/stage-experimental-orange)
+![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
 ![Image Size](https://img.shields.io/badge/size-223_MB-informational)
@@ -246,7 +247,7 @@ Portainer Agent with selectable LTS/STS channel.
 
 ![Version](https://img.shields.io/badge/version-v2026.9.1-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--09--17-green)
-![Stage](https://img.shields.io/badge/stage-experimental-orange)
+![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
 ![Image Size](https://img.shields.io/badge/size-74_MB-informational)

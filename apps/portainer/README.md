@@ -10,7 +10,7 @@
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
 ![Version](https://img.shields.io/badge/version-v2026.9.2-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--09--18-green)
-![Stage](https://img.shields.io/badge/stage-experimental-orange)
+![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
 ![Image Size](https://img.shields.io/badge/size-223_MB-informational)
