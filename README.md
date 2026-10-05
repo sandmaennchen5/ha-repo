@@ -193,39 +193,6 @@ Official Pangolin CLI and WireGuard VPN client and Site Connector for Linux.
 ![Repo](https://img.shields.io/badge/repo-github.com%2Ffosrl%2Fcli-informational)
 ![Commit](https://img.shields.io/badge/commit-8f52452891eb9315af9e9cd31cbaa725d3ccb70d-informational)
 
-## [🛰️ Pangolin - Newt Tunnel](apps/pangolin-newt/)
-
-Secure remote access with Pangolin tunnels.
-
-![Version](https://img.shields.io/badge/version-v1.18.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--10--02-green)
-![Stage](https://img.shields.io/badge/stage-deprecated-orange)
-![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN%7CSYS_MODULE-red)
-![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
-![Host Network](https://img.shields.io/badge/host_network-True-blue)
-![Docker API](https://img.shields.io/badge/docker_api-True-blue)
-![Kernel Modules](https://img.shields.io/badge/kernel_modules-True-blue)
-![Image Size](https://img.shields.io/badge/size-36_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v1.18.1-yellow)
-![Repo](https://img.shields.io/badge/repo-github.com%2Ffosrl%2Fnewt-informational)
-![Commit](https://img.shields.io/badge/commit-7856d5f4c12e2afcadad182cca357bbbb6c80dc3-informational)
-
-## [🍃 Pangolin - Olm Client](apps/pangolin-olm/)
-
-Advanced WireGuard client for remote access to Pangolin and Newt sites.
-
-![Version](https://img.shields.io/badge/version-v1.10.1.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--10--02-green)
-![Stage](https://img.shields.io/badge/stage-deprecated-orange)
-![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN%7CSYS_MODULE-red)
-![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
-![Host Network](https://img.shields.io/badge/host_network-True-blue)
-![Kernel Modules](https://img.shields.io/badge/kernel_modules-True-blue)
-![Image Size](https://img.shields.io/badge/size-28_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v1.10.1-yellow)
-![Repo](https://img.shields.io/badge/repo-github.com%2Ffosrl%2Folm-informational)
-![Commit](https://img.shields.io/badge/commit-4901fde4b1850b56026b9740f34032dab37e7794-informational)
-
 ## [🐳 Portainer (Edition Selector)](apps/portainer/)
 
 Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.
@@ -255,7 +222,42 @@ Portainer Agent with selectable LTS/STS channel.
 ![Repo](https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fagent-informational)
 ![Commit](https://img.shields.io/badge/commit-sha256%3A2a0e0fd85636b04b3e816b1c52ede8b3bf44e42420a0bbf2d9962ae8bfe6fea8-informational)
 
-## [🔗 Portainer Agent LTS](apps/portainer-agent-lts/)
+## Veraltete Apps (deprecated)
+
+### [🛰️ Pangolin - Newt Tunnel](apps/pangolin-newt/)
+
+Secure remote access with Pangolin tunnels.
+
+![Version](https://img.shields.io/badge/version-v1.18.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--10--02-green)
+![Stage](https://img.shields.io/badge/stage-deprecated-orange)
+![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN%7CSYS_MODULE-red)
+![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
+![Host Network](https://img.shields.io/badge/host_network-True-blue)
+![Docker API](https://img.shields.io/badge/docker_api-True-blue)
+![Kernel Modules](https://img.shields.io/badge/kernel_modules-True-blue)
+![Image Size](https://img.shields.io/badge/size-36_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v1.18.1-yellow)
+![Repo](https://img.shields.io/badge/repo-github.com%2Ffosrl%2Fnewt-informational)
+![Commit](https://img.shields.io/badge/commit-7856d5f4c12e2afcadad182cca357bbbb6c80dc3-informational)
+
+### [🍃 Pangolin - Olm Client](apps/pangolin-olm/)
+
+Advanced WireGuard client for remote access to Pangolin and Newt sites.
+
+![Version](https://img.shields.io/badge/version-v1.10.1.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--10--02-green)
+![Stage](https://img.shields.io/badge/stage-deprecated-orange)
+![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN%7CSYS_MODULE-red)
+![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
+![Host Network](https://img.shields.io/badge/host_network-True-blue)
+![Kernel Modules](https://img.shields.io/badge/kernel_modules-True-blue)
+![Image Size](https://img.shields.io/badge/size-28_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v1.10.1-yellow)
+![Repo](https://img.shields.io/badge/repo-github.com%2Ffosrl%2Folm-informational)
+![Commit](https://img.shields.io/badge/commit-4901fde4b1850b56026b9740f34032dab37e7794-informational)
+
+### [🔗 Portainer Agent LTS](apps/portainer-agent-lts/)
 
 Portainer Agent with selectable LTS/STS channel.
 
@@ -269,7 +271,7 @@ Portainer Agent with selectable LTS/STS channel.
 ![Repo](https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fagent-informational)
 ![Commit](https://img.shields.io/badge/commit-sha256%3A8f72f176270ac41ae0260c26a86e42e09929d2e6c1fc0f029218721be7b33bd9-informational)
 
-## [🔗 Portainer Agent STS](apps/portainer-agent-sts/)
+### [🔗 Portainer Agent STS](apps/portainer-agent-sts/)
 
 Portainer Agent with selectable LTS/STS channel.
 
@@ -283,7 +285,7 @@ Portainer Agent with selectable LTS/STS channel.
 ![Repo](https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fagent-informational)
 ![Commit](https://img.shields.io/badge/commit-sha256%3A2a0e0fd85636b04b3e816b1c52ede8b3bf44e42420a0bbf2d9962ae8bfe6fea8-informational)
 
-## [🐳 Portainer CE LTS](apps/portainer-ce-lts/)
+### [🐳 Portainer CE LTS](apps/portainer-ce-lts/)
 
 Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.
 
@@ -298,7 +300,7 @@ Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.
 ![Repo](https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fportainer--ce-informational)
 ![Commit](https://img.shields.io/badge/commit-sha256%3A4d9a99f4495c005388842b94d72377d5239eac8686543428c3ff7c9b6c0882bb-informational)
 
-## [🐳 Portainer CE STS](apps/portainer-ce-sts/)
+### [🐳 Portainer CE STS](apps/portainer-ce-sts/)
 
 Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.
 
@@ -313,7 +315,7 @@ Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.
 ![Repo](https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fportainer--ce-informational)
 ![Commit](https://img.shields.io/badge/commit-sha256%3A4d9a99f4495c005388842b94d72377d5239eac8686543428c3ff7c9b6c0882bb-informational)
 
-## [💼 Portainer EE LTS](apps/portainer-ee-lts/)
+### [💼 Portainer EE LTS](apps/portainer-ee-lts/)
 
 Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.
 
@@ -328,7 +330,7 @@ Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.
 ![Repo](https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fportainer--ee-informational)
 ![Commit](https://img.shields.io/badge/commit-sha256%3A28161a92383825450c275ac6fb5ad1ccec93de5cd331ac842fa065cad63df250-informational)
 
-## [💼 Portainer EE STS](apps/portainer-ee-sts/)
+### [💼 Portainer EE STS](apps/portainer-ee-sts/)
 
 Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.
 

@@ -48,9 +48,19 @@ Apps
 
 </div>
 
+{% set active_apps = apps|rejectattr('stage', 'equalto', 'deprecated')|list %}
+{% set deprecated_apps = apps|selectattr('stage', 'equalto', 'deprecated')|list %}
+{% for title, table_id, group_apps in [
+    ('Apps', 'appsTable', active_apps),
+    ('Veraltete Apps (deprecated)', 'deprecatedAppsTable', deprecated_apps)
+] %}
+{% if group_apps or loop.first %}
+{% if not loop.first %}
+<h2>{{ title }}</h2>
+{% endif %}
 <div class="panel">
 
-    <table id="appsTable">
+    <table id="{{ table_id }}" class="apps-table">
 
         <thead>
 
@@ -110,7 +120,7 @@ Apps
 
         <tbody>
 
-        {% for app in apps %}
+        {% for app in group_apps %}
 
         <tr
             data-slug="{{ app.slug }}"
@@ -184,6 +194,8 @@ Apps
     </table>
 
 </div>
+{% endif %}
+{% endfor %}
 
 <script>
 
@@ -196,11 +208,6 @@ document.addEventListener(
         const search =
             document.getElementById(
                 "appsSearch"
-            );
-
-        const table =
-            document.getElementById(
-                "appsTable"
             );
 
         const hideEmpty =
@@ -222,9 +229,9 @@ document.addEventListener(
                 )
                 .toLowerCase();
 
-            table
+            document
                 .querySelectorAll(
-                    "tbody tr"
+                    ".apps-table tbody tr"
                 )
                 .forEach(
 
