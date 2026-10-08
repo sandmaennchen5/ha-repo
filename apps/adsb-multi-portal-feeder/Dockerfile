@@ -1,4 +1,4 @@
-ARG UPSTREAM_VERSION=2.8.0
+ARG UPSTREAM_VERSION=2.9.0
 FROM thomx/fr24feed-piaware:${UPSTREAM_VERSION}
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]

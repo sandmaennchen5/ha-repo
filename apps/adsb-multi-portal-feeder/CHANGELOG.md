@@ -1,5 +1,18 @@
 # Changelog
 
+
+## [2.9.0.1] - 2026-10-07
+
+### Docker Hub
+
+- Docker Hub image: `docker.io/thomx/fr24feed-piaware:2.9.0`
+- Digest: `sha256:9579f70397925b4d84c970dbe243b7dd21e4a30b382fd8713ec54d266a5e2bb2`
+- Aktualisiert auf Docker Hub: 2026-10-07
+
+Weitere Informationen: https://docker.io/thomx/fr24feed-piaware
+
+---
+
 ### Upstream 2.8.0 (2026-05-28)
 
 - FR24FEED_AMD64_VERSION: 1.0.56-0

@@ -1,5 +1,5 @@
 name: "Portainer Agent (Channel Selector)"
-version: "2026.9.1"
+version: "2026.10.1"
 slug: "portainer-agent"
 description: "Portainer Agent with selectable LTS/STS channel."
 url: "https://docs.portainer.io/admin/environments/add/docker/agent"
