@@ -7,8 +7,8 @@
 [![CodeFactor][codefactor-badge]][codefactor-url]
 
 <!-- BADGES-START -->
-![Version](https://img.shields.io/badge/version-v2026.9.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--09--17-green)
+![Version](https://img.shields.io/badge/version-v2026.10.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--10--08-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)

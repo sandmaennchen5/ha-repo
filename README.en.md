@@ -51,14 +51,14 @@ Dump1090 based feeder for FlightRadar24, FlightAware and more
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
 ![Hass.io API](https://img.shields.io/badge/hassio_api-True-blue)
 ![HA API](https://img.shields.io/badge/ha_api-True-blue)
-![Version](https://img.shields.io/badge/version-v2.8.0.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--05--28-green)
+![Version](https://img.shields.io/badge/version-v2.9.0.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--10--07-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
-![Image Size](https://img.shields.io/badge/size-206_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v2.8.0-yellow)
+![Image Size](https://img.shields.io/badge/size-249_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v2.9.0-yellow)
 ![Repo](https://img.shields.io/badge/repo-docker.io%2Fthomx%2Ffr24feed--piaware-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3A582c604751c9d30970bf0d11e4cb6da65b04e27bb02b7eed463d08e627a4f8c7-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3A9579f70397925b4d84c970dbe243b7dd21e4a30b382fd8713ec54d266a5e2bb2-informational)
 
 ## [📊 Checkmk Agent](apps/checkmk-agent/)
 
@@ -198,8 +198,8 @@ Official Pangolin CLI and WireGuard VPN client and Site Connector for Linux.
 Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v2026.9.2-blue)
-![Updated](https://img.shields.io/badge/updated-2026--09--18-green)
+![Version](https://img.shields.io/badge/version-v2026.10.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--10--08-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
@@ -212,8 +212,8 @@ Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.
 
 Portainer Agent with selectable LTS/STS channel.
 
-![Version](https://img.shields.io/badge/version-v2026.9.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--09--17-green)
+![Version](https://img.shields.io/badge/version-v2026.10.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--10--08-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
@@ -261,15 +261,15 @@ Advanced WireGuard client for remote access to Pangolin and Newt sites.
 
 Portainer Agent with selectable LTS/STS channel.
 
-![Version](https://img.shields.io/badge/version-v2.45.1.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--09--17-green)
+![Version](https://img.shields.io/badge/version-v2.45.2.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--10--08-green)
 ![Stage](https://img.shields.io/badge/stage-deprecated-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
 ![Image Size](https://img.shields.io/badge/size-42_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v2.45.1-yellow)
+![Upstream](https://img.shields.io/badge/upstream-v2.45.2-yellow)
 ![Repo](https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fagent-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3A8f72f176270ac41ae0260c26a86e42e09929d2e6c1fc0f029218721be7b33bd9-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3Ad4f03ec3ae2a8630394bb41df09788af3228ceb891f15b89ba6205bca07ada19-informational)
 
 ### [🔗 Portainer Agent STS](apps/portainer-agent-sts/)
 
@@ -290,15 +290,15 @@ Portainer Agent with selectable LTS/STS channel.
 Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v2.45.1.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--09--17-green)
+![Version](https://img.shields.io/badge/version-v2.45.2.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--10--08-green)
 ![Stage](https://img.shields.io/badge/stage-deprecated-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
 ![Image Size](https://img.shields.io/badge/size-68_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v2.45.1-yellow)
+![Upstream](https://img.shields.io/badge/upstream-v2.45.2-yellow)
 ![Repo](https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fportainer--ce-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3A4d9a99f4495c005388842b94d72377d5239eac8686543428c3ff7c9b6c0882bb-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3A37aa2620d882794ed3e425b386db750f07500add53aa10adc741218b1e8d5782-informational)
 
 ### [🐳 Portainer CE STS](apps/portainer-ce-sts/)
 
@@ -320,15 +320,15 @@ Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.
 Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v2.45.1.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--09--17-green)
+![Version](https://img.shields.io/badge/version-v2.45.2.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--10--08-green)
 ![Stage](https://img.shields.io/badge/stage-deprecated-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
 ![Image Size](https://img.shields.io/badge/size-87_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v2.45.1-yellow)
+![Upstream](https://img.shields.io/badge/upstream-v2.45.2-yellow)
 ![Repo](https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fportainer--ee-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3A28161a92383825450c275ac6fb5ad1ccec93de5cd331ac842fa065cad63df250-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3A859c869c9b1b38ef460970f178534c053cc9c5b064099504ba672338a3372bfb-informational)
 
 ### [💼 Portainer EE STS](apps/portainer-ee-sts/)
 

@@ -7,15 +7,15 @@
 [![CodeFactor][codefactor-badge]][codefactor-url]
 
 <!-- BADGES-START -->
-![Version](https://img.shields.io/badge/version-v2.45.1.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--09--17-green)
+![Version](https://img.shields.io/badge/version-v2.45.2.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--10--08-green)
 ![Stage](https://img.shields.io/badge/stage-deprecated-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
 ![Image Size](https://img.shields.io/badge/size-42_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v2.45.1-yellow)
+![Upstream](https://img.shields.io/badge/upstream-v2.45.2-yellow)
 ![Repo](https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fagent-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3A8f72f176270ac41ae0260c26a86e42e09929d2e6c1fc0f029218721be7b33bd9-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3Ad4f03ec3ae2a8630394bb41df09788af3228ceb891f15b89ba6205bca07ada19-informational)
 <!-- BADGES-END -->
 
 Portainer Agent with LTS/STS selection, environment options and Watchdog support. It intentionally has no Web UI, storage migration, import or export.

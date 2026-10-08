@@ -10,14 +10,14 @@
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
 ![Hass.io API](https://img.shields.io/badge/hassio_api-True-blue)
 ![HA API](https://img.shields.io/badge/ha_api-True-blue)
-![Version](https://img.shields.io/badge/version-v2.8.0.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--05--28-green)
+![Version](https://img.shields.io/badge/version-v2.9.0.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--10--07-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
-![Image Size](https://img.shields.io/badge/size-206_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v2.8.0-yellow)
+![Image Size](https://img.shields.io/badge/size-249_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v2.9.0-yellow)
 ![Repo](https://img.shields.io/badge/repo-docker.io%2Fthomx%2Ffr24feed--piaware-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3A582c604751c9d30970bf0d11e4cb6da65b04e27bb02b7eed463d08e627a4f8c7-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3A9579f70397925b4d84c970dbe243b7dd21e4a30b382fd8713ec54d266a5e2bb2-informational)
 <!-- BADGES-END -->
 
 Docker-Image für dump1090-fa, fr24feed, FlightAware, adsbexchange, Plane Finder, OpenskyNetwork, adsb.fi, ADSBHub und Radarbox.
