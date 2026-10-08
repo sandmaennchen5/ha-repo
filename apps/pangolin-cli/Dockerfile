@@ -3,7 +3,7 @@ FROM ghcr.io/home-assistant/${BUILD_ARCH}-base:3.23
 
 ARG BUILD_VERSION
 ARG BUILD_ARCH
-ARG UPSTREAM_VERSION=0.16.0
+ARG UPSTREAM_VERSION=0.18.1
 
 LABEL \
   io.hass.version="${BUILD_VERSION}" \
@@ -24,5 +24,9 @@ RUN case "${BUILD_ARCH}" in \
 
 COPY rootfs /
 
+RUN chmod 0755 /etc/s6-overlay/s6-rc.d/pangolin-cli/run \
+    /etc/s6-overlay/s6-rc.d/pangolin-site/run \
+    /usr/local/bin/pangolin-healthcheck
+
 HEALTHCHECK --interval=30s --timeout=5s --start-period=30s --retries=3 \
-  CMD ["sh", "-c", "pgrep -x pangolin-cli >/dev/null"]
+  CMD ["/usr/local/bin/pangolin-healthcheck"]

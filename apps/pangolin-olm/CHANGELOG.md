@@ -1,6 +1,72 @@
 # Changelog
 
 
+## [1.10.1.1] - 2026-10-02
+
+### Upstream Release Notes
+
+## Container Images
+- GHCR: `ghcr.io/fosrl/olm@sha256:19943d7087262a0786f347bbefc0e9b4f01e857c198cd07de164fe83bc5e4d55`
+- Docker Hub: `docker.io/fosrl/olm@sha256:19943d7087262a0786f347bbefc0e9b4f01e857c198cd07de164fe83bc5e4d55`
+**Tag:** `1.10.1`
+
+## What's Changed
+* Fix sync routes on host with when interface changes
+* Fix add exclude routes for websocket endpoint
+
+**Full Changelog**: https://github.com/fosrl/olm/compare/1.10.0...1.10.1
+
+Weitere Informationen: https://github.com/fosrl/olm/releases/latest
+
+---
+
+## [1.10.0.1] - 2026-09-29
+
+### Upstream Release Notes
+
+## Container Images
+- GHCR: `ghcr.io/fosrl/olm@sha256:f537fffddc4aa5fe1a284fcc1d2881672bb44a5451eda1fc9f28ed0aa6070be4`
+- Docker Hub: `docker.io/fosrl/olm@sha256:f537fffddc4aa5fe1a284fcc1d2881672bb44a5451eda1fc9f28ed0aa6070be4`
+**Tag:** `1.10.0`
+
+
+## What's Changed
+* Add support for exit nodes
+* Add support for subnet routing
+* Improve batched relay,unrelay,local,unlocal messages
+
+
+**Full Changelog**: https://github.com/fosrl/olm/compare/v1.9.1...1.10.0
+
+Weitere Informationen: https://github.com/fosrl/olm/releases/latest
+
+---
+
+## [1.9.1.1] - 2026-09-01
+
+### Upstream Release Notes
+
+## Container Images
+- GHCR: `ghcr.io/fosrl/olm@sha256:298062dacd9e27dd0283925efb52566e5f07eb4967f3581460c463c0910bebcb`
+- Docker Hub: `docker.io/fosrl/olm@sha256:298062dacd9e27dd0283925efb52566e5f07eb4967f3581460c463c0910bebcb`
+**Tag:** `1.9.1`
+
+
+## What's Changed
+* Fix normalize bare server IP before route setup by @totalolage in https://github.com/fosrl/olm/pull/140
+* Fix separate out the dns handler so Swift does not double override
+* Add immediate ping methods for websocket connection liveness checks
+* Add connection management methods and tests for websocket client 
+
+## New Contributors
+* @totalolage made their first contribution in https://github.com/fosrl/olm/pull/140
+
+**Full Changelog**: https://github.com/fosrl/olm/compare/1.9.0...1.9.1
+
+Weitere Informationen: https://github.com/fosrl/olm/releases/latest
+
+---
+
 ## [1.9.0.4] - 2026-08-27
 
 ### Manuelles Update

@@ -44,6 +44,10 @@ def load_app(app_path):
     return {"app": config, "var": var}
 
 
+def get_app_stage(app_data):
+    return str(resolve_source(app_data, "stage") or "stable").strip().lower()
+
+
 def get_apps():
 
     apps = []

@@ -3,19 +3,19 @@ icon: "✈️"
 stage: "stable"
 
 version_strategy: "upstream_revision"
-upstream_version: "2.8.0"
+upstream_version: "2.9.0"
 upstream_repo: "docker.io/thomx/fr24feed-piaware"
 upstream_tracking_tag: "latest"
-upstream_commit: "sha256:582c604751c9d30970bf0d11e4cb6da65b04e27bb02b7eed463d08e627a4f8c7"
+upstream_commit: "sha256:9579f70397925b4d84c970dbe243b7dd21e4a30b382fd8713ec54d266a5e2bb2"
 autoupdater: true
 
 build: ""
 lint: ""
 yaml_lint: ""
 code_quality: ""
-image_size: "206 MB"
+image_size: "249 MB"
 custom_shield: ""
 custom_flag: ""
 
-updated: "2026-05-28"
+updated: "2026-10-07"
 source: "docker.io/thomx/fr24feed-piaware"

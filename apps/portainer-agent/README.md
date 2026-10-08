@@ -7,9 +7,9 @@
 [![CodeFactor][codefactor-badge]][codefactor-url]
 
 <!-- BADGES-START -->
-![Version](https://img.shields.io/badge/version-v2026.8.3-blue)
-![Updated](https://img.shields.io/badge/updated-2026--08--27-green)
-![Stage](https://img.shields.io/badge/stage-experimental-orange)
+![Version](https://img.shields.io/badge/version-v2026.10.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--10--08-green)
+![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
 ![Image Size](https://img.shields.io/badge/size-74_MB-informational)

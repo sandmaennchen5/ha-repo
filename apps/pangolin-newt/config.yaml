@@ -1,12 +1,13 @@
-name: "Newt - Pangolin Tunnels"
-version: "1.16.0.2"
-slug: "newt"
+name: "Pangolin - Newt Tunnel"
+version: "1.18.1"
+slug: "pangolin-newt"
 description: "Secure remote access with Pangolin tunnels."
+stage: deprecated
 url: "https://github.com/fosrl/newt"
 arch:
   - aarch64
   - amd64
-image: ghcr.io/sandmaennchen5/ha-repo-newt
+image: ghcr.io/sandmaennchen5/ha-repo-pangolin-newt
 init: false
 docker_api: true
 host_network: true

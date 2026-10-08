@@ -1,6 +1,6 @@
 name: ADS-B Multi-Portal Feeder
 slug: adsb-multi-portal-feeder
-version: "2.8.0.1"
+version: "2.9.0.1"
 description: Dump1090 based feeder for FlightRadar24, FlightAware and more
 arch:
   - aarch64

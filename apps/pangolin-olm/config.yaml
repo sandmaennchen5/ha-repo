@@ -1,7 +1,8 @@
-name: "Olm - Pangolin Client"
-version: "1.9.0.4"
-slug: "olm"
+name: "Pangolin - Olm Client"
+version: "1.10.1.1"
+slug: "pangolin-olm"
 description: "Advanced WireGuard client for remote access to Pangolin and Newt sites."
+stage: deprecated
 url: "https://github.com/fosrl/olm"
 arch:
   - aarch64

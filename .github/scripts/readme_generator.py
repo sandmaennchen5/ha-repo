@@ -4,6 +4,7 @@ import re
 from badge_generator import (
     get_apps,
     load_app,
+    get_app_stage,
     generate_app_badges,
     build_markdown
 )
@@ -30,7 +31,7 @@ def update_file(path, marker, content):
 
     text = path.read_text(encoding="utf-8")
     text = replace_marker(text, marker, content)
-    path.write_text(text, encoding="utf-8")
+    path.write_text(text, encoding="utf-8", newline="\n")
 
 
 def build_group_markdown(badges, group):
@@ -45,16 +46,25 @@ def build_group_markdown(badges, group):
     return "\n".join(lines)
 
 
-def build_root_section():
+def build_root_section(deprecated_heading="Veraltete Apps (deprecated)"):
 
     lines = []
 
+    visible_apps = []
     for app_path in get_apps():
-
         app_data = load_app(app_path)
+        if not app_data["var"].get("hide_root_readme", False):
+            visible_apps.append((app_path, app_data))
 
-        if app_data["var"].get("hide_root_readme", False):
-            continue
+    # Stable partition: keep the alphabetical order within each stage group.
+    visible_apps.sort(key=lambda item: get_app_stage(item[1]) == "deprecated")
+    deprecated_section = False
+    for app_path, app_data in visible_apps:
+
+        deprecated = get_app_stage(app_data) == "deprecated"
+        if deprecated and not deprecated_section:
+            lines.extend([f"## {deprecated_heading}", ""])
+            deprecated_section = True
 
         badges = generate_app_badges(app_path)
         markdown = build_markdown(badges)
@@ -65,7 +75,8 @@ def build_root_section():
 
         prefix = f"{icon} " if icon else ""
 
-        lines.append(f"## [{prefix}{name}]({app_path.as_posix()}/)")
+        heading = "###" if deprecated else "##"
+        lines.append(f"{heading} [{prefix}{name}]({app_path.as_posix()}/)")
 
         if description:
             lines.append("")
@@ -82,8 +93,9 @@ def build_root_section():
 
 def update_root_readme():
 
-    content = build_root_section()
     for readme in ROOT_READMES:
+        heading = "Deprecated apps" if readme.name == "README.en.md" else "Veraltete Apps (deprecated)"
+        content = build_root_section(heading)
         update_file(readme, "APPS-LIST", content)
 
 
@@ -113,7 +125,7 @@ def update_app_readme(app_path):
             build_group_markdown(badges, group)
         )
 
-    readme.write_text(text, encoding="utf-8")
+    readme.write_text(text, encoding="utf-8", newline="\n")
 
 
 def main():

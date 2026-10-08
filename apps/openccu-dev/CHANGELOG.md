@@ -1,3 +1,125 @@
+# Changelog
+
+## 3.89.11.20261004-5b166af-ha1
+
+- Original: `ghcr.io/openccu/openccu:3.89.11.20261004-5b166af`.
+- Pinned image and checked overlay; original runtime retained.
+
+## 3.89.11.20261003-6dad8f7-ha1
+
+- Original: `ghcr.io/openccu/openccu:3.89.11.20261003-6dad8f7`.
+- Pinned image and checked overlay; original runtime retained.
+
+## 3.89.11.20261002-dcc4259-ha1
+
+- Original: `ghcr.io/openccu/openccu:3.89.11.20261002-dcc4259`.
+- Pinned image and checked overlay; original runtime retained.
+
+## 3.89.11.20261001-e49a57c-ha1
+
+- Original: `ghcr.io/openccu/openccu:3.89.11.20261001-e49a57c`.
+- Pinned image and checked overlay; original runtime retained.
+
+## 3.89.11.20260930-dec0513-ha1
+
+- Original: `ghcr.io/openccu/openccu:3.89.11.20260930-dec0513`.
+- Pinned image and checked overlay; original runtime retained.
+
+## 3.89.11.20260929-6857071-ha1
+
+- Original: `ghcr.io/openccu/openccu:3.89.11.20260929-6857071`.
+- Pinned image and checked overlay; original runtime retained.
+
+## 3.89.11.20260928-7e1cfb8-ha1
+
+- Original: `ghcr.io/openccu/openccu:3.89.11.20260928-7e1cfb8`.
+- Pinned image and checked overlay; original runtime retained.
+
+## 3.89.11.20260927-00580ae-ha1
+
+- Original: `ghcr.io/openccu/openccu:3.89.11.20260927-00580ae`.
+- Pinned image and checked overlay; original runtime retained.
+
+## 3.89.11.20260925-d2ceebb-ha1
+
+- Original: `ghcr.io/openccu/openccu:3.89.11.20260925-d2ceebb`.
+- Pinned image and checked overlay; original runtime retained.
+
+## 3.89.11.20260924-ede975a-ha1
+
+- Original: `ghcr.io/openccu/openccu:3.89.11.20260924-ede975a`.
+- Pinned image and checked overlay; original runtime retained.
+
+## 3.89.11.20260923-c413574-ha1
+
+- Original: `ghcr.io/openccu/openccu:3.89.11.20260923-c413574`.
+- Pinned image and checked overlay; original runtime retained.
+
+## 3.89.11.20260922-54354e5-ha1
+
+- Original: `ghcr.io/openccu/openccu:3.89.11.20260922-54354e5`.
+- Pinned image and checked overlay; original runtime retained.
+
+## 3.89.11.20260921-ed3aedd-ha1
+
+- Original: `ghcr.io/openccu/openccu:3.89.11.20260921-ed3aedd`.
+- Pinned image and checked overlay; original runtime retained.
+
+## 3.89.11.20260919-d40dc14-ha1
+
+- Original: `ghcr.io/openccu/openccu:3.89.11.20260919-d40dc14`.
+- Pinned image and checked overlay; original runtime retained.
+
+## 3.89.11.20260918-0a5aa39-ha1
+
+- Original: `ghcr.io/openccu/openccu:3.89.11.20260918-0a5aa39`.
+- Pinned image and checked overlay; original runtime retained.
+
+## 3.89.11.20260917-2bc4291-ha1
+
+- Original: `ghcr.io/openccu/openccu:3.89.11.20260917-2bc4291`.
+- Pinned image and checked overlay; original runtime retained.
+
+## 3.89.9.20260916-6324b1d-ha1
+
+- Original: `ghcr.io/openccu/openccu:3.89.9.20260916-6324b1d`.
+- Pinned image and checked overlay; original runtime retained.
+
+## 3.89.9.20260915-0e13407-ha1
+
+- Original: `ghcr.io/openccu/openccu:3.89.9.20260915-0e13407`.
+- Pinned image and checked overlay; original runtime retained.
+
+## 3.89.9.20260914-5fb7d97-ha1
+
+- Original: `ghcr.io/openccu/openccu:3.89.9.20260914-5fb7d97`.
+- Pinned image and checked overlay; original runtime retained.
+
+## 3.89.9.20260912-29992de-ha1
+
+- Original: `ghcr.io/openccu/openccu:3.89.9.20260912-29992de`.
+- Pinned image and checked overlay; original runtime retained.
+
+## 3.89.8.20260911-87abd1d-ha1
+
+- Original: `ghcr.io/openccu/openccu:3.89.8.20260911-87abd1d`.
+- Pinned image and checked overlay; original runtime retained.
+
+## 3.89.8.20260910-6b7d826-ha1
+
+- Original: `ghcr.io/openccu/openccu:3.89.8.20260910-6b7d826`.
+- Pinned image and checked overlay; original runtime retained.
+
+## 3.89.8.20260909-5f1413d-ha1
+
+- Original: `ghcr.io/openccu/openccu:3.89.8.20260909-5f1413d`.
+- Pinned image and checked overlay; original runtime retained.
+
+## 3.89.8.20260901-56ed0b2-ha1
+
+- Original: `ghcr.io/openccu/openccu:3.89.8.20260901-56ed0b2`.
+- Pinned image and checked overlay; original runtime retained.
+
 ## 3.89.8.20260826-dfd4f38-ha3
 
 - Restore expired sessions through the WebUI login form and verify the resulting WebUI session before redirecting.

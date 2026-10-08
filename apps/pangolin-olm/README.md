@@ -1,4 +1,5 @@
-# Olm – Pangolin Client
+### Home Assistant Repository – sandmaennchen5
+## App - Pangolin - OLM Client
 
 [![Builder][builder-badge]][builder-url]
 [![Lint][lint-badge]][lint-url]
@@ -7,17 +8,17 @@
 [![CodeFactor][codefactor-badge]][codefactor-url]
 
 <!-- BADGES-START -->
-![Version](https://img.shields.io/badge/version-v1.9.0.4-blue)
-![Updated](https://img.shields.io/badge/updated-2026--08--19-green)
-![Stage](https://img.shields.io/badge/stage-stable-orange)
+![Version](https://img.shields.io/badge/version-v1.10.1.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--10--02-green)
+![Stage](https://img.shields.io/badge/stage-deprecated-orange)
 ![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN%7CSYS_MODULE-red)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Host Network](https://img.shields.io/badge/host_network-True-blue)
 ![Kernel Modules](https://img.shields.io/badge/kernel_modules-True-blue)
-![Image Size](https://img.shields.io/badge/size-27_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v1.9.0-yellow)
+![Image Size](https://img.shields.io/badge/size-28_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v1.10.1-yellow)
 ![Repo](https://img.shields.io/badge/repo-github.com%2Ffosrl%2Folm-informational)
-![Commit](https://img.shields.io/badge/commit-8c1db4bada7e7425a2500ea5d76df8b85f407a91-informational)
+![Commit](https://img.shields.io/badge/commit-4901fde4b1850b56026b9740f34032dab37e7794-informational)
 <!-- BADGES-END -->
 
 Olm verbindet Home Assistant OS über einen verschlüsselten WireGuard-Tunnel mit
@@ -26,7 +27,7 @@ Remote-Access-Szenarien, in denen Home Assistant auf entfernte private Netze
 zugreifen soll.
 
 > Olm wird upstream zugunsten der **Pangolin CLI** schrittweise abgelöst. Für
-> neue Installationen wird deshalb die App **Pangolin CLI Client** empfohlen.
+> neue Installationen wird deshalb die App **Pangolin CLI** empfohlen.
 
 ## Übersicht
 

@@ -25,13 +25,13 @@ on:
           - dockhand
           - drydock
           - homey-shs
-          - newt
-          - olm
           - openccu
           - openccu-dev
           - openccu-hapdrap
           - openccu-proxy
           - pangolin-cli
+          - pangolin-newt
+          - pangolin-olm
           - portainer
           - portainer-agent
           - portainer-agent-lts

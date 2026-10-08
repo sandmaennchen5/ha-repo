@@ -1,6 +1,71 @@
 # Changelog
 
 
+## [1.18.1] - 2026-10-02
+
+### Upstream Release Notes
+
+## Container Images
+- GHCR: `ghcr.io/fosrl/newt@sha256:7fed6605e0a104a337e1cb903bbb1225f80c7f6e5e56ff1eb1d70c57740d8e0f`
+- Docker Hub: `docker.io/fosrl/newt@sha256:7fed6605e0a104a337e1cb903bbb1225f80c7f6e5e56ff1eb1d70c57740d8e0f`
+**Tag:** `1.18.1`
+
+
+## What's Changed
+* Watch override routes and maintain them in the route table by @oschwartz10612 in https://github.com/fosrl/newt/pull/459
+* Dependency updates
+
+**Full Changelog**: https://github.com/fosrl/newt/compare/1.18.0...1.18.1
+
+Weitere Informationen: https://github.com/fosrl/newt/releases/latest
+
+---
+
+## [1.18.0] - 2026-09-29
+
+### Upstream Release Notes
+
+## Container Images
+- GHCR: `ghcr.io/fosrl/newt@sha256:07507a530f3f239bee4dc208aabdd25095df650f132e926245659e1a67aa5de9`
+- Docker Hub: `docker.io/fosrl/newt@sha256:07507a530f3f239bee4dc208aabdd25095df650f132e926245659e1a67aa5de9`
+**Tag:** `1.18.0`
+
+## What's Changed
+* Add exit node support
+
+**Full Changelog**: https://github.com/fosrl/newt/compare/1.17.0...1.18.0
+
+Weitere Informationen: https://github.com/fosrl/newt/releases/latest
+
+---
+
+## [1.17.0] - 2026-09-15
+
+### Upstream Release Notes
+
+## Container Images
+- GHCR: `ghcr.io/fosrl/newt@sha256:3465d85200cceb0f46dad8e63a40b69ec043a81df66ed0c514714302e9b83dde`
+- Docker Hub: `docker.io/fosrl/newt@sha256:3465d85200cceb0f46dad8e63a40b69ec043a81df66ed0c514714302e9b83dde`
+**Tag:** `1.17.0`
+
+
+## What's Changed
+* Add support for local endpoint interface allowlist
+* Add aliased SITE_ prefixed env vars
+* Add support for importing into the CLI package for running there with `pangolin up site`
+* Fix crashing with nil pointer checks
+* Fix accept bare site addresses in client WireGuard config by @totalolage in https://github.com/fosrl/newt/pull/435
+* Update dependencies
+
+## New Contributors
+* @totalolage made their first contribution in https://github.com/fosrl/newt/pull/435
+
+**Full Changelog**: https://github.com/fosrl/newt/compare/1.16.0...1.17.0
+
+Weitere Informationen: https://github.com/fosrl/newt/releases/latest
+
+---
+
 ## [1.16.0.2] - 2026-08-27
 
 ### Manuelles Update

@@ -4,15 +4,15 @@
 
 hidden: false
 icon: "🛰️"
-stage: "stable"
+stage: "deprecated"
 
 # -----------------------------------------
 # Upstream-Informationen
 # -----------------------------------------
 
-upstream_version: "1.16.0"
+upstream_version: "1.18.1"
 upstream_repo: "github.com/fosrl/newt"
-upstream_commit: "0e415f0a01223dd53d19185083048e0017c755b3"
+upstream_commit: "7856d5f4c12e2afcadad182cca357bbbb6c80dc3"
 autoupdater: true
 
 # -----------------------------------------
@@ -28,7 +28,7 @@ code_quality: ""
 # Image
 # -----------------------------------------
 
-image_size: "35 MB"
+image_size: "36 MB"
 
 # -----------------------------------------
 # Custom Badges
@@ -37,5 +37,5 @@ image_size: "35 MB"
 custom_shield: ""
 custom_flag: ""
 
-updated: "2026-08-19"
+updated: "2026-10-02"
 source: "github.com/fosrl/newt"
