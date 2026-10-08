@@ -1,5 +1,5 @@
 name: OpenCCU (snapshot) (HA Repo)
-version: 3.89.11.20261004-5b166af-ha1
+version: 3.89.11.20261006-ae476bb-ha1
 stage: experimental
 slug: openccu-dev
 image: ghcr.io/sandmaennchen5/ha-repo-openccu-dev
