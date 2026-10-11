@@ -1,6 +1,28 @@
 # Changelog
 
 
+## [1.0.53.1] - 2026-10-10
+
+### Upstream Release Notes
+
+## What's new in v1.0.53
+
+- 🐛 remove the 1.0.52 PUID change that could alter stack file ownership on upgrade (#1700, #1701)
+
+## Docker image
+
+```bash
+docker pull fnsys/dockhand:v1.0.53
+```
+
+Also available as `fnsys/dockhand:latest`
+
+[View on Docker Hub](https://hub.docker.com/r/fnsys/dockhand)
+
+Weitere Informationen: https://github.com/Finsys/dockhand/releases/latest
+
+---
+
 ## [1.0.52.1] - 2026-10-10
 
 ### Upstream Release Notes
