@@ -1,6 +1,19 @@
 # Changelog
 
 
+## [2026.10.2] - 2026-10-12
+
+### Enthaltene Upstream-Versionen
+
+- LTS: `2.45.2` (keine Änderung)
+- STS: `2.45.2`
+
+### Änderungen
+
+- STS: `2.45.0` → `2.45.2`
+
+---
+
 ## [2026.10.1] - 2026-10-08
 
 ### Enthaltene Upstream-Versionen

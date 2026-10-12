@@ -1,6 +1,20 @@
 # Changelog
 
 
+## [2026.10.2] - 2026-10-12
+
+### Enthaltene Upstream-Versionen
+
+- LTS: `CE 2.45.2, EE 2.45.2` (keine Änderung)
+- STS: `CE 2.45.2, EE 2.45.2`
+
+### Änderungen
+
+- STS: `2.45.1` → `2.45.2`
+- EE STS: `2.45.1` → `2.45.2`
+
+---
+
 ## [2026.10.1] - 2026-10-08
 
 ### Enthaltene Upstream-Versionen
