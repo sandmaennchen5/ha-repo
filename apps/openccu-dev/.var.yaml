@@ -3,9 +3,9 @@ icon: 🏠
 stage: experimental
 version_strategy: upstream_revision
 upstream_strategy: openccu_overlay
-upstream_version: 3.89.11.20261014-f873716
+upstream_version: 3.89.11.20261015-0ace655
 upstream_repo: https://github.com/OpenCCU/OpenCCU
-upstream_commit: sha256:4a2e60220590b39e3370f108be4bcb89506a0b4fdace3de2f10597c4454f55f9
+upstream_commit: sha256:8747ebe514b3bd993580e8268b9282c1b19898f7acc1499fa2b5438830a3ad1c
 autoupdater: true
-updated: '2026-10-14'
+updated: '2026-10-15'
 source: github.com/OpenCCU/OpenCCU
