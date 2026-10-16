@@ -1,6 +1,27 @@
 # Changelog
 
 
+## [13.5.2] - 2026-10-16
+
+### GitHub Container Registry
+
+### Core
+- Limits Homey's name to 63 characters to prevent issues with local network discovery.
+### Flow
+- Fixes missing labels in Flow card dropdowns.
+- Fixes an issue where Flows created through the API without explicit card groups could run actions incorrectly.
+### Camera Streaming
+- Updates the camera streaming component to go2rtc v1.9.14.
+### Apps
+- Fixes an issue that could prevent Python apps from starting on macOS hosts using shared storage.
+- Improves isolation of communication between Python apps and Homey.
+
+Release Notes: https://homey.app/en-us/wiki/homey-shs-changelog/
+
+Weitere Informationen: https://ghcr.io/athombv/homey-shs
+
+---
+
 ## [13.5.1] - 2026-09-29
 
 ### GitHub Container Registry
