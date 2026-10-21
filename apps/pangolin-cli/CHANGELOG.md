@@ -1,5 +1,29 @@
 # Changelog
 
+
+## [0.19.0.1] - 2026-10-20
+
+### Upstream Release Notes
+
+## Container Images
+- GHCR: `ghcr.io/fosrl/cli@sha256:4ad90b27b7363def9b7f6f7c65ca78ad9357701aa8ecf687a41254553eeb1382`
+- Docker Hub: `docker.io/fosrl/pangolin-cli@sha256:4ad90b27b7363def9b7f6f7c65ca78ad9357701aa8ecf687a41254553eeb1382`
+**Tag:** `0.19.0`
+
+
+## What's Changed
+* Fall back to other socket path so commands work on Windows services
+* Add support for client identities in private resource HTTP requests
+
+## New Contributors
+* @gauravch-code made their first contribution in https://github.com/fosrl/cli/pull/158
+
+**Full Changelog**: https://github.com/fosrl/cli/compare/0.18.1...0.19.0
+
+Weitere Informationen: https://github.com/fosrl/cli/releases/latest
+
+---
+
 ## [0.18.1.4] - 2026-10-05
 
 - Lokale Docker-Integration für Site- und Dual-Modus über `docker_api: true`.

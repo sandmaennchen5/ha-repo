@@ -1,5 +1,5 @@
 name: "Pangolin - CLI"
-version: "0.18.1.4"
+version: "0.19.0.1"
 slug: "pangolin-cli"
 description: "Official Pangolin CLI and WireGuard VPN client and Site Connector for Linux."
 url: "https://github.com/fosrl/cli"

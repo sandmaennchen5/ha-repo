@@ -1,6 +1,24 @@
 # Changelog
 
 
+## [1.19.0] - 2026-10-20
+
+### Upstream Release Notes
+
+## Container Images
+- GHCR: `ghcr.io/fosrl/newt@sha256:0189c8287058b800cca825590e4c39946b3815344ca48678dd0b96616d639319`
+- Docker Hub: `docker.io/fosrl/newt@sha256:0189c8287058b800cca825590e4c39946b3815344ca48678dd0b96616d639319`
+**Tag:** `1.19.0`
+
+## What's Changed
+* Add support for client identities in private resource HTTP requests
+
+**Full Changelog**: https://github.com/fosrl/newt/compare/v1.19.0...1.19.0
+
+Weitere Informationen: https://github.com/fosrl/newt/releases/latest
+
+---
+
 ## [1.18.1] - 2026-10-02
 
 ### Upstream Release Notes
