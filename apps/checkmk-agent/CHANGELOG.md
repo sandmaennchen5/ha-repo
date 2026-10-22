@@ -1,6 +1,18 @@
 # Changelog
 
 
+## [2.5.0.17.1] - 2026-10-21
+
+### Upstream Release Notes
+
+- Checkmk release branch: `release/2.5.0p17`
+- Agent source: `agents/check_mk_agent.openwrt`
+- Commit: `821fbfcdcce21f27cee7becbf4c3418b1603c179`
+
+Weitere Informationen: https://github.com/Checkmk/checkmk/releases/latest
+
+---
+
 ## [2.5.0.16.1] - 2026-10-14
 
 ### Upstream Release Notes

@@ -1,6 +1,18 @@
 # Changelog
 
 
+## [2.45.3.1] - 2026-10-21
+
+### Docker Hub
+
+- Docker Hub image: `docker.io/portainer/portainer-ee:2.45.3-alpine`
+- Digest: `sha256:4e706af52d7455c995b41ba8e05585ffa965e0a80adecb32d2fef14d68eb0f79`
+- Aktualisiert auf Docker Hub: 2026-10-21
+
+Weitere Informationen: https://docker.io/portainer/portainer-ee
+
+---
+
 ## [2.45.2.1] - 2026-10-08
 
 ### Docker Hub

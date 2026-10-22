@@ -1,6 +1,25 @@
 # Changelog
 
 
+## [13.5.3] - 2026-10-22
+
+### GitHub Container Registry
+
+### Security
+- This release includes an important security fix. We recommend keeping your Homey up to date.
+### Core
+- Updates translations.
+### Energy
+- Fixes an issue where energy reports could be duplicated or temporarily show outdated values.
+### Flow
+- Fixes the "Set lock mode" action card, which did not apply the selected mode.
+
+Release Notes: https://homey.app/en-us/wiki/homey-shs-changelog/
+
+Weitere Informationen: https://ghcr.io/athombv/homey-shs
+
+---
+
 ## [13.5.2] - 2026-10-16
 
 ### GitHub Container Registry
