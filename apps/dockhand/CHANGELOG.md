@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.54.2] - 2026-10-23
+
+- Add configurable DISABLE_WHATS_NEW, COMPOSE_TIMEOUT, TRUST_FORWARDED_HEADERS and ORIGIN environment variables with German and English descriptions and documentation.
+
 
 ## [1.0.55.1] - 2026-10-23
 

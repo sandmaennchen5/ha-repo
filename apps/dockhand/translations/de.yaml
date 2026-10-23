@@ -8,5 +8,17 @@ configuration:
   remember_ingress_users:
     name: Ingress-Anmeldung merken
     description: Dockhand-Sitzung pro HA-Benutzer speichern, ohne Passwort. Gültig bis Ablauf oder Abmeldung. Nur für vertrauenswürdige HA-Installationen.
+  disable_whats_new:
+    name: Neuigkeiten ausblenden
+    description: Popup nach einem Upgrade unterdrücken. Standard ist false.
+  compose_timeout:
+    name: Compose-Zeitlimit
+    description: Zeitlimit für Docker-Compose-Vorgänge in Sekunden. Standard ist 900; bei langsamen Netzwerken, großen Stacks oder langen Stoppfristen erhöhen.
+  trust_forwarded_headers:
+    name: Weitergeleiteten Headern vertrauen
+    description: X-Forwarded-For und X-Real-IP für Client-IP-Adressen vertrauen. Nur hinter einem vertrauenswürdigen Reverse-Proxy aktivieren und direkten Portzugriff berücksichtigen. Standard ist false.
+  origin:
+    name: Öffentliche Origin
+    description: Öffentliche Adresse, zum Beispiel https://dockhand.example.com, ohne Pfad. Für Passkeys erforderlich; HTTPS außer bei localhost. Leer lässt ORIGIN ungesetzt.
 network:
   3000/tcp: Direkte Weboberfläche (optionale Portzuweisung)

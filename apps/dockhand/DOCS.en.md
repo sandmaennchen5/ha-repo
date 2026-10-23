@@ -41,3 +41,14 @@ the host; disable protection mode only when Home Assistant requires it for
 `docker_api`. The upstream license does not permit commercial hosted-service use.
 
 Documentation: <https://dockhand.pro/manual/>
+
+## Environment options
+
+| Option | ENV | Default |
+| --- | --- | --- |
+| `disable_whats_new` | `DISABLE_WHATS_NEW` | `false` |
+| `compose_timeout` | `COMPOSE_TIMEOUT` | `900` seconds |
+| `trust_forwarded_headers` | `TRUST_FORWARDED_HEADERS` | `false` |
+| `origin` | `ORIGIN` | unset / leer |
+
+Restart the app after changes. Enable forwarded headers only behind a trusted reverse proxy, including access on direct port 3000. ORIGIN is the public scheme and host (with port if needed), without an Ingress path; passkeys require it and HTTPS except on localhost.

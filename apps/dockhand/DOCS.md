@@ -52,3 +52,14 @@ verlangt. Der Betrieb als kommerzieller gehosteter Dienst ist gemäß Upstream-L
 nicht gestattet.
 
 Dokumentation: <https://dockhand.pro/manual/>
+
+## Umgebungsvariablen
+
+| Option | ENV | Default |
+| --- | --- | --- |
+| `disable_whats_new` | `DISABLE_WHATS_NEW` | `false` |
+| `compose_timeout` | `COMPOSE_TIMEOUT` | `900` seconds |
+| `trust_forwarded_headers` | `TRUST_FORWARDED_HEADERS` | `false` |
+| `origin` | `ORIGIN` | unset / leer |
+
+Nach Änderungen die App neu starten. Weitergeleiteten Headern nur hinter einem vertrauenswürdigen Reverse-Proxy vertrauen, auch bei direktem Zugriff auf Port 3000. ORIGIN enthält das öffentliche Schema und den Host (bei Bedarf mit Port), ohne Ingress-Pfad; Passkeys benötigen diese Angabe und HTTPS außer bei localhost.

@@ -8,5 +8,17 @@ configuration:
   remember_ingress_users:
     name: Remember Ingress login
     description: Store the Dockhand session separately per HA user, without passwords. Valid until expiry or logout. Use only on trusted HA installations.
+  disable_whats_new:
+    name: Disable What's New
+    description: Suppress the popup after an upgrade. Default is false.
+  compose_timeout:
+    name: Compose timeout
+    description: Timeout for Docker Compose operations in seconds. Default is 900; increase for slow networks, large stacks or long stop grace periods.
+  trust_forwarded_headers:
+    name: Trust forwarded headers
+    description: Trust X-Forwarded-For and X-Real-IP for client IPs. Enable only behind a trusted reverse proxy, considering direct port access too. Default is false.
+  origin:
+    name: Public origin
+    description: Public address, for example https://dockhand.example.com, without a path. Required for passkeys; HTTPS except for localhost. Empty leaves ORIGIN unset.
 network:
   3000/tcp: Direct Web UI (optional port assignment)
