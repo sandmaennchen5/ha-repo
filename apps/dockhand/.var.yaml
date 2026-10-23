@@ -3,9 +3,9 @@ icon: "🛟"
 stage: "experimental"
 
 version_strategy: "upstream_revision"
-upstream_version: "1.0.54"
+upstream_version: "1.0.55"
 upstream_repo: "github.com/Finsys/dockhand"
-upstream_commit: "9efea8ba2e1e8779441a9b99c101a03f19ca515f"
+upstream_commit: "32a43ceb2cfc7e9b13f721886ef7140c527ea29d"
 changelog_url: "https://github.com/Finsys/dockhand/releases"
 autoupdater: true
 
@@ -17,5 +17,5 @@ image_size: "188 MB"
 custom_shield: ""
 custom_flag: ""
 
-updated: "2026-10-17"
+updated: "2026-10-23"
 source: "github.com/Finsys/dockhand"
