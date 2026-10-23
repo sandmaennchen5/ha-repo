@@ -1,5 +1,5 @@
 name: "Dockhand"
-version: "1.0.54.2"
+version: "1.0.55.3"
 slug: "dockhand"
 description: "Modern Docker and Compose management with Home Assistant Ingress."
 url: "https://dockhand.pro/manual/"
