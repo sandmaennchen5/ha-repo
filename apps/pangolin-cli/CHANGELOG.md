@@ -1,6 +1,31 @@
 # Changelog
 
 
+## [0.19.1.1] - 2026-10-27
+
+### Upstream Release Notes
+
+## Container Images
+- GHCR: `ghcr.io/fosrl/cli@sha256:b411dce4457f952c343829e1071be5ea57634fda235973ead6ec1ba196ae426a`
+- Docker Hub: `docker.io/fosrl/pangolin-cli@sha256:b411dce4457f952c343829e1071be5ea57634fda235973ead6ec1ba196ae426a`
+**Tag:** `0.19.1`
+
+
+## What's Changed
+* Add select login org by id by @ZanzyTHEbar in https://github.com/fosrl/cli/pull/71
+* Fix https://github.com/fosrl/newt/issues/471 crashes
+* Dependency updates
+
+## New Contributors
+* @ZanzyTHEbar made their first contribution in https://github.com/fosrl/cli/pull/71
+* @tursom made their first contribution in https://github.com/fosrl/cli/pull/167
+
+**Full Changelog**: https://github.com/fosrl/cli/compare/0.19.0...0.19.1
+
+Weitere Informationen: https://github.com/fosrl/cli/releases/latest
+
+---
+
 ## [0.19.0.1] - 2026-10-20
 
 ### Upstream Release Notes
