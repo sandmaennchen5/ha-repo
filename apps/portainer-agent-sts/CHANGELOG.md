@@ -1,6 +1,18 @@
 # Changelog
 
 
+## [3.0.0.1] - 2026-10-28
+
+### Docker Hub
+
+- Docker Hub image: `docker.io/portainer/agent:3.0.0-alpine`
+- Digest: `sha256:477ea01e8cd1354a231e1d5c8c6c28e9e0f6b85c49ca7b8442b27717c5dd0b6d`
+- Aktualisiert auf Docker Hub: 2026-10-28
+
+Weitere Informationen: https://docker.io/portainer/agent
+
+---
+
 ## [2.45.3.1] - 2026-10-21
 
 ### Docker Hub
