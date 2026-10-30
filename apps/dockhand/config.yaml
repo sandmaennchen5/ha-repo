@@ -1,5 +1,5 @@
 name: "Dockhand"
-version: "1.0.56.1"
+version: "1.0.56.2"
 slug: "dockhand"
 description: "Modern Docker and Compose management with Home Assistant Ingress."
 url: "https://dockhand.pro/manual/"
@@ -29,6 +29,9 @@ options:
   remember_ingress_users: false
   disable_whats_new: false
   compose_timeout: 900
+  registry_request_timeout: 10
+  disable_local_login: false
+  skip_df_collection: false
   trust_forwarded_headers: false
   origin: ""
 schema:
@@ -37,6 +40,10 @@ schema:
   remember_ingress_users: bool
   disable_whats_new: bool
   compose_timeout: int(1,)
+  minimum_release_age_hours: int(0,720)?
+  registry_request_timeout: int(1,600)
+  disable_local_login: bool
+  skip_df_collection: bool
   trust_forwarded_headers: bool
   origin: str
 map:

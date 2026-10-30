@@ -14,6 +14,18 @@ configuration:
   compose_timeout:
     name: Compose timeout
     description: Timeout for Docker Compose operations in seconds. Default is 900; increase for slow networks, large stacks or long stop grace periods.
+  minimum_release_age_hours:
+    name: Minimum image release age
+    description: Optional global override in hours (0–720). Unset uses Dockhand settings; 0 disables the cooldown.
+  registry_request_timeout:
+    name: Registry request timeout
+    description: Timeout per registry request in seconds (1–600). Defaults to 10; independent of stack update timeouts.
+  disable_local_login:
+    name: Disable local login
+    description: Disable local username/password login. Enable only after configuring and testing another sign-in method. Defaults to false.
+  skip_df_collection:
+    name: Skip disk usage collection
+    description: Skip collector disk usage requests when /system/df hangs. Defaults to false; disk usage statistics may be unavailable.
   trust_forwarded_headers:
     name: Trust forwarded headers
     description: Trust X-Forwarded-For and X-Real-IP for client IPs. Enable only behind a trusted reverse proxy, considering direct port access too. Default is false.

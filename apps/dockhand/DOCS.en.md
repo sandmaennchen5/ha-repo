@@ -48,7 +48,26 @@ Documentation: <https://dockhand.pro/manual/>
 | --- | --- | --- |
 | `disable_whats_new` | `DISABLE_WHATS_NEW` | `false` |
 | `compose_timeout` | `COMPOSE_TIMEOUT` | `900` seconds |
+| `minimum_release_age_hours` | `MINIMUM_RELEASE_AGE_HOURS` | unset (0–720 hours) |
+| `registry_request_timeout` | `REGISTRY_REQUEST_TIMEOUT` | `10` seconds (1–600) |
+| `disable_local_login` | `DISABLE_LOCAL_LOGIN` | `false` |
+| `skip_df_collection` | `SKIP_DF_COLLECTION` | `false` |
 | `trust_forwarded_headers` | `TRUST_FORWARDED_HEADERS` | `false` |
 | `origin` | `ORIGIN` | unset / leer |
 
 Restart the app after changes. Enable forwarded headers only behind a trusted reverse proxy, including access on direct port 3000. ORIGIN is the public scheme and host (with port if needed), without an Ingress path; passkeys require it and HTTPS except on localhost.
+
+## Hawser stack update timeout
+
+For HTTP stack requests to `/_hawser/compose`, the app also aligns Node/Undici
+header and body timeouts with `compose_timeout`. This prevents the HTTP client
+from failing after 300 seconds when, for example, 1800 seconds are configured.
+The caller's abort signal is preserved. Hawser's own `COMPOSE_TIMEOUT` must
+also allow enough time. Separate Edge WebSocket deadlines are unchanged.
+
+Leave `minimum_release_age_hours` unset to retain Dockhand's UI settings;
+a configured value overrides them globally. Enable `disable_local_login` only
+after testing an alternative sign-in method. `skip_df_collection` disables
+upstream collector disk usage requests, so disk statistics may be unavailable.
+When false, the variable is removed because any non-empty value enables it.
+This does not fix connectivity to unreachable agents.

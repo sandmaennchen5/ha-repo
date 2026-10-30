@@ -14,6 +14,18 @@ configuration:
   compose_timeout:
     name: Compose-Zeitlimit
     description: Zeitlimit für Docker-Compose-Vorgänge in Sekunden. Standard ist 900; bei langsamen Netzwerken, großen Stacks oder langen Stoppfristen erhöhen.
+  minimum_release_age_hours:
+    name: Mindestalter neuer Images
+    description: Optionaler globaler Override in Stunden (0–720). Ohne Wert gelten die Einstellungen in Dockhand; 0 deaktiviert die Wartezeit.
+  registry_request_timeout:
+    name: Registry-Zeitlimit
+    description: Zeitlimit je Registry-Anfrage in Sekunden (1–600). Standard ist 10; unabhängig vom Stack-Update-Zeitlimit.
+  disable_local_login:
+    name: Lokale Anmeldung deaktivieren
+    description: Lokale Benutzername/Passwort-Anmeldung sperren. Nur mit bereits eingerichtetem und geprüftem alternativem Anmeldeverfahren aktivieren. Standard ist false.
+  skip_df_collection:
+    name: Speicherbelegung nicht erfassen
+    description: Speicherabfragen des Collectors überspringen, wenn /system/df hängt. Standard ist false; Speicherstatistiken können fehlen.
   trust_forwarded_headers:
     name: Weitergeleiteten Headern vertrauen
     description: X-Forwarded-For und X-Real-IP für Client-IP-Adressen vertrauen. Nur hinter einem vertrauenswürdigen Reverse-Proxy aktivieren und direkten Portzugriff berücksichtigen. Standard ist false.

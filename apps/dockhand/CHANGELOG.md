@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.56.2] - 2026-10-30
+
+- Align HTTP Hawser compose header/body timeouts with COMPOSE_TIMEOUT, preserving dispatcher configuration and cancellation.
+- Add MINIMUM_RELEASE_AGE_HOURS, REGISTRY_REQUEST_TIMEOUT, DISABLE_LOCAL_LOGIN and SKIP_DF_COLLECTION options with German/English documentation.
+- Leave the release-age override unset by default and remove SKIP_DF_COLLECTION when disabled.
+
 
 ## [1.0.56.1] - 2026-10-30
 

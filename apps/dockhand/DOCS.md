@@ -59,7 +59,29 @@ Dokumentation: <https://dockhand.pro/manual/>
 | --- | --- | --- |
 | `disable_whats_new` | `DISABLE_WHATS_NEW` | `false` |
 | `compose_timeout` | `COMPOSE_TIMEOUT` | `900` seconds |
+| `minimum_release_age_hours` | `MINIMUM_RELEASE_AGE_HOURS` | unset (0–720 hours) |
+| `registry_request_timeout` | `REGISTRY_REQUEST_TIMEOUT` | `10` seconds (1–600) |
+| `disable_local_login` | `DISABLE_LOCAL_LOGIN` | `false` |
+| `skip_df_collection` | `SKIP_DF_COLLECTION` | `false` |
 | `trust_forwarded_headers` | `TRUST_FORWARDED_HEADERS` | `false` |
 | `origin` | `ORIGIN` | unset / leer |
 
 Nach Änderungen die App neu starten. Weitergeleiteten Headern nur hinter einem vertrauenswürdigen Reverse-Proxy vertrauen, auch bei direktem Zugriff auf Port 3000. ORIGIN enthält das öffentliche Schema und den Host (bei Bedarf mit Port), ohne Ingress-Pfad; Passkeys benötigen diese Angabe und HTTPS außer bei localhost.
+
+## Hawser-Timeout bei Stack-Updates
+
+Die App passt für HTTP-Stack-Aufrufe an `/_hawser/compose` zusätzlich die
+Header- und Body-Zeitlimits von Node/Undici an `compose_timeout` an. Damit
+bricht dieser HTTP-Client nicht schon nach 300 Sekunden ab, wenn zum Beispiel
+1800 Sekunden eingestellt sind. Das vorhandene Abbruchsignal bleibt erhalten.
+Hawsers eigenes `COMPOSE_TIMEOUT` muss ebenfalls ausreichend hoch sein.
+Dieser Fix ändert keine separate Edge-WebSocket-Zeitgrenze.
+
+`minimum_release_age_hours` ist optional: Ohne Wert bleiben Dockhands
+UI-Einstellungen wirksam; ein gesetzter Wert überschreibt sie global.
+`disable_local_login` sperrt die lokale Passwortanmeldung und sollte erst
+nach einem erfolgreichen Test einer alternativen Anmeldung aktiviert werden.
+`skip_df_collection` deaktiviert Speicherabfragen im Upstream-Collector;
+Speicherstatistiken können fehlen. Bei false wird die ENV-Variable entfernt,
+da der Collector jeden nicht leeren Wert als aktiviert interpretiert.
+Dies behebt keine Verbindungsfehler zu unerreichbaren Agenten.
