@@ -1,5 +1,5 @@
-ARG UPSTREAM_VERSION=3.89.11.20261029-444d857
-FROM ghcr.io/openccu/openccu:3.89.11.20261029-444d857@sha256:c1e622650b9eed920f532afa531369ff6cfdf88fd29bec8699ba7a5bf0563495
+ARG UPSTREAM_VERSION=3.89.11.20261030-cfd2925
+FROM ghcr.io/openccu/openccu:3.89.11.20261030-cfd2925@sha256:68e35f4fd5b4cd2c901733cd73af5dc88719e67e44923ec2f0e41be856b31399
 RUN echo "e4aa50ade7dec5ea0c2678c33bd6b90157baec7086a3043df0914c8d9c4108c5  /bin/ha-proxy.js" | sha256sum -c -
 COPY --chmod=755 rootfs/bin/ha-proxy.js /bin/ha-proxy.js
 RUN echo "45296948ffe25454ee33ed7eadfe06e2dd53067cbedfe976a951f4f4c1b431a2  /bin/ha-proxy.js" | sha256sum -c -
