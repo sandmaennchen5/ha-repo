@@ -1,0 +1,2272 @@
+[
+  {
+    "slug": "adsb-multi-portal-feeder",
+    "name": "ADS-B Multi-Portal Feeder",
+    "description": "Dump1090 based feeder for FlightRadar24, FlightAware and more",
+    "version": "2.9.0.1",
+    "stage": "stable",
+    "badges": [
+      {
+        "id": "ingress",
+        "label": "Ingress",
+        "value": "True",
+        "group": "ha",
+        "order": 100,
+        "url": "https://img.shields.io/badge/ingress-True-blue",
+        "markdown": "![Ingress](https://img.shields.io/badge/ingress-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "hassio_api",
+        "label": "Hass.io API",
+        "value": "True",
+        "group": "ha",
+        "order": 100,
+        "url": "https://img.shields.io/badge/hassio_api-True-blue",
+        "markdown": "![Hass.io API](https://img.shields.io/badge/hassio_api-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "homeassistant_api",
+        "label": "HA API",
+        "value": "True",
+        "group": "ha",
+        "order": 100,
+        "url": "https://img.shields.io/badge/ha_api-True-blue",
+        "markdown": "![HA API](https://img.shields.io/badge/ha_api-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "version",
+        "label": "Version",
+        "value": "v2.9.0.1",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/version-v2.9.0.1-blue",
+        "markdown": "![Version](https://img.shields.io/badge/version-v2.9.0.1-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "updated",
+        "label": "Updated",
+        "value": "2026--10--07",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/updated-2026--10--07-green",
+        "markdown": "![Updated](https://img.shields.io/badge/updated-2026--10--07-green)",
+        "color": "blue"
+      },
+      {
+        "id": "stage",
+        "label": "Stage",
+        "value": "stable",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/stage-stable-orange",
+        "markdown": "![Stage](https://img.shields.io/badge/stage-stable-orange)",
+        "color": "blue"
+      },
+      {
+        "id": "arch",
+        "label": "Arch",
+        "value": "aarch64, amd64",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/arch-aarch64%2C%20amd64-green",
+        "markdown": "![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)",
+        "color": "blue"
+      },
+      {
+        "id": "image_size",
+        "label": "Image Size",
+        "value": "249 MB",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/size-249_MB-informational",
+        "markdown": "![Image Size](https://img.shields.io/badge/size-249_MB-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_version",
+        "label": "Upstream",
+        "value": "v2.9.0",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/upstream-v2.9.0-yellow",
+        "markdown": "![Upstream](https://img.shields.io/badge/upstream-v2.9.0-yellow)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_repo",
+        "label": "Repo",
+        "value": "docker.io/thomx/fr24feed-piaware",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/repo-docker.io%2Fthomx%2Ffr24feed--piaware-informational",
+        "markdown": "![Repo](https://img.shields.io/badge/repo-docker.io%2Fthomx%2Ffr24feed--piaware-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_commit",
+        "label": "Commit",
+        "value": "sha256:9579f70397925b4d84c970dbe243b7dd21e4a30b382fd8713ec54d266a5e2bb2",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/commit-sha256%3A9579f70397925b4d84c970dbe243b7dd21e4a30b382fd8713ec54d266a5e2bb2-informational",
+        "markdown": "![Commit](https://img.shields.io/badge/commit-sha256%3A9579f70397925b4d84c970dbe243b7dd21e4a30b382fd8713ec54d266a5e2bb2-informational)",
+        "color": "blue"
+      }
+    ],
+    "real_badges": 11,
+    "green": 0,
+    "yellow": 11,
+    "red": 0,
+    "score": 50
+  },
+  {
+    "slug": "checkmk-agent",
+    "name": "Checkmk Agent",
+    "description": "Expose the Checkmk monitoring agent on port 6556.",
+    "version": "2.5.0.18.1",
+    "stage": "stable",
+    "badges": [
+      {
+        "id": "version",
+        "label": "Version",
+        "value": "v2.5.0.18.1",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/version-v2.5.0.18.1-blue",
+        "markdown": "![Version](https://img.shields.io/badge/version-v2.5.0.18.1-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "updated",
+        "label": "Updated",
+        "value": "2026--10--29",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/updated-2026--10--29-green",
+        "markdown": "![Updated](https://img.shields.io/badge/updated-2026--10--29-green)",
+        "color": "blue"
+      },
+      {
+        "id": "stage",
+        "label": "Stage",
+        "value": "stable",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/stage-stable-orange",
+        "markdown": "![Stage](https://img.shields.io/badge/stage-stable-orange)",
+        "color": "blue"
+      },
+      {
+        "id": "arch",
+        "label": "Arch",
+        "value": "aarch64, amd64",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/arch-aarch64%2C%20amd64-green",
+        "markdown": "![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)",
+        "color": "blue"
+      },
+      {
+        "id": "image_size",
+        "label": "Image Size",
+        "value": "12 MB",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/size-12_MB-informational",
+        "markdown": "![Image Size](https://img.shields.io/badge/size-12_MB-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_version",
+        "label": "Upstream",
+        "value": "v2.5.0p18",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/upstream-v2.5.0p18-yellow",
+        "markdown": "![Upstream](https://img.shields.io/badge/upstream-v2.5.0p18-yellow)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_repo",
+        "label": "Repo",
+        "value": "github.com/Checkmk/checkmk",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/repo-github.com%2FCheckmk%2Fcheckmk-informational",
+        "markdown": "![Repo](https://img.shields.io/badge/repo-github.com%2FCheckmk%2Fcheckmk-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_commit",
+        "label": "Commit",
+        "value": "2900492cbac10d389eb117de1363d01ce4849982",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/commit-2900492cbac10d389eb117de1363d01ce4849982-informational",
+        "markdown": "![Commit](https://img.shields.io/badge/commit-2900492cbac10d389eb117de1363d01ce4849982-informational)",
+        "color": "blue"
+      }
+    ],
+    "real_badges": 8,
+    "green": 0,
+    "yellow": 8,
+    "red": 0,
+    "score": 50
+  },
+  {
+    "slug": "dockhand",
+    "name": "Dockhand",
+    "description": "Modern Docker and Compose management with Home Assistant Ingress.",
+    "version": "1.0.56.2",
+    "stage": "experimental",
+    "badges": [
+      {
+        "id": "ingress",
+        "label": "Ingress",
+        "value": "True",
+        "group": "ha",
+        "order": 100,
+        "url": "https://img.shields.io/badge/ingress-True-blue",
+        "markdown": "![Ingress](https://img.shields.io/badge/ingress-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "version",
+        "label": "Version",
+        "value": "v1.0.56.2",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/version-v1.0.56.2-blue",
+        "markdown": "![Version](https://img.shields.io/badge/version-v1.0.56.2-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "updated",
+        "label": "Updated",
+        "value": "2026--10--30",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/updated-2026--10--30-green",
+        "markdown": "![Updated](https://img.shields.io/badge/updated-2026--10--30-green)",
+        "color": "blue"
+      },
+      {
+        "id": "stage",
+        "label": "Stage",
+        "value": "experimental",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/stage-experimental-orange",
+        "markdown": "![Stage](https://img.shields.io/badge/stage-experimental-orange)",
+        "color": "blue"
+      },
+      {
+        "id": "arch",
+        "label": "Arch",
+        "value": "aarch64, amd64",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/arch-aarch64%2C%20amd64-green",
+        "markdown": "![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)",
+        "color": "blue"
+      },
+      {
+        "id": "docker_api",
+        "label": "Docker API",
+        "value": "True",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/docker_api-True-blue",
+        "markdown": "![Docker API](https://img.shields.io/badge/docker_api-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "image_size",
+        "label": "Image Size",
+        "value": "206 MB",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/size-206_MB-informational",
+        "markdown": "![Image Size](https://img.shields.io/badge/size-206_MB-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_version",
+        "label": "Upstream",
+        "value": "v1.0.56",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/upstream-v1.0.56-yellow",
+        "markdown": "![Upstream](https://img.shields.io/badge/upstream-v1.0.56-yellow)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_repo",
+        "label": "Repo",
+        "value": "github.com/Finsys/dockhand",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/repo-github.com%2FFinsys%2Fdockhand-informational",
+        "markdown": "![Repo](https://img.shields.io/badge/repo-github.com%2FFinsys%2Fdockhand-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_commit",
+        "label": "Commit",
+        "value": "7cc274d50c7e98a1fa73f71f4792938e9b30eab8",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/commit-7cc274d50c7e98a1fa73f71f4792938e9b30eab8-informational",
+        "markdown": "![Commit](https://img.shields.io/badge/commit-7cc274d50c7e98a1fa73f71f4792938e9b30eab8-informational)",
+        "color": "blue"
+      }
+    ],
+    "real_badges": 10,
+    "green": 0,
+    "yellow": 10,
+    "red": 0,
+    "score": 50
+  },
+  {
+    "slug": "drydock",
+    "name": "Drydock",
+    "description": "Container update monitoring and automation with Home Assistant Ingress.",
+    "version": "1.7.0.1",
+    "stage": "experimental",
+    "badges": [
+      {
+        "id": "ingress",
+        "label": "Ingress",
+        "value": "True",
+        "group": "ha",
+        "order": 100,
+        "url": "https://img.shields.io/badge/ingress-True-blue",
+        "markdown": "![Ingress](https://img.shields.io/badge/ingress-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "version",
+        "label": "Version",
+        "value": "v1.7.0.1",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/version-v1.7.0.1-blue",
+        "markdown": "![Version](https://img.shields.io/badge/version-v1.7.0.1-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "updated",
+        "label": "Updated",
+        "value": "2026--10--19",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/updated-2026--10--19-green",
+        "markdown": "![Updated](https://img.shields.io/badge/updated-2026--10--19-green)",
+        "color": "blue"
+      },
+      {
+        "id": "stage",
+        "label": "Stage",
+        "value": "experimental",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/stage-experimental-orange",
+        "markdown": "![Stage](https://img.shields.io/badge/stage-experimental-orange)",
+        "color": "blue"
+      },
+      {
+        "id": "arch",
+        "label": "Arch",
+        "value": "aarch64, amd64",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/arch-aarch64%2C%20amd64-green",
+        "markdown": "![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)",
+        "color": "blue"
+      },
+      {
+        "id": "docker_api",
+        "label": "Docker API",
+        "value": "True",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/docker_api-True-blue",
+        "markdown": "![Docker API](https://img.shields.io/badge/docker_api-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "image_size",
+        "label": "Image Size",
+        "value": "152 MB",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/size-152_MB-informational",
+        "markdown": "![Image Size](https://img.shields.io/badge/size-152_MB-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_version",
+        "label": "Upstream",
+        "value": "v1.7.0",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/upstream-v1.7.0-yellow",
+        "markdown": "![Upstream](https://img.shields.io/badge/upstream-v1.7.0-yellow)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_repo",
+        "label": "Repo",
+        "value": "docker.io/codeswhat/drydock",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/repo-docker.io%2Fcodeswhat%2Fdrydock-informational",
+        "markdown": "![Repo](https://img.shields.io/badge/repo-docker.io%2Fcodeswhat%2Fdrydock-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_commit",
+        "label": "Commit",
+        "value": "sha256:c3646a3460a83c30f61e06945b1030c02e87f77526faa99d4b75f84d9364542d",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/commit-sha256%3Ac3646a3460a83c30f61e06945b1030c02e87f77526faa99d4b75f84d9364542d-informational",
+        "markdown": "![Commit](https://img.shields.io/badge/commit-sha256%3Ac3646a3460a83c30f61e06945b1030c02e87f77526faa99d4b75f84d9364542d-informational)",
+        "color": "blue"
+      }
+    ],
+    "real_badges": 10,
+    "green": 0,
+    "yellow": 10,
+    "red": 0,
+    "score": 50
+  },
+  {
+    "slug": "homey-shs",
+    "name": "Homey Self-Hosted Server",
+    "description": "Run Homey Self-Hosted Server on Home Assistant OS.",
+    "version": "13.5.3",
+    "stage": "stable",
+    "badges": [
+      {
+        "id": "ingress",
+        "label": "Ingress",
+        "value": "True",
+        "group": "ha",
+        "order": 100,
+        "url": "https://img.shields.io/badge/ingress-True-blue",
+        "markdown": "![Ingress](https://img.shields.io/badge/ingress-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "version",
+        "label": "Version",
+        "value": "v13.5.3",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/version-v13.5.3-blue",
+        "markdown": "![Version](https://img.shields.io/badge/version-v13.5.3-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "updated",
+        "label": "Updated",
+        "value": "2026--10--22",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/updated-2026--10--22-green",
+        "markdown": "![Updated](https://img.shields.io/badge/updated-2026--10--22-green)",
+        "color": "blue"
+      },
+      {
+        "id": "stage",
+        "label": "Stage",
+        "value": "stable",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/stage-stable-orange",
+        "markdown": "![Stage](https://img.shields.io/badge/stage-stable-orange)",
+        "color": "blue"
+      },
+      {
+        "id": "arch",
+        "label": "Arch",
+        "value": "aarch64, amd64",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/arch-aarch64%2C%20amd64-green",
+        "markdown": "![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)",
+        "color": "blue"
+      },
+      {
+        "id": "host_network",
+        "label": "Host Network",
+        "value": "True",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/host_network-True-blue",
+        "markdown": "![Host Network](https://img.shields.io/badge/host_network-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "image_size",
+        "label": "Image Size",
+        "value": "283 MB",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/size-283_MB-informational",
+        "markdown": "![Image Size](https://img.shields.io/badge/size-283_MB-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_version",
+        "label": "Upstream",
+        "value": "v13.5.3",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/upstream-v13.5.3-yellow",
+        "markdown": "![Upstream](https://img.shields.io/badge/upstream-v13.5.3-yellow)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_repo",
+        "label": "Repo",
+        "value": "ghcr.io/athombv/homey-shs",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/repo-ghcr.io%2Fathombv%2Fhomey--shs-informational",
+        "markdown": "![Repo](https://img.shields.io/badge/repo-ghcr.io%2Fathombv%2Fhomey--shs-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_commit",
+        "label": "Commit",
+        "value": "sha256:9024190dae9bc0e500046fb016f6c52d57e333469a5cb2748fe9a2ae5f5020d5",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/commit-sha256%3A9024190dae9bc0e500046fb016f6c52d57e333469a5cb2748fe9a2ae5f5020d5-informational",
+        "markdown": "![Commit](https://img.shields.io/badge/commit-sha256%3A9024190dae9bc0e500046fb016f6c52d57e333469a5cb2748fe9a2ae5f5020d5-informational)",
+        "color": "blue"
+      }
+    ],
+    "real_badges": 10,
+    "green": 0,
+    "yellow": 10,
+    "red": 0,
+    "score": 50
+  },
+  {
+    "slug": "openccu",
+    "name": "OpenCCU (HA Repo)",
+    "description": "HomeMatic/homematicIP CCU central based on OpenCCU",
+    "version": "3.89.11.20260919-ha1",
+    "stage": "experimental",
+    "badges": [
+      {
+        "id": "ingress",
+        "label": "Ingress",
+        "value": "True",
+        "group": "ha",
+        "order": 100,
+        "url": "https://img.shields.io/badge/ingress-True-blue",
+        "markdown": "![Ingress](https://img.shields.io/badge/ingress-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "version",
+        "label": "Version",
+        "value": "v3.89.11.20260919-ha1",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/version-v3.89.11.20260919-ha1-blue",
+        "markdown": "![Version](https://img.shields.io/badge/version-v3.89.11.20260919-ha1-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "updated",
+        "label": "Updated",
+        "value": "2026--09--20",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/updated-2026--09--20-green",
+        "markdown": "![Updated](https://img.shields.io/badge/updated-2026--09--20-green)",
+        "color": "blue"
+      },
+      {
+        "id": "stage",
+        "label": "Stage",
+        "value": "experimental",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/stage-experimental-orange",
+        "markdown": "![Stage](https://img.shields.io/badge/stage-experimental-orange)",
+        "color": "blue"
+      },
+      {
+        "id": "privileged",
+        "label": "Privileged",
+        "value": "IPC_LOCK|SYS_ADMIN|SYS_RAWIO|SYS_RESOURCE|NET_ADMIN",
+        "group": "security",
+        "order": 100,
+        "url": "https://img.shields.io/badge/privileged-IPC_LOCK%7CSYS_ADMIN%7CSYS_RAWIO%7CSYS_RESOURCE%7CNET_ADMIN-red",
+        "markdown": "![Privileged](https://img.shields.io/badge/privileged-IPC_LOCK%7CSYS_ADMIN%7CSYS_RAWIO%7CSYS_RESOURCE%7CNET_ADMIN-red)",
+        "color": "blue"
+      },
+      {
+        "id": "arch",
+        "label": "Arch",
+        "value": "aarch64, amd64",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/arch-aarch64%2C%20amd64-green",
+        "markdown": "![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)",
+        "color": "blue"
+      },
+      {
+        "id": "kernel_modules",
+        "label": "Kernel Modules",
+        "value": "True",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/kernel_modules-True-blue",
+        "markdown": "![Kernel Modules](https://img.shields.io/badge/kernel_modules-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_version",
+        "label": "Upstream",
+        "value": "v3.89.11.20260919",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/upstream-v3.89.11.20260919-yellow",
+        "markdown": "![Upstream](https://img.shields.io/badge/upstream-v3.89.11.20260919-yellow)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_repo",
+        "label": "Repo",
+        "value": "https://github.com/OpenCCU/OpenCCU",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/repo-https%3A%2F%2Fgithub.com%2FOpenCCU%2FOpenCCU-informational",
+        "markdown": "![Repo](https://img.shields.io/badge/repo-https%3A%2F%2Fgithub.com%2FOpenCCU%2FOpenCCU-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_commit",
+        "label": "Commit",
+        "value": "sha256:3cfcb30e1921b36812cf1adc49dbc7aaca21079c1818450a7f18491e891077c8",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/commit-sha256%3A3cfcb30e1921b36812cf1adc49dbc7aaca21079c1818450a7f18491e891077c8-informational",
+        "markdown": "![Commit](https://img.shields.io/badge/commit-sha256%3A3cfcb30e1921b36812cf1adc49dbc7aaca21079c1818450a7f18491e891077c8-informational)",
+        "color": "blue"
+      }
+    ],
+    "real_badges": 10,
+    "green": 0,
+    "yellow": 10,
+    "red": 0,
+    "score": 50
+  },
+  {
+    "slug": "openccu-proxy",
+    "name": "OpenCCU (Proxy) (HA Repo)",
+    "description": "Proxy to externally running OpenCCU",
+    "version": "0.7.0-ha3",
+    "stage": "experimental",
+    "badges": [
+      {
+        "id": "ingress",
+        "label": "Ingress",
+        "value": "True",
+        "group": "ha",
+        "order": 100,
+        "url": "https://img.shields.io/badge/ingress-True-blue",
+        "markdown": "![Ingress](https://img.shields.io/badge/ingress-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "version",
+        "label": "Version",
+        "value": "v0.7.0-ha3",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/version-v0.7.0-ha3-blue",
+        "markdown": "![Version](https://img.shields.io/badge/version-v0.7.0-ha3-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "updated",
+        "label": "Updated",
+        "value": "2026--08--27",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/updated-2026--08--27-green",
+        "markdown": "![Updated](https://img.shields.io/badge/updated-2026--08--27-green)",
+        "color": "blue"
+      },
+      {
+        "id": "stage",
+        "label": "Stage",
+        "value": "experimental",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/stage-experimental-orange",
+        "markdown": "![Stage](https://img.shields.io/badge/stage-experimental-orange)",
+        "color": "blue"
+      },
+      {
+        "id": "arch",
+        "label": "Arch",
+        "value": "aarch64, amd64",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/arch-aarch64%2C%20amd64-green",
+        "markdown": "![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)",
+        "color": "blue"
+      },
+      {
+        "id": "image_size",
+        "label": "Image Size",
+        "value": "57 MB",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/size-57_MB-informational",
+        "markdown": "![Image Size](https://img.shields.io/badge/size-57_MB-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_version",
+        "label": "Upstream",
+        "value": "v0.7.0",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/upstream-v0.7.0-yellow",
+        "markdown": "![Upstream](https://img.shields.io/badge/upstream-v0.7.0-yellow)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_repo",
+        "label": "Repo",
+        "value": "https://github.com/OpenCCU/OpenCCU",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/repo-https%3A%2F%2Fgithub.com%2FOpenCCU%2FOpenCCU-informational",
+        "markdown": "![Repo](https://img.shields.io/badge/repo-https%3A%2F%2Fgithub.com%2FOpenCCU%2FOpenCCU-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_commit",
+        "label": "Commit",
+        "value": "sha256:4ea40c4b0bfa2cfdbb531d4eb2b721d532bc1964bb497a434f8f4aecc233c733",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/commit-sha256%3A4ea40c4b0bfa2cfdbb531d4eb2b721d532bc1964bb497a434f8f4aecc233c733-informational",
+        "markdown": "![Commit](https://img.shields.io/badge/commit-sha256%3A4ea40c4b0bfa2cfdbb531d4eb2b721d532bc1964bb497a434f8f4aecc233c733-informational)",
+        "color": "blue"
+      }
+    ],
+    "real_badges": 9,
+    "green": 0,
+    "yellow": 9,
+    "red": 0,
+    "score": 50
+  },
+  {
+    "slug": "openccu-dev",
+    "name": "OpenCCU (snapshot) (HA Repo)",
+    "description": "HomeMatic/homematicIP CCU central based on OpenCCU (Snapshot)",
+    "version": "3.89.11.20261030-cfd2925-ha1",
+    "stage": "experimental",
+    "badges": [
+      {
+        "id": "ingress",
+        "label": "Ingress",
+        "value": "True",
+        "group": "ha",
+        "order": 100,
+        "url": "https://img.shields.io/badge/ingress-True-blue",
+        "markdown": "![Ingress](https://img.shields.io/badge/ingress-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "version",
+        "label": "Version",
+        "value": "v3.89.11.20261030-cfd2925-ha1",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/version-v3.89.11.20261030-cfd2925-ha1-blue",
+        "markdown": "![Version](https://img.shields.io/badge/version-v3.89.11.20261030-cfd2925-ha1-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "updated",
+        "label": "Updated",
+        "value": "2026--10--30",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/updated-2026--10--30-green",
+        "markdown": "![Updated](https://img.shields.io/badge/updated-2026--10--30-green)",
+        "color": "blue"
+      },
+      {
+        "id": "stage",
+        "label": "Stage",
+        "value": "experimental",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/stage-experimental-orange",
+        "markdown": "![Stage](https://img.shields.io/badge/stage-experimental-orange)",
+        "color": "blue"
+      },
+      {
+        "id": "privileged",
+        "label": "Privileged",
+        "value": "IPC_LOCK|SYS_ADMIN|SYS_RAWIO|SYS_RESOURCE|NET_ADMIN",
+        "group": "security",
+        "order": 100,
+        "url": "https://img.shields.io/badge/privileged-IPC_LOCK%7CSYS_ADMIN%7CSYS_RAWIO%7CSYS_RESOURCE%7CNET_ADMIN-red",
+        "markdown": "![Privileged](https://img.shields.io/badge/privileged-IPC_LOCK%7CSYS_ADMIN%7CSYS_RAWIO%7CSYS_RESOURCE%7CNET_ADMIN-red)",
+        "color": "blue"
+      },
+      {
+        "id": "arch",
+        "label": "Arch",
+        "value": "aarch64, amd64",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/arch-aarch64%2C%20amd64-green",
+        "markdown": "![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)",
+        "color": "blue"
+      },
+      {
+        "id": "kernel_modules",
+        "label": "Kernel Modules",
+        "value": "True",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/kernel_modules-True-blue",
+        "markdown": "![Kernel Modules](https://img.shields.io/badge/kernel_modules-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_version",
+        "label": "Upstream",
+        "value": "v3.89.11.20261030-cfd2925",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/upstream-v3.89.11.20261030-cfd2925-yellow",
+        "markdown": "![Upstream](https://img.shields.io/badge/upstream-v3.89.11.20261030-cfd2925-yellow)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_repo",
+        "label": "Repo",
+        "value": "https://github.com/OpenCCU/OpenCCU",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/repo-https%3A%2F%2Fgithub.com%2FOpenCCU%2FOpenCCU-informational",
+        "markdown": "![Repo](https://img.shields.io/badge/repo-https%3A%2F%2Fgithub.com%2FOpenCCU%2FOpenCCU-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_commit",
+        "label": "Commit",
+        "value": "sha256:68e35f4fd5b4cd2c901733cd73af5dc88719e67e44923ec2f0e41be856b31399",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/commit-sha256%3A68e35f4fd5b4cd2c901733cd73af5dc88719e67e44923ec2f0e41be856b31399-informational",
+        "markdown": "![Commit](https://img.shields.io/badge/commit-sha256%3A68e35f4fd5b4cd2c901733cd73af5dc88719e67e44923ec2f0e41be856b31399-informational)",
+        "color": "blue"
+      }
+    ],
+    "real_badges": 10,
+    "green": 0,
+    "yellow": 10,
+    "red": 0,
+    "score": 50
+  },
+  {
+    "slug": "openccu-hapdrap",
+    "name": "OpenCCU HAP/DRAP-Helper (HA Repo)",
+    "description": "OpenCCU Helper App for HmIP-HAP / HmIPW-DRAP connectivity",
+    "version": "0.3.1-ha1",
+    "stage": "experimental",
+    "badges": [
+      {
+        "id": "version",
+        "label": "Version",
+        "value": "v0.3.1-ha1",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/version-v0.3.1-ha1-blue",
+        "markdown": "![Version](https://img.shields.io/badge/version-v0.3.1-ha1-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "updated",
+        "label": "Updated",
+        "value": "2026--08--27",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/updated-2026--08--27-green",
+        "markdown": "![Updated](https://img.shields.io/badge/updated-2026--08--27-green)",
+        "color": "blue"
+      },
+      {
+        "id": "stage",
+        "label": "Stage",
+        "value": "experimental",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/stage-experimental-orange",
+        "markdown": "![Stage](https://img.shields.io/badge/stage-experimental-orange)",
+        "color": "blue"
+      },
+      {
+        "id": "arch",
+        "label": "Arch",
+        "value": "aarch64, amd64",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/arch-aarch64%2C%20amd64-green",
+        "markdown": "![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)",
+        "color": "blue"
+      },
+      {
+        "id": "host_network",
+        "label": "Host Network",
+        "value": "True",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/host_network-True-blue",
+        "markdown": "![Host Network](https://img.shields.io/badge/host_network-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "docker_api",
+        "label": "Docker API",
+        "value": "True",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/docker_api-True-blue",
+        "markdown": "![Docker API](https://img.shields.io/badge/docker_api-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "image_size",
+        "label": "Image Size",
+        "value": "21 MB",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/size-21_MB-informational",
+        "markdown": "![Image Size](https://img.shields.io/badge/size-21_MB-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_version",
+        "label": "Upstream",
+        "value": "v0.3.1",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/upstream-v0.3.1-yellow",
+        "markdown": "![Upstream](https://img.shields.io/badge/upstream-v0.3.1-yellow)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_repo",
+        "label": "Repo",
+        "value": "https://github.com/OpenCCU/OpenCCU",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/repo-https%3A%2F%2Fgithub.com%2FOpenCCU%2FOpenCCU-informational",
+        "markdown": "![Repo](https://img.shields.io/badge/repo-https%3A%2F%2Fgithub.com%2FOpenCCU%2FOpenCCU-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_commit",
+        "label": "Commit",
+        "value": "sha256:d433ff395bed9a64075c8d341fb9196dc3fc1b312c2e7cf79e79ef63a18b0f1c",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/commit-sha256%3Ad433ff395bed9a64075c8d341fb9196dc3fc1b312c2e7cf79e79ef63a18b0f1c-informational",
+        "markdown": "![Commit](https://img.shields.io/badge/commit-sha256%3Ad433ff395bed9a64075c8d341fb9196dc3fc1b312c2e7cf79e79ef63a18b0f1c-informational)",
+        "color": "blue"
+      }
+    ],
+    "real_badges": 10,
+    "green": 0,
+    "yellow": 10,
+    "red": 0,
+    "score": 50
+  },
+  {
+    "slug": "pangolin-cli",
+    "name": "Pangolin - CLI",
+    "description": "Official Pangolin CLI and WireGuard VPN client and Site Connector for Linux.",
+    "version": "0.19.1.1",
+    "stage": "stable",
+    "badges": [
+      {
+        "id": "version",
+        "label": "Version",
+        "value": "v0.19.1.1",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/version-v0.19.1.1-blue",
+        "markdown": "![Version](https://img.shields.io/badge/version-v0.19.1.1-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "updated",
+        "label": "Updated",
+        "value": "2026--10--27",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/updated-2026--10--27-green",
+        "markdown": "![Updated](https://img.shields.io/badge/updated-2026--10--27-green)",
+        "color": "blue"
+      },
+      {
+        "id": "stage",
+        "label": "Stage",
+        "value": "stable",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/stage-stable-orange",
+        "markdown": "![Stage](https://img.shields.io/badge/stage-stable-orange)",
+        "color": "blue"
+      },
+      {
+        "id": "privileged",
+        "label": "Privileged",
+        "value": "NET_ADMIN",
+        "group": "security",
+        "order": 100,
+        "url": "https://img.shields.io/badge/privileged-NET_ADMIN-red",
+        "markdown": "![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN-red)",
+        "color": "blue"
+      },
+      {
+        "id": "arch",
+        "label": "Arch",
+        "value": "aarch64, amd64",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/arch-aarch64%2C%20amd64-green",
+        "markdown": "![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)",
+        "color": "blue"
+      },
+      {
+        "id": "host_network",
+        "label": "Host Network",
+        "value": "True",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/host_network-True-blue",
+        "markdown": "![Host Network](https://img.shields.io/badge/host_network-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "docker_api",
+        "label": "Docker API",
+        "value": "True",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/docker_api-True-blue",
+        "markdown": "![Docker API](https://img.shields.io/badge/docker_api-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "image_size",
+        "label": "Image Size",
+        "value": "29 MB",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/size-29_MB-informational",
+        "markdown": "![Image Size](https://img.shields.io/badge/size-29_MB-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_version",
+        "label": "Upstream",
+        "value": "v0.19.1",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/upstream-v0.19.1-yellow",
+        "markdown": "![Upstream](https://img.shields.io/badge/upstream-v0.19.1-yellow)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_repo",
+        "label": "Repo",
+        "value": "github.com/fosrl/cli",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/repo-github.com%2Ffosrl%2Fcli-informational",
+        "markdown": "![Repo](https://img.shields.io/badge/repo-github.com%2Ffosrl%2Fcli-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_commit",
+        "label": "Commit",
+        "value": "e42ed53201005ea0d03119aac1fc349c32f668c5",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/commit-e42ed53201005ea0d03119aac1fc349c32f668c5-informational",
+        "markdown": "![Commit](https://img.shields.io/badge/commit-e42ed53201005ea0d03119aac1fc349c32f668c5-informational)",
+        "color": "blue"
+      }
+    ],
+    "real_badges": 11,
+    "green": 0,
+    "yellow": 11,
+    "red": 0,
+    "score": 50
+  },
+  {
+    "slug": "pangolin-newt",
+    "name": "Pangolin - Newt Tunnel",
+    "description": "Secure remote access with Pangolin tunnels.",
+    "version": "1.19.0",
+    "stage": "deprecated",
+    "badges": [
+      {
+        "id": "version",
+        "label": "Version",
+        "value": "v1.19.0",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/version-v1.19.0-blue",
+        "markdown": "![Version](https://img.shields.io/badge/version-v1.19.0-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "updated",
+        "label": "Updated",
+        "value": "2026--10--20",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/updated-2026--10--20-green",
+        "markdown": "![Updated](https://img.shields.io/badge/updated-2026--10--20-green)",
+        "color": "blue"
+      },
+      {
+        "id": "stage",
+        "label": "Stage",
+        "value": "deprecated",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/stage-deprecated-orange",
+        "markdown": "![Stage](https://img.shields.io/badge/stage-deprecated-orange)",
+        "color": "blue"
+      },
+      {
+        "id": "privileged",
+        "label": "Privileged",
+        "value": "NET_ADMIN|SYS_MODULE",
+        "group": "security",
+        "order": 100,
+        "url": "https://img.shields.io/badge/privileged-NET_ADMIN%7CSYS_MODULE-red",
+        "markdown": "![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN%7CSYS_MODULE-red)",
+        "color": "blue"
+      },
+      {
+        "id": "arch",
+        "label": "Arch",
+        "value": "aarch64, amd64",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/arch-aarch64%2C%20amd64-green",
+        "markdown": "![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)",
+        "color": "blue"
+      },
+      {
+        "id": "host_network",
+        "label": "Host Network",
+        "value": "True",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/host_network-True-blue",
+        "markdown": "![Host Network](https://img.shields.io/badge/host_network-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "docker_api",
+        "label": "Docker API",
+        "value": "True",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/docker_api-True-blue",
+        "markdown": "![Docker API](https://img.shields.io/badge/docker_api-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "kernel_modules",
+        "label": "Kernel Modules",
+        "value": "True",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/kernel_modules-True-blue",
+        "markdown": "![Kernel Modules](https://img.shields.io/badge/kernel_modules-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "image_size",
+        "label": "Image Size",
+        "value": "36 MB",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/size-36_MB-informational",
+        "markdown": "![Image Size](https://img.shields.io/badge/size-36_MB-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_version",
+        "label": "Upstream",
+        "value": "v1.19.0",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/upstream-v1.19.0-yellow",
+        "markdown": "![Upstream](https://img.shields.io/badge/upstream-v1.19.0-yellow)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_repo",
+        "label": "Repo",
+        "value": "github.com/fosrl/newt",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/repo-github.com%2Ffosrl%2Fnewt-informational",
+        "markdown": "![Repo](https://img.shields.io/badge/repo-github.com%2Ffosrl%2Fnewt-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_commit",
+        "label": "Commit",
+        "value": "329d6a1c6509aa0769fa5bf3b8437518fc4e83df",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/commit-329d6a1c6509aa0769fa5bf3b8437518fc4e83df-informational",
+        "markdown": "![Commit](https://img.shields.io/badge/commit-329d6a1c6509aa0769fa5bf3b8437518fc4e83df-informational)",
+        "color": "blue"
+      }
+    ],
+    "real_badges": 12,
+    "green": 0,
+    "yellow": 12,
+    "red": 0,
+    "score": 50
+  },
+  {
+    "slug": "pangolin-olm",
+    "name": "Pangolin - Olm Client",
+    "description": "Advanced WireGuard client for remote access to Pangolin and Newt sites.",
+    "version": "1.10.1.1",
+    "stage": "deprecated",
+    "badges": [
+      {
+        "id": "version",
+        "label": "Version",
+        "value": "v1.10.1.1",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/version-v1.10.1.1-blue",
+        "markdown": "![Version](https://img.shields.io/badge/version-v1.10.1.1-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "updated",
+        "label": "Updated",
+        "value": "2026--10--02",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/updated-2026--10--02-green",
+        "markdown": "![Updated](https://img.shields.io/badge/updated-2026--10--02-green)",
+        "color": "blue"
+      },
+      {
+        "id": "stage",
+        "label": "Stage",
+        "value": "deprecated",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/stage-deprecated-orange",
+        "markdown": "![Stage](https://img.shields.io/badge/stage-deprecated-orange)",
+        "color": "blue"
+      },
+      {
+        "id": "privileged",
+        "label": "Privileged",
+        "value": "NET_ADMIN|SYS_MODULE",
+        "group": "security",
+        "order": 100,
+        "url": "https://img.shields.io/badge/privileged-NET_ADMIN%7CSYS_MODULE-red",
+        "markdown": "![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN%7CSYS_MODULE-red)",
+        "color": "blue"
+      },
+      {
+        "id": "arch",
+        "label": "Arch",
+        "value": "aarch64, amd64",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/arch-aarch64%2C%20amd64-green",
+        "markdown": "![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)",
+        "color": "blue"
+      },
+      {
+        "id": "host_network",
+        "label": "Host Network",
+        "value": "True",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/host_network-True-blue",
+        "markdown": "![Host Network](https://img.shields.io/badge/host_network-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "kernel_modules",
+        "label": "Kernel Modules",
+        "value": "True",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/kernel_modules-True-blue",
+        "markdown": "![Kernel Modules](https://img.shields.io/badge/kernel_modules-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "image_size",
+        "label": "Image Size",
+        "value": "28 MB",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/size-28_MB-informational",
+        "markdown": "![Image Size](https://img.shields.io/badge/size-28_MB-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_version",
+        "label": "Upstream",
+        "value": "v1.10.1",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/upstream-v1.10.1-yellow",
+        "markdown": "![Upstream](https://img.shields.io/badge/upstream-v1.10.1-yellow)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_repo",
+        "label": "Repo",
+        "value": "github.com/fosrl/olm",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/repo-github.com%2Ffosrl%2Folm-informational",
+        "markdown": "![Repo](https://img.shields.io/badge/repo-github.com%2Ffosrl%2Folm-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_commit",
+        "label": "Commit",
+        "value": "4901fde4b1850b56026b9740f34032dab37e7794",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/commit-4901fde4b1850b56026b9740f34032dab37e7794-informational",
+        "markdown": "![Commit](https://img.shields.io/badge/commit-4901fde4b1850b56026b9740f34032dab37e7794-informational)",
+        "color": "blue"
+      }
+    ],
+    "real_badges": 11,
+    "green": 0,
+    "yellow": 11,
+    "red": 0,
+    "score": 50
+  },
+  {
+    "slug": "portainer",
+    "name": "Portainer (Edition Selector)",
+    "description": "Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.",
+    "version": "2026.10.4",
+    "stage": "stable",
+    "badges": [
+      {
+        "id": "ingress",
+        "label": "Ingress",
+        "value": "True",
+        "group": "ha",
+        "order": 100,
+        "url": "https://img.shields.io/badge/ingress-True-blue",
+        "markdown": "![Ingress](https://img.shields.io/badge/ingress-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "version",
+        "label": "Version",
+        "value": "v2026.10.4",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/version-v2026.10.4-blue",
+        "markdown": "![Version](https://img.shields.io/badge/version-v2026.10.4-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "updated",
+        "label": "Updated",
+        "value": "2026--10--29",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/updated-2026--10--29-green",
+        "markdown": "![Updated](https://img.shields.io/badge/updated-2026--10--29-green)",
+        "color": "blue"
+      },
+      {
+        "id": "stage",
+        "label": "Stage",
+        "value": "stable",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/stage-stable-orange",
+        "markdown": "![Stage](https://img.shields.io/badge/stage-stable-orange)",
+        "color": "blue"
+      },
+      {
+        "id": "arch",
+        "label": "Arch",
+        "value": "aarch64, amd64",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/arch-aarch64%2C%20amd64-green",
+        "markdown": "![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)",
+        "color": "blue"
+      },
+      {
+        "id": "docker_api",
+        "label": "Docker API",
+        "value": "True",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/docker_api-True-blue",
+        "markdown": "![Docker API](https://img.shields.io/badge/docker_api-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "image_size",
+        "label": "Image Size",
+        "value": "224 MB",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/size-224_MB-informational",
+        "markdown": "![Image Size](https://img.shields.io/badge/size-224_MB-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_version",
+        "label": "Upstream",
+        "value": "v2.45.3",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/upstream-v2.45.3-yellow",
+        "markdown": "![Upstream](https://img.shields.io/badge/upstream-v2.45.3-yellow)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_repo",
+        "label": "Repo",
+        "value": "docker.io/portainer/portainer-ce",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fportainer--ce-informational",
+        "markdown": "![Repo](https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fportainer--ce-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_commit",
+        "label": "Commit",
+        "value": "sha256:3d2e116d0aab38f13ee2b893e4fd931e69a09574eee0b597711a68d76754cce1",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/commit-sha256%3A3d2e116d0aab38f13ee2b893e4fd931e69a09574eee0b597711a68d76754cce1-informational",
+        "markdown": "![Commit](https://img.shields.io/badge/commit-sha256%3A3d2e116d0aab38f13ee2b893e4fd931e69a09574eee0b597711a68d76754cce1-informational)",
+        "color": "blue"
+      }
+    ],
+    "real_badges": 10,
+    "green": 0,
+    "yellow": 10,
+    "red": 0,
+    "score": 50
+  },
+  {
+    "slug": "portainer-agent",
+    "name": "Portainer Agent (Channel Selector)",
+    "description": "Portainer Agent with selectable LTS/STS channel.",
+    "version": "2026.10.4",
+    "stage": "stable",
+    "badges": [
+      {
+        "id": "version",
+        "label": "Version",
+        "value": "v2026.10.4",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/version-v2026.10.4-blue",
+        "markdown": "![Version](https://img.shields.io/badge/version-v2026.10.4-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "updated",
+        "label": "Updated",
+        "value": "2026--10--29",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/updated-2026--10--29-green",
+        "markdown": "![Updated](https://img.shields.io/badge/updated-2026--10--29-green)",
+        "color": "blue"
+      },
+      {
+        "id": "stage",
+        "label": "Stage",
+        "value": "stable",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/stage-stable-orange",
+        "markdown": "![Stage](https://img.shields.io/badge/stage-stable-orange)",
+        "color": "blue"
+      },
+      {
+        "id": "arch",
+        "label": "Arch",
+        "value": "aarch64, amd64",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/arch-aarch64%2C%20amd64-green",
+        "markdown": "![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)",
+        "color": "blue"
+      },
+      {
+        "id": "docker_api",
+        "label": "Docker API",
+        "value": "True",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/docker_api-True-blue",
+        "markdown": "![Docker API](https://img.shields.io/badge/docker_api-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "image_size",
+        "label": "Image Size",
+        "value": "75 MB",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/size-75_MB-informational",
+        "markdown": "![Image Size](https://img.shields.io/badge/size-75_MB-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_version",
+        "label": "Upstream",
+        "value": "v3.0.0",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/upstream-v3.0.0-yellow",
+        "markdown": "![Upstream](https://img.shields.io/badge/upstream-v3.0.0-yellow)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_repo",
+        "label": "Repo",
+        "value": "docker.io/portainer/agent",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fagent-informational",
+        "markdown": "![Repo](https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fagent-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_commit",
+        "label": "Commit",
+        "value": "sha256:477ea01e8cd1354a231e1d5c8c6c28e9e0f6b85c49ca7b8442b27717c5dd0b6d",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/commit-sha256%3A477ea01e8cd1354a231e1d5c8c6c28e9e0f6b85c49ca7b8442b27717c5dd0b6d-informational",
+        "markdown": "![Commit](https://img.shields.io/badge/commit-sha256%3A477ea01e8cd1354a231e1d5c8c6c28e9e0f6b85c49ca7b8442b27717c5dd0b6d-informational)",
+        "color": "blue"
+      }
+    ],
+    "real_badges": 9,
+    "green": 0,
+    "yellow": 9,
+    "red": 0,
+    "score": 50
+  },
+  {
+    "slug": "portainer-agent-lts",
+    "name": "Portainer Agent LTS",
+    "description": "Portainer Agent with selectable LTS/STS channel.",
+    "version": "2.45.3.1",
+    "stage": "deprecated",
+    "badges": [
+      {
+        "id": "version",
+        "label": "Version",
+        "value": "v2.45.3.1",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/version-v2.45.3.1-blue",
+        "markdown": "![Version](https://img.shields.io/badge/version-v2.45.3.1-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "updated",
+        "label": "Updated",
+        "value": "2026--10--21",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/updated-2026--10--21-green",
+        "markdown": "![Updated](https://img.shields.io/badge/updated-2026--10--21-green)",
+        "color": "blue"
+      },
+      {
+        "id": "stage",
+        "label": "Stage",
+        "value": "deprecated",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/stage-deprecated-orange",
+        "markdown": "![Stage](https://img.shields.io/badge/stage-deprecated-orange)",
+        "color": "blue"
+      },
+      {
+        "id": "arch",
+        "label": "Arch",
+        "value": "aarch64, amd64",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/arch-aarch64%2C%20amd64-green",
+        "markdown": "![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)",
+        "color": "blue"
+      },
+      {
+        "id": "docker_api",
+        "label": "Docker API",
+        "value": "True",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/docker_api-True-blue",
+        "markdown": "![Docker API](https://img.shields.io/badge/docker_api-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "image_size",
+        "label": "Image Size",
+        "value": "42 MB",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/size-42_MB-informational",
+        "markdown": "![Image Size](https://img.shields.io/badge/size-42_MB-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_version",
+        "label": "Upstream",
+        "value": "v2.45.3",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/upstream-v2.45.3-yellow",
+        "markdown": "![Upstream](https://img.shields.io/badge/upstream-v2.45.3-yellow)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_repo",
+        "label": "Repo",
+        "value": "docker.io/portainer/agent",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fagent-informational",
+        "markdown": "![Repo](https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fagent-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_commit",
+        "label": "Commit",
+        "value": "sha256:68d58b68690790b8782a6d0021f7ec47b46b59693b31affd8a1f197737a512d6",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/commit-sha256%3A68d58b68690790b8782a6d0021f7ec47b46b59693b31affd8a1f197737a512d6-informational",
+        "markdown": "![Commit](https://img.shields.io/badge/commit-sha256%3A68d58b68690790b8782a6d0021f7ec47b46b59693b31affd8a1f197737a512d6-informational)",
+        "color": "blue"
+      }
+    ],
+    "real_badges": 9,
+    "green": 0,
+    "yellow": 9,
+    "red": 0,
+    "score": 50
+  },
+  {
+    "slug": "portainer-agent-sts",
+    "name": "Portainer Agent STS",
+    "description": "Portainer Agent with selectable LTS/STS channel.",
+    "version": "3.0.0.1",
+    "stage": "deprecated",
+    "badges": [
+      {
+        "id": "version",
+        "label": "Version",
+        "value": "v3.0.0.1",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/version-v3.0.0.1-blue",
+        "markdown": "![Version](https://img.shields.io/badge/version-v3.0.0.1-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "updated",
+        "label": "Updated",
+        "value": "2026--10--28",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/updated-2026--10--28-green",
+        "markdown": "![Updated](https://img.shields.io/badge/updated-2026--10--28-green)",
+        "color": "blue"
+      },
+      {
+        "id": "stage",
+        "label": "Stage",
+        "value": "deprecated",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/stage-deprecated-orange",
+        "markdown": "![Stage](https://img.shields.io/badge/stage-deprecated-orange)",
+        "color": "blue"
+      },
+      {
+        "id": "arch",
+        "label": "Arch",
+        "value": "aarch64, amd64",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/arch-aarch64%2C%20amd64-green",
+        "markdown": "![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)",
+        "color": "blue"
+      },
+      {
+        "id": "docker_api",
+        "label": "Docker API",
+        "value": "True",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/docker_api-True-blue",
+        "markdown": "![Docker API](https://img.shields.io/badge/docker_api-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "image_size",
+        "label": "Image Size",
+        "value": "42 MB",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/size-42_MB-informational",
+        "markdown": "![Image Size](https://img.shields.io/badge/size-42_MB-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_version",
+        "label": "Upstream",
+        "value": "v3.0.0",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/upstream-v3.0.0-yellow",
+        "markdown": "![Upstream](https://img.shields.io/badge/upstream-v3.0.0-yellow)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_repo",
+        "label": "Repo",
+        "value": "docker.io/portainer/agent",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fagent-informational",
+        "markdown": "![Repo](https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fagent-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_commit",
+        "label": "Commit",
+        "value": "sha256:477ea01e8cd1354a231e1d5c8c6c28e9e0f6b85c49ca7b8442b27717c5dd0b6d",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/commit-sha256%3A477ea01e8cd1354a231e1d5c8c6c28e9e0f6b85c49ca7b8442b27717c5dd0b6d-informational",
+        "markdown": "![Commit](https://img.shields.io/badge/commit-sha256%3A477ea01e8cd1354a231e1d5c8c6c28e9e0f6b85c49ca7b8442b27717c5dd0b6d-informational)",
+        "color": "blue"
+      }
+    ],
+    "real_badges": 9,
+    "green": 0,
+    "yellow": 9,
+    "red": 0,
+    "score": 50
+  },
+  {
+    "slug": "portainer-ce-lts",
+    "name": "Portainer CE LTS",
+    "description": "Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.",
+    "version": "2.45.3.1",
+    "stage": "deprecated",
+    "badges": [
+      {
+        "id": "ingress",
+        "label": "Ingress",
+        "value": "True",
+        "group": "ha",
+        "order": 100,
+        "url": "https://img.shields.io/badge/ingress-True-blue",
+        "markdown": "![Ingress](https://img.shields.io/badge/ingress-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "version",
+        "label": "Version",
+        "value": "v2.45.3.1",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/version-v2.45.3.1-blue",
+        "markdown": "![Version](https://img.shields.io/badge/version-v2.45.3.1-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "updated",
+        "label": "Updated",
+        "value": "2026--10--21",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/updated-2026--10--21-green",
+        "markdown": "![Updated](https://img.shields.io/badge/updated-2026--10--21-green)",
+        "color": "blue"
+      },
+      {
+        "id": "stage",
+        "label": "Stage",
+        "value": "deprecated",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/stage-deprecated-orange",
+        "markdown": "![Stage](https://img.shields.io/badge/stage-deprecated-orange)",
+        "color": "blue"
+      },
+      {
+        "id": "arch",
+        "label": "Arch",
+        "value": "aarch64, amd64",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/arch-aarch64%2C%20amd64-green",
+        "markdown": "![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)",
+        "color": "blue"
+      },
+      {
+        "id": "docker_api",
+        "label": "Docker API",
+        "value": "True",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/docker_api-True-blue",
+        "markdown": "![Docker API](https://img.shields.io/badge/docker_api-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "image_size",
+        "label": "Image Size",
+        "value": "68 MB",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/size-68_MB-informational",
+        "markdown": "![Image Size](https://img.shields.io/badge/size-68_MB-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_version",
+        "label": "Upstream",
+        "value": "v2.45.3",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/upstream-v2.45.3-yellow",
+        "markdown": "![Upstream](https://img.shields.io/badge/upstream-v2.45.3-yellow)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_repo",
+        "label": "Repo",
+        "value": "docker.io/portainer/portainer-ce",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fportainer--ce-informational",
+        "markdown": "![Repo](https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fportainer--ce-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_commit",
+        "label": "Commit",
+        "value": "sha256:3d2e116d0aab38f13ee2b893e4fd931e69a09574eee0b597711a68d76754cce1",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/commit-sha256%3A3d2e116d0aab38f13ee2b893e4fd931e69a09574eee0b597711a68d76754cce1-informational",
+        "markdown": "![Commit](https://img.shields.io/badge/commit-sha256%3A3d2e116d0aab38f13ee2b893e4fd931e69a09574eee0b597711a68d76754cce1-informational)",
+        "color": "blue"
+      }
+    ],
+    "real_badges": 10,
+    "green": 0,
+    "yellow": 10,
+    "red": 0,
+    "score": 50
+  },
+  {
+    "slug": "portainer-ce-sts",
+    "name": "Portainer CE STS",
+    "description": "Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.",
+    "version": "2.45.3.1",
+    "stage": "deprecated",
+    "badges": [
+      {
+        "id": "ingress",
+        "label": "Ingress",
+        "value": "True",
+        "group": "ha",
+        "order": 100,
+        "url": "https://img.shields.io/badge/ingress-True-blue",
+        "markdown": "![Ingress](https://img.shields.io/badge/ingress-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "version",
+        "label": "Version",
+        "value": "v2.45.3.1",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/version-v2.45.3.1-blue",
+        "markdown": "![Version](https://img.shields.io/badge/version-v2.45.3.1-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "updated",
+        "label": "Updated",
+        "value": "2026--10--21",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/updated-2026--10--21-green",
+        "markdown": "![Updated](https://img.shields.io/badge/updated-2026--10--21-green)",
+        "color": "blue"
+      },
+      {
+        "id": "stage",
+        "label": "Stage",
+        "value": "deprecated",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/stage-deprecated-orange",
+        "markdown": "![Stage](https://img.shields.io/badge/stage-deprecated-orange)",
+        "color": "blue"
+      },
+      {
+        "id": "arch",
+        "label": "Arch",
+        "value": "aarch64, amd64",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/arch-aarch64%2C%20amd64-green",
+        "markdown": "![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)",
+        "color": "blue"
+      },
+      {
+        "id": "docker_api",
+        "label": "Docker API",
+        "value": "True",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/docker_api-True-blue",
+        "markdown": "![Docker API](https://img.shields.io/badge/docker_api-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "image_size",
+        "label": "Image Size",
+        "value": "68 MB",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/size-68_MB-informational",
+        "markdown": "![Image Size](https://img.shields.io/badge/size-68_MB-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_version",
+        "label": "Upstream",
+        "value": "v2.45.3",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/upstream-v2.45.3-yellow",
+        "markdown": "![Upstream](https://img.shields.io/badge/upstream-v2.45.3-yellow)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_repo",
+        "label": "Repo",
+        "value": "docker.io/portainer/portainer-ce",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fportainer--ce-informational",
+        "markdown": "![Repo](https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fportainer--ce-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_commit",
+        "label": "Commit",
+        "value": "sha256:3d2e116d0aab38f13ee2b893e4fd931e69a09574eee0b597711a68d76754cce1",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/commit-sha256%3A3d2e116d0aab38f13ee2b893e4fd931e69a09574eee0b597711a68d76754cce1-informational",
+        "markdown": "![Commit](https://img.shields.io/badge/commit-sha256%3A3d2e116d0aab38f13ee2b893e4fd931e69a09574eee0b597711a68d76754cce1-informational)",
+        "color": "blue"
+      }
+    ],
+    "real_badges": 10,
+    "green": 0,
+    "yellow": 10,
+    "red": 0,
+    "score": 50
+  },
+  {
+    "slug": "portainer-ee-lts",
+    "name": "Portainer EE LTS",
+    "description": "Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.",
+    "version": "2.45.3.1",
+    "stage": "deprecated",
+    "badges": [
+      {
+        "id": "ingress",
+        "label": "Ingress",
+        "value": "True",
+        "group": "ha",
+        "order": 100,
+        "url": "https://img.shields.io/badge/ingress-True-blue",
+        "markdown": "![Ingress](https://img.shields.io/badge/ingress-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "version",
+        "label": "Version",
+        "value": "v2.45.3.1",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/version-v2.45.3.1-blue",
+        "markdown": "![Version](https://img.shields.io/badge/version-v2.45.3.1-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "updated",
+        "label": "Updated",
+        "value": "2026--10--21",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/updated-2026--10--21-green",
+        "markdown": "![Updated](https://img.shields.io/badge/updated-2026--10--21-green)",
+        "color": "blue"
+      },
+      {
+        "id": "stage",
+        "label": "Stage",
+        "value": "deprecated",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/stage-deprecated-orange",
+        "markdown": "![Stage](https://img.shields.io/badge/stage-deprecated-orange)",
+        "color": "blue"
+      },
+      {
+        "id": "arch",
+        "label": "Arch",
+        "value": "aarch64, amd64",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/arch-aarch64%2C%20amd64-green",
+        "markdown": "![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)",
+        "color": "blue"
+      },
+      {
+        "id": "docker_api",
+        "label": "Docker API",
+        "value": "True",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/docker_api-True-blue",
+        "markdown": "![Docker API](https://img.shields.io/badge/docker_api-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "image_size",
+        "label": "Image Size",
+        "value": "87 MB",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/size-87_MB-informational",
+        "markdown": "![Image Size](https://img.shields.io/badge/size-87_MB-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_version",
+        "label": "Upstream",
+        "value": "v2.45.3",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/upstream-v2.45.3-yellow",
+        "markdown": "![Upstream](https://img.shields.io/badge/upstream-v2.45.3-yellow)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_repo",
+        "label": "Repo",
+        "value": "docker.io/portainer/portainer-ee",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fportainer--ee-informational",
+        "markdown": "![Repo](https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fportainer--ee-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_commit",
+        "label": "Commit",
+        "value": "sha256:4e706af52d7455c995b41ba8e05585ffa965e0a80adecb32d2fef14d68eb0f79",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/commit-sha256%3A4e706af52d7455c995b41ba8e05585ffa965e0a80adecb32d2fef14d68eb0f79-informational",
+        "markdown": "![Commit](https://img.shields.io/badge/commit-sha256%3A4e706af52d7455c995b41ba8e05585ffa965e0a80adecb32d2fef14d68eb0f79-informational)",
+        "color": "blue"
+      }
+    ],
+    "real_badges": 10,
+    "green": 0,
+    "yellow": 10,
+    "red": 0,
+    "score": 50
+  },
+  {
+    "slug": "portainer-ee-sts",
+    "name": "Portainer EE STS",
+    "description": "Portainer CE/BE with selectable LTS/STS channel, ingress and data migration.",
+    "version": "3.0.0.1",
+    "stage": "deprecated",
+    "badges": [
+      {
+        "id": "ingress",
+        "label": "Ingress",
+        "value": "True",
+        "group": "ha",
+        "order": 100,
+        "url": "https://img.shields.io/badge/ingress-True-blue",
+        "markdown": "![Ingress](https://img.shields.io/badge/ingress-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "version",
+        "label": "Version",
+        "value": "v3.0.0.1",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/version-v3.0.0.1-blue",
+        "markdown": "![Version](https://img.shields.io/badge/version-v3.0.0.1-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "updated",
+        "label": "Updated",
+        "value": "2026--10--28",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/updated-2026--10--28-green",
+        "markdown": "![Updated](https://img.shields.io/badge/updated-2026--10--28-green)",
+        "color": "blue"
+      },
+      {
+        "id": "stage",
+        "label": "Stage",
+        "value": "deprecated",
+        "group": "meta",
+        "order": 100,
+        "url": "https://img.shields.io/badge/stage-deprecated-orange",
+        "markdown": "![Stage](https://img.shields.io/badge/stage-deprecated-orange)",
+        "color": "blue"
+      },
+      {
+        "id": "arch",
+        "label": "Arch",
+        "value": "aarch64, amd64",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/arch-aarch64%2C%20amd64-green",
+        "markdown": "![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)",
+        "color": "blue"
+      },
+      {
+        "id": "docker_api",
+        "label": "Docker API",
+        "value": "True",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/docker_api-True-blue",
+        "markdown": "![Docker API](https://img.shields.io/badge/docker_api-True-blue)",
+        "color": "blue"
+      },
+      {
+        "id": "image_size",
+        "label": "Image Size",
+        "value": "86 MB",
+        "group": "system",
+        "order": 100,
+        "url": "https://img.shields.io/badge/size-86_MB-informational",
+        "markdown": "![Image Size](https://img.shields.io/badge/size-86_MB-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_version",
+        "label": "Upstream",
+        "value": "v3.0.0",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/upstream-v3.0.0-yellow",
+        "markdown": "![Upstream](https://img.shields.io/badge/upstream-v3.0.0-yellow)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_repo",
+        "label": "Repo",
+        "value": "docker.io/portainer/portainer-ee",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fportainer--ee-informational",
+        "markdown": "![Repo](https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fportainer--ee-informational)",
+        "color": "blue"
+      },
+      {
+        "id": "upstream_commit",
+        "label": "Commit",
+        "value": "sha256:85b264b14ecc7faf7f7af13bd12f2bcc411ebb1162044cb615da26aebc58c599",
+        "group": "upstream",
+        "order": 100,
+        "url": "https://img.shields.io/badge/commit-sha256%3A85b264b14ecc7faf7f7af13bd12f2bcc411ebb1162044cb615da26aebc58c599-informational",
+        "markdown": "![Commit](https://img.shields.io/badge/commit-sha256%3A85b264b14ecc7faf7f7af13bd12f2bcc411ebb1162044cb615da26aebc58c599-informational)",
+        "color": "blue"
+      }
+    ],
+    "real_badges": 10,
+    "green": 0,
+    "yellow": 10,
+    "red": 0,
+    "score": 50
+  }
+]
