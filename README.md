@@ -78,7 +78,7 @@ Expose the Checkmk monitoring agent on port 6556.
 Modern Docker and Compose management with Home Assistant Ingress.
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v1.0.56.1-blue)
+![Version](https://img.shields.io/badge/version-v1.0.56.2-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--10--30-green)
 ![Stage](https://img.shields.io/badge/stage-experimental-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
@@ -152,15 +152,15 @@ Proxy to externally running OpenCCU
 HomeMatic/homematicIP CCU central based on OpenCCU (Snapshot)
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v3.89.11.20261029-444d857-ha1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--10--29-green)
+![Version](https://img.shields.io/badge/version-v3.89.11.20261030-cfd2925-ha1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--10--30-green)
 ![Stage](https://img.shields.io/badge/stage-experimental-orange)
 ![Privileged](https://img.shields.io/badge/privileged-IPC_LOCK%7CSYS_ADMIN%7CSYS_RAWIO%7CSYS_RESOURCE%7CNET_ADMIN-red)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Kernel Modules](https://img.shields.io/badge/kernel_modules-True-blue)
-![Upstream](https://img.shields.io/badge/upstream-v3.89.11.20261029-444d857-yellow)
+![Upstream](https://img.shields.io/badge/upstream-v3.89.11.20261030-cfd2925-yellow)
 ![Repo](https://img.shields.io/badge/repo-https%3A%2F%2Fgithub.com%2FOpenCCU%2FOpenCCU-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3Ac1e622650b9eed920f532afa531369ff6cfdf88fd29bec8699ba7a5bf0563495-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3A68e35f4fd5b4cd2c901733cd73af5dc88719e67e44923ec2f0e41be856b31399-informational)
 
 ## [🏠 OpenCCU HAP/DRAP-Helper (HA Repo)](apps/openccu-hapdrap/)
 

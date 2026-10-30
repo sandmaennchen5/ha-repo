@@ -2,7 +2,7 @@
 
 <!-- BADGES-START -->
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v1.0.56.1-blue)
+![Version](https://img.shields.io/badge/version-v1.0.56.2-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--10--30-green)
 ![Stage](https://img.shields.io/badge/stage-experimental-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
