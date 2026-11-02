@@ -1,6 +1,16 @@
 # Changelog
 
 
+## [1.8.0-rc.12] - 2026-11-02
+
+### Manuelles Update
+
+Manuell aktualisierte Version.
+
+Weitere Informationen: https://docker.io/codeswhat/drydock
+
+---
+
 ## [1.7.0.1] - 2026-10-19
 
 ### Docker Hub
