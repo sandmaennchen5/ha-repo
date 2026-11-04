@@ -2,15 +2,15 @@
 
 <!-- BADGES-START -->
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v1.0.56.2-blue)
-![Updated](https://img.shields.io/badge/updated-2026--10--30-green)
+![Version](https://img.shields.io/badge/version-v1.0.57.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--11--04-green)
 ![Stage](https://img.shields.io/badge/stage-experimental-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
-![Image Size](https://img.shields.io/badge/size-206_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v1.0.56-yellow)
+![Image Size](https://img.shields.io/badge/size-207_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v1.0.57-yellow)
 ![Repo](https://img.shields.io/badge/repo-github.com%2FFinsys%2Fdockhand-informational)
-![Commit](https://img.shields.io/badge/commit-7cc274d50c7e98a1fa73f71f4792938e9b30eab8-informational)
+![Commit](https://img.shields.io/badge/commit-1cf2ccbc3afc28122c00ee59b295e23666ad1965-informational)
 <!-- BADGES-END -->
 
 Dockhand als Home-Assistant-App mit Ingress, persistentem Speicher und lokaler

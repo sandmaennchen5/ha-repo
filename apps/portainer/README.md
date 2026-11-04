@@ -8,8 +8,8 @@
 
 <!-- BADGES-START -->
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v2026.10.4-blue)
-![Updated](https://img.shields.io/badge/updated-2026--10--29-green)
+![Version](https://img.shields.io/badge/version-v2026.11.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--11--04-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
