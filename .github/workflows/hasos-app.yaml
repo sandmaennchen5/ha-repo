@@ -29,6 +29,7 @@ on:
           - openccu-dev
           - openccu-hapdrap
           - openccu-proxy
+          - openwebrx-plus
           - pangolin-cli
           - pangolin-newt
           - pangolin-olm
