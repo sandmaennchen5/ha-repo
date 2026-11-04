@@ -10,9 +10,9 @@ stage: "deprecated"
 # Upstream-Informationen
 # -----------------------------------------
 
-upstream_version: "1.19.0"
+upstream_version: "1.20.0"
 upstream_repo: "github.com/fosrl/newt"
-upstream_commit: "329d6a1c6509aa0769fa5bf3b8437518fc4e83df"
+upstream_commit: "80c9ce7050bad844bebe35ff9b0edc0c88ade9ac"
 autoupdater: true
 
 # -----------------------------------------
@@ -37,5 +37,5 @@ image_size: "36 MB"
 custom_shield: ""
 custom_flag: ""
 
-updated: "2026-10-20"
+updated: "2026-11-03"
 source: "github.com/fosrl/newt"

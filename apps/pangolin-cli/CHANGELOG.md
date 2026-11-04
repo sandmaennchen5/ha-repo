@@ -1,6 +1,28 @@
 # Changelog
 
 
+## [0.20.0.1] - 2026-11-03
+
+### Upstream Release Notes
+
+## Container Images
+- GHCR: `ghcr.io/fosrl/cli@sha256:b30c10882405eb39b4d3532302061d461228ad994034567b96d7668343bb2e5e`
+- Docker Hub: `docker.io/fosrl/pangolin-cli@sha256:b30c10882405eb39b4d3532302061d461228ad994034567b96d7668343bb2e5e`
+**Tag:** `0.20.0`
+
+
+## What's Changed
+* Add support for SSH logging on site
+* Fix updating site
+* Fix site auto update on Windows
+
+
+**Full Changelog**: https://github.com/fosrl/cli/compare/0.19.1...0.20.0
+
+Weitere Informationen: https://github.com/fosrl/cli/releases/latest
+
+---
+
 ## [0.19.1.1] - 2026-10-27
 
 ### Upstream Release Notes

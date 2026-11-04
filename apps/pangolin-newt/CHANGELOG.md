@@ -1,6 +1,27 @@
 # Changelog
 
 
+## [1.20.0] - 2026-11-03
+
+### Upstream Release Notes
+
+## Container Images
+- GHCR: `ghcr.io/fosrl/newt@sha256:2170e673c4c72d905764fa22e83d0ae0aa3239fb1ab3b9fcaefb2b00fffb2d6e`
+- Docker Hub: `docker.io/fosrl/newt@sha256:2170e673c4c72d905764fa22e83d0ae0aa3239fb1ab3b9fcaefb2b00fffb2d6e`
+**Tag:** `1.20.0`
+
+
+## What's Changed
+* Support ssh logging
+* Fix auto update on Windows
+
+
+**Full Changelog**: https://github.com/fosrl/newt/compare/1.19.1...1.20.0
+
+Weitere Informationen: https://github.com/fosrl/newt/releases/latest
+
+---
+
 ## [1.19.0] - 2026-10-20
 
 ### Upstream Release Notes
