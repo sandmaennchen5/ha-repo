@@ -1,0 +1,37 @@
+#!/usr/bin/python3
+"""Enforce explicit serial selection, including after web UI edits."""
+import ctypes
+import ctypes.util
+import os
+import sys
+sys.path.insert(0, "/opt/ha-openwebrx")
+from configure import read_options, validate_serial
+
+try:
+    if sys.argv[1:] == ["--version"]:
+        os.execv("/usr/bin/rtl_connector.real", ["rtl_connector", "--version"])
+    serial = validate_serial(read_options()["rtl_serial"])
+    # Only query USB descriptors; never open/claim a receiver for a probe.
+    library = ctypes.CDLL(ctypes.util.find_library("rtlsdr") or "librtlsdr.so.0")
+    library.rtlsdr_get_device_count.restype = ctypes.c_uint32
+    library.rtlsdr_get_device_usb_strings.argtypes = [
+        ctypes.c_uint32, ctypes.c_void_p, ctypes.c_void_p, ctypes.c_void_p
+    ]
+    serials = []
+    for index in range(library.rtlsdr_get_device_count()):
+        manufacturer, product, value = (ctypes.create_string_buffer(256) for _ in range(3))
+        if library.rtlsdr_get_device_usb_strings(index, manufacturer, product, value) != 0:
+            raise ValueError("Cannot verify RTL-SDR USB serials")
+        serials.append(value.value.decode("ascii"))
+    if serials.count(serial) != 1:
+        raise ValueError("Configured serial must match exactly one connected RTL-SDR")
+    args = sys.argv[1:]
+    positions = [i for i, arg in enumerate(args) if arg.startswith("-d")]
+    if len(positions) != 1:
+        raise ValueError("Exactly one explicit device identifier is required")
+    pos = positions[0]
+    if args[pos] != "-d" or pos + 1 >= len(args) or args[pos + 1] != serial:
+        raise ValueError("Device identifier must equal the configured RTL-SDR serial")
+    os.execv("/usr/bin/rtl_connector.real", ["rtl_connector", *args])
+except (ValueError, KeyError, OSError) as error:
+    sys.exit(f"RTL-SDR selection refused: {error}")

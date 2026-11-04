@@ -1,0 +1,31 @@
+name: OpenWebRX+ ZVEI
+version: "0.1.0"
+slug: openwebrx-plus
+description: Browser SDR with multimon-ng ZVEI and a dedicated RTL-SDR
+url: https://github.com/sandmaennchen5/ha-repo
+arch:
+  - aarch64
+stage: experimental
+startup: application
+boot: manual
+init: false
+usb: true
+webui: http://[HOST]:[PORT:8073]/
+ports:
+  8073/tcp: 8073
+ports_description:
+  8073/tcp: OpenWebRX+ web interface
+options:
+  rtl_serial: ""
+  initial_frequency: 145500000
+  sample_rate: 1024000
+  rf_gain: 29
+  ppm: 0
+  admin_password: ""
+schema:
+  rtl_serial: str
+  initial_frequency: int(24000000,1766000000)
+  sample_rate: int(250000,2400000)
+  rf_gain: int(0,50)
+  ppm: int(-200,200)
+  admin_password: password

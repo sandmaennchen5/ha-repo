@@ -1,0 +1,6 @@
+#!/bin/sh
+set -eu
+umask 077
+python3 /opt/ha-openwebrx/check_runtime.py
+python3 /opt/ha-openwebrx/configure.py
+exec /usr/bin/openwebrx -c /data/openwebrx.conf
