@@ -92,6 +92,11 @@ aktuelle Pakete, ist daher nicht auf unveränderliche Versionen festgelegt.
 Die tatsächlich installierten Versionen stehen im Image in
 `/usr/share/openwebrx-build-packages.txt`.
 
+Die Repository-CI baut dieses lokale Add-on zur Prüfung, veröffentlicht aber
+kein Image und keinen Registry-Manifest. `.var.yaml` kennzeichnet den
+Upstream-Paketstand als `bookworm-rolling`; automatische Versionsupdates sind
+für dieses nicht auf eine Paketversion festgelegte Add-on deaktiviert.
+
 Auf einem Docker-Rechner mit ARM64-Unterstützung bzw. eingerichteter Emulation:
 
 ```sh

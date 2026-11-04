@@ -36,6 +36,7 @@ jobs:
       registry_prefix: ${{ steps.normalize.outputs.registry_prefix }}
       version: ${{ steps.normalize.outputs.version }}
       upstream_version: ${{ steps.upstream.outputs.version }}
+      publish_image: ${{ steps.normalize.outputs.publish_image }}
 
     steps:
       - name: Check out repository
@@ -75,6 +76,13 @@ jobs:
         id: normalize
         run: |
           image=${{ steps.info.outputs.image }}
+          if [[ -z "$image" || "$image" == "null" ]]; then
+            # Local add-ons still get a real build, without registry publication.
+            image="ghcr.io/${{ github.repository_owner }}/local-${{ steps.info.outputs.slug }}"
+            echo "publish_image=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "publish_image=true" >> "$GITHUB_OUTPUT"
+          fi
           echo "image_name=${image##*/}" >> "$GITHUB_OUTPUT"
           echo "registry_prefix=${image%/*}" >> "$GITHUB_OUTPUT"
           version=${{ steps.info.outputs.version }}
@@ -170,13 +178,13 @@ jobs:
             io.hass.name=${{ needs.prepare.outputs.name }}
             io.hass.description=${{ needs.prepare.outputs.description }}
             ${{ needs.prepare.outputs.url && format('io.hass.url={0}', needs.prepare.outputs.url) || '' }}
-          push: ${{ inputs.publish }}
+          push: ${{ inputs.publish && needs.prepare.outputs.publish_image == 'true' }}
           version: ${{ needs.prepare.outputs.version }}
 
   manifest:
     name: Publish multi-arch manifest
     needs: [prepare, build]
-    if: inputs.publish
+    if: inputs.publish && needs.prepare.outputs.publish_image == 'true'
     runs-on: ubuntu-latest
     permissions:
       actions: write

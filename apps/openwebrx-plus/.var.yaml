@@ -1,0 +1,7 @@
+hidden: false
+icon: "📻"
+stage: experimental
+upstream_version: "bookworm-rolling"
+upstream_repo: https://github.com/luarvique/openwebrx
+autoupdater: false
+source: github.com/luarvique/openwebrx
