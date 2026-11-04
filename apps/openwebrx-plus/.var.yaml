@@ -1,7 +1,9 @@
 hidden: false
 icon: "📻"
 stage: experimental
-upstream_version: "bookworm-rolling"
+upstream_version: "1.2.117"
 upstream_repo: https://github.com/luarvique/openwebrx
 autoupdater: false
-source: github.com/luarvique/openwebrx
+source: "github.com/luarvique/openwebrx"
+upstream_commit: "e83a5c85ad98190daab5f7ddbb17977e81d3efed"
+updated: "2026-06-26"

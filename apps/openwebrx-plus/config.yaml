@@ -1,5 +1,5 @@
 name: OpenWebRX+ ZVEI
-version: "0.1.0"
+version: "1.2.117.1"
 slug: openwebrx-plus
 description: Browser SDR with multimon-ng ZVEI and a dedicated RTL-SDR
 url: https://github.com/sandmaennchen5/ha-repo
