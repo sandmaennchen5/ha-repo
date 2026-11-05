@@ -13,7 +13,9 @@ RUN printf '#!/bin/sh\nexit 101\n' > /usr/sbin/policy-rc.d \
     && echo 'deb [signed-by=/usr/share/keyrings/openwebrx-plus.gpg] https://luarvique.github.io/ppa/bookworm ./' \
        > /etc/apt/sources.list.d/openwebrx-plus.list \
     && apt-get update \
-    && apt-get install --no-install-recommends -y openwebrx multimon-ng rtl-sdr tini \
+    && apt-get install --no-install-recommends -y \
+       openwebrx multimon-ng rtl-sdr tini \
+       redsea rtl-433 direwolf aprs-symbols lame python3-paho-mqtt \
     && command -v openwebrx \
     && command -v rtl_connector \
     && mv /usr/bin/rtl_connector /usr/bin/rtl_connector.real \
@@ -22,7 +24,9 @@ RUN printf '#!/bin/sh\nexit 101\n' > /usr/sbin/policy-rc.d \
 
 COPY rootfs/ /
 RUN chmod 755 /usr/local/bin/run-openwebrx /usr/bin/rtl_connector \
-    && python3 /opt/ha-openwebrx/check_runtime.py
+    && python3 /opt/ha-openwebrx/check_runtime.py \
+    && timeout 30s python3 /opt/ha-openwebrx/smoke_background.py \
+    && timeout 10s python3 /opt/ha-openwebrx/smoke_rds.py
 
 EXPOSE 8073
 WORKDIR /tmp

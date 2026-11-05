@@ -22,6 +22,17 @@ options:
   rf_gain: 29
   ppm: 0
   admin_password: ""
+  monitor_enabled: true
+  monitor_frequency: 0
+  mqtt_enabled: false
+  mqtt_host: core-mosquitto
+  mqtt_port: 1883
+  mqtt_user: ""
+  mqtt_password: ""
+  mqtt_tls: false
+  mqtt_topic: openwebrx/zvei
+  rds_logging: true
+  rds_mqtt_topic: openwebrx/rds
 schema:
   rtl_serial: str
   initial_frequency: int(24000000,1766000000)
@@ -29,3 +40,14 @@ schema:
   rf_gain: int(0,50)
   ppm: int(-200,200)
   admin_password: password
+  monitor_enabled: bool
+  monitor_frequency: int(0,1766000000)
+  mqtt_enabled: bool
+  mqtt_host: str
+  mqtt_port: port
+  mqtt_user: str
+  mqtt_password: password
+  mqtt_tls: bool
+  mqtt_topic: str
+  rds_logging: bool
+  rds_mqtt_topic: str

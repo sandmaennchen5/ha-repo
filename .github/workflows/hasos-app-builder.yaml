@@ -162,6 +162,12 @@ jobs:
             echo 'EOF'
           } >> "${GITHUB_OUTPUT}"
 
+      - name: Test OpenWebRX+ add-on
+        if: inputs.app == 'apps/openwebrx-plus'
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python3 -m unittest discover -s apps/openwebrx-plus/tests -v
+
       - name: Build image
         uses: home-assistant/builder/actions/build-image@2026.09.0
         with:

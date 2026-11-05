@@ -44,6 +44,82 @@ class ConfigurationTests(unittest.TestCase):
             self.assertEqual(receiver["ppm"], 4)
             self.assertIn("port = 8073", (data / "openwebrx.conf").read_text())
 
+    def test_upgrade_adds_presets_once_and_preserves_ui_edits(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            data = Path(tmp)
+            directory = data / "openwebrx"
+            directory.mkdir()
+            path = directory / "settings.json"
+            original = {"version": 8, "receiver_name": "My receiver",
+                        "sdrs": {"dedicated_rtl": {"profiles": {
+                            "zvei": {"name": "My ZVEI", "start_freq": 85000000},
+                            "custom": {"name": "My custom profile"},
+                        }}}}
+            path.write_text(json.dumps(original))
+            config.configure(self.options(), data)
+            settings = json.loads(path.read_text())
+            profiles = settings["sdrs"]["dedicated_rtl"]["profiles"]
+            self.assertEqual(profiles["zvei"], original["sdrs"]["dedicated_rtl"]["profiles"]["zvei"])
+            self.assertIn("custom", profiles)
+            self.assertIn("fm_88500", profiles)
+            del profiles["aprs"]
+            profiles["fm_88500"]["start_freq"] = 89000000
+            path.write_text(json.dumps(settings))
+            config.configure(self.options(), data)
+            saved = json.loads(path.read_text())["sdrs"]["dedicated_rtl"]["profiles"]
+            self.assertNotIn("aprs", saved)
+            self.assertEqual(saved["fm_88500"]["start_freq"], 89000000)
+
+    def test_presets_cover_fm_band_and_stay_inside_sample_windows(self):
+        presets = config.preset_profiles(145500000, 1024000, 29)
+        windows = sorted((p["center_freq"] - p["samp_rate"] / 2,
+                          p["center_freq"] + p["samp_rate"] / 2)
+                         for p in presets.values() if p["start_mod"] == "wfm")
+        upper = 87500000
+        for lower, end in windows:
+            self.assertLessEqual(lower, upper)
+            upper = max(upper, end)
+        self.assertGreaterEqual(upper, 108000000)
+        for profile in presets.values():
+            self.assertLessEqual(abs(profile["start_freq"] - profile["center_freq"]),
+                                 profile["samp_rate"] / 2)
+            self.assertGreaterEqual(profile["samp_rate"], 250000)
+            self.assertLessEqual(profile["samp_rate"], 2400000)
+            self.assertNotIn("device", profile)
+        self.assertEqual(presets["aprs"]["start_mod"], "packet")
+        self.assertEqual(presets["ism433"]["start_mod"], "ism")
+
+    def test_monitor_enable_disable_restores_receiver_and_profiles(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            data = Path(tmp)
+            directory = config.configure(self.options(), data)
+            path = directory / "settings.json"
+            original = json.loads(path.read_text())
+            options = {**self.options(), "monitor_enabled": True, "monitor_frequency": 85000000}
+            config.configure(options, data)
+            enabled = json.loads(path.read_text())
+            receiver = enabled["sdrs"]["dedicated_rtl"]
+            self.assertTrue(receiver["always-on"])
+            self.assertTrue(enabled["services_enabled"])
+            self.assertEqual(next(iter(receiver["profiles"])), "_zvei_monitor")
+            self.assertEqual(receiver["profiles"]["_zvei_monitor"]["start_freq"], 85000000)
+            config.configure(options, data)  # Repeat start must not overwrite the snapshot.
+            config.configure(self.options(), data)
+            self.assertEqual(json.loads(path.read_text()), original)
+            self.assertFalse((data / "zvei-monitor-restore.json").exists())
+
+    def test_monitor_uses_existing_zvei_frequency_when_option_is_zero(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            data = Path(tmp)
+            directory = config.configure(self.options(), data)
+            path = directory / "settings.json"
+            settings = json.loads(path.read_text())
+            settings["sdrs"]["dedicated_rtl"]["profiles"]["zvei"]["start_freq"] = 85000000
+            path.write_text(json.dumps(settings))
+            config.configure({**self.options(), "monitor_enabled": True, "monitor_frequency": 0}, data)
+            saved = json.loads(path.read_text())
+            self.assertEqual(saved["sdrs"]["dedicated_rtl"]["profiles"]["_zvei_monitor"]["start_freq"], 85000000)
+
     def test_invalid_options_do_not_write_settings(self):
         with tempfile.TemporaryDirectory() as tmp:
             options = self.options()

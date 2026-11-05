@@ -60,6 +60,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       build_apps: ${{ steps.build_plan.outputs.build_apps }}
+      published_apps: ${{ steps.build_plan.outputs.published_apps }}
       checkout_ref: ${{ steps.build_plan.outputs.checkout_ref }}
       failed_apps: ${{ steps.discover.outputs.failed_apps }}
 
@@ -78,7 +79,9 @@ jobs:
         run: python -m pip install -r .github/requirements.txt
 
       - name: Test updater error handling
-        run: python .github/tests/test_update_apps_failures.py
+        run: |
+          python .github/tests/test_update_apps_failures.py
+          python .github/tests/test_local_build_plan.py
 
       - name: Discover and update apps
         id: discover
@@ -160,6 +163,20 @@ jobs:
           fi
           CHANGED_APPS=$(jq -cn --argjson apps "${CHANGED_APPS:-[]}" --argjson failed "${FAILED_APPS:-[]}" '$apps - $failed')
           echo "build_apps=${CHANGED_APPS}" >> "$GITHUB_OUTPUT"
+          BUILT_APPS="${CHANGED_APPS}" python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          import yaml
+
+          published = []
+          for app in json.loads(os.environ["BUILT_APPS"]):
+              config = yaml.safe_load(Path("apps", app, "config.yaml").read_text(encoding="utf-8"))
+              if config.get("image"):
+                  published.append(app)
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              output.write("published_apps=" + json.dumps(published) + "\n")
+          PY
           echo "checkout_ref=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
           echo "Apps scheduled for this run: ${CHANGED_APPS}" >> "$GITHUB_STEP_SUMMARY"
 
@@ -201,7 +218,7 @@ jobs:
   image-sizes:
     name: Commit image sizes
     needs: [update, build]
-    if: needs.build.result == 'success'
+    if: needs.build.result == 'success' && needs.update.outputs.published_apps != '' && needs.update.outputs.published_apps != '[]'
     runs-on: ubuntu-latest
     permissions:
       actions: write

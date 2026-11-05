@@ -29,3 +29,41 @@ Weitere Informationen: https://github.com/luarvique/openwebrx/releases/latest
 
 ---
 
+=======
+# Änderungen
+
+## 0.4.0
+
+- Änderungen von RDS-Sendername, PI, Radiotext, Programmtyp und TP/TA
+  beim WFM-Empfang dauerhaft als rotierendes JSONL protokollieren.
+- MQTT-Discovery für fünf RDS-Sensoren mit zuletzt bekannten Senderdaten.
+- Frequenz-/PI-Wechsel ohne Übernahme alter Sendertexte behandeln.
+- Vorhandene Browser-Metadaten und Audioverarbeitung beibehalten.
+- RDS-Aufzeichnung unabhängig vom ZVEI-Monitor aktivierbar.
+- Build-Smoke-Test für den echten OpenWebRX+-RDS-Parser ergänzen.
+
+## 0.3.0
+
+- Einkanal-ZVEI-Hintergrunddecoder im gemeinsamen OpenWebRX+-IQ-Datenstrom.
+- Verwaltetes Startprofil, kontinuierlicher Empfang ohne Browser und
+  expliziter Pausenstatus bei Wechsel aus dem Empfangsfenster.
+- Persistentes, rotierendes JSONL-Protokoll mit UTC, Frequenz, Decoder und Folge.
+- Wiederholton-Normalisierung und Zusammenfassung identischer Folgen für zwei Sekunden.
+- Optionale MQTT-Anbindung mit TLS, Last Will und Home-Assistant-Discovery
+  für Ereignis, letzte Tonfolge und Überwachungsstatus.
+- Keine nachträgliche Wiedergabe von MQTT-Ereignissen nach Verbindungsausfall.
+- Wiederherstellung der vorherigen Diensteinstellungen beim Deaktivieren.
+- Build-Prüfung mit echtem DSP-Aufbau und simuliertem Frequenzwechsel ohne USB.
+
+## 0.2.0
+
+- UKW mit überlappenden Fenstern für 87,5–108 MHz sowie CB, Flugfunk,
+  Amateurfunk 2 m/70 cm, PMR446, APRS und ISM 433 als Profile ergänzen.
+- Voreinstellungen einmalig auch in bestehende Installationen übernehmen;
+  eigene Änderungen und später gelöschte Profile erhalten.
+- redsea, rtl_433, Dire Wolf, APRS-Symbole und LAME installieren.
+- Decoder-Verfügbarkeit zusätzlich bei Build und Start prüfen.
+
+## 0.1.0
+
+- Lokales ARM64-Add-on mit OpenWebRX+, multimon-ng und festem RTL-SDR.
