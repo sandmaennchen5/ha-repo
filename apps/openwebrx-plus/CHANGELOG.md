@@ -1,6 +1,16 @@
 # Changelog
 
 
+## [1.2.117.2] - 2026-11-05
+
+### Manuelles Update
+
+- App-Revision für einen vollständigen Neuaufbau um eins erhöht.
+
+Weitere Informationen: https://github.com/luarvique/openwebrx
+
+---
+
 ## [1.2.117.1] - 2026-11-04
 
 ### Manuelles Update
