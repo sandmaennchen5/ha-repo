@@ -1,6 +1,27 @@
 # Changelog
 
 
+## [0.21.0.1] - 2026-11-06
+
+### Upstream Release Notes
+
+## Container Images
+- GHCR: `ghcr.io/fosrl/cli@sha256:b1042578bd0fafa6bd70070b515f9449b7c7caa21ebd52f6d8b6367fef096315`
+- Docker Hub: `docker.io/fosrl/pangolin-cli@sha256:b1042578bd0fafa6bd70070b515f9449b7c7caa21ebd52f6d8b6367fef096315`
+**Tag:** `0.21.0`
+
+
+## What's Changed
+* Linux GUI companion mode
+
+Check out the new Linux GUI clients! https://pangolin.net/news/pangolin-for-linux
+
+**Full Changelog**: https://github.com/fosrl/cli/compare/0.20.0...0.21.0
+
+Weitere Informationen: https://github.com/fosrl/cli/releases/latest
+
+---
+
 ## [0.20.0.1] - 2026-11-03
 
 ### Upstream Release Notes
