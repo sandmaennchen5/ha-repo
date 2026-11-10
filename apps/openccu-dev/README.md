@@ -2,15 +2,15 @@
 
 <!-- BADGES-START -->
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v3.89.11.20261105-f35bc5a-ha1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--11--05-green)
+![Version](https://img.shields.io/badge/version-v3.89.11.20261109-0a21657-ha1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--11--09-green)
 ![Stage](https://img.shields.io/badge/stage-experimental-orange)
 ![Privileged](https://img.shields.io/badge/privileged-IPC_LOCK%7CSYS_ADMIN%7CSYS_RAWIO%7CSYS_RESOURCE%7CNET_ADMIN-red)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Kernel Modules](https://img.shields.io/badge/kernel_modules-True-blue)
-![Upstream](https://img.shields.io/badge/upstream-v3.89.11.20261105-f35bc5a-yellow)
+![Upstream](https://img.shields.io/badge/upstream-v3.89.11.20261109-0a21657-yellow)
 ![Repo](https://img.shields.io/badge/repo-https%3A%2F%2Fgithub.com%2FOpenCCU%2FOpenCCU-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3Acf3dc62a9dcd5348d014c80743b3f19c2720d76942f73a760b122fbb30e3595c-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3A0b6c5fbd0ef73a915c45b221ca646f2c0c9e73fae2316da661a0625e423c4981-informational)
 <!-- BADGES-END -->
 
 Vollständige OpenCCU-Snapshot-Instanz mit lokalem Funkzugriff.

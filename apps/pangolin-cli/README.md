@@ -8,17 +8,17 @@
 [![CodeFactor][codefactor-badge]][codefactor-url]
 
 <!-- BADGES-START -->
-![Version](https://img.shields.io/badge/version-v0.20.0.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--11--03-green)
+![Version](https://img.shields.io/badge/version-v0.21.0.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--11--06-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN-red)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Host Network](https://img.shields.io/badge/host_network-True-blue)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
 ![Image Size](https://img.shields.io/badge/size-29_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v0.20.0-yellow)
+![Upstream](https://img.shields.io/badge/upstream-v0.21.0-yellow)
 ![Repo](https://img.shields.io/badge/repo-github.com%2Ffosrl%2Fcli-informational)
-![Commit](https://img.shields.io/badge/commit-60d9ffd8e6ec2e98f4477b66dd16f2a2d7587208-informational)
+![Commit](https://img.shields.io/badge/commit-652991bd54fe5293fa6b670530d93d1cb45f51c6-informational)
 <!-- BADGES-END -->
 
 Die offizielle Pangolin CLI verbindet Home Assistant OS als WireGuard-VPN-Client
