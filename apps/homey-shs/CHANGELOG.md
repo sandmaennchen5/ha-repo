@@ -1,6 +1,29 @@
 # Changelog
 
 
+## [13.5.4.1] - 2026-11-12
+
+### GitHub Container Registry
+
+### Core
+- Updates translations.
+- Minor improvements and bug fixes.
+### Devices
+- Fixes an issue where Google Assistant PIN protection settings were not saved.
+### Moods
+- Fixes an issue that prevented HomeyScript from activating Moods.
+### Matter
+- Fixes devices becoming unavailable after an endpoint is removed.
+- Shows a clearer error when trying to control a capability whose endpoint is no longer available.
+### Zigbee
+- Fixes some devices appearing as “Unknown Node” in Developer Tools and diagnostic reports.
+
+Release Notes: https://homey.app/en-us/wiki/homey-shs-changelog/
+
+Weitere Informationen: https://ghcr.io/athombv/homey-shs
+
+---
+
 ## [13.5.4] - 2026-11-10
 
 ### GitHub Container Registry
