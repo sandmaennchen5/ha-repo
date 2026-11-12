@@ -64,14 +64,14 @@ Dump1090 based feeder for FlightRadar24, FlightAware and more
 
 Expose the Checkmk monitoring agent on port 6556.
 
-![Version](https://img.shields.io/badge/version-v2.5.0.18.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--10--29-green)
+![Version](https://img.shields.io/badge/version-v2.5.0.20.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--11--11-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Image Size](https://img.shields.io/badge/size-12_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v2.5.0p18-yellow)
+![Upstream](https://img.shields.io/badge/upstream-v2.5.0p20-yellow)
 ![Repo](https://img.shields.io/badge/repo-github.com%2FCheckmk%2Fcheckmk-informational)
-![Commit](https://img.shields.io/badge/commit-2900492cbac10d389eb117de1363d01ce4849982-informational)
+![Commit](https://img.shields.io/badge/commit-b99410f59a27616a4d4cd21ccedb992e632a97dd-informational)
 
 ## [🛟 Dockhand](apps/dockhand/)
 
@@ -93,30 +93,30 @@ Modern Docker and Compose management with Home Assistant Ingress.
 Container update monitoring and automation with Home Assistant Ingress.
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v1.7.0.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--10--19-green)
+![Version](https://img.shields.io/badge/version-v1.7.1.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--11--11-green)
 ![Stage](https://img.shields.io/badge/stage-experimental-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
-![Image Size](https://img.shields.io/badge/size-152_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v1.7.0-yellow)
+![Image Size](https://img.shields.io/badge/size-153_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v1.7.1-yellow)
 ![Repo](https://img.shields.io/badge/repo-docker.io%2Fcodeswhat%2Fdrydock-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3Ac3646a3460a83c30f61e06945b1030c02e87f77526faa99d4b75f84d9364542d-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3A632cf3ca25c1606ac6248037672ad89ad6510640f259e8448fcc0aa460f69e15-informational)
 
 ## [🏠 Homey Self-Hosted Server](apps/homey-shs/)
 
 Run Homey Self-Hosted Server on Home Assistant OS.
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v13.5.4-blue)
-![Updated](https://img.shields.io/badge/updated-2026--11--10-green)
+![Version](https://img.shields.io/badge/version-v13.5.4.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--11--12-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Host Network](https://img.shields.io/badge/host_network-True-blue)
 ![Image Size](https://img.shields.io/badge/size-284_MB-informational)
 ![Upstream](https://img.shields.io/badge/upstream-v13.5.4-yellow)
 ![Repo](https://img.shields.io/badge/repo-ghcr.io%2Fathombv%2Fhomey--shs-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3Acc59bfe7f0ae8caeca75b57a0d95225f938f0b46d6efe24fda914eb2032d4973-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3Adbe1f5d3acd994869d18dd75930e96d9e35e824ecbde4fd66efe49bfd8c9301f-informational)
 
 ## [🏠 OpenCCU (HA Repo)](apps/openccu/)
 
@@ -152,15 +152,15 @@ Proxy to externally running OpenCCU
 HomeMatic/homematicIP CCU central based on OpenCCU (Snapshot)
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v3.89.11.20261109-0a21657-ha1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--11--09-green)
+![Version](https://img.shields.io/badge/version-v3.89.11.20261111-f0e4ddf-ha1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--11--11-green)
 ![Stage](https://img.shields.io/badge/stage-experimental-orange)
 ![Privileged](https://img.shields.io/badge/privileged-IPC_LOCK%7CSYS_ADMIN%7CSYS_RAWIO%7CSYS_RESOURCE%7CNET_ADMIN-red)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Kernel Modules](https://img.shields.io/badge/kernel_modules-True-blue)
-![Upstream](https://img.shields.io/badge/upstream-v3.89.11.20261109-0a21657-yellow)
+![Upstream](https://img.shields.io/badge/upstream-v3.89.11.20261111-f0e4ddf-yellow)
 ![Repo](https://img.shields.io/badge/repo-https%3A%2F%2Fgithub.com%2FOpenCCU%2FOpenCCU-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3A0b6c5fbd0ef73a915c45b221ca646f2c0c9e73fae2316da661a0625e423c4981-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3A0b6887b9c9cdb08d4850a1cdf6af8e6e811af41cd5e0985c9be6e1f2d0ce5678-informational)
 
 ## [🏠 OpenCCU HAP/DRAP-Helper (HA Repo)](apps/openccu-hapdrap/)
 

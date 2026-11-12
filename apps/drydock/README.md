@@ -2,15 +2,15 @@
 
 <!-- BADGES-START -->
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v1.7.0.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--10--19-green)
+![Version](https://img.shields.io/badge/version-v1.7.1.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--11--11-green)
 ![Stage](https://img.shields.io/badge/stage-experimental-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
-![Image Size](https://img.shields.io/badge/size-152_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v1.7.0-yellow)
+![Image Size](https://img.shields.io/badge/size-153_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v1.7.1-yellow)
 ![Repo](https://img.shields.io/badge/repo-docker.io%2Fcodeswhat%2Fdrydock-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3Ac3646a3460a83c30f61e06945b1030c02e87f77526faa99d4b75f84d9364542d-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3A632cf3ca25c1606ac6248037672ad89ad6510640f259e8448fcc0aa460f69e15-informational)
 <!-- BADGES-END -->
 
 Drydock als Home-Assistant-App mit Ingress, persistentem Speicher und Zugriff auf

@@ -9,15 +9,15 @@
 
 <!-- BADGES-START -->
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v13.5.4-blue)
-![Updated](https://img.shields.io/badge/updated-2026--11--10-green)
+![Version](https://img.shields.io/badge/version-v13.5.4.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--11--12-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Host Network](https://img.shields.io/badge/host_network-True-blue)
 ![Image Size](https://img.shields.io/badge/size-284_MB-informational)
 ![Upstream](https://img.shields.io/badge/upstream-v13.5.4-yellow)
 ![Repo](https://img.shields.io/badge/repo-ghcr.io%2Fathombv%2Fhomey--shs-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3Acc59bfe7f0ae8caeca75b57a0d95225f938f0b46d6efe24fda914eb2032d4973-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3Adbe1f5d3acd994869d18dd75930e96d9e35e824ecbde4fd66efe49bfd8c9301f-informational)
 <!-- BADGES-END -->
 
 Homey Self-Hosted Server als Home Assistant-Add-on ausführen
