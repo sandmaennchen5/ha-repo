@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.89.11.20261113-19038be-ha1
+
+- Original: `ghcr.io/openccu/openccu:3.89.11.20261113-19038be`.
+- Pinned image and checked overlay; original runtime retained.
+
 ## 3.89.11.20261112-f754ec1-ha1
 
 - Original: `ghcr.io/openccu/openccu:3.89.11.20261112-f754ec1`.
