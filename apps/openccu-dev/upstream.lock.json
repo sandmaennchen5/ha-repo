@@ -1,12 +1,12 @@
 {
-  "upstream_version": "3.89.12.20261118-2668388",
+  "upstream_version": "3.89.13.20261119-46d8d86",
   "image": "ghcr.io/openccu/openccu",
-  "image_digest": "sha256:6c919028ac1a1d1106c6f50b046ccbc3cb6df0e1bc7bcb6ad6fcd760632918f3",
-  "metadata_commit": "b021ff3170f1a57ca0309f9a1dd38619c754c53a",
-  "source_commit": "266838814a3d4ed9eab624ca2c933f09abd150e6",
+  "image_digest": "sha256:88db55512958d78257930b3d83ed3b607ff0f0c7a442021001cb25bd815ac487",
+  "metadata_commit": "79cdd83d1ecb2f9e723f47898775dc08caf41185",
+  "source_commit": "46d8d865becde38675f29839427865f483da1cde",
   "patch_commit": "4a84f7aa7c69ac93685080a02f40832fc63fcbfa",
   "original_proxy_sha256": "e4aa50ade7dec5ea0c2678c33bd6b90157baec7086a3043df0914c8d9c4108c5",
   "patched_proxy_sha256": "45296948ffe25454ee33ed7eadfe06e2dd53067cbedfe976a951f4f4c1b431a2",
-  "config_sha256": "43687c5d0571ca91d4be69ab04ffc80c9f0e12aabd9a8fc15c29e25a3aba3d5d",
+  "config_sha256": "15a1650f8f6a36d9bfce65ed04207b7b6b23f5154faac74682c61cf37a823bdf",
   "revision": 1
 }
