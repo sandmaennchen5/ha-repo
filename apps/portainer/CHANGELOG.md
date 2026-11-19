@@ -1,6 +1,22 @@
 # Changelog
 
 
+## [2026.11.2] - 2026-11-19
+
+### Enthaltene Upstream-Versionen
+
+- LTS: `CE 2.45.4, EE 2.45.4`
+- STS: `CE 2.45.4, EE 3.1.0`
+
+### Änderungen
+
+- LTS: `2.45.3` → `2.45.4`
+- STS: `2.45.3` → `2.45.4`
+- EE LTS: `2.45.3` → `2.45.4`
+- EE STS: `3.0.1` → `3.1.0`
+
+---
+
 ## [2026.11.1] - 2026-11-04
 
 ### Enthaltene Upstream-Versionen
