@@ -7,14 +7,14 @@
 [![CodeFactor][codefactor-badge]][codefactor-url]
 
 <!-- BADGES-START -->
-![Version](https://img.shields.io/badge/version-v2.5.0.20.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--11--11-green)
+![Version](https://img.shields.io/badge/version-v2.5.0.20.2-blue)
+![Updated](https://img.shields.io/badge/updated-2026--11--16-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Image Size](https://img.shields.io/badge/size-12_MB-informational)
 ![Upstream](https://img.shields.io/badge/upstream-v2.5.0p20-yellow)
 ![Repo](https://img.shields.io/badge/repo-github.com%2FCheckmk%2Fcheckmk-informational)
-![Commit](https://img.shields.io/badge/commit-b99410f59a27616a4d4cd21ccedb992e632a97dd-informational)
+![Commit](https://img.shields.io/badge/commit-d40f0a7b5ea66b40368a5129ee0ed7152ff373ac-informational)
 <!-- BADGES-END -->
 
 Stellt den offiziellen Checkmk-Agenten als Home-Assistant-App auf TCP-Port
