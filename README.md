@@ -152,15 +152,15 @@ Proxy to externally running OpenCCU
 HomeMatic/homematicIP CCU central based on OpenCCU (Snapshot)
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v3.89.12.20261118-2668388-ha1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--11--18-green)
+![Version](https://img.shields.io/badge/version-v3.89.13.20261119-46d8d86-ha1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--11--19-green)
 ![Stage](https://img.shields.io/badge/stage-experimental-orange)
 ![Privileged](https://img.shields.io/badge/privileged-IPC_LOCK%7CSYS_ADMIN%7CSYS_RAWIO%7CSYS_RESOURCE%7CNET_ADMIN-red)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Kernel Modules](https://img.shields.io/badge/kernel_modules-True-blue)
-![Upstream](https://img.shields.io/badge/upstream-v3.89.12.20261118-2668388-yellow)
+![Upstream](https://img.shields.io/badge/upstream-v3.89.13.20261119-46d8d86-yellow)
 ![Repo](https://img.shields.io/badge/repo-https%3A%2F%2Fgithub.com%2FOpenCCU%2FOpenCCU-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3A6c919028ac1a1d1106c6f50b046ccbc3cb6df0e1bc7bcb6ad6fcd760632918f3-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3A88db55512958d78257930b3d83ed3b607ff0f0c7a442021001cb25bd815ac487-informational)
 
 ## [🏠 OpenCCU HAP/DRAP-Helper (HA Repo)](apps/openccu-hapdrap/)
 
@@ -193,17 +193,17 @@ Browser SDR with multimon-ng ZVEI and a dedicated RTL-SDR
 
 Official Pangolin CLI and WireGuard VPN client and Site Connector for Linux.
 
-![Version](https://img.shields.io/badge/version-v0.21.0.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--11--06-green)
+![Version](https://img.shields.io/badge/version-v0.23.0.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--11--19-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN-red)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Host Network](https://img.shields.io/badge/host_network-True-blue)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
-![Image Size](https://img.shields.io/badge/size-29_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v0.21.0-yellow)
+![Image Size](https://img.shields.io/badge/size-30_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v0.23.0-yellow)
 ![Repo](https://img.shields.io/badge/repo-github.com%2Ffosrl%2Fcli-informational)
-![Commit](https://img.shields.io/badge/commit-652991bd54fe5293fa6b670530d93d1cb45f51c6-informational)
+![Commit](https://img.shields.io/badge/commit-bb03d2c45ce79213c4c9b206bbd87e9846be5a9a-informational)
 
 ## [🐳 Portainer (Edition Selector)](apps/portainer/)
 
@@ -240,8 +240,8 @@ Portainer Agent with selectable LTS/STS channel.
 
 Secure remote access with Pangolin tunnels.
 
-![Version](https://img.shields.io/badge/version-v1.20.0-blue)
-![Updated](https://img.shields.io/badge/updated-2026--11--03-green)
+![Version](https://img.shields.io/badge/version-v1.20.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--11--19-green)
 ![Stage](https://img.shields.io/badge/stage-deprecated-orange)
 ![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN%7CSYS_MODULE-red)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
@@ -249,25 +249,25 @@ Secure remote access with Pangolin tunnels.
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
 ![Kernel Modules](https://img.shields.io/badge/kernel_modules-True-blue)
 ![Image Size](https://img.shields.io/badge/size-36_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v1.20.0-yellow)
+![Upstream](https://img.shields.io/badge/upstream-v1.20.1-yellow)
 ![Repo](https://img.shields.io/badge/repo-github.com%2Ffosrl%2Fnewt-informational)
-![Commit](https://img.shields.io/badge/commit-80c9ce7050bad844bebe35ff9b0edc0c88ade9ac-informational)
+![Commit](https://img.shields.io/badge/commit-745110e75fefd6139ada2895818d9a3529c8e33d-informational)
 
 ### [🍃 Pangolin - Olm Client](apps/pangolin-olm/)
 
 Advanced WireGuard client for remote access to Pangolin and Newt sites.
 
-![Version](https://img.shields.io/badge/version-v1.10.1.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--10--02-green)
+![Version](https://img.shields.io/badge/version-v1.10.2.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--11--19-green)
 ![Stage](https://img.shields.io/badge/stage-deprecated-orange)
 ![Privileged](https://img.shields.io/badge/privileged-NET_ADMIN%7CSYS_MODULE-red)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Host Network](https://img.shields.io/badge/host_network-True-blue)
 ![Kernel Modules](https://img.shields.io/badge/kernel_modules-True-blue)
 ![Image Size](https://img.shields.io/badge/size-28_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v1.10.1-yellow)
+![Upstream](https://img.shields.io/badge/upstream-v1.10.2-yellow)
 ![Repo](https://img.shields.io/badge/repo-github.com%2Ffosrl%2Folm-informational)
-![Commit](https://img.shields.io/badge/commit-4901fde4b1850b56026b9740f34032dab37e7794-informational)
+![Commit](https://img.shields.io/badge/commit-31b55b87f7fb2f9d81bb453acf98c9f461f5f9d4-informational)
 
 ### [🔗 Portainer Agent LTS](apps/portainer-agent-lts/)
 
