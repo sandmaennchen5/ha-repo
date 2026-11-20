@@ -1,5 +1,5 @@
 name: "Pangolin - Newt Tunnel"
-version: "1.20.0"
+version: "1.20.1"
 slug: "pangolin-newt"
 description: "Secure remote access with Pangolin tunnels."
 stage: deprecated

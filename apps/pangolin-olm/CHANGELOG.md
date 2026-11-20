@@ -1,6 +1,27 @@
 # Changelog
 
 
+## [1.10.2.1] - 2026-11-19
+
+### Upstream Release Notes
+
+## Container Images
+- GHCR: `ghcr.io/fosrl/olm@sha256:b843a86bd11c357fc0eb04daa907a48ffa7ab23b98d840f317b8fdb4f3b076f2`
+- Docker Hub: `docker.io/fosrl/olm@sha256:b843a86bd11c357fc0eb04daa907a48ffa7ab23b98d840f317b8fdb4f3b076f2`
+**Tag:** `1.10.2`
+
+
+## What's Changed
+* Fix move the peer to the local winner after a local fallback
+* Fix separate the agent from the olm version
+
+
+**Full Changelog**: https://github.com/fosrl/olm/compare/v1.10.2...1.10.2
+
+Weitere Informationen: https://github.com/fosrl/olm/releases/latest
+
+---
+
 ## [1.10.1.1] - 2026-10-02
 
 ### Upstream Release Notes

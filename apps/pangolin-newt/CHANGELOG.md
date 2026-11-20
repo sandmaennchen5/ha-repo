@@ -1,6 +1,35 @@
 # Changelog
 
 
+## [1.20.1] - 2026-11-19
+
+### Upstream Release Notes
+
+## Container Images
+- GHCR: `ghcr.io/fosrl/newt@sha256:03561e3f3d10b94ee7839318ae46e5acf8b4431550ea1d0e15666ab60caa2e43`
+- Docker Hub: `docker.io/fosrl/newt@sha256:03561e3f3d10b94ee7839318ae46e5acf8b4431550ea1d0e15666ab60caa2e43`
+**Tag:** `1.20.1`
+
+
+## What's Changed
+* Add `--local-endpoints` to list IPs for local connections to try
+* Fix keep the physical socket receive routine alive after read errors top prevent disconnections on MacOS
+* Fix ICMP echo replies for alias resources to come from the pinged address
+* Fix turn off gVisor's RACK which stalls downloads after packet loss (enable again with --enable-tcp-rack)
+* Fix telemetry not enableable on CLI
+
+## New Contributors
+* @Fxnarji made their first contribution in https://github.com/fosrl/newt/pull/478
+* @dingyifei made their first contribution in https://github.com/fosrl/newt/pull/480
+* @rskallies made their first contribution in https://github.com/fosrl/newt/pull/483
+* @adios-404 made their first contribution in https://github.com/fosrl/newt/pull/476
+
+**Full Changelog**: https://github.com/fosrl/newt/compare/1.20.0...1.20.1
+
+Weitere Informationen: https://github.com/fosrl/newt/releases/latest
+
+---
+
 ## [1.20.0] - 2026-11-03
 
 ### Upstream Release Notes

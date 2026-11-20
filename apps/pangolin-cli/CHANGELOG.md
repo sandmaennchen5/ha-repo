@@ -1,6 +1,26 @@
 # Changelog
 
 
+## [0.23.0.1] - 2026-11-19
+
+### Upstream Release Notes
+
+## Container Images
+- GHCR: `ghcr.io/fosrl/cli@sha256:43f786362db1cd4ad60fc46a48c4a62f9bd1f7cc9924902bddd207195f8ba18a`
+- Docker Hub: `docker.io/fosrl/pangolin-cli@sha256:43f786362db1cd4ad60fc46a48c4a62f9bd1f7cc9924902bddd207195f8ba18a`
+**Tag:** `0.23.0`
+
+
+## What's Changed
+
+- Add companion mode support for macOS
+
+**Full Changelog**: https://github.com/fosrl/cli/compare/0.22.0...0.23.0
+
+Weitere Informationen: https://github.com/fosrl/cli/releases/latest
+
+---
+
 ## [0.21.0.1] - 2026-11-06
 
 ### Upstream Release Notes
