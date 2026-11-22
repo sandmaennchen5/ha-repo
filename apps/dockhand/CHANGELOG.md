@@ -1,6 +1,38 @@
 # Changelog
 
 
+## [1.0.59.1] - 2026-11-22
+
+### Upstream Release Notes
+
+## What's new in v1.0.59
+
+- ✨ vulnerability counts per container, image or stack in one API call (#1916, PR#1923, @raetha)
+- ✨ Bulgarian interface translation (PR#1919, @Bare7a)
+- ✨ Japanese interface translation (PR#1931, @HUNTER-TA)
+- ✨ container updates show on the Activity page (#1864, PR#1865, @peremunoz)
+- 🐛 poll mode no longer misses container events between polls (#1886, PR#1922, @raetha)
+- 🐛 Dockhand's own helper containers (scanners, backup helpers) no longer show in container lists (#1911, PR#1921, @raetha)
+- 🐛 the compose editor shows the variable badge for a ${VAR} that follows escaped $$ (#1926)
+- 🐛 scheduled and batch updates restore a missing compose service alias, so service-name DNS in the stack works again (#1928)
+- 🐛 stack deploys retry an image pull the registry rate-limits, as container updates do (#1551)
+- 🐛 additional permission and environment-variable hardening across settings and compose validation
+- 🐛 update Node.js to 24.22.3 and docker-compose to 5.7.1-r1 for security fixes
+
+## Docker image
+
+```bash
+docker pull fnsys/dockhand:v1.0.59
+```
+
+Also available as `fnsys/dockhand:latest`
+
+[View on Docker Hub](https://hub.docker.com/r/fnsys/dockhand)
+
+Weitere Informationen: https://github.com/Finsys/dockhand/releases/latest
+
+---
+
 ## [1.0.58.1] - 2026-11-16
 
 ### Upstream Release Notes
