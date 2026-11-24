@@ -1,6 +1,18 @@
 # Changelog
 
 
+## [2.11.0.1] - 2026-11-23
+
+### Docker Hub
+
+- Docker Hub image: `docker.io/thomx/fr24feed-piaware:2.11.0`
+- Digest: `sha256:49c1f06aa1a6b7c49b400810259b894e63ca34d79717aaa4d8aa31269aa4d022`
+- Aktualisiert auf Docker Hub: 2026-11-23
+
+Weitere Informationen: https://docker.io/thomx/fr24feed-piaware
+
+---
+
 ## [2.9.0.1] - 2026-10-07
 
 ### Docker Hub
