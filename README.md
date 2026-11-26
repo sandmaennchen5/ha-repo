@@ -51,34 +51,34 @@ Dump1090 based feeder for FlightRadar24, FlightAware and more
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
 ![Hass.io API](https://img.shields.io/badge/hassio_api-True-blue)
 ![HA API](https://img.shields.io/badge/ha_api-True-blue)
-![Version](https://img.shields.io/badge/version-v2.9.0.1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--10--07-green)
+![Version](https://img.shields.io/badge/version-v2.11.0.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--11--23-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Image Size](https://img.shields.io/badge/size-249_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v2.9.0-yellow)
+![Upstream](https://img.shields.io/badge/upstream-v2.11.0-yellow)
 ![Repo](https://img.shields.io/badge/repo-docker.io%2Fthomx%2Ffr24feed--piaware-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3A9579f70397925b4d84c970dbe243b7dd21e4a30b382fd8713ec54d266a5e2bb2-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3A49c1f06aa1a6b7c49b400810259b894e63ca34d79717aaa4d8aa31269aa4d022-informational)
 
 ## [📊 Checkmk Agent](apps/checkmk-agent/)
 
 Expose the Checkmk monitoring agent on port 6556.
 
-![Version](https://img.shields.io/badge/version-v2.5.0.20.2-blue)
-![Updated](https://img.shields.io/badge/updated-2026--11--16-green)
+![Version](https://img.shields.io/badge/version-v2.5.0.22.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--11--26-green)
 ![Stage](https://img.shields.io/badge/stage-stable-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Image Size](https://img.shields.io/badge/size-12_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v2.5.0p20-yellow)
+![Upstream](https://img.shields.io/badge/upstream-v2.5.0p22-yellow)
 ![Repo](https://img.shields.io/badge/repo-github.com%2FCheckmk%2Fcheckmk-informational)
-![Commit](https://img.shields.io/badge/commit-d40f0a7b5ea66b40368a5129ee0ed7152ff373ac-informational)
+![Commit](https://img.shields.io/badge/commit-335a837be83de4dc3d744b81896c4b5e65fb6b82-informational)
 
 ## [🛟 Dockhand](apps/dockhand/)
 
 Modern Docker and Compose management with Home Assistant Ingress.
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v1.0.59.1-blue)
+![Version](https://img.shields.io/badge/version-v1.0.59.2-blue)
 ![Updated](https://img.shields.io/badge/updated-2026--11--22-green)
 ![Stage](https://img.shields.io/badge/stage-experimental-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
@@ -123,15 +123,15 @@ Run Homey Self-Hosted Server on Home Assistant OS.
 HomeMatic/homematicIP CCU central based on OpenCCU
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v3.89.11.20260919-ha1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--09--20-green)
+![Version](https://img.shields.io/badge/version-v3.89.14.20261121-ha1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--11--22-green)
 ![Stage](https://img.shields.io/badge/stage-experimental-orange)
 ![Privileged](https://img.shields.io/badge/privileged-IPC_LOCK%7CSYS_ADMIN%7CSYS_RAWIO%7CSYS_RESOURCE%7CNET_ADMIN-red)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Kernel Modules](https://img.shields.io/badge/kernel_modules-True-blue)
-![Upstream](https://img.shields.io/badge/upstream-v3.89.11.20260919-yellow)
+![Upstream](https://img.shields.io/badge/upstream-v3.89.14.20261121-yellow)
 ![Repo](https://img.shields.io/badge/repo-https%3A%2F%2Fgithub.com%2FOpenCCU%2FOpenCCU-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3A3cfcb30e1921b36812cf1adc49dbc7aaca21079c1818450a7f18491e891077c8-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3A5109950a533e1497e322ae2d30d624d479e4188dc665df86668538faf69b4463-informational)
 
 ## [🏠 OpenCCU (Proxy) (HA Repo)](apps/openccu-proxy/)
 
@@ -152,15 +152,15 @@ Proxy to externally running OpenCCU
 HomeMatic/homematicIP CCU central based on OpenCCU (Snapshot)
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v3.89.13.20261120-576ce4b-ha1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--11--20-green)
+![Version](https://img.shields.io/badge/version-v3.89.14.20261125-a66ff69-ha1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--11--25-green)
 ![Stage](https://img.shields.io/badge/stage-experimental-orange)
 ![Privileged](https://img.shields.io/badge/privileged-IPC_LOCK%7CSYS_ADMIN%7CSYS_RAWIO%7CSYS_RESOURCE%7CNET_ADMIN-red)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Kernel Modules](https://img.shields.io/badge/kernel_modules-True-blue)
-![Upstream](https://img.shields.io/badge/upstream-v3.89.13.20261120-576ce4b-yellow)
+![Upstream](https://img.shields.io/badge/upstream-v3.89.14.20261125-a66ff69-yellow)
 ![Repo](https://img.shields.io/badge/repo-https%3A%2F%2Fgithub.com%2FOpenCCU%2FOpenCCU-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3A42e957869e92320d1b099017bafe4f4a60731deade45a3855a26f15b38ac4a95-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3A4b0351b4f1e553f839e25ad50d5d81d8c66054461305f04afba8c21e6795eca6-informational)
 
 ## [🏠 OpenCCU HAP/DRAP-Helper (HA Repo)](apps/openccu-hapdrap/)
 
