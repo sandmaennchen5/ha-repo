@@ -1,0 +1,4361 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+
+        
+Matrix
+
+
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/ha-repo/assets/dashboard.css">
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/chart.js">
+
+    </script>
+
+</head>
+
+<body
+
+class="
+
+
+rounded
+
+
+
+
+
+
+">
+
+<div class="layout">
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <h1>
+
+                HassOS Apps Dashboard
+
+            </h1>
+
+            <div class="subtitle">
+
+                Home Assistant Apps & Add-ons
+
+            </div>
+
+        </div>
+
+        <nav>
+
+        
+
+            
+
+            <a href="/ha-repo/">
+
+                
+                📊
+                
+
+                Dashboard
+
+            </a>
+
+            
+
+            <a href="/ha-repo/apps/">
+
+                
+                📦
+                
+
+                Apps
+
+            </a>
+
+            
+
+            <a href="/ha-repo/matrix.html">
+
+                
+                🧩
+                
+
+                Matrix
+
+            </a>
+
+            
+
+            <a href="/ha-repo/health.html">
+
+                
+                🏥
+                
+
+                Health
+
+            </a>
+
+            
+
+            <a href="/ha-repo/history.html">
+
+                
+                📈
+                
+
+                History
+
+            </a>
+
+            
+
+            <a href="/ha-repo/lab.html">
+
+                
+                🔬
+                
+
+                Badge Lab
+
+            </a>
+
+            
+
+            <a href="/ha-repo/settings.html">
+
+                
+                ⚙️
+                
+
+                Settings
+
+            </a>
+
+            
+
+        
+
+        </nav>
+
+    </aside>
+
+    <main class="main">
+
+        <div class="topbar">
+
+            <h1>
+
+                
+Matrix
+
+
+            </h1>
+
+        </div>
+
+        <div class="content">
+
+            
+
+<div class="panel-header">
+<h2>Badge Matrix</h2>
+<input
+    id="matrixSearch"
+    placeholder="Suche (App, Badge, Value, Group)">
+</div>
+
+<div class="panel">
+<div class="matrix-tools">
+    <button id="exportCsv">CSV</button>
+    <button id="exportMarkdown">Markdown</button>
+</div>
+
+<div class="table-scroll">
+    <table id="matrixTable">
+        <thead>
+        <tr>
+            <th class="sortable" data-column="0">App</th>
+            <th class="sortable" data-column="1">Badge</th>
+            <th class="sortable" data-column="2">Value</th>
+            <th class="sortable" data-column="3">Group</th>
+            <th data-column="4">Preview</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/adsb-multi-portal-feeder/">
+                    ADS-B Multi-Portal Feeder
+                </a>
+            </td>
+            <td>Ingress</td>
+            <td>True</td>
+            <td>ha</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/ingress-True-blue"
+                    height="20"
+                    alt="Ingress"
+                    title="Ingress">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/adsb-multi-portal-feeder/">
+                    ADS-B Multi-Portal Feeder
+                </a>
+            </td>
+            <td>Hass.io API</td>
+            <td>True</td>
+            <td>ha</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/hassio_api-True-blue"
+                    height="20"
+                    alt="Hass.io API"
+                    title="Hass.io API">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/adsb-multi-portal-feeder/">
+                    ADS-B Multi-Portal Feeder
+                </a>
+            </td>
+            <td>HA API</td>
+            <td>True</td>
+            <td>ha</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/ha_api-True-blue"
+                    height="20"
+                    alt="HA API"
+                    title="HA API">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/adsb-multi-portal-feeder/">
+                    ADS-B Multi-Portal Feeder
+                </a>
+            </td>
+            <td>Version</td>
+            <td>v2.11.0.1</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/version-v2.11.0.1-blue"
+                    height="20"
+                    alt="Version"
+                    title="Version">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/adsb-multi-portal-feeder/">
+                    ADS-B Multi-Portal Feeder
+                </a>
+            </td>
+            <td>Updated</td>
+            <td>2026--11--23</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/updated-2026--11--23-green"
+                    height="20"
+                    alt="Updated"
+                    title="Updated">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/adsb-multi-portal-feeder/">
+                    ADS-B Multi-Portal Feeder
+                </a>
+            </td>
+            <td>Stage</td>
+            <td>stable</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/stage-stable-orange"
+                    height="20"
+                    alt="Stage"
+                    title="Stage">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/adsb-multi-portal-feeder/">
+                    ADS-B Multi-Portal Feeder
+                </a>
+            </td>
+            <td>Arch</td>
+            <td>aarch64, amd64</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/arch-aarch64%2C%20amd64-green"
+                    height="20"
+                    alt="Arch"
+                    title="Arch">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/adsb-multi-portal-feeder/">
+                    ADS-B Multi-Portal Feeder
+                </a>
+            </td>
+            <td>Image Size</td>
+            <td>249 MB</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/size-249_MB-informational"
+                    height="20"
+                    alt="Image Size"
+                    title="Image Size">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/adsb-multi-portal-feeder/">
+                    ADS-B Multi-Portal Feeder
+                </a>
+            </td>
+            <td>Upstream</td>
+            <td>v2.11.0</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/upstream-v2.11.0-yellow"
+                    height="20"
+                    alt="Upstream"
+                    title="Upstream">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/adsb-multi-portal-feeder/">
+                    ADS-B Multi-Portal Feeder
+                </a>
+            </td>
+            <td>Repo</td>
+            <td>docker.io/thomx/fr24feed-piaware</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/repo-docker.io%2Fthomx%2Ffr24feed--piaware-informational"
+                    height="20"
+                    alt="Repo"
+                    title="Repo">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/adsb-multi-portal-feeder/">
+                    ADS-B Multi-Portal Feeder
+                </a>
+            </td>
+            <td>Commit</td>
+            <td>sha256:49c1f06aa1a6b7c49b400810259b894e63ca34d79717aaa4d8aa31269aa4d022</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/commit-sha256%3A49c1f06aa1a6b7c49b400810259b894e63ca34d79717aaa4d8aa31269aa4d022-informational"
+                    height="20"
+                    alt="Commit"
+                    title="Commit">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/checkmk-agent/">
+                    Checkmk Agent
+                </a>
+            </td>
+            <td>Version</td>
+            <td>v2.5.0.22.1</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/version-v2.5.0.22.1-blue"
+                    height="20"
+                    alt="Version"
+                    title="Version">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/checkmk-agent/">
+                    Checkmk Agent
+                </a>
+            </td>
+            <td>Updated</td>
+            <td>2026--11--26</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/updated-2026--11--26-green"
+                    height="20"
+                    alt="Updated"
+                    title="Updated">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/checkmk-agent/">
+                    Checkmk Agent
+                </a>
+            </td>
+            <td>Stage</td>
+            <td>stable</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/stage-stable-orange"
+                    height="20"
+                    alt="Stage"
+                    title="Stage">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/checkmk-agent/">
+                    Checkmk Agent
+                </a>
+            </td>
+            <td>Arch</td>
+            <td>aarch64, amd64</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/arch-aarch64%2C%20amd64-green"
+                    height="20"
+                    alt="Arch"
+                    title="Arch">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/checkmk-agent/">
+                    Checkmk Agent
+                </a>
+            </td>
+            <td>Image Size</td>
+            <td>12 MB</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/size-12_MB-informational"
+                    height="20"
+                    alt="Image Size"
+                    title="Image Size">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/checkmk-agent/">
+                    Checkmk Agent
+                </a>
+            </td>
+            <td>Upstream</td>
+            <td>v2.5.0p22</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/upstream-v2.5.0p22-yellow"
+                    height="20"
+                    alt="Upstream"
+                    title="Upstream">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/checkmk-agent/">
+                    Checkmk Agent
+                </a>
+            </td>
+            <td>Repo</td>
+            <td>github.com/Checkmk/checkmk</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/repo-github.com%2FCheckmk%2Fcheckmk-informational"
+                    height="20"
+                    alt="Repo"
+                    title="Repo">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/checkmk-agent/">
+                    Checkmk Agent
+                </a>
+            </td>
+            <td>Commit</td>
+            <td>335a837be83de4dc3d744b81896c4b5e65fb6b82</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/commit-335a837be83de4dc3d744b81896c4b5e65fb6b82-informational"
+                    height="20"
+                    alt="Commit"
+                    title="Commit">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/dockhand/">
+                    Dockhand
+                </a>
+            </td>
+            <td>Ingress</td>
+            <td>True</td>
+            <td>ha</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/ingress-True-blue"
+                    height="20"
+                    alt="Ingress"
+                    title="Ingress">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/dockhand/">
+                    Dockhand
+                </a>
+            </td>
+            <td>Version</td>
+            <td>v1.0.59.2</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/version-v1.0.59.2-blue"
+                    height="20"
+                    alt="Version"
+                    title="Version">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/dockhand/">
+                    Dockhand
+                </a>
+            </td>
+            <td>Updated</td>
+            <td>2026--11--22</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/updated-2026--11--22-green"
+                    height="20"
+                    alt="Updated"
+                    title="Updated">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/dockhand/">
+                    Dockhand
+                </a>
+            </td>
+            <td>Stage</td>
+            <td>experimental</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/stage-experimental-orange"
+                    height="20"
+                    alt="Stage"
+                    title="Stage">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/dockhand/">
+                    Dockhand
+                </a>
+            </td>
+            <td>Arch</td>
+            <td>aarch64, amd64</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/arch-aarch64%2C%20amd64-green"
+                    height="20"
+                    alt="Arch"
+                    title="Arch">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/dockhand/">
+                    Dockhand
+                </a>
+            </td>
+            <td>Docker API</td>
+            <td>True</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/docker_api-True-blue"
+                    height="20"
+                    alt="Docker API"
+                    title="Docker API">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/dockhand/">
+                    Dockhand
+                </a>
+            </td>
+            <td>Image Size</td>
+            <td>201 MB</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/size-201_MB-informational"
+                    height="20"
+                    alt="Image Size"
+                    title="Image Size">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/dockhand/">
+                    Dockhand
+                </a>
+            </td>
+            <td>Upstream</td>
+            <td>v1.0.59</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/upstream-v1.0.59-yellow"
+                    height="20"
+                    alt="Upstream"
+                    title="Upstream">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/dockhand/">
+                    Dockhand
+                </a>
+            </td>
+            <td>Repo</td>
+            <td>github.com/Finsys/dockhand</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/repo-github.com%2FFinsys%2Fdockhand-informational"
+                    height="20"
+                    alt="Repo"
+                    title="Repo">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/dockhand/">
+                    Dockhand
+                </a>
+            </td>
+            <td>Commit</td>
+            <td>0b194bd584a9c13fa97646ff8679b089e284a2af</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/commit-0b194bd584a9c13fa97646ff8679b089e284a2af-informational"
+                    height="20"
+                    alt="Commit"
+                    title="Commit">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/drydock/">
+                    Drydock
+                </a>
+            </td>
+            <td>Ingress</td>
+            <td>True</td>
+            <td>ha</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/ingress-True-blue"
+                    height="20"
+                    alt="Ingress"
+                    title="Ingress">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/drydock/">
+                    Drydock
+                </a>
+            </td>
+            <td>Version</td>
+            <td>v1.7.1.1</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/version-v1.7.1.1-blue"
+                    height="20"
+                    alt="Version"
+                    title="Version">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/drydock/">
+                    Drydock
+                </a>
+            </td>
+            <td>Updated</td>
+            <td>2026--11--11</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/updated-2026--11--11-green"
+                    height="20"
+                    alt="Updated"
+                    title="Updated">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/drydock/">
+                    Drydock
+                </a>
+            </td>
+            <td>Stage</td>
+            <td>experimental</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/stage-experimental-orange"
+                    height="20"
+                    alt="Stage"
+                    title="Stage">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/drydock/">
+                    Drydock
+                </a>
+            </td>
+            <td>Arch</td>
+            <td>aarch64, amd64</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/arch-aarch64%2C%20amd64-green"
+                    height="20"
+                    alt="Arch"
+                    title="Arch">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/drydock/">
+                    Drydock
+                </a>
+            </td>
+            <td>Docker API</td>
+            <td>True</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/docker_api-True-blue"
+                    height="20"
+                    alt="Docker API"
+                    title="Docker API">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/drydock/">
+                    Drydock
+                </a>
+            </td>
+            <td>Image Size</td>
+            <td>153 MB</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/size-153_MB-informational"
+                    height="20"
+                    alt="Image Size"
+                    title="Image Size">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/drydock/">
+                    Drydock
+                </a>
+            </td>
+            <td>Upstream</td>
+            <td>v1.7.1</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/upstream-v1.7.1-yellow"
+                    height="20"
+                    alt="Upstream"
+                    title="Upstream">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/drydock/">
+                    Drydock
+                </a>
+            </td>
+            <td>Repo</td>
+            <td>docker.io/codeswhat/drydock</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/repo-docker.io%2Fcodeswhat%2Fdrydock-informational"
+                    height="20"
+                    alt="Repo"
+                    title="Repo">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/drydock/">
+                    Drydock
+                </a>
+            </td>
+            <td>Commit</td>
+            <td>sha256:632cf3ca25c1606ac6248037672ad89ad6510640f259e8448fcc0aa460f69e15</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/commit-sha256%3A632cf3ca25c1606ac6248037672ad89ad6510640f259e8448fcc0aa460f69e15-informational"
+                    height="20"
+                    alt="Commit"
+                    title="Commit">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/homey-shs/">
+                    Homey Self-Hosted Server
+                </a>
+            </td>
+            <td>Ingress</td>
+            <td>True</td>
+            <td>ha</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/ingress-True-blue"
+                    height="20"
+                    alt="Ingress"
+                    title="Ingress">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/homey-shs/">
+                    Homey Self-Hosted Server
+                </a>
+            </td>
+            <td>Version</td>
+            <td>v13.5.4.1</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/version-v13.5.4.1-blue"
+                    height="20"
+                    alt="Version"
+                    title="Version">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/homey-shs/">
+                    Homey Self-Hosted Server
+                </a>
+            </td>
+            <td>Updated</td>
+            <td>2026--11--12</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/updated-2026--11--12-green"
+                    height="20"
+                    alt="Updated"
+                    title="Updated">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/homey-shs/">
+                    Homey Self-Hosted Server
+                </a>
+            </td>
+            <td>Stage</td>
+            <td>stable</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/stage-stable-orange"
+                    height="20"
+                    alt="Stage"
+                    title="Stage">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/homey-shs/">
+                    Homey Self-Hosted Server
+                </a>
+            </td>
+            <td>Arch</td>
+            <td>aarch64, amd64</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/arch-aarch64%2C%20amd64-green"
+                    height="20"
+                    alt="Arch"
+                    title="Arch">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/homey-shs/">
+                    Homey Self-Hosted Server
+                </a>
+            </td>
+            <td>Host Network</td>
+            <td>True</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/host_network-True-blue"
+                    height="20"
+                    alt="Host Network"
+                    title="Host Network">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/homey-shs/">
+                    Homey Self-Hosted Server
+                </a>
+            </td>
+            <td>Image Size</td>
+            <td>284 MB</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/size-284_MB-informational"
+                    height="20"
+                    alt="Image Size"
+                    title="Image Size">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/homey-shs/">
+                    Homey Self-Hosted Server
+                </a>
+            </td>
+            <td>Upstream</td>
+            <td>v13.5.4</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/upstream-v13.5.4-yellow"
+                    height="20"
+                    alt="Upstream"
+                    title="Upstream">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/homey-shs/">
+                    Homey Self-Hosted Server
+                </a>
+            </td>
+            <td>Repo</td>
+            <td>ghcr.io/athombv/homey-shs</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/repo-ghcr.io%2Fathombv%2Fhomey--shs-informational"
+                    height="20"
+                    alt="Repo"
+                    title="Repo">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/homey-shs/">
+                    Homey Self-Hosted Server
+                </a>
+            </td>
+            <td>Commit</td>
+            <td>sha256:dbe1f5d3acd994869d18dd75930e96d9e35e824ecbde4fd66efe49bfd8c9301f</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/commit-sha256%3Adbe1f5d3acd994869d18dd75930e96d9e35e824ecbde4fd66efe49bfd8c9301f-informational"
+                    height="20"
+                    alt="Commit"
+                    title="Commit">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu/">
+                    OpenCCU (HA Repo)
+                </a>
+            </td>
+            <td>Ingress</td>
+            <td>True</td>
+            <td>ha</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/ingress-True-blue"
+                    height="20"
+                    alt="Ingress"
+                    title="Ingress">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu/">
+                    OpenCCU (HA Repo)
+                </a>
+            </td>
+            <td>Version</td>
+            <td>v3.89.14.20261121-ha1</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/version-v3.89.14.20261121-ha1-blue"
+                    height="20"
+                    alt="Version"
+                    title="Version">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu/">
+                    OpenCCU (HA Repo)
+                </a>
+            </td>
+            <td>Updated</td>
+            <td>2026--11--22</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/updated-2026--11--22-green"
+                    height="20"
+                    alt="Updated"
+                    title="Updated">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu/">
+                    OpenCCU (HA Repo)
+                </a>
+            </td>
+            <td>Stage</td>
+            <td>experimental</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/stage-experimental-orange"
+                    height="20"
+                    alt="Stage"
+                    title="Stage">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu/">
+                    OpenCCU (HA Repo)
+                </a>
+            </td>
+            <td>Privileged</td>
+            <td>IPC_LOCK|SYS_ADMIN|SYS_RAWIO|SYS_RESOURCE|NET_ADMIN</td>
+            <td>security</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/privileged-IPC_LOCK%7CSYS_ADMIN%7CSYS_RAWIO%7CSYS_RESOURCE%7CNET_ADMIN-red"
+                    height="20"
+                    alt="Privileged"
+                    title="Privileged">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu/">
+                    OpenCCU (HA Repo)
+                </a>
+            </td>
+            <td>Arch</td>
+            <td>aarch64, amd64</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/arch-aarch64%2C%20amd64-green"
+                    height="20"
+                    alt="Arch"
+                    title="Arch">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu/">
+                    OpenCCU (HA Repo)
+                </a>
+            </td>
+            <td>Kernel Modules</td>
+            <td>True</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/kernel_modules-True-blue"
+                    height="20"
+                    alt="Kernel Modules"
+                    title="Kernel Modules">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu/">
+                    OpenCCU (HA Repo)
+                </a>
+            </td>
+            <td>Upstream</td>
+            <td>v3.89.14.20261121</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/upstream-v3.89.14.20261121-yellow"
+                    height="20"
+                    alt="Upstream"
+                    title="Upstream">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu/">
+                    OpenCCU (HA Repo)
+                </a>
+            </td>
+            <td>Repo</td>
+            <td>https://github.com/OpenCCU/OpenCCU</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/repo-https%3A%2F%2Fgithub.com%2FOpenCCU%2FOpenCCU-informational"
+                    height="20"
+                    alt="Repo"
+                    title="Repo">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu/">
+                    OpenCCU (HA Repo)
+                </a>
+            </td>
+            <td>Commit</td>
+            <td>sha256:5109950a533e1497e322ae2d30d624d479e4188dc665df86668538faf69b4463</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/commit-sha256%3A5109950a533e1497e322ae2d30d624d479e4188dc665df86668538faf69b4463-informational"
+                    height="20"
+                    alt="Commit"
+                    title="Commit">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu-proxy/">
+                    OpenCCU (Proxy) (HA Repo)
+                </a>
+            </td>
+            <td>Ingress</td>
+            <td>True</td>
+            <td>ha</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/ingress-True-blue"
+                    height="20"
+                    alt="Ingress"
+                    title="Ingress">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu-proxy/">
+                    OpenCCU (Proxy) (HA Repo)
+                </a>
+            </td>
+            <td>Version</td>
+            <td>v0.7.0-ha3</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/version-v0.7.0-ha3-blue"
+                    height="20"
+                    alt="Version"
+                    title="Version">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu-proxy/">
+                    OpenCCU (Proxy) (HA Repo)
+                </a>
+            </td>
+            <td>Updated</td>
+            <td>2026--08--27</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/updated-2026--08--27-green"
+                    height="20"
+                    alt="Updated"
+                    title="Updated">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu-proxy/">
+                    OpenCCU (Proxy) (HA Repo)
+                </a>
+            </td>
+            <td>Stage</td>
+            <td>experimental</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/stage-experimental-orange"
+                    height="20"
+                    alt="Stage"
+                    title="Stage">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu-proxy/">
+                    OpenCCU (Proxy) (HA Repo)
+                </a>
+            </td>
+            <td>Arch</td>
+            <td>aarch64, amd64</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/arch-aarch64%2C%20amd64-green"
+                    height="20"
+                    alt="Arch"
+                    title="Arch">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu-proxy/">
+                    OpenCCU (Proxy) (HA Repo)
+                </a>
+            </td>
+            <td>Image Size</td>
+            <td>57 MB</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/size-57_MB-informational"
+                    height="20"
+                    alt="Image Size"
+                    title="Image Size">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu-proxy/">
+                    OpenCCU (Proxy) (HA Repo)
+                </a>
+            </td>
+            <td>Upstream</td>
+            <td>v0.7.0</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/upstream-v0.7.0-yellow"
+                    height="20"
+                    alt="Upstream"
+                    title="Upstream">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu-proxy/">
+                    OpenCCU (Proxy) (HA Repo)
+                </a>
+            </td>
+            <td>Repo</td>
+            <td>https://github.com/OpenCCU/OpenCCU</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/repo-https%3A%2F%2Fgithub.com%2FOpenCCU%2FOpenCCU-informational"
+                    height="20"
+                    alt="Repo"
+                    title="Repo">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu-proxy/">
+                    OpenCCU (Proxy) (HA Repo)
+                </a>
+            </td>
+            <td>Commit</td>
+            <td>sha256:4ea40c4b0bfa2cfdbb531d4eb2b721d532bc1964bb497a434f8f4aecc233c733</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/commit-sha256%3A4ea40c4b0bfa2cfdbb531d4eb2b721d532bc1964bb497a434f8f4aecc233c733-informational"
+                    height="20"
+                    alt="Commit"
+                    title="Commit">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu-dev/">
+                    OpenCCU (snapshot) (HA Repo)
+                </a>
+            </td>
+            <td>Ingress</td>
+            <td>True</td>
+            <td>ha</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/ingress-True-blue"
+                    height="20"
+                    alt="Ingress"
+                    title="Ingress">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu-dev/">
+                    OpenCCU (snapshot) (HA Repo)
+                </a>
+            </td>
+            <td>Version</td>
+            <td>v3.89.14.20261125-a66ff69-ha1</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/version-v3.89.14.20261125-a66ff69-ha1-blue"
+                    height="20"
+                    alt="Version"
+                    title="Version">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu-dev/">
+                    OpenCCU (snapshot) (HA Repo)
+                </a>
+            </td>
+            <td>Updated</td>
+            <td>2026--11--25</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/updated-2026--11--25-green"
+                    height="20"
+                    alt="Updated"
+                    title="Updated">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu-dev/">
+                    OpenCCU (snapshot) (HA Repo)
+                </a>
+            </td>
+            <td>Stage</td>
+            <td>experimental</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/stage-experimental-orange"
+                    height="20"
+                    alt="Stage"
+                    title="Stage">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu-dev/">
+                    OpenCCU (snapshot) (HA Repo)
+                </a>
+            </td>
+            <td>Privileged</td>
+            <td>IPC_LOCK|SYS_ADMIN|SYS_RAWIO|SYS_RESOURCE|NET_ADMIN</td>
+            <td>security</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/privileged-IPC_LOCK%7CSYS_ADMIN%7CSYS_RAWIO%7CSYS_RESOURCE%7CNET_ADMIN-red"
+                    height="20"
+                    alt="Privileged"
+                    title="Privileged">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu-dev/">
+                    OpenCCU (snapshot) (HA Repo)
+                </a>
+            </td>
+            <td>Arch</td>
+            <td>aarch64, amd64</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/arch-aarch64%2C%20amd64-green"
+                    height="20"
+                    alt="Arch"
+                    title="Arch">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu-dev/">
+                    OpenCCU (snapshot) (HA Repo)
+                </a>
+            </td>
+            <td>Kernel Modules</td>
+            <td>True</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/kernel_modules-True-blue"
+                    height="20"
+                    alt="Kernel Modules"
+                    title="Kernel Modules">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu-dev/">
+                    OpenCCU (snapshot) (HA Repo)
+                </a>
+            </td>
+            <td>Upstream</td>
+            <td>v3.89.14.20261125-a66ff69</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/upstream-v3.89.14.20261125-a66ff69-yellow"
+                    height="20"
+                    alt="Upstream"
+                    title="Upstream">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu-dev/">
+                    OpenCCU (snapshot) (HA Repo)
+                </a>
+            </td>
+            <td>Repo</td>
+            <td>https://github.com/OpenCCU/OpenCCU</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/repo-https%3A%2F%2Fgithub.com%2FOpenCCU%2FOpenCCU-informational"
+                    height="20"
+                    alt="Repo"
+                    title="Repo">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu-dev/">
+                    OpenCCU (snapshot) (HA Repo)
+                </a>
+            </td>
+            <td>Commit</td>
+            <td>sha256:4b0351b4f1e553f839e25ad50d5d81d8c66054461305f04afba8c21e6795eca6</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/commit-sha256%3A4b0351b4f1e553f839e25ad50d5d81d8c66054461305f04afba8c21e6795eca6-informational"
+                    height="20"
+                    alt="Commit"
+                    title="Commit">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu-hapdrap/">
+                    OpenCCU HAP/DRAP-Helper (HA Repo)
+                </a>
+            </td>
+            <td>Version</td>
+            <td>v0.3.1-ha1</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/version-v0.3.1-ha1-blue"
+                    height="20"
+                    alt="Version"
+                    title="Version">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu-hapdrap/">
+                    OpenCCU HAP/DRAP-Helper (HA Repo)
+                </a>
+            </td>
+            <td>Updated</td>
+            <td>2026--08--27</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/updated-2026--08--27-green"
+                    height="20"
+                    alt="Updated"
+                    title="Updated">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu-hapdrap/">
+                    OpenCCU HAP/DRAP-Helper (HA Repo)
+                </a>
+            </td>
+            <td>Stage</td>
+            <td>experimental</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/stage-experimental-orange"
+                    height="20"
+                    alt="Stage"
+                    title="Stage">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu-hapdrap/">
+                    OpenCCU HAP/DRAP-Helper (HA Repo)
+                </a>
+            </td>
+            <td>Arch</td>
+            <td>aarch64, amd64</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/arch-aarch64%2C%20amd64-green"
+                    height="20"
+                    alt="Arch"
+                    title="Arch">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu-hapdrap/">
+                    OpenCCU HAP/DRAP-Helper (HA Repo)
+                </a>
+            </td>
+            <td>Host Network</td>
+            <td>True</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/host_network-True-blue"
+                    height="20"
+                    alt="Host Network"
+                    title="Host Network">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu-hapdrap/">
+                    OpenCCU HAP/DRAP-Helper (HA Repo)
+                </a>
+            </td>
+            <td>Docker API</td>
+            <td>True</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/docker_api-True-blue"
+                    height="20"
+                    alt="Docker API"
+                    title="Docker API">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu-hapdrap/">
+                    OpenCCU HAP/DRAP-Helper (HA Repo)
+                </a>
+            </td>
+            <td>Image Size</td>
+            <td>21 MB</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/size-21_MB-informational"
+                    height="20"
+                    alt="Image Size"
+                    title="Image Size">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu-hapdrap/">
+                    OpenCCU HAP/DRAP-Helper (HA Repo)
+                </a>
+            </td>
+            <td>Upstream</td>
+            <td>v0.3.1</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/upstream-v0.3.1-yellow"
+                    height="20"
+                    alt="Upstream"
+                    title="Upstream">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu-hapdrap/">
+                    OpenCCU HAP/DRAP-Helper (HA Repo)
+                </a>
+            </td>
+            <td>Repo</td>
+            <td>https://github.com/OpenCCU/OpenCCU</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/repo-https%3A%2F%2Fgithub.com%2FOpenCCU%2FOpenCCU-informational"
+                    height="20"
+                    alt="Repo"
+                    title="Repo">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openccu-hapdrap/">
+                    OpenCCU HAP/DRAP-Helper (HA Repo)
+                </a>
+            </td>
+            <td>Commit</td>
+            <td>sha256:d433ff395bed9a64075c8d341fb9196dc3fc1b312c2e7cf79e79ef63a18b0f1c</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/commit-sha256%3Ad433ff395bed9a64075c8d341fb9196dc3fc1b312c2e7cf79e79ef63a18b0f1c-informational"
+                    height="20"
+                    alt="Commit"
+                    title="Commit">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openwebrx-plus/">
+                    OpenWebRX+ ZVEI
+                </a>
+            </td>
+            <td>Version</td>
+            <td>v1.2.117.2</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/version-v1.2.117.2-blue"
+                    height="20"
+                    alt="Version"
+                    title="Version">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openwebrx-plus/">
+                    OpenWebRX+ ZVEI
+                </a>
+            </td>
+            <td>Updated</td>
+            <td>2026--06--26</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/updated-2026--06--26-green"
+                    height="20"
+                    alt="Updated"
+                    title="Updated">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openwebrx-plus/">
+                    OpenWebRX+ ZVEI
+                </a>
+            </td>
+            <td>Stage</td>
+            <td>experimental</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/stage-experimental-orange"
+                    height="20"
+                    alt="Stage"
+                    title="Stage">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openwebrx-plus/">
+                    OpenWebRX+ ZVEI
+                </a>
+            </td>
+            <td>Arch</td>
+            <td>aarch64</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/arch-aarch64-green"
+                    height="20"
+                    alt="Arch"
+                    title="Arch">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openwebrx-plus/">
+                    OpenWebRX+ ZVEI
+                </a>
+            </td>
+            <td>Upstream</td>
+            <td>v1.2.117</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/upstream-v1.2.117-yellow"
+                    height="20"
+                    alt="Upstream"
+                    title="Upstream">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openwebrx-plus/">
+                    OpenWebRX+ ZVEI
+                </a>
+            </td>
+            <td>Repo</td>
+            <td>https://github.com/luarvique/openwebrx</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/repo-https%3A%2F%2Fgithub.com%2Fluarvique%2Fopenwebrx-informational"
+                    height="20"
+                    alt="Repo"
+                    title="Repo">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/openwebrx-plus/">
+                    OpenWebRX+ ZVEI
+                </a>
+            </td>
+            <td>Commit</td>
+            <td>e83a5c85ad98190daab5f7ddbb17977e81d3efed</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/commit-e83a5c85ad98190daab5f7ddbb17977e81d3efed-informational"
+                    height="20"
+                    alt="Commit"
+                    title="Commit">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/pangolin-cli/">
+                    Pangolin - CLI
+                </a>
+            </td>
+            <td>Version</td>
+            <td>v0.23.0.1</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/version-v0.23.0.1-blue"
+                    height="20"
+                    alt="Version"
+                    title="Version">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/pangolin-cli/">
+                    Pangolin - CLI
+                </a>
+            </td>
+            <td>Updated</td>
+            <td>2026--11--19</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/updated-2026--11--19-green"
+                    height="20"
+                    alt="Updated"
+                    title="Updated">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/pangolin-cli/">
+                    Pangolin - CLI
+                </a>
+            </td>
+            <td>Stage</td>
+            <td>stable</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/stage-stable-orange"
+                    height="20"
+                    alt="Stage"
+                    title="Stage">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/pangolin-cli/">
+                    Pangolin - CLI
+                </a>
+            </td>
+            <td>Privileged</td>
+            <td>NET_ADMIN</td>
+            <td>security</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/privileged-NET_ADMIN-red"
+                    height="20"
+                    alt="Privileged"
+                    title="Privileged">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/pangolin-cli/">
+                    Pangolin - CLI
+                </a>
+            </td>
+            <td>Arch</td>
+            <td>aarch64, amd64</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/arch-aarch64%2C%20amd64-green"
+                    height="20"
+                    alt="Arch"
+                    title="Arch">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/pangolin-cli/">
+                    Pangolin - CLI
+                </a>
+            </td>
+            <td>Host Network</td>
+            <td>True</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/host_network-True-blue"
+                    height="20"
+                    alt="Host Network"
+                    title="Host Network">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/pangolin-cli/">
+                    Pangolin - CLI
+                </a>
+            </td>
+            <td>Docker API</td>
+            <td>True</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/docker_api-True-blue"
+                    height="20"
+                    alt="Docker API"
+                    title="Docker API">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/pangolin-cli/">
+                    Pangolin - CLI
+                </a>
+            </td>
+            <td>Image Size</td>
+            <td>30 MB</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/size-30_MB-informational"
+                    height="20"
+                    alt="Image Size"
+                    title="Image Size">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/pangolin-cli/">
+                    Pangolin - CLI
+                </a>
+            </td>
+            <td>Upstream</td>
+            <td>v0.23.0</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/upstream-v0.23.0-yellow"
+                    height="20"
+                    alt="Upstream"
+                    title="Upstream">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/pangolin-cli/">
+                    Pangolin - CLI
+                </a>
+            </td>
+            <td>Repo</td>
+            <td>github.com/fosrl/cli</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/repo-github.com%2Ffosrl%2Fcli-informational"
+                    height="20"
+                    alt="Repo"
+                    title="Repo">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/pangolin-cli/">
+                    Pangolin - CLI
+                </a>
+            </td>
+            <td>Commit</td>
+            <td>bb03d2c45ce79213c4c9b206bbd87e9846be5a9a</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/commit-bb03d2c45ce79213c4c9b206bbd87e9846be5a9a-informational"
+                    height="20"
+                    alt="Commit"
+                    title="Commit">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/pangolin-newt/">
+                    Pangolin - Newt Tunnel
+                </a>
+            </td>
+            <td>Version</td>
+            <td>v1.20.1</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/version-v1.20.1-blue"
+                    height="20"
+                    alt="Version"
+                    title="Version">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/pangolin-newt/">
+                    Pangolin - Newt Tunnel
+                </a>
+            </td>
+            <td>Updated</td>
+            <td>2026--11--19</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/updated-2026--11--19-green"
+                    height="20"
+                    alt="Updated"
+                    title="Updated">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/pangolin-newt/">
+                    Pangolin - Newt Tunnel
+                </a>
+            </td>
+            <td>Stage</td>
+            <td>deprecated</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/stage-deprecated-orange"
+                    height="20"
+                    alt="Stage"
+                    title="Stage">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/pangolin-newt/">
+                    Pangolin - Newt Tunnel
+                </a>
+            </td>
+            <td>Privileged</td>
+            <td>NET_ADMIN|SYS_MODULE</td>
+            <td>security</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/privileged-NET_ADMIN%7CSYS_MODULE-red"
+                    height="20"
+                    alt="Privileged"
+                    title="Privileged">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/pangolin-newt/">
+                    Pangolin - Newt Tunnel
+                </a>
+            </td>
+            <td>Arch</td>
+            <td>aarch64, amd64</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/arch-aarch64%2C%20amd64-green"
+                    height="20"
+                    alt="Arch"
+                    title="Arch">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/pangolin-newt/">
+                    Pangolin - Newt Tunnel
+                </a>
+            </td>
+            <td>Host Network</td>
+            <td>True</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/host_network-True-blue"
+                    height="20"
+                    alt="Host Network"
+                    title="Host Network">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/pangolin-newt/">
+                    Pangolin - Newt Tunnel
+                </a>
+            </td>
+            <td>Docker API</td>
+            <td>True</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/docker_api-True-blue"
+                    height="20"
+                    alt="Docker API"
+                    title="Docker API">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/pangolin-newt/">
+                    Pangolin - Newt Tunnel
+                </a>
+            </td>
+            <td>Kernel Modules</td>
+            <td>True</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/kernel_modules-True-blue"
+                    height="20"
+                    alt="Kernel Modules"
+                    title="Kernel Modules">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/pangolin-newt/">
+                    Pangolin - Newt Tunnel
+                </a>
+            </td>
+            <td>Image Size</td>
+            <td>36 MB</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/size-36_MB-informational"
+                    height="20"
+                    alt="Image Size"
+                    title="Image Size">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/pangolin-newt/">
+                    Pangolin - Newt Tunnel
+                </a>
+            </td>
+            <td>Upstream</td>
+            <td>v1.20.1</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/upstream-v1.20.1-yellow"
+                    height="20"
+                    alt="Upstream"
+                    title="Upstream">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/pangolin-newt/">
+                    Pangolin - Newt Tunnel
+                </a>
+            </td>
+            <td>Repo</td>
+            <td>github.com/fosrl/newt</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/repo-github.com%2Ffosrl%2Fnewt-informational"
+                    height="20"
+                    alt="Repo"
+                    title="Repo">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/pangolin-newt/">
+                    Pangolin - Newt Tunnel
+                </a>
+            </td>
+            <td>Commit</td>
+            <td>745110e75fefd6139ada2895818d9a3529c8e33d</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/commit-745110e75fefd6139ada2895818d9a3529c8e33d-informational"
+                    height="20"
+                    alt="Commit"
+                    title="Commit">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/pangolin-olm/">
+                    Pangolin - Olm Client
+                </a>
+            </td>
+            <td>Version</td>
+            <td>v1.10.2.1</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/version-v1.10.2.1-blue"
+                    height="20"
+                    alt="Version"
+                    title="Version">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/pangolin-olm/">
+                    Pangolin - Olm Client
+                </a>
+            </td>
+            <td>Updated</td>
+            <td>2026--11--19</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/updated-2026--11--19-green"
+                    height="20"
+                    alt="Updated"
+                    title="Updated">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/pangolin-olm/">
+                    Pangolin - Olm Client
+                </a>
+            </td>
+            <td>Stage</td>
+            <td>deprecated</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/stage-deprecated-orange"
+                    height="20"
+                    alt="Stage"
+                    title="Stage">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/pangolin-olm/">
+                    Pangolin - Olm Client
+                </a>
+            </td>
+            <td>Privileged</td>
+            <td>NET_ADMIN|SYS_MODULE</td>
+            <td>security</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/privileged-NET_ADMIN%7CSYS_MODULE-red"
+                    height="20"
+                    alt="Privileged"
+                    title="Privileged">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/pangolin-olm/">
+                    Pangolin - Olm Client
+                </a>
+            </td>
+            <td>Arch</td>
+            <td>aarch64, amd64</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/arch-aarch64%2C%20amd64-green"
+                    height="20"
+                    alt="Arch"
+                    title="Arch">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/pangolin-olm/">
+                    Pangolin - Olm Client
+                </a>
+            </td>
+            <td>Host Network</td>
+            <td>True</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/host_network-True-blue"
+                    height="20"
+                    alt="Host Network"
+                    title="Host Network">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/pangolin-olm/">
+                    Pangolin - Olm Client
+                </a>
+            </td>
+            <td>Kernel Modules</td>
+            <td>True</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/kernel_modules-True-blue"
+                    height="20"
+                    alt="Kernel Modules"
+                    title="Kernel Modules">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/pangolin-olm/">
+                    Pangolin - Olm Client
+                </a>
+            </td>
+            <td>Image Size</td>
+            <td>28 MB</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/size-28_MB-informational"
+                    height="20"
+                    alt="Image Size"
+                    title="Image Size">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/pangolin-olm/">
+                    Pangolin - Olm Client
+                </a>
+            </td>
+            <td>Upstream</td>
+            <td>v1.10.2</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/upstream-v1.10.2-yellow"
+                    height="20"
+                    alt="Upstream"
+                    title="Upstream">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/pangolin-olm/">
+                    Pangolin - Olm Client
+                </a>
+            </td>
+            <td>Repo</td>
+            <td>github.com/fosrl/olm</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/repo-github.com%2Ffosrl%2Folm-informational"
+                    height="20"
+                    alt="Repo"
+                    title="Repo">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/pangolin-olm/">
+                    Pangolin - Olm Client
+                </a>
+            </td>
+            <td>Commit</td>
+            <td>31b55b87f7fb2f9d81bb453acf98c9f461f5f9d4</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/commit-31b55b87f7fb2f9d81bb453acf98c9f461f5f9d4-informational"
+                    height="20"
+                    alt="Commit"
+                    title="Commit">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer/">
+                    Portainer (Edition Selector)
+                </a>
+            </td>
+            <td>Ingress</td>
+            <td>True</td>
+            <td>ha</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/ingress-True-blue"
+                    height="20"
+                    alt="Ingress"
+                    title="Ingress">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer/">
+                    Portainer (Edition Selector)
+                </a>
+            </td>
+            <td>Version</td>
+            <td>v2026.11.2</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/version-v2026.11.2-blue"
+                    height="20"
+                    alt="Version"
+                    title="Version">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer/">
+                    Portainer (Edition Selector)
+                </a>
+            </td>
+            <td>Updated</td>
+            <td>2026--11--19</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/updated-2026--11--19-green"
+                    height="20"
+                    alt="Updated"
+                    title="Updated">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer/">
+                    Portainer (Edition Selector)
+                </a>
+            </td>
+            <td>Stage</td>
+            <td>stable</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/stage-stable-orange"
+                    height="20"
+                    alt="Stage"
+                    title="Stage">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer/">
+                    Portainer (Edition Selector)
+                </a>
+            </td>
+            <td>Arch</td>
+            <td>aarch64, amd64</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/arch-aarch64%2C%20amd64-green"
+                    height="20"
+                    alt="Arch"
+                    title="Arch">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer/">
+                    Portainer (Edition Selector)
+                </a>
+            </td>
+            <td>Docker API</td>
+            <td>True</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/docker_api-True-blue"
+                    height="20"
+                    alt="Docker API"
+                    title="Docker API">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer/">
+                    Portainer (Edition Selector)
+                </a>
+            </td>
+            <td>Image Size</td>
+            <td>225 MB</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/size-225_MB-informational"
+                    height="20"
+                    alt="Image Size"
+                    title="Image Size">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer/">
+                    Portainer (Edition Selector)
+                </a>
+            </td>
+            <td>Upstream</td>
+            <td>v2.45.4</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/upstream-v2.45.4-yellow"
+                    height="20"
+                    alt="Upstream"
+                    title="Upstream">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer/">
+                    Portainer (Edition Selector)
+                </a>
+            </td>
+            <td>Repo</td>
+            <td>docker.io/portainer/portainer-ce</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fportainer--ce-informational"
+                    height="20"
+                    alt="Repo"
+                    title="Repo">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer/">
+                    Portainer (Edition Selector)
+                </a>
+            </td>
+            <td>Commit</td>
+            <td>sha256:15f6680e9c3260154684343566df3c168956e352a8cca8a50bcd81ce31df0143</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/commit-sha256%3A15f6680e9c3260154684343566df3c168956e352a8cca8a50bcd81ce31df0143-informational"
+                    height="20"
+                    alt="Commit"
+                    title="Commit">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-agent/">
+                    Portainer Agent (Channel Selector)
+                </a>
+            </td>
+            <td>Version</td>
+            <td>v2026.11.2</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/version-v2026.11.2-blue"
+                    height="20"
+                    alt="Version"
+                    title="Version">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-agent/">
+                    Portainer Agent (Channel Selector)
+                </a>
+            </td>
+            <td>Updated</td>
+            <td>2026--11--19</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/updated-2026--11--19-green"
+                    height="20"
+                    alt="Updated"
+                    title="Updated">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-agent/">
+                    Portainer Agent (Channel Selector)
+                </a>
+            </td>
+            <td>Stage</td>
+            <td>stable</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/stage-stable-orange"
+                    height="20"
+                    alt="Stage"
+                    title="Stage">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-agent/">
+                    Portainer Agent (Channel Selector)
+                </a>
+            </td>
+            <td>Arch</td>
+            <td>aarch64, amd64</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/arch-aarch64%2C%20amd64-green"
+                    height="20"
+                    alt="Arch"
+                    title="Arch">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-agent/">
+                    Portainer Agent (Channel Selector)
+                </a>
+            </td>
+            <td>Docker API</td>
+            <td>True</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/docker_api-True-blue"
+                    height="20"
+                    alt="Docker API"
+                    title="Docker API">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-agent/">
+                    Portainer Agent (Channel Selector)
+                </a>
+            </td>
+            <td>Image Size</td>
+            <td>75 MB</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/size-75_MB-informational"
+                    height="20"
+                    alt="Image Size"
+                    title="Image Size">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-agent/">
+                    Portainer Agent (Channel Selector)
+                </a>
+            </td>
+            <td>Upstream</td>
+            <td>v3.1.0</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/upstream-v3.1.0-yellow"
+                    height="20"
+                    alt="Upstream"
+                    title="Upstream">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-agent/">
+                    Portainer Agent (Channel Selector)
+                </a>
+            </td>
+            <td>Repo</td>
+            <td>docker.io/portainer/agent</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fagent-informational"
+                    height="20"
+                    alt="Repo"
+                    title="Repo">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-agent/">
+                    Portainer Agent (Channel Selector)
+                </a>
+            </td>
+            <td>Commit</td>
+            <td>sha256:9be7351d0da45a71748059a4616379bd4b2fcd595419c506bbf3917ce5194063</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/commit-sha256%3A9be7351d0da45a71748059a4616379bd4b2fcd595419c506bbf3917ce5194063-informational"
+                    height="20"
+                    alt="Commit"
+                    title="Commit">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-agent-lts/">
+                    Portainer Agent LTS
+                </a>
+            </td>
+            <td>Version</td>
+            <td>v2.45.4.1</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/version-v2.45.4.1-blue"
+                    height="20"
+                    alt="Version"
+                    title="Version">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-agent-lts/">
+                    Portainer Agent LTS
+                </a>
+            </td>
+            <td>Updated</td>
+            <td>2026--11--18</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/updated-2026--11--18-green"
+                    height="20"
+                    alt="Updated"
+                    title="Updated">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-agent-lts/">
+                    Portainer Agent LTS
+                </a>
+            </td>
+            <td>Stage</td>
+            <td>deprecated</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/stage-deprecated-orange"
+                    height="20"
+                    alt="Stage"
+                    title="Stage">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-agent-lts/">
+                    Portainer Agent LTS
+                </a>
+            </td>
+            <td>Arch</td>
+            <td>aarch64, amd64</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/arch-aarch64%2C%20amd64-green"
+                    height="20"
+                    alt="Arch"
+                    title="Arch">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-agent-lts/">
+                    Portainer Agent LTS
+                </a>
+            </td>
+            <td>Docker API</td>
+            <td>True</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/docker_api-True-blue"
+                    height="20"
+                    alt="Docker API"
+                    title="Docker API">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-agent-lts/">
+                    Portainer Agent LTS
+                </a>
+            </td>
+            <td>Image Size</td>
+            <td>42 MB</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/size-42_MB-informational"
+                    height="20"
+                    alt="Image Size"
+                    title="Image Size">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-agent-lts/">
+                    Portainer Agent LTS
+                </a>
+            </td>
+            <td>Upstream</td>
+            <td>v2.45.4</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/upstream-v2.45.4-yellow"
+                    height="20"
+                    alt="Upstream"
+                    title="Upstream">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-agent-lts/">
+                    Portainer Agent LTS
+                </a>
+            </td>
+            <td>Repo</td>
+            <td>docker.io/portainer/agent</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fagent-informational"
+                    height="20"
+                    alt="Repo"
+                    title="Repo">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-agent-lts/">
+                    Portainer Agent LTS
+                </a>
+            </td>
+            <td>Commit</td>
+            <td>sha256:3a8ac70d71267b1f9260e2f72804593cefaa9b2b64087c5504d45ff3801fda2e</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/commit-sha256%3A3a8ac70d71267b1f9260e2f72804593cefaa9b2b64087c5504d45ff3801fda2e-informational"
+                    height="20"
+                    alt="Commit"
+                    title="Commit">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-agent-sts/">
+                    Portainer Agent STS
+                </a>
+            </td>
+            <td>Version</td>
+            <td>v3.1.0.1</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/version-v3.1.0.1-blue"
+                    height="20"
+                    alt="Version"
+                    title="Version">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-agent-sts/">
+                    Portainer Agent STS
+                </a>
+            </td>
+            <td>Updated</td>
+            <td>2026--11--18</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/updated-2026--11--18-green"
+                    height="20"
+                    alt="Updated"
+                    title="Updated">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-agent-sts/">
+                    Portainer Agent STS
+                </a>
+            </td>
+            <td>Stage</td>
+            <td>deprecated</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/stage-deprecated-orange"
+                    height="20"
+                    alt="Stage"
+                    title="Stage">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-agent-sts/">
+                    Portainer Agent STS
+                </a>
+            </td>
+            <td>Arch</td>
+            <td>aarch64, amd64</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/arch-aarch64%2C%20amd64-green"
+                    height="20"
+                    alt="Arch"
+                    title="Arch">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-agent-sts/">
+                    Portainer Agent STS
+                </a>
+            </td>
+            <td>Docker API</td>
+            <td>True</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/docker_api-True-blue"
+                    height="20"
+                    alt="Docker API"
+                    title="Docker API">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-agent-sts/">
+                    Portainer Agent STS
+                </a>
+            </td>
+            <td>Image Size</td>
+            <td>42 MB</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/size-42_MB-informational"
+                    height="20"
+                    alt="Image Size"
+                    title="Image Size">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-agent-sts/">
+                    Portainer Agent STS
+                </a>
+            </td>
+            <td>Upstream</td>
+            <td>v3.1.0</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/upstream-v3.1.0-yellow"
+                    height="20"
+                    alt="Upstream"
+                    title="Upstream">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-agent-sts/">
+                    Portainer Agent STS
+                </a>
+            </td>
+            <td>Repo</td>
+            <td>docker.io/portainer/agent</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fagent-informational"
+                    height="20"
+                    alt="Repo"
+                    title="Repo">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-agent-sts/">
+                    Portainer Agent STS
+                </a>
+            </td>
+            <td>Commit</td>
+            <td>sha256:9be7351d0da45a71748059a4616379bd4b2fcd595419c506bbf3917ce5194063</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/commit-sha256%3A9be7351d0da45a71748059a4616379bd4b2fcd595419c506bbf3917ce5194063-informational"
+                    height="20"
+                    alt="Commit"
+                    title="Commit">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ce-lts/">
+                    Portainer CE LTS
+                </a>
+            </td>
+            <td>Ingress</td>
+            <td>True</td>
+            <td>ha</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/ingress-True-blue"
+                    height="20"
+                    alt="Ingress"
+                    title="Ingress">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ce-lts/">
+                    Portainer CE LTS
+                </a>
+            </td>
+            <td>Version</td>
+            <td>v2.45.4.1</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/version-v2.45.4.1-blue"
+                    height="20"
+                    alt="Version"
+                    title="Version">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ce-lts/">
+                    Portainer CE LTS
+                </a>
+            </td>
+            <td>Updated</td>
+            <td>2026--11--18</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/updated-2026--11--18-green"
+                    height="20"
+                    alt="Updated"
+                    title="Updated">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ce-lts/">
+                    Portainer CE LTS
+                </a>
+            </td>
+            <td>Stage</td>
+            <td>deprecated</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/stage-deprecated-orange"
+                    height="20"
+                    alt="Stage"
+                    title="Stage">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ce-lts/">
+                    Portainer CE LTS
+                </a>
+            </td>
+            <td>Arch</td>
+            <td>aarch64, amd64</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/arch-aarch64%2C%20amd64-green"
+                    height="20"
+                    alt="Arch"
+                    title="Arch">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ce-lts/">
+                    Portainer CE LTS
+                </a>
+            </td>
+            <td>Docker API</td>
+            <td>True</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/docker_api-True-blue"
+                    height="20"
+                    alt="Docker API"
+                    title="Docker API">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ce-lts/">
+                    Portainer CE LTS
+                </a>
+            </td>
+            <td>Image Size</td>
+            <td>68 MB</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/size-68_MB-informational"
+                    height="20"
+                    alt="Image Size"
+                    title="Image Size">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ce-lts/">
+                    Portainer CE LTS
+                </a>
+            </td>
+            <td>Upstream</td>
+            <td>v2.45.4</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/upstream-v2.45.4-yellow"
+                    height="20"
+                    alt="Upstream"
+                    title="Upstream">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ce-lts/">
+                    Portainer CE LTS
+                </a>
+            </td>
+            <td>Repo</td>
+            <td>docker.io/portainer/portainer-ce</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fportainer--ce-informational"
+                    height="20"
+                    alt="Repo"
+                    title="Repo">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ce-lts/">
+                    Portainer CE LTS
+                </a>
+            </td>
+            <td>Commit</td>
+            <td>sha256:15f6680e9c3260154684343566df3c168956e352a8cca8a50bcd81ce31df0143</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/commit-sha256%3A15f6680e9c3260154684343566df3c168956e352a8cca8a50bcd81ce31df0143-informational"
+                    height="20"
+                    alt="Commit"
+                    title="Commit">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ce-sts/">
+                    Portainer CE STS
+                </a>
+            </td>
+            <td>Ingress</td>
+            <td>True</td>
+            <td>ha</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/ingress-True-blue"
+                    height="20"
+                    alt="Ingress"
+                    title="Ingress">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ce-sts/">
+                    Portainer CE STS
+                </a>
+            </td>
+            <td>Version</td>
+            <td>v2.45.4.1</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/version-v2.45.4.1-blue"
+                    height="20"
+                    alt="Version"
+                    title="Version">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ce-sts/">
+                    Portainer CE STS
+                </a>
+            </td>
+            <td>Updated</td>
+            <td>2026--11--18</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/updated-2026--11--18-green"
+                    height="20"
+                    alt="Updated"
+                    title="Updated">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ce-sts/">
+                    Portainer CE STS
+                </a>
+            </td>
+            <td>Stage</td>
+            <td>deprecated</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/stage-deprecated-orange"
+                    height="20"
+                    alt="Stage"
+                    title="Stage">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ce-sts/">
+                    Portainer CE STS
+                </a>
+            </td>
+            <td>Arch</td>
+            <td>aarch64, amd64</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/arch-aarch64%2C%20amd64-green"
+                    height="20"
+                    alt="Arch"
+                    title="Arch">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ce-sts/">
+                    Portainer CE STS
+                </a>
+            </td>
+            <td>Docker API</td>
+            <td>True</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/docker_api-True-blue"
+                    height="20"
+                    alt="Docker API"
+                    title="Docker API">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ce-sts/">
+                    Portainer CE STS
+                </a>
+            </td>
+            <td>Image Size</td>
+            <td>68 MB</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/size-68_MB-informational"
+                    height="20"
+                    alt="Image Size"
+                    title="Image Size">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ce-sts/">
+                    Portainer CE STS
+                </a>
+            </td>
+            <td>Upstream</td>
+            <td>v2.45.4</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/upstream-v2.45.4-yellow"
+                    height="20"
+                    alt="Upstream"
+                    title="Upstream">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ce-sts/">
+                    Portainer CE STS
+                </a>
+            </td>
+            <td>Repo</td>
+            <td>docker.io/portainer/portainer-ce</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fportainer--ce-informational"
+                    height="20"
+                    alt="Repo"
+                    title="Repo">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ce-sts/">
+                    Portainer CE STS
+                </a>
+            </td>
+            <td>Commit</td>
+            <td>sha256:15f6680e9c3260154684343566df3c168956e352a8cca8a50bcd81ce31df0143</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/commit-sha256%3A15f6680e9c3260154684343566df3c168956e352a8cca8a50bcd81ce31df0143-informational"
+                    height="20"
+                    alt="Commit"
+                    title="Commit">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ee-lts/">
+                    Portainer EE LTS
+                </a>
+            </td>
+            <td>Ingress</td>
+            <td>True</td>
+            <td>ha</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/ingress-True-blue"
+                    height="20"
+                    alt="Ingress"
+                    title="Ingress">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ee-lts/">
+                    Portainer EE LTS
+                </a>
+            </td>
+            <td>Version</td>
+            <td>v2.45.4.1</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/version-v2.45.4.1-blue"
+                    height="20"
+                    alt="Version"
+                    title="Version">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ee-lts/">
+                    Portainer EE LTS
+                </a>
+            </td>
+            <td>Updated</td>
+            <td>2026--11--18</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/updated-2026--11--18-green"
+                    height="20"
+                    alt="Updated"
+                    title="Updated">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ee-lts/">
+                    Portainer EE LTS
+                </a>
+            </td>
+            <td>Stage</td>
+            <td>deprecated</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/stage-deprecated-orange"
+                    height="20"
+                    alt="Stage"
+                    title="Stage">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ee-lts/">
+                    Portainer EE LTS
+                </a>
+            </td>
+            <td>Arch</td>
+            <td>aarch64, amd64</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/arch-aarch64%2C%20amd64-green"
+                    height="20"
+                    alt="Arch"
+                    title="Arch">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ee-lts/">
+                    Portainer EE LTS
+                </a>
+            </td>
+            <td>Docker API</td>
+            <td>True</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/docker_api-True-blue"
+                    height="20"
+                    alt="Docker API"
+                    title="Docker API">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ee-lts/">
+                    Portainer EE LTS
+                </a>
+            </td>
+            <td>Image Size</td>
+            <td>87 MB</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/size-87_MB-informational"
+                    height="20"
+                    alt="Image Size"
+                    title="Image Size">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ee-lts/">
+                    Portainer EE LTS
+                </a>
+            </td>
+            <td>Upstream</td>
+            <td>v2.45.4</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/upstream-v2.45.4-yellow"
+                    height="20"
+                    alt="Upstream"
+                    title="Upstream">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ee-lts/">
+                    Portainer EE LTS
+                </a>
+            </td>
+            <td>Repo</td>
+            <td>docker.io/portainer/portainer-ee</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fportainer--ee-informational"
+                    height="20"
+                    alt="Repo"
+                    title="Repo">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ee-lts/">
+                    Portainer EE LTS
+                </a>
+            </td>
+            <td>Commit</td>
+            <td>sha256:f92ab4dfcabaaa00594400625e8e66efbb45fff85eb779485c33ec2d9e0b2eeb</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/commit-sha256%3Af92ab4dfcabaaa00594400625e8e66efbb45fff85eb779485c33ec2d9e0b2eeb-informational"
+                    height="20"
+                    alt="Commit"
+                    title="Commit">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ee-sts/">
+                    Portainer EE STS
+                </a>
+            </td>
+            <td>Ingress</td>
+            <td>True</td>
+            <td>ha</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/ingress-True-blue"
+                    height="20"
+                    alt="Ingress"
+                    title="Ingress">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ee-sts/">
+                    Portainer EE STS
+                </a>
+            </td>
+            <td>Version</td>
+            <td>v3.1.0.1</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/version-v3.1.0.1-blue"
+                    height="20"
+                    alt="Version"
+                    title="Version">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ee-sts/">
+                    Portainer EE STS
+                </a>
+            </td>
+            <td>Updated</td>
+            <td>2026--11--18</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/updated-2026--11--18-green"
+                    height="20"
+                    alt="Updated"
+                    title="Updated">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ee-sts/">
+                    Portainer EE STS
+                </a>
+            </td>
+            <td>Stage</td>
+            <td>deprecated</td>
+            <td>meta</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/stage-deprecated-orange"
+                    height="20"
+                    alt="Stage"
+                    title="Stage">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ee-sts/">
+                    Portainer EE STS
+                </a>
+            </td>
+            <td>Arch</td>
+            <td>aarch64, amd64</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/arch-aarch64%2C%20amd64-green"
+                    height="20"
+                    alt="Arch"
+                    title="Arch">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ee-sts/">
+                    Portainer EE STS
+                </a>
+            </td>
+            <td>Docker API</td>
+            <td>True</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/docker_api-True-blue"
+                    height="20"
+                    alt="Docker API"
+                    title="Docker API">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ee-sts/">
+                    Portainer EE STS
+                </a>
+            </td>
+            <td>Image Size</td>
+            <td>87 MB</td>
+            <td>system</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/size-87_MB-informational"
+                    height="20"
+                    alt="Image Size"
+                    title="Image Size">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ee-sts/">
+                    Portainer EE STS
+                </a>
+            </td>
+            <td>Upstream</td>
+            <td>v3.1.0</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/upstream-v3.1.0-yellow"
+                    height="20"
+                    alt="Upstream"
+                    title="Upstream">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ee-sts/">
+                    Portainer EE STS
+                </a>
+            </td>
+            <td>Repo</td>
+            <td>docker.io/portainer/portainer-ee</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/repo-docker.io%2Fportainer%2Fportainer--ee-informational"
+                    height="20"
+                    alt="Repo"
+                    title="Repo">
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="/ha-repo/apps/portainer-ee-sts/">
+                    Portainer EE STS
+                </a>
+            </td>
+            <td>Commit</td>
+            <td>sha256:bec9330d21c9498189c88c33e32ca6d20ae94ed21cfd4be6d2a991cab1fe5c83</td>
+            <td>upstream</td>
+            <td>
+                
+                <img
+                    src="https://img.shields.io/badge/commit-sha256%3Abec9330d21c9498189c88c33e32ca6d20ae94ed21cfd4be6d2a991cab1fe5c83-informational"
+                    height="20"
+                    alt="Commit"
+                    title="Commit">
+                
+            </td>
+        </tr>
+        
+        </tbody>
+    </table>
+</div>
+</div>
+
+
+
+        </div>
+
+    </main>
+
+</div>
+
+<script>
+
+const BASE_URL = "/ha-repo";
+
+</script>
+
+<script src="/ha-repo/assets/dashboard.js"></script>
+
+<script src="/ha-repo/assets/charts.js"></script>
+
+<script src="/ha-repo/assets/matrix.js"></script>
+
+<script src="/ha-repo/assets/lab.js"></script>
+
+<script src="/ha-repo/assets/theme.js"></script>
+
+<script src="/ha-repo/assets/favorites.js"></script>
+
+<script src="/ha-repo/assets/settings.js"></script>
+
+</body>
+
+</html>
