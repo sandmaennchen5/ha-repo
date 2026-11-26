@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.0.59.2] - 2026-11-26
+
+- Allow Dockhand to render in the same-origin Home Assistant Ingress iframe.
 
 ## [1.0.59.1] - 2026-11-22
 

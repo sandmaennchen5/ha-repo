@@ -75,6 +75,11 @@ export function createIngressProxy({ backendPort = 3000, remember = false, sessi
 
   function responseHeaders(headers, ctx) {
     headers = { ...headers, 'x-accel-buffering': 'no' };
+    // HA serves the authenticated Ingress panel and its iframe on the same origin.
+    if (headers['x-frame-options'] === 'DENY') headers['x-frame-options'] = 'SAMEORIGIN';
+    if (headers['content-security-policy'] === "frame-ancestors 'none'") {
+      headers['content-security-policy'] = "frame-ancestors 'self'";
+    }
     if (headers.location?.startsWith('/') && !headers.location.startsWith('//') && !headers.location.startsWith(ctx.prefix + '/')) headers.location = ctx.prefix + headers.location;
     if (headers.link) headers.link = headers.link.replace(/<\/(?!\/)/g, `<${ctx.prefix}/`);
     if (headers['set-cookie']) headers['set-cookie'] = headers['set-cookie'].map(cookie => {
