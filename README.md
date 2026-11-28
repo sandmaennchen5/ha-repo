@@ -78,15 +78,15 @@ Expose the Checkmk monitoring agent on port 6556.
 Modern Docker and Compose management with Home Assistant Ingress.
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v1.0.59.2-blue)
-![Updated](https://img.shields.io/badge/updated-2026--11--22-green)
+![Version](https://img.shields.io/badge/version-v1.0.60.1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--11--28-green)
 ![Stage](https://img.shields.io/badge/stage-experimental-orange)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Docker API](https://img.shields.io/badge/docker_api-True-blue)
-![Image Size](https://img.shields.io/badge/size-201_MB-informational)
-![Upstream](https://img.shields.io/badge/upstream-v1.0.59-yellow)
+![Image Size](https://img.shields.io/badge/size-203_MB-informational)
+![Upstream](https://img.shields.io/badge/upstream-v1.0.60-yellow)
 ![Repo](https://img.shields.io/badge/repo-github.com%2FFinsys%2Fdockhand-informational)
-![Commit](https://img.shields.io/badge/commit-0b194bd584a9c13fa97646ff8679b089e284a2af-informational)
+![Commit](https://img.shields.io/badge/commit-9adaa640a9098ed153cfa9586bba4f0295e7d9dc-informational)
 
 ## [⚓ Drydock](apps/drydock/)
 
@@ -152,15 +152,15 @@ Proxy to externally running OpenCCU
 HomeMatic/homematicIP CCU central based on OpenCCU (Snapshot)
 
 ![Ingress](https://img.shields.io/badge/ingress-True-blue)
-![Version](https://img.shields.io/badge/version-v3.89.14.20261125-a66ff69-ha1-blue)
-![Updated](https://img.shields.io/badge/updated-2026--11--25-green)
+![Version](https://img.shields.io/badge/version-v3.89.14.20261127-e0d93fc-ha1-blue)
+![Updated](https://img.shields.io/badge/updated-2026--11--27-green)
 ![Stage](https://img.shields.io/badge/stage-experimental-orange)
 ![Privileged](https://img.shields.io/badge/privileged-IPC_LOCK%7CSYS_ADMIN%7CSYS_RAWIO%7CSYS_RESOURCE%7CNET_ADMIN-red)
 ![Arch](https://img.shields.io/badge/arch-aarch64%2C%20amd64-green)
 ![Kernel Modules](https://img.shields.io/badge/kernel_modules-True-blue)
-![Upstream](https://img.shields.io/badge/upstream-v3.89.14.20261125-a66ff69-yellow)
+![Upstream](https://img.shields.io/badge/upstream-v3.89.14.20261127-e0d93fc-yellow)
 ![Repo](https://img.shields.io/badge/repo-https%3A%2F%2Fgithub.com%2FOpenCCU%2FOpenCCU-informational)
-![Commit](https://img.shields.io/badge/commit-sha256%3A4b0351b4f1e553f839e25ad50d5d81d8c66054461305f04afba8c21e6795eca6-informational)
+![Commit](https://img.shields.io/badge/commit-sha256%3Ad129d2fc6446dfad61f7c8466cce2a9d753fcc831526c4bdf6b5ab079a555bb2-informational)
 
 ## [🏠 OpenCCU HAP/DRAP-Helper (HA Repo)](apps/openccu-hapdrap/)
 
